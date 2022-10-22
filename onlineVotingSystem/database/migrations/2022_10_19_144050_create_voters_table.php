@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('address')->nullable();
             $table->string('phone_no')->nullable();
+            $table->string('email')->nullable();
+            $table->string('CNIC')->nullable();
+            $table->boolean('isEmailVerified')->default(false);
+            $table->boolean('isPhoneVerified')->default(false);
+            $table->boolean('isProfileComplete')->default(false);
             $table->string('fingerprint')->nullable();
             $table->string('displayPicture')->nullable();
             $table->timestamps();

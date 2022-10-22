@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CandidateController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+FacadesAuth::routes();
+Route::group(['auth'=>'middleware'],function(){
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/candidateSection', [CandidateController::class,'candidateSection'])->name('candidateSection');
+Route::get('/addCandidate', [CandidateController::class,'addCandidate'])->name('addCandidate');
+Route::post('/addCandidate/post', [CandidateController::class,'addCandidatePost'])->name('addCandidatePost');
+Route::get('/showCandidates', [CandidateController::class,'showCandidates'])->name('showCandidates');
 
-Auth::routes();
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
