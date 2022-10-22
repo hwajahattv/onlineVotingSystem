@@ -57,7 +57,7 @@ class CandidateController extends Controller
             
             $img_path = 'img/uploads/candidate/' . $filename;
 
-            Image::make($img_tmp)->resize(400, 400)->save($img_path);
+            Image::make($img_tmp)->resize(200, 200)->save($img_path);
             $cand->displayPicture = $filename;
         }
 
