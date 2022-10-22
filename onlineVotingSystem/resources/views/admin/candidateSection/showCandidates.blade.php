@@ -163,7 +163,7 @@
                                                         <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#" class="table-link">
+                                                <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -198,6 +198,6 @@
     </div>
     {{-- </div> --}}
     <!--**********************************
-                                                                                                                                                                                                                                                                            Content body end
-                                                                                                                                                                                                                                                                        ***********************************-->
+                                                                                                                                                                                                                                                                                Content body end
+                                                                                                                                                                                                                                                                            ***********************************-->
 @endsection

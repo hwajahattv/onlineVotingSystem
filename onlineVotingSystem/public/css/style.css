@@ -67973,6 +67973,13 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     justify-content: center;
 }
 
+.imageAlreadyUploadedText {
+    width: 40%;
+    border-radius: 4px;
+
+    height: 15px;
+}
+
 .file-upload {
 
     height: 200px;
@@ -68013,4 +68020,3 @@ input[type='file'] {
     color: #665A48;
 
 }
-

@@ -22,11 +22,13 @@ FacadesAuth::routes();
 Route::group(['auth'=>'middleware'],function(){
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/candidateSection', [CandidateController::class,'candidateSection'])->name('candidateSection');
-Route::get('/addCandidate', [CandidateController::class,'addCandidate'])->name('addCandidate');
-Route::get('/editCandidate', [CandidateController::class,'editCandidate'])->name('editCandidate');
-Route::post('/addCandidate/post', [CandidateController::class,'addCandidatePost'])->name('addCandidatePost');
 Route::get('/showCandidates', [CandidateController::class,'showCandidates'])->name('showCandidates');
-
+// to add New candidate
+Route::get('/addCandidate', [CandidateController::class,'addCandidate'])->name('addCandidate');
+Route::post('/addCandidate/post', [CandidateController::class,'addCandidatePost'])->name('addCandidatePost');
+// to edit a candidate
+Route::get('/editCandidate/{id}', [CandidateController::class,'editCandidate'])->name('editCandidate');
+Route::post('/editCandidatePost/{id}', [CandidateController::class,'editCandidatePost'])->name('editCandidatePost');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

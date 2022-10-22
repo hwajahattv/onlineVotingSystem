@@ -52,21 +52,22 @@
             </ul>
             <div class="row">
                 {{-- <div class="col-md-6"> --}}
-                <form method="post" enctype="multipart/form-data" action="{{ route('addCandidatePost') }}">
+                <form method="post" enctype="multipart/form-data"
+                    action="{{ url('/editCandidatePost/' . $candidate->id) }}">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Candidate name</label>
                                 <input type="text" class="form-control addInput" name="name" id=""
-                                    aria-describedby="" placeholder="">
+                                    aria-describedby="" value="{{ $candidate->name }}">
                                 <small id="emailHelp" class="form-text text-muted">Enter the fullname of
                                     candidate.</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">CNIC #</label>
                                 <input type="text" class="form-control addInput" name="CNIC" id=""
-                                    aria-describedby="" placeholder="" maxlength="13">
+                                    aria-describedby="" value="{{ $candidate->CNIC }}" maxlength="13">
                                 <small id="emailHelp" class="form-text text-muted">Enter the candidate CNIC # without
                                     dashes
                                     (-).</small>
@@ -74,20 +75,14 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Candidate's Mobile number</label>
                                 <input type="number" class="form-control addInput" name="phone_no" id=""
-                                    aria-describedby="" placeholder="">
+                                    aria-describedby="" value="{{ $candidate->phone_no }}">
                                 <small id="emailHelp" class="form-text text-muted">Enter the mobile number without
                                     spaces.</small>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Candidate's email</label>
-                                <input type="email" class="form-control addInput" name="email" id=""
-                                    aria-describedby="" placeholder="">
-                                <small id="emailHelp" class="form-text text-muted">Enter the email.</small>
-                            </div>
-                            <div class="form-group">
                                 <label for="exampleInputEmail1">Candidate's address</label>
                                 <input type="text" class="form-control addInput" name="address" id=""
-                                    aria-describedby="" placeholder="">
+                                    aria-describedby="" value="{{ $candidate->address }}">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -107,18 +102,18 @@
                                             (max.
                                             size: 100kb).</small>
                                     </div>
+                                    @if (!empty($candidate->displayPicture))
+                                        <div class="wrapper">
+                                            <img style="width:110px; height:110px;"
+                                                src="{{ asset('img/uploads/candidate/') . '/' . $candidate->displayPicture }}" />
+                                        </div>
+                                        <div class="wrapper">
+                                            <small id="emailHelp" class="blockquote">Previous uploaded
+                                                image.</small>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
-
-                            {{-- <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                         --}}
-                            {{-- <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div> --}}
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -127,6 +122,6 @@
     </div>
     {{-- </div> --}}
     <!--**********************************
-                                                                                                                                                                                                                        Content body end
-                                                                                                                                                                                                                    ***********************************-->
+                                                                                                                                                                                                                                                                                                                        Content body end
+                                                                                                                                                                                                                                                                                                                    ***********************************-->
 @endsection
