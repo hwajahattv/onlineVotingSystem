@@ -13,6 +13,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
+
 </head>
 
 <body>
@@ -199,7 +200,7 @@
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0);" role="button"
                                     data-bs-toggle="dropdown">
-                                    <img src="img/man (1).png" width="20" alt="" />
+                                    <img src="img/man(1).png" width="20" alt="" />
                                     <div class="header-info">
                                         <span>{{ Auth::user()->name }}</span>
                                         <small>Super Admin</small>
@@ -260,7 +261,18 @@
                     data-bs-target="#addProjectSidebar">+ New Project</a>
                 <ul class="metismenu" id="menu">
                     <li><a href="{{ route('home') }}">
-                            <i class="flaticon-layout"></i>
+                            <svg class="primary-icon" width="36" height="36" viewBox="0 0 36 36"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.9999 1.5H5.99994C3.51466 1.5 1.49994 3.51472 1.49994 6V29.8125C1.49994 32.2977 3.51466 34.3125 5.99994 34.3125H11.9999C14.4852 34.3125 16.4999 32.2977 16.4999 29.8125V6C16.4999 3.51472 14.4852 1.5 11.9999 1.5Z"
+                                    fill="#20F174" />
+                                <path
+                                    d="M30 1.5H24C21.5147 1.5 19.5 3.51472 19.5 6V12C19.5 14.4853 21.5147 16.5 24 16.5H30C32.4853 16.5 34.5 14.4853 34.5 12V6C34.5 3.51472 32.4853 1.5 30 1.5Z"
+                                    fill="#3ECDFF" />
+                                <path
+                                    d="M30 19.5H24C21.5147 19.5 19.5 21.5147 19.5 24V30C19.5 32.4853 21.5147 34.5 24 34.5H30C32.4853 34.5 34.5 32.4853 34.5 30V24C34.5 21.5147 32.4853 19.5 30 19.5Z"
+                                    fill="#969BA0" />
+                            </svg>
                             <span class="nav-text">Dashboard</span>
                         </a>
 
@@ -271,8 +283,17 @@
                         </a>
                     </li>
                     <li><a href="#">
-                            <i class="flaticon-bar-chart-1"></i>
-                            <span class="nav-text">Charts</span>
+                            {{-- <i class="flaticon-bar-chart-1"></i> --}}
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M17.8935 22.5C23.6925 22.5 28.3935 17.799 28.3935 12C28.3935 6.20101 23.6925 1.5 17.8935 1.5C12.0945 1.5 7.39351 6.20101 7.39351 12C7.39351 17.799 12.0945 22.5 17.8935 22.5Z"
+                                    fill="#FFB930" />
+                                <path
+                                    d="M29.5605 21.3344C29.217 20.9909 28.851 20.6699 28.476 20.3564C27.2159 21.96 25.6078 23.2562 23.7733 24.1472C21.9388 25.0382 19.9259 25.5007 17.8864 25.4996C15.847 25.4986 13.8345 25.0342 12.0009 24.1414C10.1673 23.2486 8.56051 21.9507 7.30199 20.3459C5.447 21.8906 3.95577 23.8256 2.9347 26.013C1.91364 28.2003 1.3879 30.586 1.39499 32.9999C1.39499 33.3978 1.55303 33.7793 1.83433 34.0606C2.11564 34.3419 2.49717 34.4999 2.89499 34.4999H32.895C33.2928 34.4999 33.6743 34.3419 33.9557 34.0606C34.237 33.7793 34.395 33.3978 34.395 32.9999C34.4004 30.8324 33.9759 28.6854 33.146 26.683C32.3162 24.6807 31.0975 22.8627 29.5605 21.3344Z"
+                                    fill="#969BA0" />
+                            </svg>
+                            <span class="nav-text">Voters</span>
                         </a>
                     </li>
                     <li><a href="#">

@@ -23,6 +23,7 @@ Route::group(['auth'=>'middleware'],function(){
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/candidateSection', [CandidateController::class,'candidateSection'])->name('candidateSection');
 Route::get('/addCandidate', [CandidateController::class,'addCandidate'])->name('addCandidate');
+Route::get('/editCandidate', [CandidateController::class,'editCandidate'])->name('editCandidate');
 Route::post('/addCandidate/post', [CandidateController::class,'addCandidatePost'])->name('addCandidatePost');
 Route::get('/showCandidates', [CandidateController::class,'showCandidates'])->name('showCandidates');
 
