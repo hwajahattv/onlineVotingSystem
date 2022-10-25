@@ -290,7 +290,7 @@
                             <span class="nav-text">Candidates</span>
                         </a>
                     </li>
-                    <li><a href="#">
+                    <li><a href="{{ route('voterSection') }}">
                             {{-- <i class="flaticon-bar-chart-1"></i> --}}
 
                             <img src="{{ asset('icons/voters.png') }}" class="flaticon-web"

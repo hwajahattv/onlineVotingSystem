@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\VoterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
@@ -21,6 +22,7 @@ Route::get('/', function () {
 FacadesAuth::routes();
 Route::group(['auth'=>'middleware'],function(){
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+// candidate services
 Route::get('/candidateSection', [CandidateController::class,'candidateSection'])->name('candidateSection');
 Route::get('/showCandidates', [CandidateController::class,'showCandidates'])->name('showCandidates');
 // to add New candidate
@@ -29,6 +31,11 @@ Route::post('/addCandidate/post', [CandidateController::class,'addCandidatePost'
 // to edit a candidate
 Route::get('/editCandidate/{id}', [CandidateController::class,'editCandidate'])->name('editCandidate');
 Route::post('/editCandidatePost/{id}', [CandidateController::class,'editCandidatePost'])->name('editCandidatePost');
+// 
+// voters services
+Route::get('/voterSection', [VoterController::class,'voterSection'])->name('voterSection');
+
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

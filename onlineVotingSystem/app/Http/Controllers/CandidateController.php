@@ -20,6 +20,7 @@ class CandidateController extends Controller
         $candidateCount = count(Candidate::all());
         return view('admin.candidateSection.candidateSectionHome', ['candidateCount' => $candidateCount]);
     }
+
     public function addCandidate()
     {
         return view('admin.candidateSection.addCandidate');
