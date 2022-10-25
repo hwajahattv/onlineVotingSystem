@@ -278,12 +278,6 @@
 
                     </li>
                     <li><a href="{{ route('candidateSection') }}">
-                            <i class="flaticon-monitor"></i>
-                            <span class="nav-text">Candidates</span>
-                        </a>
-                    </li>
-                    <li><a href="#">
-                            {{-- <i class="flaticon-bar-chart-1"></i> --}}
                             <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -293,6 +287,14 @@
                                     d="M29.5605 21.3344C29.217 20.9909 28.851 20.6699 28.476 20.3564C27.2159 21.96 25.6078 23.2562 23.7733 24.1472C21.9388 25.0382 19.9259 25.5007 17.8864 25.4996C15.847 25.4986 13.8345 25.0342 12.0009 24.1414C10.1673 23.2486 8.56051 21.9507 7.30199 20.3459C5.447 21.8906 3.95577 23.8256 2.9347 26.013C1.91364 28.2003 1.3879 30.586 1.39499 32.9999C1.39499 33.3978 1.55303 33.7793 1.83433 34.0606C2.11564 34.3419 2.49717 34.4999 2.89499 34.4999H32.895C33.2928 34.4999 33.6743 34.3419 33.9557 34.0606C34.237 33.7793 34.395 33.3978 34.395 32.9999C34.4004 30.8324 33.9759 28.6854 33.146 26.683C32.3162 24.6807 31.0975 22.8627 29.5605 21.3344Z"
                                     fill="#969BA0" />
                             </svg>
+                            <span class="nav-text">Candidates</span>
+                        </a>
+                    </li>
+                    <li><a href="#">
+                            {{-- <i class="flaticon-bar-chart-1"></i> --}}
+
+                            <img src="{{ asset('icons/voters.png') }}" class="flaticon-web"
+                                style="margin: 0 0.7rem 0 0;" width="25px" height="28px" alt="no-image">
                             <span class="nav-text">Voters</span>
                         </a>
                     </li>

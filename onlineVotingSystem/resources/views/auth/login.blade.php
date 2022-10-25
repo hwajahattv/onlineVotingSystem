@@ -77,25 +77,19 @@
                         <button type="submit" class="login100-form-btn">
                             Login
                         </button>
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
+                        <div class="text-center p-t-12">
+                            @if (Route::has('password.request'))
+                                <a class="txt2" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
+                        </div>
+                        <div class="text-center">
+                            <a class="txt2" href="{{ route('register') }}">
+                                Don't have account? Create here!
+                                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                             </a>
-                        @endif
-                    </div>
-                    <div class="text-center p-t-12">
-                        <span class="txt1">
-                            Forgot
-                        </span>
-                        <a class="txt2" href="#">
-                            Username / Password?
-                        </a>
-                    </div>
-                    <div class="text-center p-t-136">
-                        <a class="txt2" href="#">
-                            Create your Account
-                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                        </a>
+                        </div>
                     </div>
                 </form>
             </div>
