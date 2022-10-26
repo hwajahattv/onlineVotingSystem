@@ -307,40 +307,17 @@
                         </a>
                     </li>
                     <li><a href="#">
-                            <i class="flaticon-web"></i>
-                            <span class="nav-text">Bootstrap</span>
-                        </a>
-                    </li>
-                    <li><a href="#">
-                            <i class="flaticon-plugin"></i>
-                            <span class="nav-text">Plugins</span>
-                        </a>
-                    </li>
-                    <li><a href="#">
-                            <i class="flaticon-admin"></i>
-                            <span class="nav-text">Widget</span>
-                        </a>
-                    </li>
-                    <li><a href="#">
-                            <i class="flaticon-contract"></i>
-                            <span class="nav-text">Forms</span>
-                        </a>
-                    </li>
-                    <li><a href="#">
-                            <i class="flaticon-table"></i>
-                            <span class="nav-text">Table</span>
-                        </a>
-                    </li>
-                    <li><a href="#">
-                            <i class="flaticon-newsletter"></i>
-                            <span class="nav-text">Pages</span>
+                            {{-- <i class="flaticon-web"></i> --}}
+                            <img src="{{ asset('icons/election.png') }}" class="flaticon-web"
+                                style="margin: 0 0.7rem 0 0;" width="25px" height="28px" alt="no-image">
+                            <span class="nav-text">Elections</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
         <!--**********************************
-            Sidebar end
+            Sidebar end Modal Start
         ***********************************-->
         <div class="modal fade" id="addProjectSidebar">
             <div class="modal-dialog" role="document">
