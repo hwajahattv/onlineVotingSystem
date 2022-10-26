@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Voting App</title>
 
     <link rel="stylesheet" href="{{ asset('vendor/chartist/css/chartist.min.css') }}">
@@ -128,7 +129,7 @@
                                             <li>
                                                 <div class="timeline-panel">
                                                     <div class="media me-2">
-                                                        <img alt="image" width="50" src="images/avatar/1.jpg">
+                                                        <img alt="image" width="50" src="img/gamer.png">
                                                     </div>
                                                     <div class="media-body">
                                                         <h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -161,7 +162,7 @@
                                             <li>
                                                 <div class="timeline-panel">
                                                     <div class="media me-2">
-                                                        <img alt="image" width="50" src="images/avatar/1.jpg">
+                                                        <img alt="image" width="50" src="img/gamer.png">
                                                     </div>
                                                     <div class="media-body">
                                                         <h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -258,8 +259,15 @@
         <div class="deznav">
             <div class="deznav-scroll">
                 <a class="add-project-sidebar btn btn-primary" href="" data-bs-toggle="modal"
-                    data-bs-target="#addProjectSidebar">+ New Project</a>
+                    data-bs-target="#addProjectSidebar">+ New Election</a>
+
+
                 <ul class="metismenu" id="menu">
+                    <li>
+                        <span id="successMessage" style="color: green" class="nav-text"></span>
+                        <span id="nameError" style="color: red" class="nav-text"></span>
+                        <span id="dateError" style="color: red;" class="nav-text"></span>
+                    </li>
                     <li><a href="{{ route('home') }}">
                             <svg class="primary-icon" width="36" height="36" viewBox="0 0 36 36"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -334,7 +342,50 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-
+        <div class="modal fade" id="addProjectSidebar">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create new election</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formoid" action="{{ route('addNewElection') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label class="text-black font-w500">Election Name</label>
+                                <input type="text" name="name" id="name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="text-black font-w500">Date</label>
+                                <div class="cal-icon"><input type="date" id="date" name="date"
+                                        class="form-control"><i class="far fa-calendar-alt"></i></div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="btn-submit" class="btn btn-primary">CREATE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul>
+            @if ($errors->any())
+                <div class="mx-5">
+                    @foreach ($errors->all() as $error)
+                        <li style="height: 10px; font-size: 10px"
+                            class="alert alert-danger alert-dismissible fade show">
+                            {{-- <div class="alert alert-danger alert-dismissible fade show py-2 mx-5 my-2" role="alert"> --}}
+                            {{ $error }}
+                            {{-- </div> --}}
+                        </li>
+                    @endforeach
+                    @if (Session::has('message'))
+                        <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>
+                    @endif
+                </div>
+            @endif
+        </ul>
         <!--**********************************
             Content body start
         ***********************************-->
@@ -362,7 +413,9 @@
 
 
 
-
+    {{-- jQuery CDN --}}
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="{{ asset('vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('vendor/chart.js/Chart.bundle.min.js') }}"></script>
@@ -379,6 +432,7 @@
     <script src="{{ asset('js/custom.min.js') }}"></script>
     <script src="{{ asset('js/deznav-init.js') }}"></script>
     <script src="{{ asset('js/demo.js') }}"></script>
+    <script src="{{ asset('js/electionFormSubmit.js') }}"></script>
     <script src="{{ asset('js/styleSwitcher.js') }}"></script>
 
 

@@ -4,7 +4,7 @@
     <div class="content-body">
         <div class="container-fluid">
             <!-- Add Project -->
-            <div class="modal fade" id="addProjectSidebar">
+            {{-- <div class="modal fade" id="addProjectSidebar">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="row">
                 <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
                     <div class="card card-bd">
@@ -807,6 +807,6 @@
         </div>
     </div>
     <!--**********************************
-                    Content body end
-                ***********************************-->
+                        Content body end
+                    ***********************************-->
 @endsection

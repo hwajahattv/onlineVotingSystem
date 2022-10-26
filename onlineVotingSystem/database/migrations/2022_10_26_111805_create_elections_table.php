@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('elections', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->date('date_of_election')->nullable();
             $table->timestamps();
         });
     }

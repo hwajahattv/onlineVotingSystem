@@ -50,31 +50,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- END MENU -->
-                {{-- <div class="modal-header">
-                            <h5 class="modal-title">Create Project</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Project Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Dadeline</label>
-                                    <div class="cal-icon"><input type="date" class="form-control"><i
-                                            class="far fa-calendar-alt"></i></div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Client Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <button type="button" class="btn btn-primary">CREATE</button>
-                                </div>
-                            </form>
-                        </div> --}}
             </div>
         </div>
     </div>
@@ -83,41 +58,7 @@
 @section('content')
     <div class="content-body">
         <div class="container-fluid">
-            <!-- Add Project -->
-            <div class="modal fade" id="addProjectSidebar">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Create Project</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Project Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Dadeline</label>
-                                    <div class="cal-icon"><input type="date" class="form-control"><i
-                                            class="far fa-calendar-alt"></i></div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Client Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <button type="button" class="btn btn-primary">CREATE</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="row">
-                {{-- <a class="add-project-sidebar btn btn-primary" href="" data-bs-toggle="modal"
-                    data-bs-target="#showProfile">+ New Project</a> --}}
                 <div class="col-lg-12">
                     <div class="main-box clearfix">
                         <div class="table-responsive">
@@ -198,6 +139,4 @@
     </div>
     {{-- </div> --}}
     <!--**********************************
-                                                                                                                                                                                                                                                                                Content body end
-                                                                                                                                                                                                                                                                            ***********************************-->
 @endsection

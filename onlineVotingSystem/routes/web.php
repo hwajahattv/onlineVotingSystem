@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VoterController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,9 @@ Route::post('/addVoter/post', [VoterController::class,'addVoterPost'])->name('ad
 // to edit a voter
 Route::get('/editVoter/{id}', [VoterController::class,'editVoter'])->name('editVoter');
 Route::post('/editVoterPost/{id}', [VoterController::class,'editVoterPost'])->name('editVoterPost');
+
+// create a new election
+Route::post('/addNewElection', [ElectionController::class,'addNewElection'])->name('addNewElection');
 
 });
 
