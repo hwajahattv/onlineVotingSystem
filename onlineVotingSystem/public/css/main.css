@@ -58,7 +58,11 @@ form {
 }
 
 form {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.text-muted {
+    color: #bababa !important;
 }
 
 .title {
@@ -75,7 +79,7 @@ form {
 input,
 select {
     padding: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     background: transparent;
     border: none;
     border-bottom: 1px solid #eee;

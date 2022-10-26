@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VoterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/registerAsVoter', [HomeController::class,'registerAsVoter'])->name('registerAsVoter');
+Route::post('/registerAsVoterPost', [HomeController::class,'registerAsVoterPost'])->name('registerAsVoterPost');
+
 FacadesAuth::routes();
 Route::group(['auth'=>'middleware'],function(){
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -34,8 +38,17 @@ Route::post('/editCandidatePost/{id}', [CandidateController::class,'editCandidat
 // 
 // voters services
 Route::get('/voterSection', [VoterController::class,'voterSection'])->name('voterSection');
+Route::get('/showVoters', [VoterController::class,'showVoters'])->name('showVoters');
 
+// to add New voter
+Route::get('/addVoter', [VoterController::class,'addVoter'])->name('addVoter');
+Route::post('/addVoter/post', [VoterController::class,'addVoterPost'])->name('addVoterPost');
+// to edit a voter
+Route::get('/editVoter/{id}', [VoterController::class,'editVoter'])->name('editVoter');
+Route::post('/editVoterPost/{id}', [VoterController::class,'editVoterPost'])->name('editVoterPost');
 
 });
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

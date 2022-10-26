@@ -44,13 +44,13 @@
                                     <h2 class="count num-text text-black font-w700">{{ $voterCount }}</h2>
                                     <ul>
                                         <li class="fs-14">
-                                            <a href="{{ route('addCandidate') }}">
-                                                Add new candidate
+                                            <a href="{{ route('addVoter') }}">
+                                                Add new voter
                                             </a>
                                         </li>
                                         <li class="fs-14">
-                                            <a href="{{ route('showCandidates') }}">
-                                                View all candidates
+                                            <a href="{{ route('showVoters') }}">
+                                                View all voters
                                             </a>
                                         </li>
                                 </div>
@@ -817,6 +817,6 @@
         </div>
     </div>
     <!--**********************************
-                                                                                            Content body end
-                                                                                        ***********************************-->
+                                                                                                Content body end
+                                                                                            ***********************************-->
 @endsection

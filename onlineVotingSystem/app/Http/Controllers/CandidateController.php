@@ -29,7 +29,7 @@ class CandidateController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'CNIC' => 'required|max:13',
+            'CNIC' => 'required|max:13|unique:candidates,CNIC',
             'phone_no' => 'required|max:11',
             'email' => 'required|email|unique:candidates,email',
             'profilePicture' =>

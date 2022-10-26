@@ -28,7 +28,10 @@
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
-                    <img src="images/img-01.png" alt="IMG">
+                    <a href="{{ route('registerAsVoter') }}">
+                        <img src="images/img-01.png" alt="IMG">
+                        <h4 class="txt2 text-center">Click here to register as a voter</h4>
+                    </a>
                 </div>
                 <form class="login100-form validate-form "method="POST" action="{{ route('login') }}">
                     @csrf

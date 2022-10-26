@@ -57,28 +57,28 @@
                         <div class="card-body">
 
 
-                            <form method="post" enctype="multipart/form-data" action="{{ route('addCandidatePost') }}">
+                            <form method="post" enctype="multipart/form-data" action="{{ route('addVoterPost') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Candidate name</label>
+                                            <label for="exampleInputEmail1">Voter name</label>
                                             <input type="text" class="form-control addInput" name="name"
                                                 id="" aria-describedby="" placeholder="">
                                             <small id="emailHelp" class="form-text text-muted">Enter the fullname of
-                                                candidate.</small>
+                                                voter.</small>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">CNIC #</label>
                                             <input type="text" class="form-control addInput" name="CNIC"
                                                 id="" aria-describedby="" placeholder="" maxlength="13">
-                                            <small id="emailHelp" class="form-text text-muted">Enter the candidate CNIC #
+                                            <small id="emailHelp" class="form-text text-muted">Enter the voter CNIC #
                                                 without
                                                 dashes
                                                 (-).</small>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Candidate's Mobile number</label>
+                                            <label for="exampleInputEmail1">Voter's Mobile number</label>
                                             <input type="number" class="form-control addInput" name="phone_no"
                                                 id="" aria-describedby="" placeholder="">
                                             <small id="emailHelp" class="form-text text-muted">Enter the mobile number
@@ -86,12 +86,12 @@
                                                 spaces.</small>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Candidate's email</label>
+                                            <label for="exampleInputEmail1">Voter's email</label>
                                             <input type="email" class="form-control addInput" name="email"
                                                 id="" aria-describedby="" placeholder="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Candidate's address</label>
+                                            <label for="exampleInputEmail1">Voter's address</label>
                                             <input type="text" class="form-control addInput" name="address"
                                                 id="" aria-describedby="" placeholder="">
                                         </div>
@@ -100,7 +100,7 @@
                                         <div class="form-group wrapper">
                                             <div>
                                                 <div class="wrapper">
-                                                    <label for="exampleInputEmail1">Upload candidate's profile image</label>
+                                                    <label for="exampleInputEmail1">Upload voter's profile image</label>
                                                 </div>
                                                 <div class="wrapper">
                                                     <div class="file-upload">
@@ -138,6 +138,6 @@
     </div>
     {{-- </div> --}}
     <!--**********************************
-                                                                                                                                                                                                                                            Content body end
-                                                                                                                                                                                                                                        ***********************************-->
+                                                                                                                                                                                                                                                    Content body end
+                                                                                                                                                                                                                                                ***********************************-->
 @endsection
