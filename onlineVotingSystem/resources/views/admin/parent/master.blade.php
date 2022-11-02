@@ -306,7 +306,7 @@
                             <span class="nav-text">Voters</span>
                         </a>
                     </li>
-                    <li><a href="#">
+                    <li><a href="{{ route('electionSection') }}">
                             {{-- <i class="flaticon-web"></i> --}}
                             <img src="{{ asset('icons/election.png') }}" class="flaticon-web"
                                 style="margin: 0 0.7rem 0 0;" width="25px" height="28px" alt="no-image">
@@ -339,7 +339,8 @@
                                         class="form-control"><i class="far fa-calendar-alt"></i></div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" id="btn-submit" class="btn btn-primary">CREATE</button>
+                                <button type="submit " id="btn-submit"
+                                    class="btn btn-primary updateBtnTarget">CREATE</button>
                             </div>
                         </form>
                     </div>

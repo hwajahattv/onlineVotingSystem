@@ -3,37 +3,6 @@
 @section('content')
     <div class="content-body">
         <div class="container-fluid">
-            <!-- Add Project -->
-            <div class="modal fade" id="addProjectSidebar">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Create Project</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Project Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Dadeline</label>
-                                    <div class="cal-icon"><input type="date" class="form-control"><i
-                                            class="far fa-calendar-alt"></i></div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Client Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <button type="button" class="btn btn-primary">CREATE</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
                     <div class="card card-bd dashboard-card">
@@ -41,16 +10,14 @@
                         <div class="card-body box-style">
                             <div class="media align-items-center">
                                 <div class="media-body me-3">
-                                    <h2 class="count num-text text-black font-w700">{{ $voterCount }}</h2>
+                                    <h2 class="count num-text text-black font-w700">{{ $electionCount }}</h2>
                                     <ul>
-                                        <li class="fs-14">
-                                            <a href="{{ route('addVoter') }}">
-                                                Add new voter
-                                            </a>
+                                        <li class="fs-14" style="color: #7e7e7e;">
+                                            Total Elections
                                         </li>
                                         <li class="fs-14">
-                                            <a href="{{ route('showVoters') }}">
-                                                View all voters
+                                            <a href="{{ route('showElections') }}">
+                                                View all elections
                                             </a>
                                         </li>
                                 </div>
@@ -816,7 +783,5 @@
             </div>
         </div>
     </div>
-    <!--**********************************
-                                                                                                    Content body end
-                                                                                                ***********************************-->
+    <!--**********************************Content body end***********************************-->
 @endsection

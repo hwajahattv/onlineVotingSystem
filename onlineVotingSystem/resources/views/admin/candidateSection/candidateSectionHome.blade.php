@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
-                    <div class="card card-bd">
+                    <div class="card card-bd dashboard-card">
                         <div class="bg-secondary card-border" style="background:#C8DBBE !important;"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
-                    <div class="card card-bd">
+                    <div class="card card-bd dashboard-card">
                         <div class="bg-warning card-border"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
-                    <div class="card card-bd">
+                    <div class="card card-bd dashboard-card">
                         <div class="bg-primary card-border"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
-                    <div class="card card-bd">
+                    <div class="card card-bd dashboard-card">
                         <div class="bg-info card-border"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
@@ -786,6 +786,6 @@
         </div>
     </div>
     <!--**********************************
-                                                                                Content body end
-                                                                            ***********************************-->
+                                                                                    Content body end
+                                                                                ***********************************-->
 @endsection

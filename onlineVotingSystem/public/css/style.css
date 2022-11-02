@@ -9,7 +9,7 @@
         _mixin
         _variable
 
-    2. bootstrap 
+    2. bootstrap
         -Here goes all official bootstrap scss files
 
     3. Global/Base
@@ -12488,6 +12488,7 @@ a.active {
 .fs-14 {
     font-size: 14px !important;
     line-height: 1.5;
+    color: gray;
 }
 
 .fs-15 {
@@ -14897,7 +14898,7 @@ svg.pulse-svg .third-circle {
 			border-bottom-left-radius: 0;
 			border-top-right-radius: 1.375rem;
 			border-bottom-right-radius: 1.375rem;
-			
+
 		} */
 }
 
@@ -55811,7 +55812,7 @@ textarea.form-control {
 /* .form-check-input{
 	&:checked {
 		background-color: var(--primary);
-		border-color: var(--primary);	
+		border-color: var(--primary);
 	}
 	&:focus {
 		border-color: var(--primary);
@@ -64499,7 +64500,10 @@ table.dataTable.display tbody td {
         font-size: 15px !important;
     }
 }
-
+.dashboard-card{
+    box-shadow: 10px 10px 20px #cbced1,
+    -10px -10px 20px #ffffff;
+}
 .card-header a i {
     width: 51px;
     height: 51px;
@@ -66251,7 +66255,7 @@ table.dataTable.display tbody td {
 			border-bottom-left-radius: 0;
 			border-top-right-radius: 1.375rem;
 			border-bottom-right-radius: 1.375rem;
-			
+
 		} */
 }
 

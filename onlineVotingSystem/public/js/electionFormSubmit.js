@@ -1,25 +1,3 @@
-// $("#formoid").submit(function (event) {
-//     /* stop form from submitting normally */
-//     event.preventDefault();
-
-//     /* get the action attribute from the <form action=""> element */
-//     var $form = $(this),
-//         url = $form.attr("action");
-
-//     /* Send the data using post with element id name and name2*/
-//     var posting = $.post(url, {
-//         name: $("#name").val(),
-//         date: $("#date").val(),
-//     });
-
-//     /* Alerts the results */
-//     posting.done(function (data) {
-//         $("#result").text("success");
-//     });
-//     posting.fail(function () {
-//         $("#result").text("failed");
-//     });
-// });
 $.ajaxSetup({
     headers: {
         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -47,4 +25,23 @@ $("#btn-submit").click(function (e) {
         },
     });
     $("#addProjectSidebar").modal("hide");
+});
+
+$(".fa-pencil").click(function (e) {
+    var targetId = e.currentTarget.getAttribute("id");
+    e.preventDefault();
+    $.ajax({
+        url: "/editElection/" + targetId,
+        type: "GET",
+        success: function (res) {
+            $("#addProjectSidebar").modal("show");
+            $("#name").val(res.name);
+            $("#date").val(res.date_of_election);
+            $(".modal-title")[0].innerHTML = "Update election";
+            $(".updateBtnTarget")[0].innerHTML = "Update";
+            $("#formoid").attr("action", "/editElectionPost/" + targetId);
+            console.log(res);
+            // alert(res);
+        },
+    });
 });

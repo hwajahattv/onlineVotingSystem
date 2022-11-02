@@ -75,7 +75,6 @@ class CandidateController extends Controller
         return view('admin.candidateSection.editCandidate', ['candidate' => $candidate]);
     }
     public function editCandidatePost(Request $request, $id)
-    
     {
         // dd($request);
         $request->validate([
