@@ -28,7 +28,13 @@ class CandidateController extends Controller
     public function addCandidatePost(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:25',
+            'surname' => 'required|max:25',
+            'name' => 'required|max:25',
+            'name' => 'required|max:25',
+            'name' => 'required|max:25',
+            'name' => 'required|max:25',
+            'name' => 'required|max:25',
             'CNIC' => 'required|max:13|unique:candidates,CNIC',
             'phone_no' => 'required|max:11',
             'email' => 'required|email|unique:candidates,email',
@@ -85,18 +91,18 @@ class CandidateController extends Controller
             'image|mimes:jpg,png,jpeg,gif,svg|max:100',
         ]);
         $data = $request->all();
-        
+
         //image validation
-        
+
         if ($request->hasfile('profilePicture')) {
             $img_tmp = $request->file('profilePicture');
-            
+
             $extension = $img_tmp->getClientOriginalExtension();
-            
+
             $filename = uniqid() . '.' . $extension;
-            
+
             $img_path = 'img/uploads/candidate/' . $filename;
-            
+
             Image::make($img_tmp)->resize(200, 200)->save($img_path);
         }
         else{

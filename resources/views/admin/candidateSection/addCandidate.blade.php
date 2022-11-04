@@ -32,7 +32,8 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">First name</label>
+                                                    <label for="exampleInputEmail1">First name <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></label>
                                                     <input type="text" class="form-control addInput" name="name"
                                                         id="" aria-describedby="" placeholder="">
                                                 </div>
@@ -274,24 +275,24 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Candidate's Mobile number</label>
-                                            <input type="number" class="form-control addInput" name="phone_no"
-                                                id="" aria-describedby="" placeholder="">
-                                            <small id="emailHelp" class="form-text text-muted">Enter the mobile number
-                                                without
-                                                spaces.</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Candidate's email</label>
-                                            <input type="email" class="form-control addInput" name="email"
-                                                id="" aria-describedby="" placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Candidate's address</label>
-                                            <input type="text" class="form-control addInput" name="address"
-                                                id="" aria-describedby="" placeholder="">
-                                        </div>
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="exampleInputEmail1">Candidate's Mobile number</label>--}}
+{{--                                            <input type="number" class="form-control addInput" name="phone_no"--}}
+{{--                                                id="" aria-describedby="" placeholder="">--}}
+{{--                                            <small id="emailHelp" class="form-text text-muted">Enter the mobile number--}}
+{{--                                                without--}}
+{{--                                                spaces.</small>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="exampleInputEmail1">Candidate's email</label>--}}
+{{--                                            <input type="email" class="form-control addInput" name="email"--}}
+{{--                                                id="" aria-describedby="" placeholder="">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="exampleInputEmail1">Candidate's address</label>--}}
+{{--                                            <input type="text" class="form-control addInput" name="address"--}}
+{{--                                                id="" aria-describedby="" placeholder="">--}}
+{{--                                        </div>--}}
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group wrapper">
