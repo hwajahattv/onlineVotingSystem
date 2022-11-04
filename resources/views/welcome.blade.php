@@ -86,7 +86,7 @@
                                         <div class="media align-items-center">
                                             <div class="media-body me-3">
                                                 <h2 class=" text-black font-w700">Home</h2>
-                                                <span class="fs-14">Total Project Handled</span>
+{{--                                                <span class="fs-14">Login as administrator</span>--}}
                                             </div>
                                             <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +107,7 @@
                                         <div class="media align-items-center">
                                             <div class="media-body me-3">
                                                 <h2 class="text-black font-w700">Login</h2>
-                                                <span class="fs-14">Total Project Handled</span>
+                                                <span class="fs-14">Login as administrator</span>
                                             </div>
                                             <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -132,7 +132,7 @@
                                     <div class="media align-items-center">
                                         <div class="media-body me-3">
                                             <h2 class=" text-black font-w700">Register</h2>
-                                            <span class="fs-14">Contacts You Have</span>
+                                            <span class="fs-14">Register as an Administrator</span>
                                         </div>
                                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +158,7 @@
                                 <div class="media align-items-center">
                                     <div class="media-body me-3">
                                         <h2 style="font-size: 1rem;" class="text-black font-w700">Get registered as a voter</h2>
-                                        <span class="fs-14">Total Unfinished Task</span>
+                                        <span class="fs-14">Population registration system</span>
                                     </div>
                                     <svg class="primary-icon" width="36" height="36" viewBox="0 0 36 36" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -184,7 +184,7 @@
                             <div class="media align-items-center">
                                 <div class="media-body me-3">
                                     <h2 class="text-black font-w700">Cast your vote</h2>
-                                    <span class="fs-14">Unread Messages</span>
+                                    <span class="fs-14">Election ABC</span>
                                 </div>
                                 <i class='fas fa-vote-yea' style='font-size:42px; color: #3ECDFF'></i>
 {{--                                <svg width="46" height="46" viewBox="0 0 46 46" fill="none"--}}
