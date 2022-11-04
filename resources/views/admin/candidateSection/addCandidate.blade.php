@@ -82,11 +82,10 @@
                                             </div>
                                         </div>
                                         <div class="row">
-
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Occupation</label>
-                                                    <select class="form-select" name="occupation" id="selectOccupation">
+                                                    <select class="form-control" name="occupation" id="selectOccupation">
                                                         <option selected disabled>--select--</option>
                                                         <option value="Student">Student</option>
                                                         <option value="Self Employed">Self Employed</option>
@@ -114,7 +113,7 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Religion</label>
-                                                        <select class="form-select" name="religion" id="selectOccupation">
+                                                        <select class="form-control" name="religion" id="selectOccupation">
                                                             <option selected disabled>--select--</option>
                                                             <option value="" selected="selected" disabled="disabled">-- select one --</option>
                                                             <option value="African Traditional &amp; Diasporic">African Traditional &amp; Diasporic</option>
