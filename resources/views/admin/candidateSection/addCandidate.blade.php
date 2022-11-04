@@ -40,15 +40,15 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Middle name <i
-                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <label for="exampleInputEmail1">Middle name </label>
                                                     <input type="text" class="form-control addInput" name="middleName"
                                                         id="" aria-describedby="" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Surname</label>
+                                                    <label for="exampleInputEmail1">Surname <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <input type="text" class="form-control addInput" name="surName"
                                                         id="" aria-describedby="" placeholder="">
                                                 </div>

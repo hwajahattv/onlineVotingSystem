@@ -29,7 +29,7 @@ class CandidateController extends Controller
     {
         $request->validate([
             'name' => 'required|max:25',
-            'surname' => 'required|max:25',
+            'surName' => 'required|max:25',
             'age' => 'integer',
             'gender' => 'required',
             'dob' => 'required|date',
