@@ -36,8 +36,8 @@
 
                 <form class="login100-form validate-form "method="POST" action="{{ route('register') }}">
                     @csrf
-                    <span class="login100-form-title">--}}
-                        Register as an admin Online Voting System
+                    <span class="login100-form-title">
+                        Register as an admin
                                             </span>
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
