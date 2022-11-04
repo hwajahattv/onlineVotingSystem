@@ -297,7 +297,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Police clearance ceritifcate  <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
