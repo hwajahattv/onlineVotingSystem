@@ -63,7 +63,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Gender</label>
-                                                    <select class="form-select" name="gender"
+                                                    <select class="form-control" name="gender"
                                                         aria-label="Default select example">
                                                         <option selected disabled>Open this select menu</option>
                                                         <option value="male">Male</option>
@@ -156,6 +156,124 @@
                                             </div>
                                         </div>
                                         <hr/>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Region</label>
+                                                        <input type="text" class="form-control addInput" name="birth_region"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Province</label>
+                                                        <input type="text" class="form-control addInput" name="birth_province"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth District</label>
+                                                        <input type="text" class="form-control addInput" name="birth_district"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth LLG</label>
+                                                        <input type="text" class="form-control addInput" name="birth_LLG"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Ward</label>
+                                                        <input type="text" class="form-control addInput" name="birth_ward"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Village</label>
+                                                        <input type="text" class="form-control addInput" name="birth_village"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current Region</label>
+                                                        <input type="text" class="form-control addInput" name="current_region"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current Province</label>
+                                                        <input type="text" class="form-control addInput" name="current_province"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current District</label>
+                                                        <input type="text" class="form-control addInput" name="current_district"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current LLG</label>
+                                                        <input type="text" class="form-control addInput" name="current_LLG"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current Ward</label>
+                                                        <input type="text" class="form-control addInput" name="current_ward"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current Village</label>
+                                                        <input type="text" class="form-control addInput" name="current_village"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Candidate's Mobile number</label>
                                             <input type="number" class="form-control addInput" name="phone_no"
