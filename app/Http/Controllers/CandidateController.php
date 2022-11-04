@@ -30,14 +30,17 @@ class CandidateController extends Controller
         $request->validate([
             'name' => 'required|max:25',
             'surname' => 'required|max:25',
-            'name' => 'required|max:25',
-            'name' => 'required|max:25',
-            'name' => 'required|max:25',
-            'name' => 'required|max:25',
-            'name' => 'required|max:25',
-            'CNIC' => 'required|max:13|unique:candidates,CNIC',
-            'phone_no' => 'required|max:11',
-            'email' => 'required|email|unique:candidates,email',
+            'age' => 'integer',
+            'gender' => 'required',
+            'dob' => 'required|date',
+            'occupation' => 'required',
+            'religion' => 'required',
+            'birth_region' => 'required',
+            'birth_province' => 'required',
+            'current_region' => 'required',
+            'current_province' => 'required',
+            'policeClearanceCertificate' => 'required',
+            'political_party' => 'required',
             'profilePicture' =>
             'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
         ]);
@@ -48,10 +51,31 @@ class CandidateController extends Controller
         $cand = new Candidate;
 
         $cand->name = $data["name"];
-        $cand->CNIC = $data["CNIC"];
-        $cand->phone_no = $data["phone_no"];
-        $cand->email = $data["email"];
-        $cand->address = $data["address"];
+        $cand->middleName = $data["middleName"];
+        $cand->surName = $data["surName"];
+        $cand->dob = $data["dob"];
+        $cand->age = $data["age"];
+        $cand->gender = $data["gender"];
+        $cand->occupation = $data["occupation"];
+        $cand->school = $data["school"];
+        $cand->religion = $data["religion"];
+        $cand->local_church = $data["local_church"];
+        $cand->birth_region = $data["birth_region"];
+        $cand->birth_province = $data["birth_province"];
+        $cand->birth_district = $data["birth_district"];
+        $cand->birth_LLG = $data["birth_LLG"];
+        $cand->birth_ward = $data["birth_ward"];
+        $cand->birth_village = $data["birth_village"];
+        $cand->current_region = $data["current_region"];
+        $cand->current_province = $data["current_province"];
+        $cand->current_district = $data["current_district"];
+        $cand->current_LLG = $data["current_LLG"];
+        $cand->current_ward = $data["current_ward"];
+        $cand->current_village = $data["current_village"];
+        $cand->political_party = $data["political_party"];
+        $cand->policeClearanceCertificate = $data["policeClearanceCertificate"];
+
+
         //image validation
 
         if ($request->hasfile('profilePicture')) {

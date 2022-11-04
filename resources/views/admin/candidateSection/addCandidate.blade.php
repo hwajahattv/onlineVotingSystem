@@ -40,7 +40,8 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Middle name</label>
+                                                    <label for="exampleInputEmail1">Middle name <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <input type="text" class="form-control addInput" name="middleName"
                                                         id="" aria-describedby="" placeholder="">
                                                 </div>
@@ -63,7 +64,8 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Gender</label>
+                                                    <label for="exampleInputEmail1">Gender <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <select class="form-control" name="gender"
                                                         aria-label="Default select example">
                                                         <option selected disabled>Open this select menu</option>
@@ -74,7 +76,8 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Date of birth</label>
+                                                    <label>Date of birth <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <div class="cal-icon"><input type="date" id="date"
                                                             name="dob" class="form-control"><i
                                                             class="far fa-calendar-alt"></i>
@@ -85,7 +88,8 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Occupation</label>
+                                                    <label for="exampleInputEmail1">Occupation  <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <select class="form-control" name="occupation" id="selectOccupation">
                                                         <option selected disabled>--select--</option>
                                                         <option value="Student">Student</option>
@@ -101,10 +105,9 @@
                                             </div>
                                             <div class="col-md-4 hideField" id="schoolName">
                                                 <div class="form-group">
-                                                    <label>Date of birth</label>
-                                                    <div class="cal-icon"><input type="date" id="date"
-                                                            name="dob" class="form-control"><i
-                                                            class="far fa-calendar-alt"></i>
+                                                    <label>School name</label>
+                                                    <div class="cal-icon"><input type="text"
+                                                            name="school" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,7 +116,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Religion</label>
+                                                        <label for="exampleInputEmail1">Religion  <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                         <select class="form-control" name="religion" id="selectOccupation">
                                                             <option selected disabled>--select--</option>
                                                             <option value="" selected="selected" disabled="disabled">-- select one --</option>
@@ -161,7 +165,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Birth Region</label>
+                                                        <label for="exampleInputEmail1">Birth Region   <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                         <input type="text" class="form-control addInput" name="birth_region"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
@@ -170,7 +175,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Birth Province</label>
+                                                        <label for="exampleInputEmail1">Birth Province   <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                         <input type="text" class="form-control addInput" name="birth_province"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
@@ -220,7 +226,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Current Region</label>
+                                                        <label for="exampleInputEmail1">Current Region   <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                         <input type="text" class="form-control addInput" name="current_region"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
@@ -229,7 +236,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Current Province</label>
+                                                        <label for="exampleInputEmail1">Current Province   <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                         <input type="text" class="form-control addInput" name="current_province"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
@@ -274,25 +282,34 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Political Party  <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <select class="form-control" name="political_party" id="selectOccupation">
+                                                        <option selected disabled>--select--</option>
+                                                        <option value="A">A</option>
+                                                        <option value="B">B</option>
+                                                        <option value="C">C</option>
+                                                        <option value="D">D</option>
+                                                        <option value="others">others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Police clearance ceritifcate  <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <select class="form-control" name="policeClearanceCertificate" id="selectOccupation">
+                                                        <option selected disabled>--select--</option>
+                                                        <option value="A">Yes</option>
+                                                        <option value="B">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
 
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="exampleInputEmail1">Candidate's Mobile number</label>--}}
-{{--                                            <input type="number" class="form-control addInput" name="phone_no"--}}
-{{--                                                id="" aria-describedby="" placeholder="">--}}
-{{--                                            <small id="emailHelp" class="form-text text-muted">Enter the mobile number--}}
-{{--                                                without--}}
-{{--                                                spaces.</small>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="exampleInputEmail1">Candidate's email</label>--}}
-{{--                                            <input type="email" class="form-control addInput" name="email"--}}
-{{--                                                id="" aria-describedby="" placeholder="">--}}
-{{--                                        </div>--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="exampleInputEmail1">Candidate's address</label>--}}
-{{--                                            <input type="text" class="form-control addInput" name="address"--}}
-{{--                                                id="" aria-describedby="" placeholder="">--}}
-{{--                                        </div>--}}
+                                        </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group wrapper">
