@@ -32,8 +32,8 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">First name <i
-                                                            class="fa-solid fa-asterisk fa-2xs "></label>
+                                                    <label for="exampleInputEmail1">First name </label><i
+                                                        class="fa-solid fa-asterisk fa-2xs ">
                                                     <input type="text" class="form-control addInput" name="name"
                                                         id="" aria-describedby="" placeholder="">
                                                 </div>
