@@ -13,9 +13,9 @@
                                 {{-- </div> --}}
                             </li>
                         @endforeach
-                        @if (Session::has('message'))
-                            <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>
-                        @endif
+{{--                        @if (Session::has('message'))--}}
+{{--                            <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>--}}
+{{--                        @endif--}}
                     </div>
                 @endif
             </ul>
