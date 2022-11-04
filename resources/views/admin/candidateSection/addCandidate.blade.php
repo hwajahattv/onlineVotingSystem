@@ -49,7 +49,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Surname</label>
-                                                    <input type="text" class="form-control addInput" name="surname"
+                                                    <input type="text" class="form-control addInput" name="surName"
                                                         id="" aria-describedby="" placeholder="">
                                                 </div>
                                             </div>
