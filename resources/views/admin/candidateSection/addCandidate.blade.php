@@ -202,7 +202,7 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth District</label>
-                                                        <select name="birth_district" id="select_district">
+                                                        <select name="birth_district" id="district_select">
                                                             <option value="" selected="selected">Select District</option>
                                                         </select>
 
