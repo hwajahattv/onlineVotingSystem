@@ -1,136 +1,379 @@
-$("#selectOccupation").change(function () {
-if ($("#selectOccupation").find(":selected").val() == "Student") {
-$("#schoolName").removeClass("hideField");
-} else {
-if (!$("#schoolName").hasClass("hideField")) {
-$("#schoolName").addClass("hideField");
-}
-}
-});
-//camera js
+@extends('admin.parent.master')
 
-$("#live_img_profile_preview .close").click(function(){
-$("#buttons .store_wbcam_img").attr('disabled',true);
-$('.livecountdown').hide();
-$('#live_img_profile_preview').hide();
-$('#live_img_profile_previewImg').attr('src',baseurl+'picture/imgloading.gif');
-$('.click').show();
-});
+@section('content')
+    <div class="content-body">
+        <div class="container-fluid">
+            <ul>
+                @if ($errors->any())
+                    <div class="mx-5">
+                        @foreach ($errors->all() as $error)
+                            <li style="height: 10px; font-size: 10px"
+                                class="alert alert-danger alert-dismissible fade show">
+                                {{-- <div class="alert alert-danger alert-dismissible fade show py-2 mx-5 my-2" role="alert"> --}}
+                                {{ $error }}
+                                {{-- </div> --}}
+                            </li>
+                        @endforeach
+                        {{--                        @if (Session::has('message'))--}}
+                        {{--                            <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>--}}
+                        {{--                        @endif--}}
+                    </div>
+                @endif
+            </ul>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card overflow-hidden">
+                        <div class="card-body">
 
-var coverUserImg = null;
-$("#buttons .store_wbcam_img").click(function(){
+                            <h3 class="text-center display-3">Enter the candidate details</h3>
+                            <form method="post" enctype="multipart/form-data" action="{{ route('addCandidatePost') }}">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">First name <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <input type="text" class="form-control addInput" name="name"
+                                                           id="" aria-describedby="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Middle name </label>
+                                                    <input type="text" class="form-control addInput" name="middleName"
+                                                           id="" aria-describedby="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Surname <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <input type="text" class="form-control addInput" name="surName"
+                                                           id="" aria-describedby="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Age</label>
+                                                    <input type="number" class="form-control addInput" name="age"
+                                                           id="" aria-describedby="" placeholder="" maxlength="13">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Gender <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <select class="form-control" name="gender"
+                                                            aria-label="Default select example">
+                                                        <option selected disabled>Open this select menu</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Date of birth <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <div class="cal-icon"><input type="date" id="date"
+                                                                                 name="dob" class="form-control"><i
+                                                            class="far fa-calendar-alt"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Occupation <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <select class="form-control" name="occupation"
+                                                            id="selectOccupation">
+                                                        <option selected disabled>--select--</option>
+                                                        <option value="Student">Student</option>
+                                                        <option value="Self Employed">Self Employed</option>
+                                                        <option value="Subsistence Farmer">Subsistence Farmer</option>
+                                                        <option value="House wife">House wife</option>
+                                                        <option value="Public Servant">Public Servant</option>
+                                                        <option value="Private Sector Worker">Private Sector Worker
+                                                        </option>
+                                                        <option value="Religious Worker">Religious Worker</option>
+                                                        <option value="others">others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 hideField" id="schoolName">
+                                                <div class="form-group">
+                                                    <label>School name</label>
+                                                    <div class="cal-icon"><input type="text"
+                                                                                 name="school" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Religion <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                        <select class="form-control" name="religion"
+                                                                id="selectOccupation">
+                                                            <option selected disabled>--select--</option>
+                                                            <option value="" selected="selected" disabled="disabled">--
+                                                                select one --
+                                                            </option>
+                                                            <option value="African Traditional &amp; Diasporic">African
+                                                                Traditional &amp; Diasporic
+                                                            </option>
+                                                            <option value="Agnostic">Agnostic</option>
+                                                            <option value="Atheist">Atheist</option>
+                                                            <option value="Baha'i">Baha'i</option>
+                                                            <option value="Buddhism">Buddhism</option>
+                                                            <option value="Cao Dai">Cao Dai</option>
+                                                            <option value="Chinese traditional religion">Chinese
+                                                                traditional religion
+                                                            </option>
+                                                            <option value="Christianity">Christianity</option>
+                                                            <option value="Hinduism">Hinduism</option>
+                                                            <option value="Islam">Islam</option>
+                                                            <option value="Jainism">Jainism</option>
+                                                            <option value="Juche">Juche</option>
+                                                            <option value="Judaism">Judaism</option>
+                                                            <option value="Neo-Paganism">Neo-Paganism</option>
+                                                            <option value="Nonreligious">Nonreligious</option>
+                                                            <option value="Rastafarianism">Rastafarianism</option>
+                                                            <option value="Secular">Secular</option>
+                                                            <option value="Shinto">Shinto</option>
+                                                            <option value="Sikhism">Sikhism</option>
+                                                            <option value="Spiritism">Spiritism</option>
+                                                            <option value="Tenrikyo">Tenrikyo</option>
+                                                            <option value="Unitarian-Universalism">
+                                                                Unitarian-Universalism
+                                                            </option>
+                                                            <option value="Zoroastrianism">Zoroastrianism</option>
+                                                            <option value="primal-indigenous">primal-indigenous</option>
+                                                            <option value="Other">Other</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Local Church</label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="local_church"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Region <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_region"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Province <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_province"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth District</label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_district"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth LLG</label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_LLG"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Ward</label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_ward"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Village</label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_village"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current Region <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_region"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current Province <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_province"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current District</label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_district"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current LLG</label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_LLG"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current Ward</label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_ward"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Current Village</label>
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_village"
+                                                               id="" aria-describedby="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Political Party <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <select class="form-control" name="political_party"
+                                                            id="selectOccupation">
+                                                        <option selected disabled>--select--</option>
+                                                        <option value="A">A</option>
+                                                        <option value="B">B</option>
+                                                        <option value="C">C</option>
+                                                        <option value="D">D</option>
+                                                        <option value="others">others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Police clearance ceritifcate <i
+                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <select class="form-control" name="policeClearanceCertificate"
+                                                            id="selectOccupation">
+                                                        <option selected disabled>--select--</option>
+                                                        <option value="A">Yes</option>
+                                                        <option value="B">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
 
-$.post(baseurl+"live_webcam_images_ipload.php",
-{ image: coverUserImg},
-function(data){
-window.location = 'live_webcam_images_ipload.php';
-});
-});
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group wrapper">
+                                            <div>
+                                                <div class="wrapper">
+                                                    <label for="exampleInputEmail1">Upload candidate's profile
+                                                        image</label>
+                                                </div>
+                                                <div class="wrapper">
+                                                    <div class="file-upload">
+                                                        <input type="file" name="profilePicture"/>
+                                                        <i class="fa fa-arrow-up"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="wrapper">
+                                                    <small id="emailHelp" class="form-text text-muted">Upload the
+                                                        passport
+                                                        size image
+                                                        (max.
+                                                        size: 100kb).</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
-function webcamTakeImg(){
-$('.click').hide();
-$('.livecountdown').show();
-webcam.capture(3);
-}
+            </div>
+        </div>
+    </div>
+    {{-- </div> --}}
+    <!--**********************************
+                                                                                                                                                                                                                                                                                                                                                                                                                        Content body end
+                                                                                                                                                                                                                                                                                                                                                                                                                    ***********************************-->
+@endsection
 
-function webcam_init() {
-var imgpostion = 0, ctx = null, saveCB, image = [];
-var canvas = document.createElement("canvas");
-canvas.setAttribute('width', 320);
-canvas.setAttribute('height', 240);
-
-if (canvas.toDataURL) {
-ctx = canvas.getContext("2d");
-
-image = ctx.getImageData(0, 0, 320, 240);
-
-saveCB = function(data) {
-
-var col = data.split(";");
-var picture = image;
-
-for(var i = 0; i > 16) & 0xff;
-picture.data[imgpostion + 1] = (tmp >> 8) & 0xff;
-picture.data[imgpostion + 2] = tmp & 0xff;
-picture.data[imgpostion + 3] = 0xff;
-imgpostion+= 4;
-}
-
-if (imgpostion >= 4 * 320 * 240) {
-ctx.putImageData(picture, 0, 0);
-$('#live_img_profile_preview').show();
-$.post(baseurl+"live_webcam_images_ipload.php", {type: "data", image: canvas.toDataURL("image/png")},function(data){
-$("#buttons .store_wbcam_img").attr('disabled',false);
-coverUserImg = data;
-$('#live_img_profile_previewImg').attr('src',''+baseurl+data);
-});
-imgpostion = 0;
-}
-};
-}else{
-
-saveCB = function(data) {
-image.push(data);
-
-imgpostion+= 4 * 320;
-
-if (imgpostion >= 4 * 320 * 240) {
-$('#live_img_profile_preview').show();
-$.post(baseurl+"live_webcam_images_ipload.php", {type: "pixel", image: image.join('|')},function(data){
-$("#buttons .store_wbcam_img").attr('disabled',false);
-coverUserImg = data;
-$('#live_img_profile_previewImg').attr('src',''+baseurl+data);
-});
-imgpostion = 0;
-image = [];
-}
-}
-}
-
-$("#webcam").webcam({
-width: 320,
-height: 240,
-mode: "callback",
-swffile: baseurl+"js/webcam/jscam_canvas_only.swf",
-
-onSave: saveCB,
-
-onCapture: function () {
-
-jQuery("#light_webcam").css("display", "block");
-jQuery("#light_webcam").fadeOut("fast", function () {
-jQuery("#light_webcam").css("opacity", 1);
-});
-
-webcam.save();
-},
-
-onTick: function(remain) {
-$('.livecountdown').show();
-
-if (0 == remain) {
-$('.livecountdown').hide();
-} else {
-jQuery(".livecountdown").text(remain);
-}
-},
-
-debug: function (type, string) {
-if(type == 'error'){
-$("#nocamera").show();
-}else{
-$("#nocamera").hide();
-}
-
-},
-
-onLoad: function() {
-//var cams = webcam.getCameraList();
-}
-});
-
-}
-
-(function ($) {
-webcam_init();
-})(jQuery);
