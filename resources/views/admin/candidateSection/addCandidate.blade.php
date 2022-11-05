@@ -7,7 +7,8 @@
                 @if ($errors->any())
                     <div class="mx-5">
                         @foreach ($errors->all() as $error)
-                            <li style="height: 10px; font-size: 10px" class="alert alert-danger alert-dismissible fade show">
+                            <li style="height: 10px; font-size: 10px"
+                                class="alert alert-danger alert-dismissible fade show">
                                 {{-- <div class="alert alert-danger alert-dismissible fade show py-2 mx-5 my-2" role="alert"> --}}
                                 {{ $error }}
                                 {{-- </div> --}}
@@ -35,14 +36,14 @@
                                                     <label for="exampleInputEmail1">First name <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <input type="text" class="form-control addInput" name="name"
-                                                        id="" aria-describedby="" placeholder="">
+                                                           id="" aria-describedby="" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Middle name </label>
                                                     <input type="text" class="form-control addInput" name="middleName"
-                                                        id="" aria-describedby="" placeholder="">
+                                                           id="" aria-describedby="" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -50,7 +51,7 @@
                                                     <label for="exampleInputEmail1">Surname <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <input type="text" class="form-control addInput" name="surName"
-                                                        id="" aria-describedby="" placeholder="">
+                                                           id="" aria-describedby="" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -59,7 +60,7 @@
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Age</label>
                                                     <input type="number" class="form-control addInput" name="age"
-                                                        id="" aria-describedby="" placeholder="" maxlength="13">
+                                                           id="" aria-describedby="" placeholder="" maxlength="13">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -67,7 +68,7 @@
                                                     <label for="exampleInputEmail1">Gender <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <select class="form-control" name="gender"
-                                                        aria-label="Default select example">
+                                                            aria-label="Default select example">
                                                         <option selected disabled>Open this select menu</option>
                                                         <option value="male">Male</option>
                                                         <option value="female">Female</option>
@@ -79,7 +80,7 @@
                                                     <label>Date of birth <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <div class="cal-icon"><input type="date" id="date"
-                                                            name="dob" class="form-control"><i
+                                                                                 name="dob" class="form-control"><i
                                                             class="far fa-calendar-alt"></i>
                                                     </div>
                                                 </div>
@@ -90,7 +91,8 @@
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Occupation <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                    <select class="form-control" name="occupation" id="selectOccupation">
+                                                    <select class="form-control" name="occupation"
+                                                            id="selectOccupation">
                                                         <option selected disabled>--select--</option>
                                                         <option value="Student">Student</option>
                                                         <option value="Self Employed">Self Employed</option>
@@ -108,7 +110,7 @@
                                                 <div class="form-group">
                                                     <label>School name</label>
                                                     <div class="cal-icon"><input type="text" name="school"
-                                                            class="form-control">
+                                                                                 class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,10 +122,10 @@
                                                         <label for="exampleInputEmail1">Religion <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                         <select class="form-control" name="religion"
-                                                            id="selectOccupation">
+                                                                id="selectOccupation">
                                                             <option selected disabled>--select--</option>
                                                             <option value="" selected="selected"
-                                                                disabled="disabled">--
+                                                                    disabled="disabled">--
                                                                 select one --
                                                             </option>
                                                             <option value="African Traditional &amp; Diasporic">African
@@ -166,23 +168,23 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Local Church</label>
                                                         <input type="text" class="form-control addInput"
-                                                            name="local_church" id="" aria-describedby=""
-                                                            placeholder="">
+                                                               name="local_church" id="" aria-describedby=""
+                                                               placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <hr />
+                                        <hr/>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Region <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <select class="form-control" name="birth_region" id="region_select">
+                                                        <select class="form-control" name="birth_region"
+                                                                id="region_select">
                                                             <option value="" selected="selected">Select Region</option>
                                                         </select>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,10 +193,11 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Province <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <select class="form-control" name="birth_province" id="province_select">
-                                                            <option value="" selected="selected">Select Province</option>
+                                                        <select class="form-control" name="birth_province"
+                                                                id="province_select">
+                                                            <option value="" selected="selected">Select Province
+                                                            </option>
                                                         </select>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,10 +205,11 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth District</label>
-                                                        <select class="form-control" name="birth_district" id="district_select">
-                                                            <option value="" selected="selected">Select District</option>
+                                                        <select class="form-control" name="birth_district"
+                                                                id="district_select">
+                                                            <option value="" selected="selected">Select District
+                                                            </option>
                                                         </select>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -216,8 +220,8 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth LLG</label>
                                                         <input type="text" class="form-control addInput"
-                                                            name="birth_LLG" id="" aria-describedby=""
-                                                            placeholder="">
+                                                               name="birth_LLG" id="" aria-describedby=""
+                                                               placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,8 +230,8 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Ward</label>
                                                         <input type="text" class="form-control addInput"
-                                                            name="birth_ward" id="" aria-describedby=""
-                                                            placeholder="">
+                                                               name="birth_ward" id="" aria-describedby=""
+                                                               placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -236,22 +240,23 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Village</label>
                                                         <input type="text" class="form-control addInput"
-                                                            name="birth_village" id="" aria-describedby=""
-                                                            placeholder="">
+                                                               name="birth_village" id="" aria-describedby=""
+                                                               placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <hr />
+                                        <hr/>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current Region <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" class="form-control addInput"
-                                                            name="current_region" id="" aria-describedby=""
-                                                            placeholder="">
+                                                        <select class="form-control" name="current_region"
+                                                                id="region_select2">
+                                                            <option value="" selected="selected">Select Region</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -260,9 +265,11 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current Province <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" class="form-control addInput"
-                                                            name="current_province" id="" aria-describedby=""
-                                                            placeholder="">
+                                                        <select class="form-control" name="current_province"
+                                                                id="province_select1">
+                                                            <option value="" selected="selected">Select Province
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -270,9 +277,11 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current District</label>
-                                                        <input type="text" class="form-control addInput"
-                                                            name="current_district" id="" aria-describedby=""
-                                                            placeholder="">
+                                                        <select class="form-control" name="current_district"
+                                                                id="district_select1">
+                                                            <option value="" selected="selected">Select District
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -283,8 +292,8 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current LLG</label>
                                                         <input type="text" class="form-control addInput"
-                                                            name="current_LLG" id="" aria-describedby=""
-                                                            placeholder="">
+                                                               name="current_LLG" id="" aria-describedby=""
+                                                               placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -293,8 +302,8 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current Ward</label>
                                                         <input type="text" class="form-control addInput"
-                                                            name="current_ward" id="" aria-describedby=""
-                                                            placeholder="">
+                                                               name="current_ward" id="" aria-describedby=""
+                                                               placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -303,8 +312,8 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current Village</label>
                                                         <input type="text" class="form-control addInput"
-                                                            name="current_village" id="" aria-describedby=""
-                                                            placeholder="">
+                                                               name="current_village" id="" aria-describedby=""
+                                                               placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -315,7 +324,7 @@
                                                     <label for="exampleInputEmail1">Political Party <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <select class="form-control" name="political_party"
-                                                        id="selectOccupation">
+                                                            id="selectOccupation">
                                                         <option selected disabled>--select--</option>
                                                         <option value="A">A</option>
                                                         <option value="B">B</option>
@@ -330,7 +339,7 @@
                                                     <label for="exampleInputEmail1">Police clearance ceritifcate <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <select class="form-control" name="policeClearanceCertificate"
-                                                        id="selectOccupation">
+                                                            id="selectOccupation">
                                                         <option selected disabled>--select--</option>
                                                         <option value="A">Yes</option>
                                                         <option value="B">No</option>
@@ -349,7 +358,7 @@
                                                 </div>
                                                 <div class="wrapper">
                                                     <div class="file-upload">
-                                                        <input type="file" name="profilePicture" />
+                                                        <input type="file" name="profilePicture"/>
                                                         <i class="fa fa-arrow-up"></i>
                                                     </div>
                                                 </div>
@@ -380,152 +389,185 @@
 @endsection
 @section('script')
     <script>
-    $("#selectOccupation").change(function () {
-    if ($("#selectOccupation").find(":selected").val() == "Student") {
-    $("#schoolName").removeClass("hideField");
-    } else {
-    if (!$("#schoolName").hasClass("hideField")) {
-    $("#schoolName").addClass("hideField");
-    }
-    }
-    });
-    var subjectObject = {
-    "HIGHLANDS": {
-    "CHIMBU": [
-    "CHUAVE",
-    "GUMINE",
-    "KARIMUI-NOMANE",
-    "KEROWAGI",
-    "SINASINA-YONGGAMUGL,",
-    "KUNDIAWA",
-    ],
-    "EASTERN HIGHLANDS": [
-    "DAULO",
-    "GOROKA",
-    "HENGANOFI",
-    "KAINANTU",
-    "LUFA",
-    "OBURA-WONENARA",
-    "OKAPA",
-    "UNGAI-BENA",
-    ],
-    "ENGA": [
-    "KANDEP",
-    "KOMPIAM/AMBUM",
-    "LAGAIP",
-    "POGERA-PAIELA",
-    "WABAG",
-    "WAPENAMANDA",
-    ],
-    "HELA": ["KOMO-HULIA", "KOROBA KUPIAGO", "MAGARIMA", "TARI/PORI"],
-    "JIWAKA": ["ANGLIMP/SOUTH WAGHI", "JIMI", "NORTH WAGHI"],
-    "SOUTHERN HIGHLANDS": [
-    "IALIBU/PANGIA",
-    "IMBONGGU",
-    "KAGUA/ERAVE",
-    "MENDI",
-    ],
-    "WESTERN HIGHLANDS": [
-    "DEI",
-    "HAGEN CENTRAL",
-    "MUL-BAIYER",
-    "TAMBUL/NEBILYER",
-    ],
-    },
-    "NEW_GUINEA_ISLANDS": {
-    "BOUGAINVILLE": [
-    "CENTRAL BOUGAINVILLE",
-    "NORTH BOUGAINVILLE",
-    "SOUTH BOUGAINVILLE",
-    ],
-    "EAST NEW BRITAIN": ["GAZELLE", "KOKOPO", "POMIO", "RABAUL"],
-    "MANUS": ["MANUS"],
-    "NEW IRELAND": ["KAVIENG", "NAMATANAI"],
-    "WEST NEW BRITAIN": ["KANDRIAN-GLOUCESTER", "NAKANAI", "TALASEA"],
-    },
+        $("#selectOccupation").change(function () {
+            if ($("#selectOccupation").find(":selected").val() == "Student") {
+                $("#schoolName").removeClass("hideField");
+            } else {
+                if (!$("#schoolName").hasClass("hideField")) {
+                    $("#schoolName").addClass("hideField");
+                }
+            }
+        });
+        var subjectObject = {
+            "HIGHLANDS": {
+                "CHIMBU": [
+                    "CHUAVE",
+                    "GUMINE",
+                    "KARIMUI-NOMANE",
+                    "KEROWAGI",
+                    "SINASINA-YONGGAMUGL,",
+                    "KUNDIAWA",
+                ],
+                "EASTERN HIGHLANDS": [
+                    "DAULO",
+                    "GOROKA",
+                    "HENGANOFI",
+                    "KAINANTU",
+                    "LUFA",
+                    "OBURA-WONENARA",
+                    "OKAPA",
+                    "UNGAI-BENA",
+                ],
+                "ENGA": [
+                    "KANDEP",
+                    "KOMPIAM/AMBUM",
+                    "LAGAIP",
+                    "POGERA-PAIELA",
+                    "WABAG",
+                    "WAPENAMANDA",
+                ],
+                "HELA": ["KOMO-HULIA", "KOROBA KUPIAGO", "MAGARIMA", "TARI/PORI"],
+                "JIWAKA": ["ANGLIMP/SOUTH WAGHI", "JIMI", "NORTH WAGHI"],
+                "SOUTHERN HIGHLANDS": [
+                    "IALIBU/PANGIA",
+                    "IMBONGGU",
+                    "KAGUA/ERAVE",
+                    "MENDI",
+                ],
+                "WESTERN HIGHLANDS": [
+                    "DEI",
+                    "HAGEN CENTRAL",
+                    "MUL-BAIYER",
+                    "TAMBUL/NEBILYER",
+                ],
+            },
+            "NEW_GUINEA_ISLANDS": {
+                "BOUGAINVILLE": [
+                    "CENTRAL BOUGAINVILLE",
+                    "NORTH BOUGAINVILLE",
+                    "SOUTH BOUGAINVILLE",
+                ],
+                "EAST NEW BRITAIN": ["GAZELLE", "KOKOPO", "POMIO", "RABAUL"],
+                "MANUS": ["MANUS"],
+                "NEW IRELAND": ["KAVIENG", "NAMATANAI"],
+                "WEST NEW BRITAIN": ["KANDRIAN-GLOUCESTER", "NAKANAI", "TALASEA"],
+            },
 
-    "MOMASE": {
-    "EAST SEPIK": [
-    "AMBUNTI-DREIKIKIR",
-    "ANGORAM",
-    "MAPRIK",
-    "WEWAK",
-    "WOSERA-GAUI",
-    "YANGORU-SAUSSIA",
-    ],
-    "MADANG": [
-    "BOGIA",
-    "MADANG",
-    "MIDDLE RAMU",
-    "RAI COAST",
-    "SUMKAR",
-    "USINO-BUNDI",
-    ],
-    "MOROBE": [
-    "BULOLO",
-    "FINSCHAFEN",
-    "HUON GULF",
-    "KABWUM",
-    "LAE",
-    "MARKHAM",
-    "MENYAMYA",
-    "NAWAE",
-    "TEWAI-SIASSI",
-    "WAU-WARIA",
-    ],
-    "WEST SEPIK": [
-    "AITAPE-LUMI",
-    "NUKU",
-    "TELEFOMIN",
-    "VANIMO-GREEN RIVER",
-    ],
-    },
-    "SOUTHERN": {
-    "CENTRAL": ["ABAU", "GOILALA", "x.x", "KAIRUKU", "RIGO"],
-    "Gulf": ["KEREMA", "KIKORI"],
-    "MILNE BAY": [
-    "ALOTAU",
-    "ESAALA",
-    "KIRIWINA/GOODENOUGH",
-    "SAMARAI-MURUA",
-    ],
-    "NATIONAL CAPITAL DISTRICT": [
-    "MORESBY NORTH-EAST",
-    "MORESBY NORTH-WEST",
-    "MORESBY SOUTH",
-    ],
-    "NORTHERN": ["IJIVITARI", "POPONDETTA", "SOHE"],
-    "WESTERN": ["DELTA FLY", "MIDDLE FLY", "NORTH FLY", "SOUTH FLY"],
-    },
-    };
-    window.onload = function () {
-    var subjectSel = document.getElementById("region_select");
-    var topicSel = document.getElementById("province_select");
-    var chapterSel = document.getElementById("district_select");
-    for (var x in subjectObject) {
-    subjectSel.options[subjectSel.options.length] = new Option(x, x);
-    }
-    subjectSel.onchange = function () {
-    //empty Chapters- and Topics- dropdowns
-    chapterSel.length = 1;
-    topicSel.length = 1;
-    //display correct values
-    for (var y in subjectObject[this.value]) {
-    topicSel.options[topicSel.options.length] = new Option(y, y);
-    }
-    };
-    topicSel.onchange = function () {
-    //empty Chapters dropdown
-    chapterSel.length = 1;
-    //display correct values
-    var z = subjectObject[subjectSel.value][this.value];
-    for (var i = 0; i < z.length; i++) {
-    chapterSel.options[chapterSel.options.length] = new Option(
-    z[i],
-    z[i]
-    );
-    }
-    };
-    };
+            "MOMASE": {
+                "EAST SEPIK": [
+                    "AMBUNTI-DREIKIKIR",
+                    "ANGORAM",
+                    "MAPRIK",
+                    "WEWAK",
+                    "WOSERA-GAUI",
+                    "YANGORU-SAUSSIA",
+                ],
+                "MADANG": [
+                    "BOGIA",
+                    "MADANG",
+                    "MIDDLE RAMU",
+                    "RAI COAST",
+                    "SUMKAR",
+                    "USINO-BUNDI",
+                ],
+                "MOROBE": [
+                    "BULOLO",
+                    "FINSCHAFEN",
+                    "HUON GULF",
+                    "KABWUM",
+                    "LAE",
+                    "MARKHAM",
+                    "MENYAMYA",
+                    "NAWAE",
+                    "TEWAI-SIASSI",
+                    "WAU-WARIA",
+                ],
+                "WEST SEPIK": [
+                    "AITAPE-LUMI",
+                    "NUKU",
+                    "TELEFOMIN",
+                    "VANIMO-GREEN RIVER",
+                ],
+            },
+            "SOUTHERN": {
+                "CENTRAL": ["ABAU", "GOILALA", "x.x", "KAIRUKU", "RIGO"],
+                "Gulf": ["KEREMA", "KIKORI"],
+                "MILNE BAY": [
+                    "ALOTAU",
+                    "ESAALA",
+                    "KIRIWINA/GOODENOUGH",
+                    "SAMARAI-MURUA",
+                ],
+                "NATIONAL CAPITAL DISTRICT": [
+                    "MORESBY NORTH-EAST",
+                    "MORESBY NORTH-WEST",
+                    "MORESBY SOUTH",
+                ],
+                "NORTHERN": ["IJIVITARI", "POPONDETTA", "SOHE"],
+                "WESTERN": ["DELTA FLY", "MIDDLE FLY", "NORTH FLY", "SOUTH FLY"],
+            },
+        };
+        window.onload = function () {
+            var subjectSel = document.getElementById("region_select");
+            var topicSel = document.getElementById("province_select");
+            var chapterSel = document.getElementById("district_select");
+
+            for (var x in subjectObject) {
+                subjectSel.options[subjectSel.options.length] = new Option(x, x);
+            }
+
+            subjectSel.onchange = function () {
+                //empty Chapters- and Topics- dropdowns
+                chapterSel.length = 1;
+                topicSel.length = 1;
+                //display correct values
+                for (var y in subjectObject[this.value]) {
+                    topicSel.options[topicSel.options.length] = new Option(y, y);
+                }
+            };
+            topicSel.onchange = function () {
+                //empty Chapters dropdown
+                chapterSel.length = 1;
+                //display correct values
+                var z = subjectObject[subjectSel.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                    chapterSel.options[chapterSel.options.length] = new Option(
+                        z[i],
+                        z[i]
+                    );
+                }
+            };
+
+            var subjectSel1 = document.getElementById("region_select1");
+            var topicSel1 = document.getElementById("province_select1");
+            var chapterSel1 = document.getElementById("district_select1");
+
+            for (var x in subjectObject) {
+                subjectSel1.options[subjectSel1.options.length] = new Option(x, x);
+            }
+
+            subjectSel1.onchange = function () {
+                //empty Chapters- and Topics- dropdowns
+                chapterSel1.length = 1;
+                topicSel1.length = 1;
+                //display correct values
+                for (var y in subjectObject[this.value]) {
+                    topicSel1.options[topicSel1.options.length] = new Option(y, y);
+                }
+            };
+            topicSel1.onchange = function () {
+                //empty Chapters dropdown
+                chapterSel1.length = 1;
+                //display correct values
+                var z = subjectObject[subjectSel1.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                    chapterSel.options[chapterSel.options.length] = new Option(
+                        z[i],
+                        z[i]
+                    );
+                }
+            };
+        };
+
     </script>
 @endsection
