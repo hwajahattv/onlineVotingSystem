@@ -384,3 +384,102 @@ body {
 .hideField {
     display: none;
 }
+
+/*camera CSS*/
+#cambox{
+    position:relative;
+    width:500px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+#webcam, #live_img_profile_preview, #nocamera {
+    background:#eee;
+    border:5px solid #999;
+    height: 240px;
+    margin-left:60px;
+    margin:10px 20px;
+    position:absolute;
+    width: 320px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#webcam {
+    z-index:2000;
+}
+
+#live_img_profile_preview {
+    display:none;
+    z-index:5000;
+}
+
+#nocamera {
+    display:none;
+    z-index:9900;
+}
+
+#buttons{
+    position:absolute;
+    bottom:0;
+    right:165px;
+    z-index:100;
+}
+
+#light_webcam {
+    background-color:#c00;
+    display:none;
+    height:500px;
+    left:0px;
+    position:absolute;
+    top:0px;
+    width:100%;
+    z-index:5000;
+}
+
+object {
+    display:block;
+    position:relative;
+    z-index:1000;
+}
+
+#smartsystem{
+    background:transparent;
+    height:40px;
+    margin-left:67px;
+    position:absolute;
+    top:220px;cursor:pointer;
+    z-index:2100;
+}
+
+.message{
+    padding:80px 10px;
+}
+
+.livecountdown{
+    font-size:26px;
+    font-weight:bold;
+    color:#fff;
+    padding-left:153px;
+    display:none;
+}
+
+.click{
+    padding-left:145px;
+}
+
+.close{
+    position: absolute;
+    right: 0;
+    color:#fff;
+    top: 0;
+    cursor:pointer;width:22px;height:22px;display:block;background:url(picture/web_icon_close.png) top;
+}
+.close:hover{
+    position: absolute;
+    right: 0;
+    color:#fff;
+    top: 0;
+    cursor:pointer;width:22px;height:22px;display:block;background:url(picture/web_icon_close.png) bottom;
+}

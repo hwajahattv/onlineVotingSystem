@@ -331,6 +331,30 @@
                                                         size: 100kb).</small>
                                                 </div>
                                             </div>
+                                            <h2>PHP capture image from webcam using jquery</h2>
+                                            <div id="cambox">
+
+                                                <div id="webcam"></div>
+
+                                                <div id="smartsystem">
+                                                    <span class="livecountdown">3</span>
+                                                    <span class="click"><img alt="take photo" src="picture/camera_icon.png" /></span>
+                                                </div>
+
+
+                                                <div id="nocamera">
+
+                                                    <div class="message">
+                                                        Video has not detected so Please any available simple cameras on your Laptop or system. Please so You connect a camera and try again.
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="live_img_profile_preview">
+                                                    <img id="live_img_profile_previewImg" alt="live_img_profile_preview Image" height="240" width="320" src="picture/imgloading.gif" />
+                                                    <span class="close"></span>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         {{-- <div class="form-group">
