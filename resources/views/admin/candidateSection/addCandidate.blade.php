@@ -561,7 +561,7 @@
                 //display correct values
                 var z = subjectObject[subjectSel1.value][this.value];
                 for (var i = 0; i < z.length; i++) {
-                    chapterSel.options[chapterSel.options.length] = new Option(
+                    chapterSel1.options[chapterSel1.options.length] = new Option(
                         z[i],
                         z[i]
                     );
