@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.eVotingApp')
 @section('links')
     <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 
     <script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}"/>
 
     {{-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"> --}}
 
@@ -34,64 +34,89 @@
                     </a>
                 </div>
 
-                <form class="login100-form validate-form "method="POST" action="{{ route('register') }}">
+                <form class="login100-form validate-form " method="POST" action="{{ route('register') }}">
                     @csrf
-                    <span class="login100-form-title">
-                        Register as an admin
-                                            </span>
-                    <div class="row mb-3">
-                        <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                    <span class="login100-form-title">Register as an admin</span>
+{{--                    <div class="row mb-3">--}}
+{{--                        <div class="wrap-input100 validate-input" placeholder="Email"--}}
+{{--                             data-validate="Valid email is required: ex@abc.xyz">--}}
 
-                        <div class="col-md-8">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+{{--                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>--}}
 
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
+{{--                            <div class="col-md-8">--}}
+{{--                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"--}}
+{{--                                       name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>--}}
+
+{{--                                @error('name')--}}
+{{--                                <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+                    <div class="wrap-input100 validate-input"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <input id="name" type="text" placeholder="Name" class="input100 @error('name') is-invalid @enderror"
+                               name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa-regular fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <input id="email" type="email" placeholder="Email" class="input100 @error('email') is-invalid @enderror"
+                               name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
                     </div>
 
-                    <div class="row mb-3">
-                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                        <div class="col-md-8">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input id="password" type="password" class=" input100 @error('password') is-invalid @enderror"
+                               name="password" required autocomplete="current-password" placeholder="Password">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input id="password" type="password" class=" input100 @error('password') is-invalid @enderror"
+                               name="password_confirmation" required autocomplete="current-password" placeholder="Confirm Password">
+                        @error('password_confirmation')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
                     </div>
 
-                    <div class="row mb-3">
-                        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                        <div class="col-md-8">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                        <div class="col-md-8">
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                        </div>
-                    </div>
 
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="login100-form-btn">
                                 {{ __('Register') }}
                             </button>
                         </div>
@@ -115,13 +140,15 @@
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-23581568-13');
     </script>
 
     <script src="{{ asset('js/main.js') }}"></script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+    <script defer
+            src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
             integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
             data-cf-beacon='{"rayId":"75dfb72cb93ad1e4","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.10.3","si":100}'
             crossorigin="anonymous"></script>

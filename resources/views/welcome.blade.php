@@ -1,77 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.eVotingApp')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <title>Voting App</title>
-
-    <link rel="stylesheet" href="{{ asset('vendor/chartist/css/chartist.min.css') }}">
-    <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-</head>
-
-<body>
-
-<div id="preloader">
-    <div class="sk-three-bounce">
-        <div class="sk-child sk-bounce1"></div>
-        <div class="sk-child sk-bounce2"></div>
-        <div class="sk-child sk-bounce3"></div>
-    </div>
-</div>
-<!--*******************
-    Preloader end
-********************-->
-
-<!--**********************************
-    Main wrapper start
-***********************************-->
-<div id="main-wrapper">
-
-    <!--**********************************
-        Nav header start
-    ***********************************-->
-
-    <!--**********************************
-        Nav header end
-    ***********************************-->
-
-
-    <!--**********************************
-        Header start
-    ***********************************-->
-    <div class="header">
-        <div class="header-content">
-            <nav class="navbar navbar-expand">
-                <div class="collapse navbar-collapse justify-content-between">
-                    <div class="header-left">
-                        <div class="dashboard_bar">
-                            Online Voting System
-                        </div>
-                    </div>
-
-                </div>
-            </nav>
-        </div>
-    </div>
-    <!--**********************************
-        Header end ti-comment-alt
-    ***********************************-->
-
-    <!--**********************************
-        Sidebar start
-    ***********************************-->
-
-    <!--**********************************
-        Content body start
-    ***********************************-->
+@section('content')
     <div class="content-body" style="margin-left: 0;">
         <div class="container-fluid">
             <div class="row">
@@ -86,7 +15,7 @@
                                         <div class="media align-items-center">
                                             <div class="media-body me-3">
                                                 <h2 class=" text-black font-w700">Home</h2>
-{{--                                                <span class="fs-14">Login as administrator</span>--}}
+                                                {{--                                                <span class="fs-14">Login as administrator</span>--}}
                                             </div>
                                             <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +86,8 @@
                             <div class="card-body box-style">
                                 <div class="media align-items-center">
                                     <div class="media-body me-3">
-                                        <h2 style="font-size: 1rem;" class="text-black font-w700">Get registered as a voter</h2>
+                                        <h2 style="font-size: 1rem;" class="text-black font-w700">Get registered as a
+                                            voter</h2>
                                         <span class="fs-14">Population Registration System</span>
                                     </div>
                                     <svg class="primary-icon" width="36" height="36" viewBox="0 0 36 36" fill="none"
@@ -187,12 +117,12 @@
                                     <span class="fs-14">Election ABC</span>
                                 </div>
                                 <i class='fas fa-vote-yea' style='font-size:42px; color: #3ECDFF'></i>
-{{--                                <svg width="46" height="46" viewBox="0 0 46 46" fill="none"--}}
-{{--                                     xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                    <path--}}
-{{--                                        d="M34.4999 1.91663H11.4999C8.95917 1.91967 6.52338 2.93032 4.72682 4.72688C2.93026 6.52345 1.91961 8.95924 1.91656 11.5V26.8333C1.91935 29.0417 2.6834 31.1816 4.07994 32.8924C5.47648 34.6031 7.42011 35.7801 9.58323 36.225V42.1666C9.58318 42.5136 9.67733 42.8541 9.85564 43.1518C10.0339 43.4495 10.2897 43.6932 10.5957 43.8569C10.9016 44.0206 11.2463 44.0982 11.5929 44.0813C11.9395 44.0645 12.275 43.9539 12.5636 43.7613L23.5749 36.4166H34.4999C37.0406 36.4136 39.4764 35.4029 41.273 33.6064C43.0695 31.8098 44.0802 29.374 44.0832 26.8333V11.5C44.0802 8.95924 43.0695 6.52345 41.273 4.72688C39.4764 2.93032 37.0406 1.91967 34.4999 1.91663ZM30.6666 24.9166H15.3332C14.8249 24.9166 14.3374 24.7147 13.9779 24.3552C13.6185 23.9958 13.4166 23.5083 13.4166 23C13.4166 22.4916 13.6185 22.0041 13.9779 21.6447C14.3374 21.2852 14.8249 21.0833 15.3332 21.0833H30.6666C31.1749 21.0833 31.6624 21.2852 32.0219 21.6447C32.3813 22.0041 32.5832 22.4916 32.5832 23C32.5832 23.5083 32.3813 23.9958 32.0219 24.3552C31.6624 24.7147 31.1749 24.9166 30.6666 24.9166ZM34.4999 17.25H11.4999C10.9916 17.25 10.5041 17.048 10.1446 16.6886C9.78517 16.3291 9.58323 15.8416 9.58323 15.3333C9.58323 14.825 9.78517 14.3374 10.1446 13.978C10.5041 13.6186 10.9916 13.4166 11.4999 13.4166H34.4999C35.0082 13.4166 35.4957 13.6186 35.8552 13.978C36.2146 14.3374 36.4166 14.825 36.4166 15.3333C36.4166 15.8416 36.2146 16.3291 35.8552 16.6886C35.4957 17.048 35.0082 17.25 34.4999 17.25Z"--}}
-{{--                                        fill="#3ECDFF"/>--}}
-{{--                                </svg>--}}
+                                {{--                                <svg width="46" height="46" viewBox="0 0 46 46" fill="none"--}}
+                                {{--                                     xmlns="http://www.w3.org/2000/svg">--}}
+                                {{--                                    <path--}}
+                                {{--                                        d="M34.4999 1.91663H11.4999C8.95917 1.91967 6.52338 2.93032 4.72682 4.72688C2.93026 6.52345 1.91961 8.95924 1.91656 11.5V26.8333C1.91935 29.0417 2.6834 31.1816 4.07994 32.8924C5.47648 34.6031 7.42011 35.7801 9.58323 36.225V42.1666C9.58318 42.5136 9.67733 42.8541 9.85564 43.1518C10.0339 43.4495 10.2897 43.6932 10.5957 43.8569C10.9016 44.0206 11.2463 44.0982 11.5929 44.0813C11.9395 44.0645 12.275 43.9539 12.5636 43.7613L23.5749 36.4166H34.4999C37.0406 36.4136 39.4764 35.4029 41.273 33.6064C43.0695 31.8098 44.0802 29.374 44.0832 26.8333V11.5C44.0802 8.95924 43.0695 6.52345 41.273 4.72688C39.4764 2.93032 37.0406 1.91967 34.4999 1.91663ZM30.6666 24.9166H15.3332C14.8249 24.9166 14.3374 24.7147 13.9779 24.3552C13.6185 23.9958 13.4166 23.5083 13.4166 23C13.4166 22.4916 13.6185 22.0041 13.9779 21.6447C14.3374 21.2852 14.8249 21.0833 15.3332 21.0833H30.6666C31.1749 21.0833 31.6624 21.2852 32.0219 21.6447C32.3813 22.0041 32.5832 22.4916 32.5832 23C32.5832 23.5083 32.3813 23.9958 32.0219 24.3552C31.6624 24.7147 31.1749 24.9166 30.6666 24.9166ZM34.4999 17.25H11.4999C10.9916 17.25 10.5041 17.048 10.1446 16.6886C9.78517 16.3291 9.58323 15.8416 9.58323 15.3333C9.58323 14.825 9.78517 14.3374 10.1446 13.978C10.5041 13.6186 10.9916 13.4166 11.4999 13.4166H34.4999C35.0082 13.4166 35.4957 13.6186 35.8552 13.978C36.2146 14.3374 36.4166 14.825 36.4166 15.3333C36.4166 15.8416 36.2146 16.3291 35.8552 16.6886C35.4957 17.048 35.0082 17.25 34.4999 17.25Z"--}}
+                                {{--                                        fill="#3ECDFF"/>--}}
+                                {{--                                </svg>--}}
                             </div>
                         </div>
                     </div>
@@ -201,47 +131,4 @@
         </div>
     </div>
 
-    <!--**********************************
-            Footer start
-        ***********************************-->
-    <div class="footer">
-        <div class="copyright">
-            <p>Designed <span class="heart"></span> <a href="#">AC</a> 2022</p>
-        </div>
-    </div>
-    <!--**********************************
-        Footer end
-    ***********************************-->
-
-
-</div>
-<!--**********************************
-    Main wrapper end
-***********************************-->
-
-
-{{-- jQuery CDN --}}
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-<script src="{{ asset('vendor/global/global.min.js') }}"></script>
-<script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('vendor/chart.js/Chart.bundle.min.js') }}"></script>
-
-<!-- Chart piety plugin files -->
-<script src="{{ asset('vendor/peity/jquery.peity.min.js') }}"></script>
-
-<!-- Apex Chart -->
-<script src="{{ asset('vendor/apexchart/apexchart.js') }}"></script>
-
-<!-- Dashboard 1 -->
-<script src="{{ asset('js/dashboard/dashboard-1.js') }}"></script>
-
-<script src="{{ asset('js/custom.min.js') }}"></script>
-<script src="{{ asset('js/deznav-init.js') }}"></script>
-<script src="{{ asset('js/demo.js') }}"></script>
-<script src="{{ asset('js/electionFormSubmit.js') }}"></script>
-<script src="{{ asset('js/styleSwitcher.js') }}"></script>
-
-
-</body>
-
-</html>
+@endsection
