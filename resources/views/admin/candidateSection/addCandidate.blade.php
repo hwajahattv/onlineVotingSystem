@@ -179,9 +179,10 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Region <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" id="region_select"
-                                                            class="form-control addInput" name="birth_region"
-                                                            id="" aria-describedby="" placeholder="">
+                                                        <select name="birth_region" id="region_select">
+                                                            <option value="" selected="selected">Select subject</option>
+                                                        </select>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -190,9 +191,10 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Province <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" id="province_select"
-                                                            class="form-control addInput" name="birth_province"
-                                                            id="" aria-describedby="" placeholder="">
+                                                        <select name="birth_province" id="province_select">
+                                                            <option value="" selected="selected">Select subject</option>
+                                                        </select>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -200,9 +202,10 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth District</label>
-                                                        <input type="text" id="select_district"
-                                                            class="form-control addInput" name="birth_district"
-                                                            id="" aria-describedby="" placeholder="">
+                                                        <select name="birth_district" id="select_district">
+                                                            <option value="" selected="selected">Select subject</option>
+                                                        </select>
+
                                                     </div>
                                                 </div>
                                             </div>
