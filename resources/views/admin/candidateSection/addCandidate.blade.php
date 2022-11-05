@@ -7,15 +7,16 @@
                 @if ($errors->any())
                     <div class="mx-5">
                         @foreach ($errors->all() as $error)
-                            <li style="height: 10px; font-size: 10px" class="alert alert-danger alert-dismissible fade show">
+                            <li style="height: 10px; font-size: 10px"
+                                class="alert alert-danger alert-dismissible fade show">
                                 {{-- <div class="alert alert-danger alert-dismissible fade show py-2 mx-5 my-2" role="alert"> --}}
                                 {{ $error }}
                                 {{-- </div> --}}
                             </li>
                         @endforeach
-{{--                        @if (Session::has('message'))--}}
-{{--                            <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>--}}
-{{--                        @endif--}}
+                        {{--                        @if (Session::has('message'))--}}
+                        {{--                            <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>--}}
+                        {{--                        @endif--}}
                     </div>
                 @endif
             </ul>
@@ -35,14 +36,14 @@
                                                     <label for="exampleInputEmail1">First name <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <input type="text" class="form-control addInput" name="name"
-                                                        id="" aria-describedby="" placeholder="">
+                                                           id="" aria-describedby="" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Middle name </label>
                                                     <input type="text" class="form-control addInput" name="middleName"
-                                                        id="" aria-describedby="" placeholder="">
+                                                           id="" aria-describedby="" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -50,7 +51,7 @@
                                                     <label for="exampleInputEmail1">Surname <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <input type="text" class="form-control addInput" name="surName"
-                                                        id="" aria-describedby="" placeholder="">
+                                                           id="" aria-describedby="" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -59,7 +60,7 @@
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Age</label>
                                                     <input type="number" class="form-control addInput" name="age"
-                                                        id="" aria-describedby="" placeholder="" maxlength="13">
+                                                           id="" aria-describedby="" placeholder="" maxlength="13">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -67,7 +68,7 @@
                                                     <label for="exampleInputEmail1">Gender <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <select class="form-control" name="gender"
-                                                        aria-label="Default select example">
+                                                            aria-label="Default select example">
                                                         <option selected disabled>Open this select menu</option>
                                                         <option value="male">Male</option>
                                                         <option value="female">Female</option>
@@ -79,7 +80,7 @@
                                                     <label>Date of birth <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <div class="cal-icon"><input type="date" id="date"
-                                                            name="dob" class="form-control"><i
+                                                                                 name="dob" class="form-control"><i
                                                             class="far fa-calendar-alt"></i>
                                                     </div>
                                                 </div>
@@ -88,16 +89,18 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Occupation  <i
+                                                    <label for="exampleInputEmail1">Occupation <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                    <select class="form-control" name="occupation" id="selectOccupation">
+                                                    <select class="form-control" name="occupation"
+                                                            id="selectOccupation">
                                                         <option selected disabled>--select--</option>
                                                         <option value="Student">Student</option>
                                                         <option value="Self Employed">Self Employed</option>
                                                         <option value="Subsistence Farmer">Subsistence Farmer</option>
                                                         <option value="House wife">House wife</option>
                                                         <option value="Public Servant">Public Servant</option>
-                                                        <option value="Private Sector Worker">Private Sector Worker</option>
+                                                        <option value="Private Sector Worker">Private Sector Worker
+                                                        </option>
                                                         <option value="Religious Worker">Religious Worker</option>
                                                         <option value="others">others</option>
                                                     </select>
@@ -107,7 +110,7 @@
                                                 <div class="form-group">
                                                     <label>School name</label>
                                                     <div class="cal-icon"><input type="text"
-                                                            name="school" class="form-control">
+                                                                                 name="school" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -116,18 +119,25 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Religion  <i
+                                                        <label for="exampleInputEmail1">Religion <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <select class="form-control" name="religion" id="selectOccupation">
+                                                        <select class="form-control" name="religion"
+                                                                id="selectOccupation">
                                                             <option selected disabled>--select--</option>
-                                                            <option value="" selected="selected" disabled="disabled">-- select one --</option>
-                                                            <option value="African Traditional &amp; Diasporic">African Traditional &amp; Diasporic</option>
+                                                            <option value="" selected="selected" disabled="disabled">--
+                                                                select one --
+                                                            </option>
+                                                            <option value="African Traditional &amp; Diasporic">African
+                                                                Traditional &amp; Diasporic
+                                                            </option>
                                                             <option value="Agnostic">Agnostic</option>
                                                             <option value="Atheist">Atheist</option>
                                                             <option value="Baha'i">Baha'i</option>
                                                             <option value="Buddhism">Buddhism</option>
                                                             <option value="Cao Dai">Cao Dai</option>
-                                                            <option value="Chinese traditional religion">Chinese traditional religion</option>
+                                                            <option value="Chinese traditional religion">Chinese
+                                                                traditional religion
+                                                            </option>
                                                             <option value="Christianity">Christianity</option>
                                                             <option value="Hinduism">Hinduism</option>
                                                             <option value="Islam">Islam</option>
@@ -142,7 +152,9 @@
                                                             <option value="Sikhism">Sikhism</option>
                                                             <option value="Spiritism">Spiritism</option>
                                                             <option value="Tenrikyo">Tenrikyo</option>
-                                                            <option value="Unitarian-Universalism">Unitarian-Universalism</option>
+                                                            <option value="Unitarian-Universalism">
+                                                                Unitarian-Universalism
+                                                            </option>
                                                             <option value="Zoroastrianism">Zoroastrianism</option>
                                                             <option value="primal-indigenous">primal-indigenous</option>
                                                             <option value="Other">Other</option>
@@ -154,7 +166,8 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Local Church</label>
-                                                        <input type="text" class="form-control addInput" name="local_church"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="local_church"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -165,9 +178,10 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Birth Region   <i
+                                                        <label for="exampleInputEmail1">Birth Region <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" class="form-control addInput" name="birth_region"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_region"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -175,9 +189,10 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Birth Province   <i
+                                                        <label for="exampleInputEmail1">Birth Province <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" class="form-control addInput" name="birth_province"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_province"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -186,7 +201,8 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth District</label>
-                                                        <input type="text" class="form-control addInput" name="birth_district"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_district"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -197,7 +213,8 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth LLG</label>
-                                                        <input type="text" class="form-control addInput" name="birth_LLG"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_LLG"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -206,7 +223,8 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Ward</label>
-                                                        <input type="text" class="form-control addInput" name="birth_ward"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_ward"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -215,7 +233,8 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Village</label>
-                                                        <input type="text" class="form-control addInput" name="birth_village"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="birth_village"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -226,9 +245,10 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Current Region   <i
+                                                        <label for="exampleInputEmail1">Current Region <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" class="form-control addInput" name="current_region"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_region"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -236,9 +256,10 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Current Province   <i
+                                                        <label for="exampleInputEmail1">Current Province <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" class="form-control addInput" name="current_province"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_province"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -247,7 +268,8 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current District</label>
-                                                        <input type="text" class="form-control addInput" name="current_district"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_district"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -258,7 +280,8 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current LLG</label>
-                                                        <input type="text" class="form-control addInput" name="current_LLG"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_LLG"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -267,7 +290,8 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current Ward</label>
-                                                        <input type="text" class="form-control addInput" name="current_ward"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_ward"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -276,7 +300,8 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Current Village</label>
-                                                        <input type="text" class="form-control addInput" name="current_village"
+                                                        <input type="text" class="form-control addInput"
+                                                               name="current_village"
                                                                id="" aria-describedby="" placeholder="">
                                                     </div>
                                                 </div>
@@ -285,9 +310,10 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Political Party  <i
+                                                    <label for="exampleInputEmail1">Political Party <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                    <select class="form-control" name="political_party" id="selectOccupation">
+                                                    <select class="form-control" name="political_party"
+                                                            id="selectOccupation">
                                                         <option selected disabled>--select--</option>
                                                         <option value="A">A</option>
                                                         <option value="B">B</option>
@@ -299,9 +325,10 @@
                                             </div>
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Police clearance ceritifcate  <i
+                                                    <label for="exampleInputEmail1">Police clearance ceritifcate <i
                                                             class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                    <select class="form-control" name="policeClearanceCertificate" id="selectOccupation">
+                                                    <select class="form-control" name="policeClearanceCertificate"
+                                                            id="selectOccupation">
                                                         <option selected disabled>--select--</option>
                                                         <option value="A">Yes</option>
                                                         <option value="B">No</option>
@@ -320,39 +347,47 @@
                                                 </div>
                                                 <div class="wrapper">
                                                     <div class="file-upload">
-                                                        <input type="file" name="profilePicture" />
+                                                        <input type="file" name="profilePicture"/>
                                                         <i class="fa fa-arrow-up"></i>
                                                     </div>
                                                 </div>
                                                 <div class="wrapper">
-                                                    <small id="emailHelp" class="form-text text-muted">Upload the passport
+                                                    <small id="emailHelp" class="form-text text-muted">Upload the
+                                                        passport
                                                         size image
                                                         (max.
                                                         size: 100kb).</small>
                                                 </div>
                                             </div>
-                                            <h2>PHP capture image from webcam using jquery</h2>
-                                            <div id="cambox">
+                                            <div>
+                                                <h2>PHP capture image from webcam using jquery</h2>
+                                                <div id="cambox">
 
-                                                <div id="webcam"></div>
+                                                    <div id="webcam"></div>
 
-                                                <div id="smartsystem">
-                                                    <span class="livecountdown">3</span>
-                                                    <span class="click"><img alt="take photo" src="picture/camera_icon.png" /></span>
-                                                </div>
-
-
-                                                <div id="nocamera">
-
-                                                    <div class="message">
-                                                        Video has not detected so Please any available simple cameras on your Laptop or system. Please so You connect a camera and try again.
+                                                    <div id="smartsystem">
+                                                        <span class="livecountdown">3</span>
+                                                        <span class="click"><img alt="take photo"
+                                                                                 src="picture/camera_icon.png"/></span>
                                                     </div>
 
-                                                </div>
 
-                                                <div id="live_img_profile_preview">
-                                                    <img id="live_img_profile_previewImg" alt="live_img_profile_preview Image" height="240" width="320" src="picture/imgloading.gif" />
-                                                    <span class="close"></span>
+                                                    <div id="nocamera">
+
+                                                        <div class="message">
+                                                            Video has not detected so Please any available simple
+                                                            cameras on your Laptop or system. Please so You connect a
+                                                            camera and try again.
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div id="live_img_profile_preview">
+                                                        <img id="live_img_profile_previewImg"
+                                                             alt="live_img_profile_preview Image" height="240"
+                                                             width="320" src="picture/imgloading.gif"/>
+                                                        <span class="close"></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
