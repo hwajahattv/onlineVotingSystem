@@ -8,8 +8,8 @@ $("#selectOccupation").change(function () {
     }
 });
 var subjectObject = {
-    HIGHLANDS: {
-        CHIMBU: [
+    "HIGHLANDS": {
+        "CHIMBU": [
             "CHUAVE",
             "GUMINE",
             "KARIMUI-NOMANE",
@@ -27,7 +27,7 @@ var subjectObject = {
             "OKAPA",
             "UNGAI-BENA",
         ],
-        ENGA: [
+        "ENGA": [
             "KANDEP",
             "KOMPIAM/AMBUM",
             "LAGAIP",
@@ -35,8 +35,8 @@ var subjectObject = {
             "WABAG",
             "WAPENAMANDA",
         ],
-        HELA: ["KOMO-HULIA", "KOROBA KUPIAGO", "MAGARIMA", "TARI/PORI"],
-        JIWAKA: ["ANGLIMP/SOUTH WAGHI", "JIMI", "NORTH WAGHI"],
+        "HELA": ["KOMO-HULIA", "KOROBA KUPIAGO", "MAGARIMA", "TARI/PORI"],
+        "JIWAKA": ["ANGLIMP/SOUTH WAGHI", "JIMI", "NORTH WAGHI"],
         "SOUTHERN HIGHLANDS": [
             "IALIBU/PANGIA",
             "IMBONGGU",
@@ -50,19 +50,19 @@ var subjectObject = {
             "TAMBUL/NEBILYER",
         ],
     },
-    NEW_GUINEA_ISLANDS: {
-        BOUGAINVILLE: [
+    "NEW_GUINEA_ISLANDS": {
+        "BOUGAINVILLE": [
             "CENTRAL BOUGAINVILLE",
             "NORTH BOUGAINVILLE",
             "SOUTH BOUGAINVILLE",
         ],
         "EAST NEW BRITAIN": ["GAZELLE", "KOKOPO", "POMIO", "RABAUL"],
-        MANUS: ["MANUS"],
+        "MANUS": ["MANUS"],
         "NEW IRELAND": ["KAVIENG", "NAMATANAI"],
         "WEST NEW BRITAIN": ["KANDRIAN-GLOUCESTER", "NAKANAI", "TALASEA"],
     },
 
-    MOMASE: {
+    "MOMASE": {
         "EAST SEPIK": [
             "AMBUNTI-DREIKIKIR",
             "ANGORAM",
@@ -71,7 +71,7 @@ var subjectObject = {
             "WOSERA-GAUI",
             "YANGORU-SAUSSIA",
         ],
-        MADANG: [
+        "MADANG": [
             "BOGIA",
             "MADANG",
             "MIDDLE RAMU",
@@ -79,7 +79,7 @@ var subjectObject = {
             "SUMKAR",
             "USINO-BUNDI",
         ],
-        MOROBE: [
+        "MOROBE": [
             "BULOLO",
             "FINSCHAFEN",
             "HUON GULF",
@@ -98,9 +98,9 @@ var subjectObject = {
             "VANIMO-GREEN RIVER",
         ],
     },
-    SOUTHERN: {
-        CENTRAL: ["ABAU", "GOILALA", "x.x", "KAIRUKU", "RIGO"],
-        Gulf: ["KEREMA", "KIKORI"],
+    "SOUTHERN": {
+        "CENTRAL": ["ABAU", "GOILALA", "x.x", "KAIRUKU", "RIGO"],
+        "Gulf": ["KEREMA", "KIKORI"],
         "MILNE BAY": [
             "ALOTAU",
             "ESAALA",
@@ -112,8 +112,8 @@ var subjectObject = {
             "MORESBY NORTH-WEST",
             "MORESBY SOUTH",
         ],
-        NORTHERN: ["IJIVITARI", "POPONDETTA", "SOHE"],
-        WESTERN: ["DELTA FLY", "MIDDLE FLY", "NORTH FLY", "SOUTH FLY"],
+        "NORTHERN": ["IJIVITARI", "POPONDETTA", "SOHE"],
+        "WESTERN": ["DELTA FLY", "MIDDLE FLY", "NORTH FLY", "SOUTH FLY"],
     },
 };
 window.onload = function () {
