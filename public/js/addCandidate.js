@@ -120,9 +120,11 @@ window.onload = function () {
     var subjectSel = document.getElementById("region_select");
     var topicSel = document.getElementById("province_select");
     var chapterSel = document.getElementById("district_select");
+
     for (var x in subjectObject) {
         subjectSel.options[subjectSel.options.length] = new Option(x, x);
     }
+
     subjectSel.onchange = function () {
         //empty Chapters- and Topics- dropdowns
         chapterSel.length = 1;
@@ -139,6 +141,36 @@ window.onload = function () {
         var z = subjectObject[subjectSel.value][this.value];
         for (var i = 0; i < z.length; i++) {
             chapterSel.options[chapterSel.options.length] = new Option(
+                z[i],
+                z[i]
+            );
+        }
+    };
+
+    var subjectSel1 = document.getElementById("region_select1");
+    var topicSel1 = document.getElementById("province_select1");
+    var chapterSel1 = document.getElementById("district_select1");
+
+    for (var x in subjectObject) {
+        subjectSel1.options[subjectSel1.options.length] = new Option(x, x);
+    }
+
+    subjectSel1.onchange = function () {
+        //empty Chapters- and Topics- dropdowns
+        chapterSel1.length = 1;
+        topicSel1.length = 1;
+        //display correct values
+        for (var y in subjectObject[this.value]) {
+            topicSel1.options[topicSel1.options.length] = new Option(y, y);
+        }
+    };
+    topicSel1.onchange = function () {
+        //empty Chapters dropdown
+        chapterSel1.length = 1;
+        //display correct values
+        var z = subjectObject[subjectSel1.value][this.value];
+        for (var i = 0; i < z.length; i++) {
+            chapterSel1.options[chapterSel1.options.length] = new Option(
                 z[i],
                 z[i]
             );
