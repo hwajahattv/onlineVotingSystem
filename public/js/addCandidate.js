@@ -7,130 +7,141 @@ $("#selectOccupation").change(function () {
         }
     }
 });
-//camera js
+var subjectObject = {
+    HIGHLANDS: {
+        CHIMBU: [
+            "CHUAVE",
+            "GUMINE",
+            "KARIMUI-NOMANE",
+            "KEROWAGI",
+            "SINASINA-YONGGAMUGL,",
+            "KUNDIAWA",
+        ],
+        "EASTERN HIGHLANDS": [
+            "DAULO",
+            "GOROKA",
+            "HENGANOFI",
+            "KAINANTU",
+            "LUFA",
+            "OBURA-WONENARA",
+            "OKAPA",
+            "UNGAI-BENA",
+        ],
+        ENGA: [
+            "KANDEP",
+            "KOMPIAM/AMBUM",
+            "LAGAIP",
+            "POGERA-PAIELA",
+            "WABAG",
+            "WAPENAMANDA",
+        ],
+        HELA: ["KOMO-HULIA", "KOROBA KUPIAGO", "MAGARIMA", "TARI/PORI"],
+        JIWAKA: ["ANGLIMP/SOUTH WAGHI", "JIMI", "NORTH WAGHI"],
+        "SOUTHERN HIGHLANDS": [
+            "IALIBU/PANGIA",
+            "IMBONGGU",
+            "KAGUA/ERAVE",
+            "MENDI",
+        ],
+        "WESTERN HIGHLANDS": [
+            "DEI",
+            "HAGEN CENTRAL",
+            "MUL-BAIYER",
+            "TAMBUL/NEBILYER",
+        ],
+    },
+    NEW_GUINEA_ISLANDS: {
+        BOUGAINVILLE: [
+            "CENTRAL BOUGAINVILLE",
+            "NORTH BOUGAINVILLE",
+            "SOUTH BOUGAINVILLE",
+        ],
+        "EAST NEW BRITAIN": ["GAZELLE", "KOKOPO", "POMIO", "RABAUL"],
+        MANUS: ["MANUS"],
+        "NEW IRELAND": ["KAVIENG", "NAMATANAI"],
+        "WEST NEW BRITAIN": ["KANDRIAN-GLOUCESTER", "NAKANAI", "TALASEA"],
+    },
 
-$("#live_img_profile_preview .close").click(function(){
-    $("#buttons .store_wbcam_img").attr('disabled',true);
-    $('.livecountdown').hide();
-    $('#live_img_profile_preview').hide();
-    $('#live_img_profile_previewImg').attr('src',baseurl+'picture/imgloading.gif');
-    $('.click').show();
-});
-
-var coverUserImg = null;
-$("#buttons .store_wbcam_img").click(function(){
-
-    $.post(baseurl+"live_webcam_images_ipload.php",
-        { image: coverUserImg},
-        function(data){
-            window.location = 'live_webcam_images_ipload.php';
-        });
-});
-
-function webcamTakeImg(){
-    $('.click').hide();
-    $('.livecountdown').show();
-    webcam.capture(3);
-}
-
-function webcam_init() {
-    var imgpostion = 0, ctx = null, saveCB, image = [];
-    var canvas = document.createElement("canvas");
-    canvas.setAttribute('width', 320);
-    canvas.setAttribute('height', 240);
-
-    if (canvas.toDataURL) {
-        ctx = canvas.getContext("2d");
-
-        image = ctx.getImageData(0, 0, 320, 240);
-
-        saveCB = function(data) {
-
-            var col = data.split(";");
-            var picture = image;
-
-            for(var i = 0; i > 16) & 0xff;
-            picture.data[imgpostion + 1] = (tmp >> 8) & 0xff;
-            picture.data[imgpostion + 2] = tmp & 0xff;
-            picture.data[imgpostion + 3] = 0xff;
-            imgpostion+= 4;
-        }
-
-        if (imgpostion >= 4 * 320 * 240) {
-            ctx.putImageData(picture, 0, 0);
-            $('#live_img_profile_preview').show();
-            $.post(baseurl+"live_webcam_images_ipload.php", {type: "data", image: canvas.toDataURL("image/png")},function(data){
-                $("#buttons .store_wbcam_img").attr('disabled',false);
-                coverUserImg = data;
-                $('#live_img_profile_previewImg').attr('src',''+baseurl+data);
-            });
-            imgpostion = 0;
+    MOMASE: {
+        "EAST SEPIK": [
+            "AMBUNTI-DREIKIKIR",
+            "ANGORAM",
+            "MAPRIK",
+            "WEWAK",
+            "WOSERA-GAUI",
+            "YANGORU-SAUSSIA",
+        ],
+        MADANG: [
+            "BOGIA",
+            "MADANG",
+            "MIDDLE RAMU",
+            "RAI COAST",
+            "SUMKAR",
+            "USINO-BUNDI",
+        ],
+        MOROBE: [
+            "BULOLO",
+            "FINSCHAFEN",
+            "HUON GULF",
+            "KABWUM",
+            "LAE",
+            "MARKHAM",
+            "MENYAMYA",
+            "NAWAE",
+            "TEWAI-SIASSI",
+            "WAU-WARIA",
+        ],
+        "WEST SEPIK": [
+            "AITAPE-LUMI",
+            "NUKU",
+            "TELEFOMIN",
+            "VANIMO-GREEN RIVER",
+        ],
+    },
+    SOUTHERN: {
+        CENTRAL: ["ABAU", "GOILALA", "x.x", "KAIRUKU", "RIGO"],
+        Gulf: ["KEREMA", "KIKORI"],
+        "MILNE BAY": [
+            "ALOTAU",
+            "ESAALA",
+            "KIRIWINA/GOODENOUGH",
+            "SAMARAI-MURUA",
+        ],
+        "NATIONAL CAPITAL DISTRICT": [
+            "MORESBY NORTH-EAST",
+            "MORESBY NORTH-WEST",
+            "MORESBY SOUTH",
+        ],
+        NORTHERN: ["IJIVITARI", "POPONDETTA", "SOHE"],
+        WESTERN: ["DELTA FLY", "MIDDLE FLY", "NORTH FLY", "SOUTH FLY"],
+    },
+};
+window.onload = function () {
+    var subjectSel = document.getElementById("region_select");
+    var topicSel = document.getElementById("province_select");
+    var chapterSel = document.getElementById("district_select");
+    for (var x in subjectObject) {
+        subjectSel.options[subjectSel.options.length] = new Option(x, x);
+    }
+    subjectSel.onchange = function () {
+        //empty Chapters- and Topics- dropdowns
+        chapterSel.length = 1;
+        topicSel.length = 1;
+        //display correct values
+        for (var y in subjectObject[this.value]) {
+            topicSel.options[topicSel.options.length] = new Option(y, y);
         }
     };
-}else{
-
-    saveCB = function(data) {
-        image.push(data);
-
-        imgpostion+= 4 * 320;
-
-        if (imgpostion >= 4 * 320 * 240) {
-            $('#live_img_profile_preview').show();
-            $.post(baseurl+"live_webcam_images_ipload.php", {type: "pixel", image: image.join('|')},function(data){
-                $("#buttons .store_wbcam_img").attr('disabled',false);
-                coverUserImg = data;
-                $('#live_img_profile_previewImg').attr('src',''+baseurl+data);
-            });
-            imgpostion = 0;
-            image = [];
+    topicSel.onchange = function () {
+        //empty Chapters dropdown
+        chapterSel.length = 1;
+        //display correct values
+        var z = subjectObject[subjectSel.value][this.value];
+        for (var i = 0; i < z.length; i++) {
+            chapterSel.options[chapterSel.options.length] = new Option(
+                z[i],
+                z[i]
+            );
         }
-    }
-}
-
-$("#webcam").webcam({
-    width: 320,
-    height: 240,
-    mode: "callback",
-    swffile: baseurl+"js/webcam/jscam_canvas_only.swf",
-
-    onSave: saveCB,
-
-    onCapture: function () {
-
-        jQuery("#light_webcam").css("display", "block");
-        jQuery("#light_webcam").fadeOut("fast", function () {
-            jQuery("#light_webcam").css("opacity", 1);
-        });
-
-        webcam.save();
-    },
-
-    onTick: function(remain) {
-        $('.livecountdown').show();
-
-        if (0 == remain) {
-            $('.livecountdown').hide();
-        } else {
-            jQuery(".livecountdown").text(remain);
-        }
-    },
-
-    debug: function (type, string) {
-        if(type == 'error'){
-            $("#nocamera").show();
-        }else{
-            $("#nocamera").hide();
-        }
-
-    },
-
-    onLoad: function() {
-        //var cams = webcam.getCameraList();
-    }
-});
-
-}
-
-(function ($) {
-    webcam_init();
-})(jQuery);
+    };
+};

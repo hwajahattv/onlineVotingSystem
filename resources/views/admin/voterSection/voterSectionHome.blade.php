@@ -166,7 +166,7 @@
                                 <div>
                                     <svg class="me-2" width="27" height="14" viewBox="0 0 27 14"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0 13.435L13.435 0L26.8701 13.435H0Z" fill="#003610"></path>
+                                        <path d="M0 13.435L13.435 0L26.8701 13.435H0Z" fill="#665A48"></path>
                                     </svg>
                                     <span>last month $563,443</span>
                                 </div>
@@ -271,7 +271,7 @@
                                 <div class="card-body text-center d-flex align-items-center justify-content-between">
                                     <div class="d-inline-block position-relative donut-chart-sale">
                                         <span class="donut1"
-                                            data-peity='{ "fill": ["#003610", "rgba(241, 241, 241,1)"],   "innerRadius": 33, "radius": 10}'>3/8</span>
+                                            data-peity='{ "fill": ["#665A48", "rgba(241, 241, 241,1)"],   "innerRadius": 33, "radius": 10}'>3/8</span>
                                         <small class="text-primary">29%</small>
                                     </div>
                                     <div>
@@ -817,6 +817,6 @@
         </div>
     </div>
     <!--**********************************
-                                                                                                    Content body end
-                                                                                                ***********************************-->
+                                                                                                        Content body end
+                                                                                                    ***********************************-->
 @endsection
