@@ -254,7 +254,7 @@
                                                         <label for="exampleInputEmail1">Current Region <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                         <select class="form-control" name="current_region"
-                                                                id="region_select2">
+                                                                id="region_select1">
                                                             <option value="" selected="selected">Select Region</option>
                                                         </select>
                                                     </div>
