@@ -389,6 +389,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                     ***********************************-->
 @endsection
 @section('script')
+    <script>
     document.addEventListener('DOMContentLoaded', (event) => {
 
     var region_select=  document.getElementById("region_select");
@@ -451,4 +452,5 @@
     str=str.replace(/\s+/g, '_')
     return str.toUpperCase();
     }
+    </script>
 @endsection
