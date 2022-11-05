@@ -180,9 +180,21 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Region <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" class="form-control addInput"
-                                                               name="birth_region"
-                                                               id="" aria-describedby="" placeholder="">
+                                                        <select id="region_select" name="region">
+                                                            <option value="">Select region</option>
+                                                            <option value="https://rollsearch.pngec.gov.pg/regions/pngec/HIGHLANDS/index.html">
+                                                                HIGHLANDS
+                                                            </option>
+                                                            <option
+                                                                value="https://rollsearch.pngec.gov.pg/regions/pngec/NEW_GUINEA_ISLANDS/index.html">NEW
+                                                                GUINEA ISLANDS
+                                                            </option>
+                                                            <option value="https://rollsearch.pngec.gov.pg/regions/pngec/MOMASE/index.html">MOMASE
+                                                            </option>
+                                                            <option value="https://rollsearch.pngec.gov.pg/regions/pngec/SOUTHERN/index.html">
+                                                                SOUTHERN
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,9 +203,9 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Province <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <input type="text" class="form-control addInput"
-                                                               name="birth_province"
-                                                               id="" aria-describedby="" placeholder="">
+                                                        <select id="province_select" name="province">
+                                                            <option value="">Select province</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -359,50 +371,10 @@
                                                         size: 100kb).</small>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <h2>PHP capture image from webcam using jquery</h2>
-                                                <div id="cambox">
-
-                                                    <div id="webcam"></div>
-
-                                                    <div id="smartsystem">
-                                                        <span class="livecountdown">3</span>
-                                                        <span class="click"><img alt="take photo"
-                                                                                 src="picture/camera_icon.png"/></span>
-                                                    </div>
-
-
-                                                    <div id="nocamera">
-
-                                                        <div class="message">
-                                                            Video has not detected so Please any available simple
-                                                            cameras on your Laptop or system. Please so You connect a
-                                                            camera and try again.
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div id="live_img_profile_preview">
-                                                        <img id="live_img_profile_previewImg"
-                                                             alt="live_img_profile_preview Image" height="240"
-                                                             width="320" src="picture/imgloading.gif"/>
-                                                        <span class="close"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
-
-                                        {{-- <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                         --}}
-                                        {{-- <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div> --}}
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -416,4 +388,67 @@
                                                                                                                                                                                                                                                                                                                                                                                                                         Content body end
                                                                                                                                                                                                                                                                                                                                                                                                                     ***********************************-->
 @endsection
+@section('script')
+    document.addEventListener('DOMContentLoaded', (event) => {
 
+    var region_select=  document.getElementById("region_select");
+    var province_select=document.getElementById("province_select");
+    var district_select=document.getElementById("district_select");
+
+    region_select.addEventListener("change", function() {
+    let selected_option=region_select.value;
+    cascade_selects_from_region(selected_option);
+    });
+
+    province_select.addEventListener("change", function() {
+    let selected_option=province_select.value;
+    cascade_selects_from_province(selected_option);
+    });
+
+    district_select.addEventListener("change", function() {
+    let selected_option=district_select.value;
+    });
+
+    }
+    );
+
+    function cascade_selects_from_region(region_uri) {
+    clear_selects(['province','district']);
+
+    // Set the province select to those for this region
+    set_select_via_parent(region_uri, 'province')
+    }
+
+    function cascade_selects_from_province(province_uri) {
+    clear_selects(['district']);
+
+    // Set the district select to those for this province
+    set_select_via_parent(province_uri, 'district')
+    }
+
+    function clear_select(id) {
+    let select=document.getElementById(id+"_select");
+    let blopt="<option value=''>Select "+id+"</option>";
+    select.innerHTML="<select name="+id+"_select id="+id+"_select>"+blopt+"</select>";
+    }
+
+    function clear_selects(areas) {
+    for(var i=0; i<areas.length; i++) { clear_select(areas[i]) };
+    }
+
+    function set_select_via_parent(parent_uri, child_tag) {
+    let child_select=document.getElementById(child_tag + '_select');
+    fetch(parent_uri).then(
+    function(response) {
+    response.text().then( function(text) {
+    let blopt="<option value=''>Select "+child_tag+"</option>";
+    child_select.innerHTML="<select name="+child_tag+" id="+child_tag+">"+blopt+text+"</select>"; } )
+    }
+    ).catch(function (err) { console.warn(err) });
+    }
+
+    function caps(str) {
+    str=str.replace(/\s+/g, '_')
+    return str.toUpperCase();
+    }
+@endsection
