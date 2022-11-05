@@ -53,7 +53,7 @@
                                         <input type="text" class="form-control addInput" name="name"
                                             id="" aria-describedby="" placeholder="">
                                         <small id="emailHelp" class="form-text text-muted">Enter the fullname of
-                                            voter.</small>
+                                            voter</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">CNIC #</label>
