@@ -179,7 +179,7 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Region <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <select name="birth_region" id="region_select">
+                                                        <select class="form-control" name="birth_region" id="region_select">
                                                             <option value="" selected="selected">Select Region</option>
                                                         </select>
 
@@ -191,7 +191,7 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth Province <i
                                                                 class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                        <select name="birth_province" id="province_select">
+                                                        <select class="form-control" name="birth_province" id="province_select">
                                                             <option value="" selected="selected">Select Province</option>
                                                         </select>
 
@@ -202,7 +202,7 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Birth District</label>
-                                                        <select name="birth_district" id="district_select">
+                                                        <select class="form-control" name="birth_district" id="district_select">
                                                             <option value="" selected="selected">Select District</option>
                                                         </select>
 
