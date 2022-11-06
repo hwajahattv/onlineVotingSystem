@@ -93,8 +93,7 @@
                             @auth
                                 <li><a class="sign_btn" href="{{ url('/home') }}">home</a></li>
                             @else
-
-                                <a class="sign_btn" href="{{ url('/login') }}">sign in</a></li>
+                                <li><a class="sign_btn" href="{{ url('/login') }}">sign in</a></li>
                             @endauth
                         @endif
                         <li><a class="sign_btn" href="{{ url('/register') }}">sign up</a></li>
