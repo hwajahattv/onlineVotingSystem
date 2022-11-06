@@ -11,14 +11,15 @@
                         <div class="card-body box-style">
                             <div class="media align-items-center">
                                 <div class="media-body me-3 ">
-                                    <h2 class=" text-black font-w700 text-center">The 2022 Papua New Guinea National Election Results</h2>
-                                <ul>
-                                    <li class="fs-14 welcome_page_li">
-                                        <a class="welcome_page_btn" href="{{ url('/home') }}">
-                                            VIEW THE ELECTION RESULTS HERE
-                                        </a>
-                                    </li>
-                                </ul>
+                                    <h2 class=" text-black font-w700 text-center">The 2022 Papua New Guinea National
+                                        Election Results</h2>
+                                    <ul>
+                                        <li class="fs-14 welcome_page_li">
+                                            <a class="welcome_page_btn" href="{{ url('/home') }}">
+                                                VIEW THE ELECTION RESULTS HERE
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
 
                             </div>
@@ -26,42 +27,44 @@
                     </div>
                 </div>
                 <div style="height: 200px" class="">
-                            <div class="card card-bd welcome_dashboard-card">
-                                <div class="bg-warning card-border"></div>
-                                <div class="card-body box-style">
-                                    <div class="media align-items-center">
-                                        <div class="media-body me-3 ">
-                                            <h2 class=" text-black font-w700 text-center">
-                                                National Election Results Website Videos</h2>
-                                            <ul>
-                                                <li class="fs-14 welcome_page_li">
-                                                    <a class="welcome_page_btn" href="{{ url('/home') }}">
-                                                        THE PNGEC RESULTS WEBSITE
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
+                    <div class="card card-bd welcome_dashboard-card">
+                        <div class="bg-warning card-border"></div>
+                        <div class="card-body box-style">
+                            <div class="media align-items-center">
+                                <div class="media-body me-3 ">
+                                    <h2 class=" text-black font-w700 text-center">
+                                        National Election Results Website Videos</h2>
+                                    <ul>
+                                        <li class="fs-14 welcome_page_li">
+                                            <a class="welcome_page_btn" href="{{ url('/home') }}">
+                                                THE PNGEC RESULTS WEBSITE
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
+
                             </div>
+                        </div>
+                    </div>
                 </div>
                 <div style="height: 200px" class="">
-                    <a href="{{ route('registerAsVoter') }}">
-                        <div class="card card-bd welcome_dashboard-card">
-                            <div class="bg-primary card-border"></div>
-                            <div class="card-body box-style">
-                                <div class="media align-items-center">
-                                    <div class="media-body me-3">
-                                        <h2 style="font-size: 1rem;" class="text-black font-w700">Get registered as a
-                                            voter</h2>
-                                        <span class="fs-14">Population Registration System</span>
-                                    </div>
-
+                    <div class="card card-bd welcome_dashboard-card">
+                        <div class="bg-primary card-border"></div>
+                        <div class="card-body box-style">
+                            <div class="media align-items-center">
+                                <div class="media-body me-3 ">
+                                    <h2 class=" text-black font-w700 text-center">Population Registration System</h2>
+                                    <ul>
+                                        <li class="fs-14 welcome_page_li">
+                                            <a class="welcome_page_btn" href="{{ route('registerAsVoter') }}">
+                                                GET REGISTERED AS A VOTER
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div style="height: 200px" class="">
                     <div class="card card-bd welcome_dashboard-card">

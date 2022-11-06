@@ -519,6 +519,7 @@ ul.sign li a i {
     padding: 6px 0;
     font-weight: 600;
     text-transform: uppercase;
+    /*color: #FFFFFF;*/
 }
 .welcome_page_li{
     display: flex;
