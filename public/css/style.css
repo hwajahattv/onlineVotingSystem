@@ -5393,6 +5393,10 @@ fieldset:disabled .btn {
     flex: 1 1 auto;
     padding: 1rem 1rem;
 }
+card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
 
 .card-title {
     margin-bottom: 0.5rem;
@@ -64503,6 +64507,11 @@ table.dataTable.display tbody td {
 .dashboard-card{
     box-shadow: 10px 10px 20px #cbced1,
     -10px -10px 20px #ffffff;
+}
+.welcome_dashboard-card{
+    box-shadow: 10px 10px 20px #cbced1,
+    -10px -10px 20px #ffffff;
+    background-color: #008356;
 }
 .card-header a i {
     width: 51px;

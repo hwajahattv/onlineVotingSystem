@@ -156,8 +156,8 @@
 <script src="{{ asset('js/deznav-init.js') }}"></script>
 <script src="{{ asset('js/demo.js') }}"></script>
 <script src="{{ asset('js/electionFormSubmit.js') }}"></script>
+<script src="{{ asset('js/collapse.js') }}"></script>
 <script src="{{ asset('js/styleSwitcher.js') }}"></script>
-
 
 </body>
 
