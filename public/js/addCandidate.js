@@ -9,128 +9,66 @@ $("#selectOccupation").change(function () {
 });
 var subjectObject = {
     "HIGHLANDS": {
-        "CHIMBU": [
-            "CHUAVE",
-            "GUMINE",
-            "KARIMUI-NOMANE",
-            "KEROWAGI",
-            "SINASINA-YONGGAMUGL,",
-            "KUNDIAWA",
-        ],
-        "EASTERN HIGHLANDS": [
-            "DAULO",
-            "GOROKA",
-            "HENGANOFI",
-            "KAINANTU",
-            "LUFA",
-            "OBURA-WONENARA",
-            "OKAPA",
-            "UNGAI-BENA",
-        ],
-        "ENGA": [
-            "KANDEP",
-            "KOMPIAM/AMBUM",
-            "LAGAIP",
-            "POGERA-PAIELA",
-            "WABAG",
-            "WAPENAMANDA",
-        ],
-        "HELA": ["KOMO-HULIA", "KOROBA KUPIAGO", "MAGARIMA", "TARI/PORI"],
-        "JIWAKA": ["ANGLIMP/SOUTH WAGHI", "JIMI", "NORTH WAGHI"],
-        "SOUTHERN HIGHLANDS": [
-            "IALIBU/PANGIA",
-            "IMBONGGU",
-            "KAGUA/ERAVE",
-            "MENDI",
-        ],
-        "WESTERN HIGHLANDS": [
-            "DEI",
-            "HAGEN CENTRAL",
-            "MUL-BAIYER",
-            "TAMBUL/NEBILYER",
-        ],
-    },
-    "NEW_GUINEA_ISLANDS": {
-        "BOUGAINVILLE": [
-            "CENTRAL BOUGAINVILLE",
-            "NORTH BOUGAINVILLE",
-            "SOUTH BOUGAINVILLE",
-        ],
-        "EAST NEW BRITAIN": ["GAZELLE", "KOKOPO", "POMIO", "RABAUL"],
-        "MANUS": ["MANUS"],
-        "NEW IRELAND": ["KAVIENG", "NAMATANAI"],
-        "WEST NEW BRITAIN": ["KANDRIAN-GLOUCESTER", "NAKANAI", "TALASEA"],
-    },
-
-    "MOMASE": {
-        "EAST SEPIK": [
-            "AMBUNTI-DREIKIKIR",
-            "ANGORAM",
-            "MAPRIK",
-            "WEWAK",
-            "WOSERA-GAUI",
-            "YANGORU-SAUSSIA",
-        ],
-        "MADANG": [
-            "BOGIA",
-            "MADANG",
-            "MIDDLE RAMU",
-            "RAI COAST",
-            "SUMKAR",
-            "USINO-BUNDI",
-        ],
-        "MOROBE": [
-            "BULOLO",
-            "FINSCHAFEN",
-            "HUON GULF",
-            "KABWUM",
-            "LAE",
-            "MARKHAM",
-            "MENYAMYA",
-            "NAWAE",
-            "TEWAI-SIASSI",
-            "WAU-WARIA",
-        ],
-        "WEST SEPIK": [
-            "AITAPE-LUMI",
-            "NUKU",
-            "TELEFOMIN",
-            "VANIMO-GREEN RIVER",
-        ],
-    },
-    "SOUTHERN": {
-        "CENTRAL": ["ABAU", "GOILALA", "x.x", "KAIRUKU", "RIGO"],
-        "Gulf": ["KEREMA", "KIKORI"],
-        "MILNE BAY": [
-            "ALOTAU",
-            "ESAALA",
-            "KIRIWINA/GOODENOUGH",
-            "SAMARAI-MURUA",
-        ],
-        "NATIONAL CAPITAL DISTRICT": [
-            "MORESBY NORTH-EAST",
-            "MORESBY NORTH-WEST",
-            "MORESBY SOUTH",
-        ],
-        "NORTHERN": ["IJIVITARI", "POPONDETTA", "SOHE"],
-        "WESTERN": ["DELTA FLY", "MIDDLE FLY", "NORTH FLY", "SOUTH FLY"],
-    },
+        "CHIMBU": {
+            "CHUAVE": {
+                "abd": ["a", "b"],
+            },
+            "GUMINE": {
+                "abd": ["d", "bd"],
+            },
+            "KARIMUI-NOMANE": {
+                "abd": ["ad", "bd"],
+            },
+            "KEROWAGI": {
+                "abd": ["aq", "bq"],
+            },
+            "SINASINA-YONGGAMUGL,": {
+                "abd": ["at", "yb"],
+            },
+            "KUNDIAWA": {
+                "abd": ["ayy", "byyy"],
+            },
+        },
+    }
 };
 window.onload = function () {
-    var subjectSel = document.getElementById("region_select");
-    var topicSel = document.getElementById("province_select");
-    var chapterSel = document.getElementById("district_select");
+    var regionSel = document.getElementById("region_select");
+    var provinceSelect = document.getElementById("province_select");
+    var districtSelect = document.getElementById("district_select");
+    var topicSel=     document.getElementById("LLG_select");
+    var chapterSel=    document.getElementById("ward_select");
 
-    for (var x in subjectObject) {
-        subjectSel.options[subjectSel.options.length] = new Option(x, x);
+    for (var v in subjectObject) {
+        regionSel.options[regionSel.options.length] = new Option(v, v);
     }
 
-    subjectSel.onchange = function () {
+    regionSel.onchange = function () {
+        //empty Chapters- and Topics- dropdowns
+        provinceSelect.length = 1;
+        districtSelect.length = 1;
+        chapterSel.length = 1;
+        topicSel.length = 1;
+        //display correct values
+        for (var w in subjectObject[this.value]) {
+            provinceSelect.options[provinceSelect.options.length] = new Option(w, w);
+        }
+    };
+    provinceSelect.onchange = function () {
+        //empty Chapters- and Topics- dropdowns
+        districtSelect.length = 1;
+        chapterSel.length = 1;
+        topicSel.length = 1;
+        //display correct values
+        for (var x in subjectObject[regionSel.value][this.value]) {
+            districtSelect.options[districtSelect.options.length] = new Option(x, x);
+        }
+    };
+    districtSelect.onchange = function () {
         //empty Chapters- and Topics- dropdowns
         chapterSel.length = 1;
         topicSel.length = 1;
         //display correct values
-        for (var y in subjectObject[this.value]) {
+        for (var y in subjectObject[regionSel.value][provinceSelect.value][this.value]) {
             topicSel.options[topicSel.options.length] = new Option(y, y);
         }
     };
@@ -138,7 +76,7 @@ window.onload = function () {
         //empty Chapters dropdown
         chapterSel.length = 1;
         //display correct values
-        var z = subjectObject[subjectSel.value][this.value];
+        var z = subjectObject[regionSel.value][provinceSelect.value][districtSelect.value][this.value];
         for (var i = 0; i < z.length; i++) {
             chapterSel.options[chapterSel.options.length] = new Option(
                 z[i],
@@ -147,20 +85,43 @@ window.onload = function () {
         }
     };
 
-    var subjectSel1 = document.getElementById("region_select1");
-    var topicSel1 = document.getElementById("province_select1");
-    var chapterSel1 = document.getElementById("district_select1");
-
-    for (var x in subjectObject) {
-        subjectSel1.options[subjectSel1.options.length] = new Option(x, x);
+    //for current address
+    var regionSel1 = document.getElementById("region_select1");
+    var provinceSelect1 = document.getElementById("province_select1");
+    var districtSelect1 = document.getElementById("district_select1");
+    var topicSel1=     document.getElementById("LLG_select1");
+    var chapterSel1=    document.getElementById("ward_select1");
+    for (var v in subjectObject) {
+        regionSel1.options[regionSel1.options.length] = new Option(v, v);
     }
 
-    subjectSel1.onchange = function () {
+    regionSel1.onchange = function () {
+        //empty Chapters- and Topics- dropdowns
+        provinceSelect1.length = 1;
+        districtSelect1.length = 1;
+        chapterSel1.length = 1;
+        topicSel1.length = 1;
+        //display correct values
+        for (var w in subjectObject[this.value]) {
+            provinceSelect1.options[provinceSelect1.options.length] = new Option(w, w);
+        }
+    };
+    provinceSelect1.onchange = function () {
+        //empty Chapters- and Topics- dropdowns
+        districtSelect1.length = 1;
+        chapterSel1.length = 1;
+        topicSel1.length = 1;
+        //display correct values
+        for (var x in subjectObject[regionSel1.value][this.value]) {
+            districtSelect1.options[districtSelect1.options.length] = new Option(x, x);
+        }
+    };
+    districtSelect1.onchange = function () {
         //empty Chapters- and Topics- dropdowns
         chapterSel1.length = 1;
         topicSel1.length = 1;
         //display correct values
-        for (var y in subjectObject[this.value]) {
+        for (var y in subjectObject[regionSel1.value][provinceSelect1.value][this.value]) {
             topicSel1.options[topicSel1.options.length] = new Option(y, y);
         }
     };
@@ -168,7 +129,7 @@ window.onload = function () {
         //empty Chapters dropdown
         chapterSel1.length = 1;
         //display correct values
-        var z = subjectObject[subjectSel1.value][this.value];
+        var z = subjectObject[regionSel1.value][provinceSelect1.value][districtSelect1.value][this.value];
         for (var i = 0; i < z.length; i++) {
             chapterSel1.options[chapterSel1.options.length] = new Option(
                 z[i],

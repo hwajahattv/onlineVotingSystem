@@ -21,12 +21,21 @@ class VoterController extends Controller
     public function addVoterPost(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
-            'CNIC' => 'required|max:13|unique:voters,CNIC',
-            'phone_no' => 'required|max:11',
-            'email' => 'required|email|unique:voters,email',
+            'name' => 'required|max:25',
+            'surName' => 'required|max:25',
+            'age' => 'integer',
+            'gender' => 'required',
+            'dob' => 'required|date',
+            'occupation' => 'required',
+            'religion' => 'required',
+            'birth_region' => 'required',
+            'birth_province' => 'required',
+            'current_region' => 'required',
+            'current_province' => 'required',
+            'policeClearanceCertificate' => 'required',
+            'political_party' => 'required',
             'profilePicture' =>
-            'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
+                'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
         ]);
         $data = $request->all();
 
@@ -35,10 +44,30 @@ class VoterController extends Controller
         $voter = new Voter;
 
         $voter->name = $data["name"];
-        $voter->CNIC = $data["CNIC"];
-        $voter->phone_no = $data["phone_no"];
-        $voter->email = $data["email"];
-        $voter->address = $data["address"];
+        $voter->middleName = $data["middleName"];
+        $voter->surName = $data["surName"];
+        $voter->dob = $data["dob"];
+        $voter->age = $data["age"];
+        $voter->gender = $data["gender"];
+        $voter->occupation = $data["occupation"];
+        $voter->school = $data["school"];
+        $voter->religion = $data["religion"];
+        $voter->local_church = $data["local_church"];
+        $voter->birth_region = $data["birth_region"];
+        $voter->birth_province = $data["birth_province"];
+        $voter->birth_district = $data["birth_district"];
+        $voter->birth_LLG = $data["birth_LLG"];
+        $voter->birth_ward = $data["birth_ward"];
+        $voter->birth_village = $data["birth_village"];
+        $voter->current_region = $data["current_region"];
+        $voter->current_province = $data["current_province"];
+        $voter->current_district = $data["current_district"];
+        $voter->current_LLG = $data["current_LLG"];
+        $voter->current_ward = $data["current_ward"];
+        $voter->current_village = $data["current_village"];
+        $voter->political_party = $data["political_party"];
+        $voter->policeClearanceCertificate = $data["policeClearanceCertificate"];
+
         //image validation
 
         if ($request->hasfile('profilePicture')) {
