@@ -187,7 +187,10 @@ img {
     border-color: #ffffff !important;
     box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
 }
-
+.navbar-collapse {
+    background-color: #003610;
+    z-index: 9;
+}
 .navbar-form input {
     border: none !important;
 }
@@ -443,7 +446,7 @@ ul.conta_icon li a:hover {
 .header_bo {
     background-color: #003610;
     width: 100%;
-    height: 70px;
+    height: 76px;
 }
 
 
@@ -548,8 +551,8 @@ ul.sign li a i {
 }
 
 .text-bg h1 {
-    color: #fff;
-    font-size: 60px;
+    color: #003610;
+    font-size: 36px;
     line-height: 70px;
     font-weight: bold;
 }

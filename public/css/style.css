@@ -13945,7 +13945,7 @@ svg.pulse-svg .third-circle {
     [data-sidebar-style="full"] .header,
     [data-sidebar-style="overlay"] .header {
         width: 100%;
-        padding-left: 5rem;
+        padding-left: 0rem;
     }
 }
 

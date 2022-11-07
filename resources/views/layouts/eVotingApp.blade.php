@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+{{--    <meta name="csrf-token" content="{{ csrf_token() }}"/>--}}
     <title>Voting App</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+{{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+{{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -28,10 +28,15 @@
     <link rel="stylesheet" href="{{ asset('vendor/chartist/css/chartist.min.css') }}">
     <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-{{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">--}}
+    {{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     @yield('links')
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <style>
+        .header {
+            padding-left: 0rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,87 +51,95 @@
 <!--*******************
     Preloader end
 ********************-->
-<div class="">
+<header>
+    <!-- header inner -->
+    <div class="header">
 
-    <div class="header_bo">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 col-sm-7 navbar-default">
-                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+        <div class="header_bo">
+{{--            <div class="container">--}}
+                <div class="row">
+                    <div class="col-md-9 col-sm-7 navbar-default">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarsExample04" aria-controls="navbarsExample04"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
 
-                        <div class="collapse navbar-collapse" id="navbarsExample04">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url('/') }}"> Home </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about.html">Information Center</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/voterLookUp') }}">Voter Lookup</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/pollingSchedule') }}">Polling Schedule</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact us </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Social Media</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <div class="col-md-3 col-sm-5 d_none">
-                    <ul class="sign">
-                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                        @if (Route::has('login'))
-                            @auth
-                                <li><a class="sign_btn" href="{{ url('/home') }}">home</a></li>
-                            @else
-                                <li><a class="sign_btn" href="{{ url('/login') }}">sign in</a></li>
-                            @endauth
-                        @endif
-                        <li><a class="sign_btn" href="{{ url('/register') }}">sign up</a></li>
-                    </ul>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{{ url('/') }}"> Home </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about.html">Information Center</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('/voterLookUp') }}">Voter Lookup</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('/pollingSchedule') }}">Polling Schedule</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Contact us </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Social Media</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-md-3 col-sm-5 d_none">
+                        <ul class="sign">
+                            <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                            @if (Route::has('login'))
+                                @auth
+                                    <li><a class="sign_btn" href="{{ url('/home') }}">home</a></li>
+                                @else
+                                    <li><a class="sign_btn" href="{{ url('/login') }}">sign in</a></li>
+                                @endauth
+                            @endif
+                            <li><a class="sign_btn" href="{{ url('/register') }}">sign up</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+{{--    </div>--}}
+</header>
+<!--**********************************
+    Header end ti-comment-alt
+***********************************-->
+
+<!--**********************************
+    Sidebar start
+***********************************-->
+
+<!--**********************************
+    Content body start
+***********************************-->
+<section class="banner_main">
+    <div class="container">
+@yield('content')
     </div>
-    <!--**********************************
-        Header end ti-comment-alt
-    ***********************************-->
+</section>
 
-    <!--**********************************
-        Sidebar start
-    ***********************************-->
-
-    <!--**********************************
-        Content body start
-    ***********************************-->
-
-    @yield('content')
-
-    <!--**********************************
+<!--**********************************
             Footer start
         ***********************************-->
-    <div class="footer">
-        <div class="copyright">
-            <p>Designed <span class="heart"></span> <a href="#">AC</a> 2022</p>
-        </div>
+<div class="footer">
+    <div class="copyright">
+        <p>Designed <span class="heart"></span> <a href="#">AC</a> 2022</p>
     </div>
-    <!--**********************************
-        Footer end
-    ***********************************-->
+</div>
+<!--**********************************
+    Footer end
+***********************************-->
 
 
 </div>
@@ -157,6 +170,13 @@
 <script src="{{ asset('js/electionFormSubmit.js') }}"></script>
 <script src="{{ asset('js/collapse.js') }}"></script>
 <script src="{{ asset('js/styleSwitcher.js') }}"></script>
+{{--<script src="{{asset('js/welcome/jquery.min.js')}}"></script>--}}
+{{--<script src="{{asset('js/welcome/popper.min.js')}}"></script>--}}
+<script src="{{asset('js/welcome/bootstrap.bundle.min.js')}}"></script>
+{{--<script src="{{asset('js/welcome/jquery-3.0.0.min.js')}}"></script>--}}
+{{--<script src="{{asset('js/welcome/owl.carousel.min.js')}}"></script>--}}
+<!-- sidebar -->
+{{--<script src="{{asset('js/welcome/jquery.mCustomScrollbar.concat.min.js')}}"></script>--}}
 @yield('script')
 </body>
 

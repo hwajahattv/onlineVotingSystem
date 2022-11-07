@@ -6,7 +6,9 @@
 @section('content')
     <div class="content-body" style="margin-left: 0;">
         <div class="container-fluid">
+            <div class="text-bg">
             <h1>Select the region and then province to see its schedule.</h1>
+            </div>
             <div class="card overflow-hidden">
                 <div class="card-body">
                     <div class="cd-faq__items">
