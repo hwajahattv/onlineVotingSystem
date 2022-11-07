@@ -30,6 +30,8 @@ Route::get('/', function () {
 Route::get('/registerAsVoter', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');
 Route::post('/registerAsVoterPost', [HomeController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
 Route::get('/voterLookUp', [HomeController::class, 'voterLookUp'])->name('voterLookUp');
+Route::get('/pollingSchedule', [HomeController::class, 'pollingSchedule'])->name('pollingSchedule');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
 
 Route::group(['auth'=> 'middleware'], function () {

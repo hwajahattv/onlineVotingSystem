@@ -74,4 +74,11 @@ class HomeController extends Controller
     {
         return view('voterLookUp');
     }
+    public function pollingSchedule()
+    {
+        return view('electionSchedule');
+    }    public function faq()
+    {
+        return view('faq');
+    }
 }

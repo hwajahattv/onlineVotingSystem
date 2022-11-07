@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    @yield('links')
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -28,9 +28,9 @@
     <link rel="stylesheet" href="{{ asset('vendor/chartist/css/chartist.min.css') }}">
     <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-
+    @yield('links')
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
@@ -71,10 +71,10 @@
                                     <a class="nav-link" href="{{ url('/voterLookUp') }}">Voter Lookup</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="team.html">Polling Schedule</a>
+                                    <a class="nav-link" href="{{ url('/pollingSchedule') }}">Polling Schedule</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="client.html">FAQ</a>
+                                    <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.html">Contact us </a>
