@@ -9,9 +9,14 @@
                         @foreach ($errors->all() as $error)
                             <li style="height: 10px; font-size: 10px"
                                 class="alert alert-danger alert-dismissible fade show">
+                                {{-- <div class="alert alert-danger alert-dismissible fade show py-2 mx-5 my-2" role="alert"> --}}
                                 {{ $error }}
+                                {{-- </div> --}}
                             </li>
                         @endforeach
+                        {{--                        @if (Session::has('message')) --}}
+                        {{--                            <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div> --}}
+                        {{--                        @endif --}}
                     </div>
                 @endif
             </ul>
@@ -19,6 +24,7 @@
                 <div class="col-xl-12">
                     <div class="card overflow-hidden">
                         <div class="card-body">
+
                             <h3 class="text-center display-3">Enter the candidate details</h3>
                             <form method="post" enctype="multipart/form-data" action="{{ route('addCandidatePost') }}">
                                 @csrf
@@ -172,33 +178,39 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Birth Region <i
-                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                    <select class="form-control" name="birth_region"
-                                                            id="region_select">
-                                                        <option value="" selected="selected">Select Region</option>
-                                                    </select>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Region <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                        <select class="form-control" name="birth_region"
+                                                                id="region_select">
+                                                            <option value="" selected="selected">Select Region</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Birth Province <i
-                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                    <select class="form-control" name="birth_province"
-                                                            id="province_select">
-                                                        <option value="" selected="selected">Select Province
-                                                        </option>
-                                                    </select>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth Province <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                        <select class="form-control" name="birth_province"
+                                                                id="province_select">
+                                                            <option value="" selected="selected">Select Province
+                                                            </option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Birth District</label>
-                                                    <select class="form-control" name="birth_district"
-                                                            id="district_select">
-                                                        <option value="" selected="selected">Select District
-                                                        </option>
-                                                    </select>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Birth District</label>
+                                                        <select class="form-control" name="birth_district"
+                                                                id="district_select">
+                                                            <option value="" selected="selected">Select District
+                                                            </option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

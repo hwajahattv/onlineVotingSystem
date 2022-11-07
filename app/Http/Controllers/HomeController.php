@@ -70,4 +70,8 @@ class HomeController extends Controller
         $voter->save();
         return redirect()->back()->with(['message', 'Message sent!']);
     }
+    public function voterLookUp()
+    {
+        return view('voterLookUp');
+    }
 }

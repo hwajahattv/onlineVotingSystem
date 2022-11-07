@@ -29,6 +29,7 @@ Route::get('/', function () {
 // Route::get('/register', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');
 Route::get('/registerAsVoter', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');
 Route::post('/registerAsVoterPost', [HomeController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
+Route::get('/voterLookUp', [HomeController::class, 'voterLookUp'])->name('voterLookUp');
 
 
 Route::group(['auth'=> 'middleware'], function () {

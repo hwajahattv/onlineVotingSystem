@@ -68,7 +68,7 @@
                                     <a class="nav-link" href="about.html">Information Center</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="service.html">Voter Lookup</a>
+                                    <a class="nav-link" href="{{ url('/voterLookUp') }}">Voter Lookup</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="team.html">Polling Schedule</a>
@@ -157,7 +157,7 @@
 <script src="{{ asset('js/electionFormSubmit.js') }}"></script>
 <script src="{{ asset('js/collapse.js') }}"></script>
 <script src="{{ asset('js/styleSwitcher.js') }}"></script>
-
+@yield('script')
 </body>
 
 </html>
