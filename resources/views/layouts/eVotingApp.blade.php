@@ -15,7 +15,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+{{--    @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
     {{-- ********************************************************** --}}
     {{-- ********************************************************** --}}
     {{-- ********************************************************** --}}
@@ -31,7 +31,7 @@
     {{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     @yield('links')
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://kit.fontawesome.com/246bdfaca3.js" crossorigin="anonymous"></script>
     <style>
         .header {
             padding-left: 0rem;
@@ -85,7 +85,7 @@
                                         <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact us </a>
+                                        <a class="nav-link" href="{{ url('/contact') }}">Contact us </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="contact.html">Social Media</a>

@@ -389,6 +389,6 @@ const Collapse = (($) => {
     }
 
     return Collapse
-})($)
+})($);
 
 export default Collapse

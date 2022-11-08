@@ -32,6 +32,8 @@ Route::post('/registerAsVoterPost', [HomeController::class, 'registerAsVoterPost
 Route::get('/voterLookUp', [HomeController::class, 'voterLookUp'])->name('voterLookUp');
 Route::get('/pollingSchedule', [HomeController::class, 'pollingSchedule'])->name('pollingSchedule');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/electionVideoPage', [HomeController::class, 'electionVideoPage'])->name('electionVideoPage');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 
 Route::group(['auth'=> 'middleware'], function () {
