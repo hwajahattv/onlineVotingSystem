@@ -90,4 +90,8 @@ class HomeController extends Controller
     {
         return view('contact');
     }
+    public function allRegionOffices()
+    {
+        return view('allRegionOffices');
+    }
 }

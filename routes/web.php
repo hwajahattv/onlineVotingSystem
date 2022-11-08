@@ -34,6 +34,7 @@ Route::get('/pollingSchedule', [HomeController::class, 'pollingSchedule'])->name
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/electionVideoPage', [HomeController::class, 'electionVideoPage'])->name('electionVideoPage');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/allRegionOffices', [HomeController::class, 'allRegionOffices'])->name('allRegionOffices');
 
 
 Route::group(['auth'=> 'middleware'], function () {

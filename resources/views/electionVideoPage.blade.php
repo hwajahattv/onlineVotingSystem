@@ -21,9 +21,5 @@
     </div>
 
 @endsection
-@section('script')
 
-    <script src="{{ asset('js/faq.js') }}"></script>
-    <script src="{{ asset('js/faq2.js') }}"></script>
-@endsection
 
