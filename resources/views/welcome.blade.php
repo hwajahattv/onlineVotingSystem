@@ -63,31 +63,32 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <i class="fa fa-users" style='font-size:42px; color: #007bff'></i>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div style="height: 200px" class="">
                     <div class="card card-bd welcome_dashboard-card">
-                        <div class="bg-info card-border"></div>
+                        <div class="bg-success2 card-border"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
                                 <div class="media-body me-3">
-                                    <h2 class="text-black font-w700">Cast your vote</h2>
-                                    <span class="fs-14">Election ABC</span>
+                                    <h2 class="text-black font-w700 text-center">Cast your vote</h2>
+                                    <span class="fs-14 text-white">Test Election</span>
                                 </div>
-                                <i class='fas fa-vote-yea' style='font-size:42px; color: #3ECDFF'></i>
+                                <i class='fas fa-vote-yea' style='font-size:42px; color: #612697'></i>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div style="height: 200px" class="">
                     <div class="card card-bd welcome_dashboard-card">
-                        <div class="bg-info card-border"></div>
+                        <div class="bg-danger card-border"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
                                 <div class="media-body me-3">
-                                    <h2 class="text-black font-w700">Check out our Official National Election Video and Song</h2>
+                                    <h2 class="text-black font-w700 text-center">Check out our Official National Election Video and Song</h2>
                                     <ul>
                                         <li class="fs-14 welcome_page_li">
                                             <a class="welcome_page_btn" href="{{ route('electionVideoPage') }}">
@@ -96,7 +97,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <i class='fas fa-vote-yea' style='font-size:42px; color: #3ECDFF'></i>
+                                <i class='fa-solid fa-video' style='font-size:42px; color: #dc3545'></i>
                             </div>
                         </div>
                     </div>

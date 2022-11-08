@@ -285,6 +285,7 @@
     --bs-primary-rgb: 665A48;
     --bs-secondary-rgb: 665A48;
     --bs-success-rgb: 104, 207, 41;
+    --bs-success2-rgb: #612697;
     --bs-info-rgb: 81, 166, 245;
     --bs-warning-rgb: 255, 172, 48;
     --bs-danger-rgb: 255, 76, 65;
@@ -8929,6 +8930,10 @@ card-body {
 .bg-success {
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+}
+.bg-success2 {
+    --bs-bg-opacity: 1;
+    background-color: #612697 !important;
 }
 
 .bg-info {
