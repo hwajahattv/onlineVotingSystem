@@ -101,7 +101,14 @@ h5 {
 .dropDown-li:hover,dropdown-item:hover {
     background-color: #F2DB18;
 }
-
+.card-bd .card-border1 {
+    position: absolute;
+    top: 15px;
+    /*left: 7px;*/
+    height: 8px;
+    width: 100%;
+    border-radius: 4px;
+}
 h6 {
     font-size: 13px
 }

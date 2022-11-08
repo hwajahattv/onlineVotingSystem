@@ -8,7 +8,7 @@
             <div class="">
                 <div style="height: 200px" class="">
                     <div class="card card-bd welcome_dashboard-card">
-                        <div class="bg-secondary card-border" style="background:#C8DBBE !important;"></div>
+                        <div class="bg-secondary card-border1" style="background:#C8DBBE !important;"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
                                 <div class="media-body me-3 ">
@@ -29,7 +29,7 @@
                 </div>
                 <div style="height: 200px" class="">
                     <div class="card card-bd welcome_dashboard-card">
-                        <div class="bg-warning card-border"></div>
+                        <div class="bg-warning card-border1"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
                                 <div class="media-body me-3 ">
@@ -50,7 +50,7 @@
                 </div>
                 <div style="height: 200px" class="">
                     <div class="card card-bd welcome_dashboard-card">
-                        <div class="bg-primary card-border"></div>
+                        <div class="bg-primary card-border1"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
                                 <div class="media-body me-3 ">
@@ -70,7 +70,7 @@
                 </div>
                 <div style="height: 200px" class="">
                     <div class="card card-bd welcome_dashboard-card">
-                        <div class="bg-success2 card-border"></div>
+                        <div class="bg-success2 card-border11"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
                                 <div class="media-body me-3">
@@ -84,7 +84,7 @@
                 </div>
                 <div style="height: 200px" class="">
                     <div class="card card-bd welcome_dashboard-card">
-                        <div class="bg-danger card-border"></div>
+                        <div class="bg-danger card-border1"></div>
                         <div class="card-body box-style">
                             <div class="media align-items-center">
                                 <div class="media-body me-3">
