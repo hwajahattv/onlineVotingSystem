@@ -72,8 +72,18 @@
                                     <li class="nav-item active">
                                         <a class="nav-link" href="{{ url('/') }}"> Home </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="about.html">Information Center</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Information Center</a>
+                                        <ul class="dropdown-menu fade-down" style="background-color: #003610">
+                                            <li class="dropDown-li"><a class="dropdown-item" href="">ABOUT PNGEC</a></li>
+                                            <li class="dropDown-li"><a class="dropdown-item" href="">PNGEC FACT SHEET</a></li>
+                                            <li class="dropDown-li"><a class="dropdown-item" href="">VOTER INFORMATION</a></li>
+                                            <li class="dropDown-li"><a class="dropdown-item" href="">OBSERVER INFORMATION</a></li>
+                                            <li class="dropDown-li"><a class="dropdown-item" href="">POLTITICAL PARTIES AND<br>CANDIDATES INFORMATION</a></li>
+                                            <li class="dropDown-li"><a class="dropdown-item" href="">MEDIA</a></li>
+                                            <li class="dropDown-li"><a class="dropdown-item" href="">GALLERY</a></li>
+                                            <li class="dropDown-li"><a class="dropdown-item" href="">ARCHIVE</a></li>
+                                        </ul>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('/voterLookUp') }}">Voter Lookup</a>
@@ -84,12 +94,17 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item ">
                                         <a class="nav-link" href="{{ url('/contact') }}">Contact us </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Social Media</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Social Media</a>
+                                        <ul class="dropdown-menu fade-down" style="background-color: #003610">
+                                            <li class="dropDown-li"><a class="dropdown-item" href="https://www.youtube.com/channel/UCblxoe_dGP8hvlv4p-qnoqg"> YouTube</a></li>
+                                            <li class="dropDown-li"><a class="dropdown-item" href="https://www.facebook.com/pngelectoralcommission"> Facebook</a></li>
+                                        </ul>
                                     </li>
+
                                 </ul>
                             </div>
                         </nav>
