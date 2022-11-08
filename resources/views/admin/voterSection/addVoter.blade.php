@@ -55,7 +55,6 @@
                 <div class="col-xl-12">
                     <div class="card overflow-hidden">
                         <div class="card-body">
-
                             <h3 class="text-center display-3">Enter the elector details</h3>
                             <form method="post" enctype="multipart/form-data" action="{{ route('addVoterPost') }}">
                                 @csrf
@@ -392,6 +391,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
+                            </form>
                         </div>
                     </div>
                 </div>

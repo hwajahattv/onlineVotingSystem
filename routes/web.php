@@ -32,16 +32,16 @@ Route::post('/registerAsVoterPost', [HomeController::class, 'registerAsVoterPost
 Route::get('/voterLookUp', [HomeController::class, 'voterLookUp'])->name('voterLookUp');
 Route::get('/pollingSchedule', [HomeController::class, 'pollingSchedule'])->name('pollingSchedule');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
-Route::get('/electionVideoPage', [HomeController::class, 'electionVideoPage'])->name('electionVideoPage');
+//Route::get('/electionVideoPage', [HomeController::class, 'electionVideoPage'])->name('electionVideoPage');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/allRegionOffices', [HomeController::class, 'allRegionOffices'])->name('allRegionOffices');
 
 
 Route::group(['auth'=> 'middleware'], function () {
-    Route::get('/home', [AdminController::class, 'index'])->name('home')->middleware('verified');;
-    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('verified');;
+    Route::get('/home', [AdminController::class, 'index'])->name('home')->middleware('verified');
+    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('verified');
     // candidate services
-    Route::get('/candidateSection', [CandidateController::class, 'candidateSection'])->name('candidateSection');
+    Route::get('/candidateSection', [CandidateController::class, 'candidateSection'])->name('candidateSection')->middleware('SuperAdmin');
     Route::get('/showCandidates', [CandidateController::class, 'showCandidates'])->name('showCandidates');
     // to add New candidate
     Route::get('/addCandidate', [CandidateController::class, 'addCandidate'])->name('addCandidate');

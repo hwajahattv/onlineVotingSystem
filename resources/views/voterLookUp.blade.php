@@ -73,32 +73,32 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group wrapper">
-                                            <div>
-                                                <div class="wrapper">
-                                                    <label for="exampleInputEmail1">Upload voter's profile image</label>
-                                                </div>
-                                                <div class="wrapper">
-                                                    <div class="file-upload">
-                                                        <input type="file" name="profilePicture"
-                                                               onchange="PreviewImage();" id="files"/>
-                                                        <i class="fa fa-arrow-up" id="uploadIcon"></i>
-                                                        <img class="imgCard mt-4 mb-2" id="uploadPreview" src=""
-                                                             class="mt-3"/>
-                                                    </div>
-                                                </div>
-                                                <div class="wrapper">
-                                                    <small id="emailHelp" class="form-text text-muted">Upload the
-                                                        passport
-                                                        size image
-                                                        (max.
-                                                        size: 100kb).</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+{{--                                    <div class="col-md-6">--}}
+{{--                                        <div class="form-group wrapper">--}}
+{{--                                            <div>--}}
+{{--                                                <div class="wrapper">--}}
+{{--                                                    <label for="exampleInputEmail1">Upload voter's profile image</label>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="wrapper">--}}
+{{--                                                    <div class="file-upload">--}}
+{{--                                                        <input type="file" name="profilePicture"--}}
+{{--                                                               onchange="PreviewImage();" id="files"/>--}}
+{{--                                                        <i class="fa fa-arrow-up" id="uploadIcon"></i>--}}
+{{--                                                        <img class="imgCard mt-4 mb-2" id="uploadPreview" src=""--}}
+{{--                                                             class="mt-3"/>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="wrapper">--}}
+{{--                                                    <small id="emailHelp" class="form-text text-muted">Upload the--}}
+{{--                                                        passport--}}
+{{--                                                        size image--}}
+{{--                                                        (max.--}}
+{{--                                                        size: 100kb).</small>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+                                    <button type="submit" class="btn btn-primary">Check if I am registered.</button>
                                 </div>
                             </form>
                         </div>

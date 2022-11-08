@@ -86,7 +86,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/voterLookUp') }}">Voter Lookup</a>
+                                        <a class="nav-link" href="{{ url('/voterLookUp') }}">Check if I am registered</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('/pollingSchedule') }}">Polling Schedule</a>

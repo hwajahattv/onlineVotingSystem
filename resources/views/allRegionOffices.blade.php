@@ -529,7 +529,7 @@
                                         <div class="col-md-4">
                                             <img src="{{asset('/icons/flags/southernHighlands.png')}}" alt="ttt">
                                         </div>
-                                        <div class="col-md-8"><h2 class="text-black font-w700" style="font-size: 1.575rem;">
+                                        <div class="col-md-8"><h2 class="text-black font-w700" style="font-size: 1.275rem;">
                                                 Southern
                                                 Highlands</h2>
                                         </div>
