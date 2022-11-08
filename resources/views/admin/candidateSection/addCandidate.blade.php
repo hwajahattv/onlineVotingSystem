@@ -307,12 +307,12 @@
                                                     <select class="form-control" name="political_party"
                                                             id="selectOccupation">
                                                         <option selected disabled>--select--</option>
-                                                        <option value="A">A</option>
-                                                        <option value="B">B</option>
-                                                        <option value="C">C</option>
-                                                        <option value="D">D</option>
+                                                        @foreach($politicalPartyList as $item)
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                        @endforeach
                                                         <option value="others">others</option>
                                                     </select>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-5">
@@ -339,8 +339,10 @@
                                                 </div>
                                                 <div class="wrapper">
                                                     <div class="file-upload">
-                                                        <input type="file" name="profilePicture"/>
-                                                        <i class="fa fa-arrow-up"></i>
+                                                        <input type="file" name="profilePicture"
+                                                               onchange="PreviewImage();" id="files"/>
+                                                        <i class="fa fa-arrow-up" id="uploadIcon"></i>
+                                                        <img class="imgCard mt-4 mb-2" id="uploadPreview" src=""/>
                                                     </div>
                                                 </div>
                                                 <div class="wrapper">
@@ -363,8 +365,8 @@
             </div>
         </div>
     </div>
-    {{-- </div> --}}
-    <!--**********************************
-                                                                                                                                                                                                                                                                                                                                                                                                                            Content body end
-                                                                                                                                                                                                                                                                                                                                                                                                                        ***********************************-->
+                                                                                                                                                                                                                                                                                                                                                                                                        ***********************************-->
+@endsection
+@section('script')
+    <script src="{{ asset('js/imageUploadIcon.js') }}"></script>
 @endsection

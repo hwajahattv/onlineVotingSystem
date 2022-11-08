@@ -428,12 +428,13 @@
                                             <label for="exampleInputEmail1">Upload candidate's profile
                                                 image</label>
                                         </div>
-                                        <div class="file-upload">
-                                            <input type="file" name="profilePicture"
-                                                   onchange="PreviewImage();" id="files"/>
-                                            <i class="fa fa-arrow-up" id="uploadIcon"></i>
-                                            <img class="imgCard mt-4 mb-2" id="uploadPreview" src=""
-                                                 class="mt-3"/>
+                                        <div class="wrapper">
+                                            <div class="file-upload">
+                                                <input type="file" name="profilePicture"
+                                                       onchange="PreviewImage();" id="files"/>
+                                                <i class="fa fa-arrow-up" id="uploadIcon"></i>
+                                                <img class="imgCard mt-4 mb-2" id="uploadPreview" src=""/>
+                                            </div>
                                         </div>
                                         <div class="wrapper">
                                             <small id="emailHelp" class="form-text text-muted">Upload the
@@ -447,13 +448,12 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </div>
 
-</div>
 </div>
 
 {{-- jQuery CDN --}}

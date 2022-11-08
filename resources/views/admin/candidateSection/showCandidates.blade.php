@@ -60,14 +60,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+                    <h3 class="text-center display-3">List of all candidates</h3>
                     <div class="main-box clearfix">
                         <div class="table-responsive">
                             <table class="table tabl1 user-list">
                                 <thead>
                                     <tr>
-                                        <th><span>Candidate</span></th>
-                                        <th><span>Phone number</span></th>
-                                        <th><span>CNIC</span></th>
+                                        <th><span>Name</span></th>
+                                        <th><span>Address</span></th>
+                                        <th><span>Party Name</span></th>
                                         <th class="text-center"><span>Status</span></th>
                                         <th><span>Email</span></th>
                                         <th>&nbsp;</th>
@@ -81,14 +82,14 @@
                                                     src="{{ url('/img/uploads/candidate/' . $candidate->displayPicture) }}"
                                                     alt="">
                                                 <a class="" href="" data-bs-toggle="modal"
-                                                    data-bs-target="#showProfile">{{ $candidate->name }}</a>
-                                                <span class="user-subhead">Admin</span>
+                                                    data-bs-target="#showProfile">{{ $candidate->name }} {{$candidate->middleName}} {{$candidate->surName}}</a>
+{{--                                                <span class="user-subhead">Admin</span>--}}
                                             </td>
                                             <td>
-                                                {{ $candidate->phone_no }}
+                                                {{ $candidate->birth_ward }}, {{$candidate->birth_LLG}}, {{$candidate->birth_district}}, {{$candidate->birth_province}}, {{$candidate->birth_region}}
                                             </td>
                                             <td>
-                                                {{ $candidate->CNIC }}
+                                                {{ $candidate->politicalParty->name }}
                                             </td>
                                             <td class="text-center">
                                                 <span class="label label-default">Inactive</span>
@@ -97,8 +98,8 @@
                                                 <a href="#">{{ $candidate->email }}</a>
                                             </td>
                                             <td style="width: 20%;">
-                                                <a class="" href="" data-bs-toggle="modal"
-                                                    data-bs-target="#showProfile">
+                                                <a class="candidateDetailsOpen" id="{{$candidate->id}}" href="" data-bs-toggle="modal"
+                                                    data-bs-target="#showProfile" onClick="reply_click(this)">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
@@ -106,7 +107,7 @@
                                                 </a>
                                                 <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">
                                                     <span class="fa-stack">
-                                                        <i class="fa fa-square fa-stack-2x"></i>
+                                                        <i class="fa fa-square fa-stack-2x "></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                                                     </span>
                                                 </a>
@@ -136,7 +137,14 @@
             </div>
         </div>
     </div>
-    </div>
-    {{-- </div> --}}
-    <!--**********************************
+
+@endsection
+@section('script')
+    <script>
+        var clickedIcon =document.getElementsByClassName('candidateDetailsOpen');
+        function reply_click(id){
+            console.log(id);
+        }
+
+    </script>
 @endsection

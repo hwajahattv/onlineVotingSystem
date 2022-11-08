@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
+use App\Models\PoliticalParty;
 use Illuminate\Http\Request;
 use Image;
 use Session;
@@ -23,7 +24,9 @@ class CandidateController extends Controller
 
     public function addCandidate()
     {
-        return view('admin.candidateSection.addCandidate');
+        $politicalPartyList= PoliticalParty::all();
+//        dd($politicalPartyList);
+        return view('admin.candidateSection.addCandidate',['politicalPartyList'=>$politicalPartyList]);
     }
     public function addCandidatePost(Request $request)
     {
@@ -72,7 +75,7 @@ class CandidateController extends Controller
         $cand->current_LLG = $data["current_LLG"];
         $cand->current_ward = $data["current_ward"];
         $cand->current_village = $data["current_village"];
-        $cand->political_party = $data["political_party"];
+        $cand->political_party_id = $data["political_party"];
         $cand->policeClearanceCertificate = $data["policeClearanceCertificate"];
 
 
@@ -96,7 +99,9 @@ class CandidateController extends Controller
     }
     public function showCandidates()
     {
-        $allCandidates = Candidate::all();
+//        dd('ttt');
+        $allCandidates = Candidate::with('politicalParty')->get();
+//        dd($allCandidates);
         return view('admin.candidateSection.showCandidates', ['candidates' => $allCandidates]);
     }
     public function editCandidate($id)

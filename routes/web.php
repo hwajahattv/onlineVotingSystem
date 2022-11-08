@@ -6,6 +6,7 @@ use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VoterController;
+use \App\Http\Controllers\PoliticalPartyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Http\Request;
@@ -50,6 +51,12 @@ Route::group(['auth'=> 'middleware'], function () {
     Route::get('/editCandidate/{id}', [CandidateController::class, 'editCandidate'])->name('editCandidate');
     Route::post('/editCandidatePost/{id}', [CandidateController::class, 'editCandidatePost'])->name('editCandidatePost');
     //
+    //    Political Party routes
+    Route::get('/politicalPartySection', [PoliticalPartyController::class, 'politicalPartySection'])->name('politicalPartySection')->middleware('SuperAdmin');
+
+    // to add New Political Party
+    Route::get('/addPoliticalParty', [PoliticalPartyController::class, 'addPoliticalParty'])->name('addPoliticalParty');
+    Route::post('/addPoliticalParty/post', [PoliticalPartyController::class, 'addPoliticalPartyPost'])->name('addPoliticalPartyPost');
     // voters services
     Route::get('/voterSection', [VoterController::class, 'voterSection'])->name('voterSection');
     Route::get('/showVoters', [VoterController::class, 'showVoters'])->name('showVoters');
