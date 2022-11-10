@@ -32,6 +32,9 @@ Route::get('/', function () {
 // Route::get('/register', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');
 Route::get('/registerAsVoter', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');
 Route::post('/registerAsVoterPost', [HomeController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
+Route::get('/registerAsCandidate', [HomeController::class, 'registerAsCandidate'])->name('registerAsCandidate');
+Route::post('/registerAsCandidatePost', [HomeController::class, 'registerAsCandidatePost'])->name('registerAsCandidatePost');
+
 Route::get('/voterLookUp', [HomeController::class, 'voterLookUp'])->name('voterLookUp');
 Route::get('/pollingSchedule', [HomeController::class, 'pollingSchedule'])->name('pollingSchedule');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');

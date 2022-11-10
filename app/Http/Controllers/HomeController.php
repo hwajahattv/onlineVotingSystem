@@ -30,6 +30,9 @@ class HomeController extends Controller
     public function registerAsVoter()
     {
         return view('registerAsVoter');
+    }public function registerAsCandidate()
+    {
+        return view('registerAsCandidate');
     }
     public function registerAsVoterPost(Request $request)
     {

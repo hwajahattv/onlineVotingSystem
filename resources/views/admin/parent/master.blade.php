@@ -42,7 +42,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="{{url('/')}}" class="brand-logo">
                 <i class="logo-abbr fa-brands fa-stumbleupon"></i>
 
                 <h2 class="brand-title">Voting System</h2>

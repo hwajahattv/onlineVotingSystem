@@ -40,12 +40,12 @@
             <a class="btn btn-outline-success" href="{{ url('/') }}">Home</a>
         </div>
         <div class="col-md-11">
-            <h1 class="text-dark text-center">Population Registration System (Voter)</h1>
+            <h1 class="text-dark text-center">Population Registration System (Candidate)</h1>
         </div>
         <div class="">
             <div class="card overflow-hidden">
                 <div class="card-body">
-                    <form method="post" enctype="multipart/form-data" action="{{ route('addVoterPost') }}">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('addCandidatePost') }}">
                         @csrf
                         <div class="row">
                             <div class="col-md-8">
@@ -323,6 +323,36 @@
                                                    placeholder="">
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Political Party <i
+                                                    class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                            <select class="form-control" name="political_party"
+                                                    id="selectOccupation">
+                                                <option selected disabled>--select--</option>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                                <option value="others">others</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Police clearance ceritifcate <i
+                                                    class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                            <select class="form-control" name="policeClearanceCertificate"
+                                                    id="selectOccupation">
+                                                <option selected disabled>--select--</option>
+                                                <option value="A">Yes</option>
+                                                <option value="B">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-md-4">
