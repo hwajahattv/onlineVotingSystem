@@ -32,8 +32,6 @@ class VoterController extends Controller
             'birth_province' => 'required',
             'current_region' => 'required',
             'current_province' => 'required',
-            'policeClearanceCertificate' => 'required',
-            'political_party' => 'required',
             'profilePicture' =>
                 'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
         ]);
@@ -65,8 +63,6 @@ class VoterController extends Controller
         $voter->current_LLG = $data["current_LLG"];
         $voter->current_ward = $data["current_ward"];
         $voter->current_village = $data["current_village"];
-        $voter->political_party = $data["political_party"];
-        $voter->policeClearanceCertificate = $data["policeClearanceCertificate"];
 
         //image validation
 

@@ -34,25 +34,29 @@
                     </div>
                 </div>
             </div>
-            <ul>
-                @if ($errors->any())
-                    <div class="mx-5">
-                        @foreach ($errors->all() as $error)
-                            <li style="height: 10px; font-size: 10px"
-                                class="alert alert-danger alert-dismissible fade show">
-                                {{-- <div class="alert alert-danger alert-dismissible fade show py-2 mx-5 my-2" role="alert"> --}}
-                                {{ $error }}
-                                {{-- </div> --}}
-                            </li>
-                        @endforeach
-                        @if (Session::has('message'))
-                            <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>
-                        @endif
-                    </div>
-                @endif
-            </ul>
+
             <div class="row">
                 <div class="col-xl-12">
+                    <div class="card-body">
+                        <ul>
+                            @if ($errors->any())
+                                <div class="mx-5">
+                                    @foreach ($errors->all() as $error)
+                                        <li style="height: 10px; font-size: 10px"
+                                            class="alert alert-danger alert-dismissible fade show">
+                                            {{-- <div class="alert alert-danger alert-dismissible fade show py-2 mx-5 my-2" role="alert"> --}}
+                                            {{ $error }}
+                                            {{-- </div> --}}
+                                        </li>
+                                    @endforeach
+                                    @if (Session::has('message'))
+                                        <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>
+                                    @endif
+                                </div>
+                            @endif
+                        </ul>
+
+                    </div>
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <h3 class="text-center display-3">Enter the elector details</h3>
@@ -335,36 +339,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Political Party <i
-                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                    <select class="form-control" name="political_party"
-                                                            id="selectOccupation">
-                                                        <option selected disabled>--select--</option>
-                                                        <option value="A">A</option>
-                                                        <option value="B">B</option>
-                                                        <option value="C">C</option>
-                                                        <option value="D">D</option>
-                                                        <option value="others">others</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Police clearance ceritifcate <i
-                                                            class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                    <select class="form-control" name="policeClearanceCertificate"
-                                                            id="selectOccupation">
-                                                        <option selected disabled>--select--</option>
-                                                        <option value="A">Yes</option>
-                                                        <option value="B">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group wrapper">
@@ -375,8 +349,10 @@
                                                 </div>
                                                 <div class="wrapper">
                                                     <div class="file-upload">
-                                                        <input type="file" name="profilePicture"/>
-                                                        <i class="fa fa-arrow-up"></i>
+                                                        <input type="file" name="profilePicture"
+                                                               onchange="PreviewImage();" id="files"/>
+                                                        <i class="fa fa-arrow-up" id="uploadIcon"></i>
+                                                        <img class="imgCard mt-4 mb-2" id="uploadPreview" src=""/>
                                                     </div>
                                                 </div>
                                                 <div class="wrapper">
@@ -403,4 +379,7 @@
     <!--**********************************
                                                                                                                                                                                                                                                     Content body end
                                                                                                                                                                                                                                                 ***********************************-->
+@endsection
+@section('script')
+    <script src="{{ asset('js/imageUploadIcon.js') }}"></script>
 @endsection

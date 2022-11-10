@@ -336,7 +336,6 @@
                                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                                 @endforeach
                                             </select>
-                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-5">

@@ -100,9 +100,7 @@ class CandidateController extends Controller
     }
     public function showCandidates()
     {
-//        dd('ttt');
         $allCandidates = Candidate::with('politicalParty')->get();
-        dd($allCandidates);
         return view('admin.candidateSection.showCandidates', ['candidates' => $allCandidates]);
     }
     public function editCandidate($id)
