@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PoliticalParty;
 use App\Models\Voter;
 use Illuminate\Http\Request;
 use Image;
@@ -32,7 +33,8 @@ class HomeController extends Controller
         return view('registerAsVoter');
     }public function registerAsCandidate()
     {
-        return view('registerAsCandidate');
+        $politicalPartyList= PoliticalParty::all();
+        return view('registerAsCandidate',['politicalPartyList'=>$politicalPartyList]);
     }
     public function registerAsVoterPost(Request $request)
     {

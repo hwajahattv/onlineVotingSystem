@@ -332,11 +332,10 @@
                                             <select class="form-control" name="political_party"
                                                     id="selectOccupation">
                                                 <option selected disabled>--select--</option>
-                                                <option value="A">A</option>
-                                                <option value="B">B</option>
-                                                <option value="C">C</option>
-                                                <option value="D">D</option>
-                                                <option value="others">others</option>
+                                                @foreach($politicalPartyList as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
                                             </select>
                                         </div>
                                     </div>
