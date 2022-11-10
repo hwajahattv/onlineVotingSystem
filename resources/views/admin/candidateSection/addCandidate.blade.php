@@ -310,7 +310,6 @@
                                                         @foreach($politicalPartyList as $item)
                                                         <option value="{{$item->id}}">{{$item->name}}</option>
                                                         @endforeach
-                                                        <option value="others">others</option>
                                                     </select>
 
                                                 </div>
