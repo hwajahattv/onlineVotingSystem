@@ -10,6 +10,7 @@ use \App\Http\Controllers\PoliticalPartyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Http\Request;
+
 // use Auth;
 
 /*
@@ -25,6 +26,7 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
+
 });
 
 // Route::get('/register', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');
@@ -38,7 +40,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/allRegionOffices', [HomeController::class, 'allRegionOffices'])->name('allRegionOffices');
 
 
-Route::group(['auth'=> 'middleware'], function () {
+Route::group(['auth' => 'middleware'], function () {
     Route::get('/home', [AdminController::class, 'index'])->name('home')->middleware('verified');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('verified');
     // candidate services

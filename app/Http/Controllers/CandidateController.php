@@ -19,6 +19,7 @@ class CandidateController extends Controller
     public function candidateSection()
     {
         $candidateCount = count(Candidate::all());
+
         return view('admin.candidateSection.candidateSectionHome', ['candidateCount' => $candidateCount]);
     }
 
@@ -101,7 +102,7 @@ class CandidateController extends Controller
     {
 //        dd('ttt');
         $allCandidates = Candidate::with('politicalParty')->get();
-//        dd($allCandidates);
+        dd($allCandidates);
         return view('admin.candidateSection.showCandidates', ['candidates' => $allCandidates]);
     }
     public function editCandidate($id)
