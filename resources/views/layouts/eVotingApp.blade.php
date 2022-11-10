@@ -110,10 +110,11 @@
                         </nav>
                     </div>
                     <div class="col-md-3 col-sm-5 d_none">
-                        <ul class="sign">
+                        <ul class="sign d-flex justify-content-evenly">
                             <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                             @if (Route::has('login'))
                                 @auth
+                                    <li><a class="sign_btn" href="{{ url('/home') }}">Dashboard</a></li>
                                     <li><a class="sign_btn" href="{{ url('/logout') }}">Logout</a></li>
                                 @else
                                     <li><a class="sign_btn" href="{{ url('/login') }}">sign in</a></li>

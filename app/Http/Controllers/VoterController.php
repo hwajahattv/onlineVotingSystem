@@ -87,6 +87,10 @@ class VoterController extends Controller
         $allVoters = Voter::all();
         return view('admin.voterSection.showVoters', ['voters' => $allVoters]);
     }
+    public function showVoterDetails($id){
+        $voterDetails= Voter::find($id);
+        return \response()->json($voterDetails);
+    }
     public function editVoter($id)
     {
         $voter = Voter::where(['id' => $id])->first();

@@ -12,99 +12,123 @@
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <form method="post" enctype="multipart/form-data"
-                                  action="{{ route('registerAsVoterPost') }}">
-                                @csrf
+                                  action="{{ route('findMe') }}">
                                 <div class="row">
-                                    <div class="col-md-6 row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control addInput" name="name"
-                                                       id="" aria-describedby="" placeholder="Enter the first name">
+                                    <div class="col-md-7 row align-items-center justify-content-center">
+                                @csrf
+                                        <div class="form-group row align-items-center">
+                                            <label for="staticEmail" class="col-sm-4 col-form-label">First name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control addInput" style="height: 40px;" name="name"
+                                                       id="name" aria-describedby="" placeholder="Enter the first name">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control addInput" name="name"
-                                                       id="" aria-describedby="" placeholder="Enter the Last name">
+                                        <div class="form-group row align-items-center">
+                                            <label for="staticEmail" class="col-sm-4 col-form-label">Last name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control addInput" style="height: 40px;" name="surName"
+                                                       id="surName" aria-describedby="" placeholder="Enter the last name">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <select class="form-control" name="birth_region"
+                                        <div class="form-group row align-items-center">
+                                            <label for="staticEmail" class="col-sm-4 col-form-label">Select Region</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" style="height: 40px;" name="birth_region"
                                                         id="region_select">
-                                                    <option value="" selected="selected">Select Region</option>
+                                                    <option value="" disabled selected="selected">Select</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <select class="form-control" name="birth_province"
+                                        <div class="form-group row align-items-center">
+                                            <label for="staticEmail" class="col-sm-4 col-form-label">Select Province</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" style="height: 40px;" name="birth_province"
                                                         id="province_select">
-                                                    <option value="" selected="selected">Select Province
+                                                    <option value="" disabled selected="selected">Select
                                                     </option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <select class="form-control" name="birth_district"
+                                        <div class="form-group row align-items-center">
+                                            <label for="staticEmail" class="col-sm-4 col-form-label">Select District</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" style="height: 40px;" name="birth_district"
                                                         id="district_select">
-                                                    <option value="" selected="selected">Select District
+                                                    <option value="" disabled selected="selected">Select
                                                     </option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <select class="form-control" name="birth_LLG"
+                                        <div class="form-group row align-items-center">
+                                            <label for="staticEmail" class="col-sm-4 col-form-label">Select LLG</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" style="height: 40px;" name="birth_LLG"
                                                         id="LLG_select">
-                                                    <option value="" selected="selected">Select LLG
+                                                    <option value="" disabled selected="selected">Select
                                                     </option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <select class="form-control" name="birth_ward"
+                                        <div class="form-group row align-items-center">
+                                            <label for="staticEmail" class="col-sm-4 col-form-label">Select ward</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" style="height: 40px;" name="birth_ward"
                                                         id="ward_select">
-                                                    <option value="" selected="selected">Select ward
+                                                    <option value="" disabled selected="selected">Select
                                                     </option>
                                                 </select>
                                             </div>
+                                        </div>
+                                    <button type="submit" class="btn btn-primary col-md-6">Check if I am registered.</button>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="bg-danger" id="dataNotFound">
+                                            <h1 class="text-info display-3 text-center">DATA NOT FOUND</h1>
+                                            <div class="d-flex justify-content-center">
+                                            <a href="{{route('registerAsVoter')}}" class="btn-outline-info">Click here to register.</a>
+                                            </div>
+                                        </div>
+
+                                        <div class=" bg-success" id="dataFound">
+                                            <h1 class="text-white display-6 text-center">You are registered.</h1>
+                                            <div class="modal-content profile-modal">
+                                                <!-- SIDEBAR USERPIC -->
+                                                <div class="d-flex justify-content-end">
+                                                    <img src="" id="candidateImage" class="img-responsive" alt="">
+
+                                                    <!-- END SIDEBAR USERPIC -->
+                                                    <!-- SIDEBAR USER TITLE -->
+                                                    <div class="profile-usertitle">
+                                                        <div>
+                                                            <span class="profile-usertitle-name">Full Name: </span>
+                                                            <div class="profile-usertitle-nameDynamic">
+                                                                <span id="candidateFirstName"></span>
+                                                                <span id="candidateMiddleName"></span>
+                                                                <span id="candidateSurName"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="profile-usertitle-name">Current Address: </span>
+                                                            <div class="profile-usertitle-nameDynamic">
+                                                                <span id="village"></span>
+                                                                <span id="ward"></span>
+                                                                <span id="LLG"></span>
+                                                                <span id="district"></span>
+                                                                <span id="province"></span>
+                                                                <span id="region"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <div class="form-group wrapper">--}}
-{{--                                            <div>--}}
-{{--                                                <div class="wrapper">--}}
-{{--                                                    <label for="exampleInputEmail1">Upload voter's profile image</label>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="wrapper">--}}
-{{--                                                    <div class="file-upload">--}}
-{{--                                                        <input type="file" name="profilePicture"--}}
-{{--                                                               onchange="PreviewImage();" id="files"/>--}}
-{{--                                                        <i class="fa fa-arrow-up" id="uploadIcon"></i>--}}
-{{--                                                        <img class="imgCard mt-4 mb-2" id="uploadPreview" src=""--}}
-{{--                                                             class="mt-3"/>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="wrapper">--}}
-{{--                                                    <small id="emailHelp" class="form-text text-muted">Upload the--}}
-{{--                                                        passport--}}
-{{--                                                        size image--}}
-{{--                                                        (max.--}}
-{{--                                                        size: 100kb).</small>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-                                    <button type="submit" class="btn btn-primary">Check if I am registered.</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -191,5 +215,69 @@
             };
         };
 
+    //    *******************AJAX CALL*****************************//
+        $(document).ready(function () {
+            $("form").submit(function(e) {
+
+                e.preventDefault(); // avoid to execute the actual submit of the form.
+
+                var form = $(this);
+                var actionUrl = form.attr('action');
+                //******************form validation********************************//
+                var test=form[0];
+                if ((test['name'].value == "")||(test['surName'].value == "")||(test['birth_region'].value == "")||(test['birth_province'].value == "")||(test['birth_district'].value == "")) {
+                    alert("Fill your complete information.");
+                    return false;
+                }
+                //******************form validation end********************************//
+
+
+                //******************AJAX CALL START********************************//
+                $.ajax({
+                    type: "POST",
+                    url: actionUrl,
+                    data: form.serialize(), // serializes the form's elements.
+                    success: function(data)
+                    {
+                        if(data=="null"){
+                            document.getElementById("dataNotFound").style.display='block';
+                            document.getElementById("dataFound").style.display='none';
+                        }
+                        else{
+                            clearFields();
+                            document.getElementById("dataNotFound").style.display='none';
+                            document.getElementById("dataFound").style.display='block';
+                            $('#candidateFirstName').text(data.name);
+                            $('#candidateMiddleName').text(data.middleName);
+                            $('#candidateSurName').text(data.surName);
+                            $('#village').text(data.current_village);
+                            $('#ward').text(data.current_ward);
+                            $('#LLG').text(data.current_LLG);
+                            $('#district').text(data.current_district);
+                            $('#province').text(data.current_province);
+                            $('#region').text(data.current_region);
+                            $("#candidateImage").attr(
+                                "src",
+                                "img/uploads/voter/" + data.displayPicture
+                            );
+                        }
+                        // console.log(data); // show response from the php script.
+                    }
+                });
+
+            });
+
+
+        });
+        function clearFields(){
+            var formFields=$('form')[0];
+            formFields['name'].value = "";
+            formFields['surName'].value = "";
+            formFields['birth_region'].value = "";
+            formFields['birth_province'].value = "";
+            formFields['birth_district'].value = "";
+            formFields['birth_LLG'].value = "";
+            formFields['birth_ward'].value = "";
+        };
     </script>
 @endsection

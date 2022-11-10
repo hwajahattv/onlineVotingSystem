@@ -103,6 +103,10 @@ class CandidateController extends Controller
         $allCandidates = Candidate::with('politicalParty')->get();
         return view('admin.candidateSection.showCandidates', ['candidates' => $allCandidates]);
     }
+    public function showCandidateDetails($id){
+        $candidateDetails= Candidate::find($id);
+        return \response()->json($candidateDetails);
+    }
     public function editCandidate($id)
     {
         $candidate = Candidate::where(['id' => $id])->first();

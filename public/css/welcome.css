@@ -511,7 +511,7 @@ ul.sign li a i {
 
 .sign_btn {
     float: right;
-    max-width: 85px;
+    /*max-width: 85px;*/
     margin: 0 5px;
     background: #f2db18;
     font-size: 17px !important;

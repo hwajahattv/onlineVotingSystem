@@ -19,16 +19,27 @@
 }
 
 .profile-usertitle {
-    text-align: center;
-    margin-top: 20px;
+    /*text-align: center;*/
+    margin: 20px;
 }
 
 .profile-usertitle-name {
-    color: #5a7391;
+    color: #665A48;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 7px;
+}.profile-usertitle-nameDynamic {
+    color: #665A48;
+    font-size: 16px;
+    /*font-weight: 600;*/
+    margin-bottom: 7px;
 }
+ #dataNotFound{
+     display: none;
+ }
+#dataFound{
+     display: none;
+ }
 
 .profile-usertitle-job {
     text-transform: uppercase;

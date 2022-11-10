@@ -5,76 +5,65 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content profile-modal">
                 <!-- SIDEBAR USERPIC -->
-                <div class="profile-userpic">
-                    <img src="{{ asset('img/uploads/candidate/63510f3e74210.jpg') }}" class="img-responsive" alt="">
-                </div>
-                <!-- END SIDEBAR USERPIC -->
-                <!-- SIDEBAR USER TITLE -->
-                <div class="profile-usertitle">
-                    <div class="profile-usertitle-name">
-                        Marcus Doe
-                    </div>
-                    <div class="profile-usertitle-job">
-                        Developer
+                <div class="d-flex justify-content-end">
+                    <img src="" id="candidateImage" class="img-responsive" alt="">
+
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div>
+                            <span class="profile-usertitle-name">Full Name: </span>
+                            <div class="profile-usertitle-nameDynamic">
+                                <span id="candidateFirstName"></span>
+                                <span id="candidateMiddleName"></span>
+                                <span id="candidateSurName"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="profile-usertitle-name">Current Address: </span>
+                            <div class="profile-usertitle-nameDynamic">
+                                <span id="village"></span>
+                                <span id="ward"></span>
+                                <span id="LLG"></span>
+                                <span id="district"></span>
+                                <span id="province"></span>
+                                <span id="region"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
                 <!-- SIDEBAR BUTTONS -->
-                <div class="profile-userbuttons">
-                    <button type="button" class="btn btn-success btn-sm">Follow</button>
-                    <button type="button" class="btn btn-danger btn-sm">Message</button>
-                </div>
+                {{--                <div class="profile-userbuttons">--}}
+                {{--                    <button type="button" class="btn btn-success btn-sm">Follow</button>--}}
+                {{--                    <button type="button" class="btn btn-danger btn-sm">Message</button>--}}
+                {{--                </div>--}}
                 <!-- END SIDEBAR BUTTONS -->
                 <!-- SIDEBAR MENU -->
-                <div class="profile-usermenu">
-                    <ul class="nav">
-                        <li class="active">
-                            <a href="#">
-                                <i class="glyphicon glyphicon-home"></i>
-                                Overview </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="glyphicon glyphicon-user"></i>
-                                Account Settings </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="glyphicon glyphicon-ok"></i>
-                                Tasks </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="glyphicon glyphicon-flag"></i>
-                                Help </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- END MENU -->
-                {{-- <div class="modal-header">
-                            <h5 class="modal-title">Create Project</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Project Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Dadeline</label>
-                                    <div class="cal-icon"><input type="date" class="form-control"><i
-                                            class="far fa-calendar-alt"></i></div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Client Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <button type="button" class="btn btn-primary">CREATE</button>
-                                </div>
-                            </form>
-                        </div> --}}
+                {{--                <div class="profile-usermenu">--}}
+                {{--                    <ul class="nav">--}}
+                {{--                        <li class="active">--}}
+                {{--                            <a href="#">--}}
+                {{--                                <i class="glyphicon glyphicon-home"></i>--}}
+                {{--                                Overview </a>--}}
+                {{--                        </li>--}}
+                {{--                        <li>--}}
+                {{--                            <a href="#">--}}
+                {{--                                <i class="glyphicon glyphicon-user"></i>--}}
+                {{--                                Account Settings </a>--}}
+                {{--                        </li>--}}
+                {{--                        <li>--}}
+                {{--                            <a href="#" target="_blank">--}}
+                {{--                                <i class="glyphicon glyphicon-ok"></i>--}}
+                {{--                                Tasks </a>--}}
+                {{--                        </li>--}}
+                {{--                        <li>--}}
+                {{--                            <a href="#">--}}
+                {{--                                <i class="glyphicon glyphicon-flag"></i>--}}
+                {{--                                Help </a>--}}
+                {{--                        </li>--}}
+                {{--                    </ul>--}}
+                {{--                </div>--}}
             </div>
         </div>
     </div>
@@ -156,8 +145,11 @@
                                                 <a href="#">{{ $voter->email }}</a>
                                             </td>
                                             <td style="width: 20%;">
-                                                <a class="" href="" data-bs-toggle="modal"
-                                                    data-bs-target="#showProfile">
+                                                <a href="javascript:void(0)" id="viewProfileModal"
+                                                   data-url="{{ route('voter.show', $voter->id) }}"
+                                                   data-bs-toggle="modal"
+                                                   data-bs-target="#showProfile"
+                                                   class="candidateDetailsOpen">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
@@ -195,9 +187,7 @@
             </div>
         </div>
     </div>
-    </div>
-    {{-- </div> --}}
-    <!--**********************************
-                                                                                                                                                                                                                                                                                        Content body end
-                                                                                                                                                                                                                                                                                    ***********************************-->
+@endsection
+@section('script')
+    <script src="{{ asset('js/profileModalVoter.js') }}"></script>
 @endsection

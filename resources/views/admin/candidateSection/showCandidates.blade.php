@@ -5,51 +5,65 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content profile-modal">
                 <!-- SIDEBAR USERPIC -->
-                <div class="profile-userpic">
-                    <img src="{{ asset('img/uploads/candidate/63510f3e74210.jpg') }}" class="img-responsive" alt="">
-                </div>
-                <!-- END SIDEBAR USERPIC -->
-                <!-- SIDEBAR USER TITLE -->
-                <div class="profile-usertitle">
-                    <div class="profile-usertitle-name">
-                        Marcus Doe
-                    </div>
-                    <div class="profile-usertitle-job">
-                        Developer
+                <div class="d-flex justify-content-end">
+                    <img src="" id="candidateImage" class="img-responsive" alt="">
+
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div>
+                            <span class="profile-usertitle-name">Full Name: </span>
+                            <div class="profile-usertitle-nameDynamic">
+                                <span id="candidateFirstName"></span>
+                                <span id="candidateMiddleName"></span>
+                                <span id="candidateSurName"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="profile-usertitle-name">Current Address: </span>
+                            <div class="profile-usertitle-nameDynamic">
+                                <span id="village"></span>
+                                <span id="ward"></span>
+                                <span id="LLG"></span>
+                                <span id="district"></span>
+                                <span id="province"></span>
+                                <span id="region"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
                 <!-- SIDEBAR BUTTONS -->
-                <div class="profile-userbuttons">
-                    <button type="button" class="btn btn-success btn-sm">Follow</button>
-                    <button type="button" class="btn btn-danger btn-sm">Message</button>
-                </div>
+                {{--                <div class="profile-userbuttons">--}}
+                {{--                    <button type="button" class="btn btn-success btn-sm">Follow</button>--}}
+                {{--                    <button type="button" class="btn btn-danger btn-sm">Message</button>--}}
+                {{--                </div>--}}
                 <!-- END SIDEBAR BUTTONS -->
                 <!-- SIDEBAR MENU -->
-                <div class="profile-usermenu">
-                    <ul class="nav">
-                        <li class="active">
-                            <a href="#">
-                                <i class="glyphicon glyphicon-home"></i>
-                                Overview </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="glyphicon glyphicon-user"></i>
-                                Account Settings </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="glyphicon glyphicon-ok"></i>
-                                Tasks </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="glyphicon glyphicon-flag"></i>
-                                Help </a>
-                        </li>
-                    </ul>
-                </div>
+                {{--                <div class="profile-usermenu">--}}
+                {{--                    <ul class="nav">--}}
+                {{--                        <li class="active">--}}
+                {{--                            <a href="#">--}}
+                {{--                                <i class="glyphicon glyphicon-home"></i>--}}
+                {{--                                Overview </a>--}}
+                {{--                        </li>--}}
+                {{--                        <li>--}}
+                {{--                            <a href="#">--}}
+                {{--                                <i class="glyphicon glyphicon-user"></i>--}}
+                {{--                                Account Settings </a>--}}
+                {{--                        </li>--}}
+                {{--                        <li>--}}
+                {{--                            <a href="#" target="_blank">--}}
+                {{--                                <i class="glyphicon glyphicon-ok"></i>--}}
+                {{--                                Tasks </a>--}}
+                {{--                        </li>--}}
+                {{--                        <li>--}}
+                {{--                            <a href="#">--}}
+                {{--                                <i class="glyphicon glyphicon-flag"></i>--}}
+                {{--                                Help </a>--}}
+                {{--                        </li>--}}
+                {{--                    </ul>--}}
+                {{--                </div>--}}
             </div>
         </div>
     </div>
@@ -65,61 +79,65 @@
                         <div class="table-responsive">
                             <table class="table tabl1 user-list">
                                 <thead>
-                                    <tr>
-                                        <th><span>Name</span></th>
-                                        <th><span>Address</span></th>
-                                        <th><span>Party Name</span></th>
-                                        <th class="text-center"><span>Status</span></th>
-                                        <th><span>Email</span></th>
-                                        <th>&nbsp;</th>
-                                    </tr>
+                                <tr>
+                                    <th><span>Name</span></th>
+                                    <th><span>Address</span></th>
+                                    <th><span>Party Name</span></th>
+                                    <th class="text-center"><span>Status</span></th>
+                                    <th><span>Email</span></th>
+                                    <th>&nbsp;</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($candidates as $candidate)
-                                        <tr>
-                                            <td>
-                                                <img class="userImage"
-                                                    src="{{ url('/img/uploads/candidate/' . $candidate->displayPicture) }}"
-                                                    alt="">
-                                                <a class="" href="" data-bs-toggle="modal"
-                                                    data-bs-target="#showProfile">{{ $candidate->name }} {{$candidate->middleName}} {{$candidate->surName}}</a>
-{{--                                                <span class="user-subhead">Admin</span>--}}
-                                            </td>
-                                            <td>
-                                                {{ $candidate->birth_ward }}, {{$candidate->birth_LLG}}, {{$candidate->birth_district}}, {{$candidate->birth_province}}, {{$candidate->birth_region}}
-                                            </td>
-                                            <td>
-                                                {{ $candidate->politicalParty->name }}
-                                            </td>
-                                            <td class="text-center">
-                                                <span class="label label-default">Inactive</span>
-                                            </td>
-                                            <td>
-                                                <a href="#">{{ $candidate->email }}</a>
-                                            </td>
-                                            <td style="width: 20%;">
-                                                <a class="candidateDetailsOpen" id="{{$candidate->id}}" href="" data-bs-toggle="modal"
-                                                    data-bs-target="#showProfile" onClick="reply_click(this)">
+                                @foreach ($candidates as $candidate)
+                                    <tr>
+                                        <td>
+                                            <img class="userImage"
+                                                 src="{{ url('/img/uploads/candidate/' . $candidate->displayPicture) }}"
+                                                 alt="">
+                                            {{ $candidate->name }} {{$candidate->middleName}} {{$candidate->surName}}
+                                            {{--                                                <span class="user-subhead">Admin</span>--}}
+                                        </td>
+                                        <td>
+                                            {{ $candidate->birth_ward }}, {{$candidate->birth_LLG}}
+                                            , {{$candidate->birth_district}}, {{$candidate->birth_province}}
+                                            , {{$candidate->birth_region}}
+                                        </td>
+                                        <td>
+                                            {{ $candidate->politicalParty->name }}
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="label label-default">Inactive</span>
+                                        </td>
+                                        <td>
+                                            <a href="#">{{ $candidate->email }}</a>
+                                        </td>
+                                        <td style="width: 20%;">
+                                            <a href="javascript:void(0)" id="viewProfileModal"
+                                               data-url="{{ route('candidate.show', $candidate->id) }}"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#showProfile"
+                                               class="candidateDetailsOpen">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
                                                     </span>
-                                                </a>
-                                                <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">
+                                            </a>
+                                            <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x "></i>
                                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                                                     </span>
-                                                </a>
-                                                <a href="#" class="table-link danger">
+                                            </a>
+                                            <a href="#" class="table-link danger">
                                                     <span class="fa-stack">
                                                         <i class="fa fa-square fa-stack-2x"></i>
                                                         <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                                                     </span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -140,11 +158,5 @@
 
 @endsection
 @section('script')
-    <script>
-        var clickedIcon =document.getElementsByClassName('candidateDetailsOpen');
-        function reply_click(id){
-            console.log(id);
-        }
-
-    </script>
+    <script src="{{ asset('js/profileModalCandidate.js') }}"></script>
 @endsection

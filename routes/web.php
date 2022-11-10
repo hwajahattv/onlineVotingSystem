@@ -41,6 +41,7 @@ Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 //Route::get('/electionVideoPage', [HomeController::class, 'electionVideoPage'])->name('electionVideoPage');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/allRegionOffices', [HomeController::class, 'allRegionOffices'])->name('allRegionOffices');
+Route::post('/findMe', [HomeController::class, 'findMe'])->name('findMe');
 
 
 Route::group(['auth' => 'middleware'], function () {
@@ -49,6 +50,7 @@ Route::group(['auth' => 'middleware'], function () {
     // candidate services
     Route::get('/candidateSection', [CandidateController::class, 'candidateSection'])->name('candidateSection')->middleware('SuperAdmin');
     Route::get('/showCandidates', [CandidateController::class, 'showCandidates'])->name('showCandidates');
+    Route::get('/candidate/show/{id}', [CandidateController::class, 'showCandidateDetails'])->name('candidate.show');
     // to add New candidate
     Route::get('/addCandidate', [CandidateController::class, 'addCandidate'])->name('addCandidate');
     Route::post('/addCandidate/post', [CandidateController::class, 'addCandidatePost'])->name('addCandidatePost');
@@ -65,6 +67,7 @@ Route::group(['auth' => 'middleware'], function () {
     // voters services
     Route::get('/voterSection', [VoterController::class, 'voterSection'])->name('voterSection');
     Route::get('/showVoters', [VoterController::class, 'showVoters'])->name('showVoters');
+    Route::get('/voter/show/{id}', [VoterController::class, 'showVoterDetails'])->name('voter.show');
 
     // to add New voter
     Route::get('/addVoter', [VoterController::class, 'addVoter'])->name('addVoter');
