@@ -30,40 +30,16 @@
                                 <span id="region"></span>
                             </div>
                         </div>
+                        <div>
+                            <span class="profile-usertitle-name">Political Party:</span>
+                            <div class="profile-usertitle-nameDynamic">
+                                <img src="" width="50px" height="40px" id="partyFlag" class="img-responsive" alt="">
+                                <span id="party"></span>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- END SIDEBAR USER TITLE -->
-                <!-- SIDEBAR BUTTONS -->
-                {{--                <div class="profile-userbuttons">--}}
-                {{--                    <button type="button" class="btn btn-success btn-sm">Follow</button>--}}
-                {{--                    <button type="button" class="btn btn-danger btn-sm">Message</button>--}}
-                {{--                </div>--}}
-                <!-- END SIDEBAR BUTTONS -->
-                <!-- SIDEBAR MENU -->
-                {{--                <div class="profile-usermenu">--}}
-                {{--                    <ul class="nav">--}}
-                {{--                        <li class="active">--}}
-                {{--                            <a href="#">--}}
-                {{--                                <i class="glyphicon glyphicon-home"></i>--}}
-                {{--                                Overview </a>--}}
-                {{--                        </li>--}}
-                {{--                        <li>--}}
-                {{--                            <a href="#">--}}
-                {{--                                <i class="glyphicon glyphicon-user"></i>--}}
-                {{--                                Account Settings </a>--}}
-                {{--                        </li>--}}
-                {{--                        <li>--}}
-                {{--                            <a href="#" target="_blank">--}}
-                {{--                                <i class="glyphicon glyphicon-ok"></i>--}}
-                {{--                                Tasks </a>--}}
-                {{--                        </li>--}}
-                {{--                        <li>--}}
-                {{--                            <a href="#">--}}
-                {{--                                <i class="glyphicon glyphicon-flag"></i>--}}
-                {{--                                Help </a>--}}
-                {{--                        </li>--}}
-                {{--                    </ul>--}}
-                {{--                </div>--}}
             </div>
         </div>
     </div>

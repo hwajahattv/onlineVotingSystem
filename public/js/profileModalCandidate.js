@@ -13,15 +13,15 @@ $(document).ready(function () {
                 $('#district').text(data.current_district);
                 $('#province').text(data.current_province);
                 $('#region').text(data.current_region);
-                // $("#product-title").text(data.title);
-                // $("#product-price").text(data.price);
-                // $("#product-description").text(data.description);
-                // $("#product-size").text(data.size);
+                $('#party').text(data.political_party.name);
                 $("#candidateImage").attr(
                     "src",
                     "img/uploads/candidate/" + data.displayPicture
                 );
-                // $("#js-show-modal1").addClass("show-modal1");
+                $("#partyFlag").attr(
+                    "src",
+                    "img/uploads/partyFlags/" + data.political_party.flagImage
+                );
             },
         });
     });
