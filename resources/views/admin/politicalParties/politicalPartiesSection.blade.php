@@ -18,7 +18,7 @@
                                             </a>
                                         </li>
                                         <li class="fs-14">
-                                            <a href="{{ route('showCandidates') }}">
+                                            <a href="{{ route('showPoliticalParties') }}">
                                                 View all parties data
                                             </a>
                                         </li>

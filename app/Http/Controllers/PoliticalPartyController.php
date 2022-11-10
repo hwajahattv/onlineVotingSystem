@@ -14,6 +14,11 @@ class PoliticalPartyController extends Controller
 //        dd($partycount);
         return view('admin.politicalParties.politicalPartiesSection', ['partycount' => $partycount]);
     }
+    public function showPoliticalParties(){
+        $partiesData = PoliticalParty::all();
+//        dd($partycount);
+        return view('admin.politicalParties.showPoliticalParties', ['partiesData' => $partiesData]);
+    }
     public function addPoliticalParty(){
         return view('admin.politicalParties.addPoliticalParty');
     }
@@ -46,5 +51,10 @@ class PoliticalPartyController extends Controller
         }
         $party->save();
         return redirect()->route('politicalPartySection');
+    }
+    public function deleteParty($id){
+        $party=PoliticalParty::find($id);
+        $party->delete();
+        return redirect()->back();
     }
 }

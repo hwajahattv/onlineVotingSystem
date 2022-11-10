@@ -130,4 +130,9 @@ class VoterController extends Controller
         // Session::flash('message', 'Task successfully added!');
         return redirect()->back()->with(['message', 'Voter data updated successfully!']);
     }
+    public function deleteVoter($id){
+        $voter=Voter::find($id);
+        $voter->delete();
+        return redirect()->back();
+    }
 }

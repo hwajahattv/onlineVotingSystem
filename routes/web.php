@@ -57,13 +57,22 @@ Route::group(['auth' => 'middleware'], function () {
     // to edit a candidate
     Route::get('/editCandidate/{id}', [CandidateController::class, 'editCandidate'])->name('editCandidate');
     Route::post('/editCandidatePost/{id}', [CandidateController::class, 'editCandidatePost'])->name('editCandidatePost');
-    //
+    //to delete a candidate
+    Route::get('/deleteCandidate/{id}', [CandidateController::class, 'deleteCandidate'])->name('deleteCandidate');
+
     //    Political Party routes
     Route::get('/politicalPartySection', [PoliticalPartyController::class, 'politicalPartySection'])->name('politicalPartySection')->middleware('SuperAdmin');
+    Route::get('/showPoliticalParties', [PoliticalPartyController::class, 'showPoliticalParties'])->name('showPoliticalParties');
 
     // to add New Political Party
     Route::get('/addPoliticalParty', [PoliticalPartyController::class, 'addPoliticalParty'])->name('addPoliticalParty');
     Route::post('/addPoliticalParty/post', [PoliticalPartyController::class, 'addPoliticalPartyPost'])->name('addPoliticalPartyPost');
+    // to edit a Political Party
+    Route::get('/editParty/{id}', [PoliticalPartyController::class, 'editParty'])->name('editParty');
+    Route::post('/editPartyPost/{id}', [PoliticalPartyController::class, 'editPartyPost'])->name('editPartyPost');
+    //to delete a Political Party
+    Route::get('/deleteParty/{id}', [PoliticalPartyController::class, 'deleteParty'])->name('deleteParty');
+
     // voters services
     Route::get('/voterSection', [VoterController::class, 'voterSection'])->name('voterSection');
     Route::get('/showVoters', [VoterController::class, 'showVoters'])->name('showVoters');
@@ -75,6 +84,8 @@ Route::group(['auth' => 'middleware'], function () {
     // to edit a voter
     Route::get('/editVoter/{id}', [VoterController::class, 'editVoter'])->name('editVoter');
     Route::post('/editVoterPost/{id}', [VoterController::class, 'editVoterPost'])->name('editVoterPost');
+    //to delete a voter
+    Route::get('/deleteVoter/{id}', [VoterController::class, 'deleteVoter'])->name('deleteVoter');
 
     // create a new election
     Route::get('/electionSection', [ElectionController::class, 'electionSection'])->name('electionSection');

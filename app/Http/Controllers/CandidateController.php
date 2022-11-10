@@ -146,4 +146,10 @@ class CandidateController extends Controller
         // Session::flash('message', 'Task successfully added!');
         return redirect()->back()->with(['message', 'Candidate data updated successfully!']);
     }
+    public function deleteCandidate($id){
+//        dd($id);
+        $candidate=Candidate::find($id);
+        $candidate->delete();
+        return redirect()->back();
+    }
 }
