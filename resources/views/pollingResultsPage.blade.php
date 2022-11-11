@@ -102,7 +102,7 @@
                         </div>
                         <div class="card-body pb-0 px-2 pt-2">
                             <div  class="timeline-chart">Leading: </div>
-                            <div id="chartTimeline" class="timeline-chart"></div>
+                            <div id="resultsChart" class="timeline-chart"></div>
                         </div>
                     </div>
                 </div>
@@ -180,4 +180,7 @@
     <!--**********************************
 
 
+@endsection
+@section('script')
+    <script src="{{ asset('js/dashboard/dashboard-results.js') }}"></script>
 @endsection

@@ -179,7 +179,7 @@
 <script src="{{ asset('vendor/apexchart/apexchart.js') }}"></script>
 
 <!-- Dashboard 1 -->
-<script src="{{ asset('js/dashboard/dashboard-1.js') }}"></script>
+<script src="{{ asset('js/dashboard/dashboard-results.js') }}"></script>
 
 <script src="{{ asset('js/custom.min.js') }}"></script>
 <script src="{{ asset('js/deznav-init.js') }}"></script>
