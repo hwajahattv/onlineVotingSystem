@@ -28,10 +28,10 @@ Route::get('/', function () {
     return view('welcome');
 
 });
-Route::get('/getCSRF', function()
-{
-    return csrf_token();
-});
+//Route::get('/getCSRF', function()
+//{
+//    return csrf_token();
+//});
 
 // Route::get('/register', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');
 Route::get('/registerAsVoter', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');

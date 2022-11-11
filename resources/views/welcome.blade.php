@@ -98,35 +98,3 @@
     </div>
 
 @endsection
-@section('script')
-    {{--    <script>--}}
-    {{--        function fetchAPI(id){--}}
-    {{--            // preventDefault();--}}
-    {{--            console.log(id);--}}
-
-    {{--            var url='https://encore.mediaroom.com/api/newsfeed_releases/get.php?'+id;--}}
-    {{--            $.ajax({--}}
-    {{--                type: "GET",--}}
-    {{--                url: url,--}}
-    {{--                accepts: {--}}
-    {{--                    text: "application/xml"--}}
-    {{--                },--}}
-    {{--                cache: false,--}}
-    {{--                success: function (event, xhr) {--}}
-    {{--                    //var json = "<div class=\"alert alert-success\" role=\"alert\">"+ JSON.stringify(data, null, 4) +"</div>";--}}
-    {{--                    var xml = "<div id=\"insert-box\" class=\"alert alert-success\" role=\"alert\">"+xhr.responseXML+"</div>";--}}
-    {{--                    $('#listFilms').html(xml);--}}
-
-    {{--                    $("#btn-list").prop("disabled", false);--}}
-    {{--                },--}}
-    {{--                error: function (e) {--}}
-    {{--                    var feedback = "<div id=\"insert-box\" class=\"alert alert-warning\" role=\"alert\"></div>"--}}
-    {{--                    $('#listFilms').html(feedback);--}}
-
-    {{--                    console.log("ERROR : ", e);--}}
-    {{--                    $("#btn-list").prop("disabled", false);--}}
-    {{--                }--}}
-    {{--            });--}}
-    {{--        }--}}
-    {{--    </script>--}}
-@endsection
