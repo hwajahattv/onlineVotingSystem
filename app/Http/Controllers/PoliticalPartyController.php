@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
 use App\Models\PoliticalParty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Image;
 
 class PoliticalPartyController extends Controller
@@ -11,11 +13,16 @@ class PoliticalPartyController extends Controller
     //
     public function politicalPartySection(){
         $partycount = count(PoliticalParty::all());
+        $candidateInEachParty = Candidate::select('political_party_id', DB::raw('Count(*) as c'))
+            ->with('politicalParty')
+            ->groupBy('political_party_id')
+            ->get();
 //        dd($partycount);
-        return view('admin.politicalParties.politicalPartiesSection', ['partycount' => $partycount]);
+        return view('admin.politicalParties.politicalPartiesSection', ['partycount' => $partycount,'candidateInEachParty'=>$candidateInEachParty]);
     }
     public function showPoliticalParties(){
         $partiesData = PoliticalParty::all();
+
 //        dd($partycount);
         return view('admin.politicalParties.showPoliticalParties', ['partiesData' => $partiesData]);
     }

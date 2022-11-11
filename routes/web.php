@@ -59,7 +59,7 @@ Route::group(['auth' => 'middleware'], function () {
     Route::get('/home', [AdminController::class, 'index'])->name('home')->middleware('verified');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('verified');
     // candidate services
-    Route::get('/candidateSection', [CandidateController::class, 'candidateSection'])->name('candidateSection')->middleware('SuperAdmin');
+    Route::get('/candidateSection', [CandidateController::class, 'candidateSection'])->name('candidateSection');
     Route::get('/showCandidates', [CandidateController::class, 'showCandidates'])->name('showCandidates');
     Route::get('/candidate/show/{id}', [CandidateController::class, 'showCandidateDetails'])->name('candidate.show');
     // to add New candidate
@@ -105,7 +105,7 @@ Route::group(['auth' => 'middleware'], function () {
     Route::get('/editElection/{id}', [ElectionController::class, 'editElection'])->name('editElection');
     Route::post('/editElectionPost/{id}', [ElectionController::class, 'editElectionPost'])->name('editElectionPost');
 });
-
+//->middleware('SuperAdmin')
 // *********************************************************************//
 // ************Email verification***************************************//
 Route::get('/email/verify', function () {

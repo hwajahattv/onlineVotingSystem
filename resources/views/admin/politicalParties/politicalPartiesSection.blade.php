@@ -101,6 +101,32 @@
                     </div>
                 </div>
             </div>
+            {{--            *******************Party table****************************          --}}
+            <div class="table-responsive">
+                <table class="table tabl1 user-list">
+                    <thead>
+                    <tr>
+                        <th><span>Party</span></th>
+                        <th><span>Candidate Count</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($candidateInEachParty as $party)
+                        <tr>
+                            <td>
+                                <img class="userImage"
+                                     src="{{ url('/img/uploads/partyFlags/' . $party->politicalParty->flagImage) }}"
+                                     alt="">
+                                {{ $party->politicalParty->name }}
+                            </td>
+                            <td>
+                                {{$party->c}}
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
             <div class="row">
                 <div class="col-xl-6 col-xxl-12">
                     <div class="card">

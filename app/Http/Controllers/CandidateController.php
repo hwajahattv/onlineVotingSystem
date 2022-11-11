@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Candidate;
 use App\Models\PoliticalParty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Image;
 use Session;
 
@@ -19,8 +20,14 @@ class CandidateController extends Controller
     public function candidateSection()
     {
         $candidateCount = Candidate::all()->count();
+        $candidateInEachParty = Candidate::select('political_party_id', DB::raw('Count(*) as c'))
+            ->with('politicalParty')
+            ->groupBy('political_party_id')
+            ->get();
 
-        return view('admin.candidateSection.candidateSectionHome', ['candidateCount' => $candidateCount]);
+
+//        dd($candidateCountInEachParty);
+        return view('admin.candidateSection.candidateSectionHome', ['candidateCount' => $candidateCount,'candidateInEachParty'=>$candidateInEachParty]);
     }
 
     public function addCandidate()
