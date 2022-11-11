@@ -53,7 +53,7 @@
                                         <div class="col-lg-10 d-flex justify-content-center">
 
                                             <a class="glossy-button glossy-button--gold"
-                                               href="{{ url('/casteVote') }}">
+                                               href="{{ url('/voterLookUp') }}">
                                                 Cast your vote
                                             </a>
 

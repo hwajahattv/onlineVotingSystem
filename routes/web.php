@@ -48,7 +48,7 @@ Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/allRegionOffices', [HomeController::class, 'allRegionOffices'])->name('allRegionOffices');
 Route::post('/findMe', [HomeController::class, 'findMe'])->name('findMe');
-Route::get('/selectElection', [HomeController::class, 'selectElection'])->name('selectElection');
+//Route::get('/', [HomeController::class, 'selectElection'])->name('selectElection');
 Route::get('/castVote/{id}', [HomeController::class, 'castVote'])->name('castVote');
 Route::post('/castVotePost/{id}', [HomeController::class, 'castVotePost'])->name('castVotePost');
 Route::get('/resultsHome', [HomeController::class, 'resultsHome'])->name('resultsHome');
