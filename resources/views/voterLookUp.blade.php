@@ -6,7 +6,7 @@
 @section('content')
     <div class="content-body" style="margin-left: 0;">
         <div class="container-fluid">
-            <h1>Fill in the elector details</h1>
+            <h1>Fill in the elector details to find if you are registered.</h1>
             <div class="container-login100">
                 <div class="">
                     <div class="card overflow-hidden">
