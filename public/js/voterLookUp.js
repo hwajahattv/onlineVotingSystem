@@ -107,6 +107,7 @@ $(document).ready(function () {
                     clearFields();
                     document.getElementById("dataNotFound").style.display = 'none';
                     document.getElementById("dataFound").style.display = 'block';
+                    $('#voterID').text(data.id);
                     $('#candidateFirstName').text(data.name);
                     $('#candidateMiddleName').text(data.middleName);
                     $('#candidateSurName').text(data.surName);
@@ -120,6 +121,10 @@ $(document).ready(function () {
                         "src",
                         "img/uploads/voter/" + data.displayPicture
                     );
+                    $("#castVoteBtn").attr(
+                        "href",
+                        "/castVote/" + data.id
+                    );
                 }
                 // console.log(data); // show response from the php script.
             }
@@ -132,6 +137,7 @@ $(document).ready(function () {
 
 function clearFields() {
     var formFields = $('form')[0];
+    formFields['name'].value = "";
     formFields['name'].value = "";
     formFields['surName'].value = "";
     formFields['birth_region'].value = "";

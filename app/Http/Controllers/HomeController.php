@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
+use App\Models\Election;
 use App\Models\PoliticalParty;
+use App\Models\Vote;
 use App\Models\Voter;
 use Illuminate\Http\Request;
 use Image;
@@ -204,7 +206,9 @@ class HomeController extends Controller
     {
         return view('allRegionOffices');
     }
-    public function findMe(Request $request){
+
+    public function findMe(Request $request)
+    {
 //    dd($request);
         $request->validate([
             'name' => 'required|max:25',
@@ -216,11 +220,39 @@ class HomeController extends Controller
 //            'birth_ward' => 'required',
         ]);
 
-        $requiredVoter=Voter::where(['name'=>$request['name']])->where(['surName'=>$request['surName']])->first();
-        if($requiredVoter==null){
-            return \response("null");
+        $requiredVoter = Voter::where(['name' => $request['name']])->where(['surName' => $request['surName']])->first();
+        if ($requiredVoter != null) {
+            return \response()->json($requiredVoter);
         }
-        else
-        return \response()->json($requiredVoter);
+        return \response("null");
+    }
+
+    public function castVote($id)
+    {
+        $voter = Voter::find($id);
+//        dd($voter);
+        $allCandidates=Candidate::all();
+        $region = $voter->current_region;
+        $province = $voter->current_province;
+        $district = $voter->current_district;
+        $LLG = $voter->current_LLG;
+        $ward = $voter->current_ward;
+        $election = Election::all();
+        $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->where(['current_LLG' => $LLG])->where(['current_ward' => $ward])->with('politicalParty')->get();
+//    dd($candidates,$allCandidates, $voter,$region, $province, $district, $LLG, $ward);
+
+        return view('castVote', ['elections' => $election, 'candidates'=> $candidates, 'voter'=>$voter]);
+    }
+    public function castVotePost(Request $request, $id){
+//        dd($request);
+        $vote= new Vote;
+        $vote->election_id=$request['electionID'];
+        $vote->candidate_id=$request['candidateID'];
+        $vote->voter_id=$request['voterID'];
+        $vote->save();
+        return redirect('/');
+    }
+    public function resultsHome(){
+        return view('resultsHome');
     }
 }

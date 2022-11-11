@@ -1,12 +1,12 @@
 @extends('layouts.eVotingApp')
 
 @section('links')
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 @endsection
 @section('content')
     <div class="content-body" style="margin-left: 0;">
         <div class="container-fluid">
-            <h1>Fill in the elector details</h1>
+            <h1>Selection election</h1>
             <div class="container-login100">
                 <div class="">
                     <div class="card overflow-hidden">
@@ -15,7 +15,7 @@
                                   action="{{ route('findMe') }}">
                                 <div class="row">
                                     <div class="col-md-7 row align-items-center justify-content-center">
-                                @csrf
+                                        @csrf
                                         <div class="form-group row align-items-center">
                                             <label for="staticEmail" class="col-sm-4 col-form-label">First name</label>
                                             <div class="col-sm-8">
@@ -79,20 +79,18 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    <button type="submit" class="btn btn-primary col-md-6">Check if I am registered.</button>
+                                        <button type="submit" class="btn btn-primary col-md-6">Check if I am registered.</button>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="bg-danger" id="dataNotFound">
                                             <h1 class="text-info display-3 text-center">DATA NOT FOUND</h1>
                                             <div class="d-flex justify-content-center">
-                                            <a href="{{route('registerAsVoter')}}" class="btn btn-outline-info">Click here to register.</a>
+                                                <a href="{{route('registerAsVoter')}}" class="btn-outline-info">Click here to register.</a>
                                             </div>
                                         </div>
 
                                         <div class=" bg-success" id="dataFound">
                                             <h1 class="text-white display-6 text-center">You are registered.</h1>
-                                            <span class="text-white bg-info-hover display-6 text-center">Voter ID: </span>
-                                            <span class="text-white bg-info-hover display-6 text-center" id="voterID"></span>
                                             <div class="modal-content profile-modal">
                                                 <!-- SIDEBAR USERPIC -->
                                                 <div class="d-flex justify-content-end">
@@ -122,7 +120,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            <a href="" id="castVoteBtn" class="bt btn-outline-info">Click here to cast your Vote.</a>
                                             </div>
 
                                         </div>

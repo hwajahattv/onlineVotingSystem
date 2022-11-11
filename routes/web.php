@@ -28,6 +28,10 @@ Route::get('/', function () {
     return view('welcome');
 
 });
+Route::get('/getCSRF', function()
+{
+    return csrf_token();
+});
 
 // Route::get('/register', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');
 Route::get('/registerAsVoter', [HomeController::class, 'registerAsVoter'])->name('registerAsVoter');
@@ -38,10 +42,16 @@ Route::post('/registerAsCandidatePost', [HomeController::class, 'registerAsCandi
 Route::get('/voterLookUp', [HomeController::class, 'voterLookUp'])->name('voterLookUp');
 Route::get('/pollingSchedule', [HomeController::class, 'pollingSchedule'])->name('pollingSchedule');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+
+
 //Route::get('/electionVideoPage', [HomeController::class, 'electionVideoPage'])->name('electionVideoPage');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/allRegionOffices', [HomeController::class, 'allRegionOffices'])->name('allRegionOffices');
 Route::post('/findMe', [HomeController::class, 'findMe'])->name('findMe');
+Route::get('/selectElection', [HomeController::class, 'selectElection'])->name('selectElection');
+Route::get('/castVote/{id}', [HomeController::class, 'castVote'])->name('castVote');
+Route::post('/castVotePost/{id}', [HomeController::class, 'castVotePost'])->name('castVotePost');
+Route::get('/resultsHome', [HomeController::class, 'resultsHome'])->name('resultsHome');
 
 
 Route::group(['auth' => 'middleware'], function () {

@@ -17,4 +17,4 @@ use App\Http\Controllers\api\VoterLookUpController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('/findMe', [VoterLookUpController::class, 'findMe'])->name('findMe');
+Route::post('/api/findMe', [VoterLookUpController::class, 'findMe'])->name('findMeAPI');
