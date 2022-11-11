@@ -3,19 +3,35 @@
 
 
  var dzChartlist = function(){
-	
+
 	var screenWidth = $(window).width();
 		var chartTimeline = function(){
-		
+            var inputFields=$('.countData');
+            var candidateNames=$('.candidateNames');
+            var winnerName=$('#leadingCandidate')[0];
+            var barHeights=[];
+            var xaxisTicks=[];
+            var iteration=inputFields.length;
+            for(var fieldCount=0; fieldCount<iteration; fieldCount++){
+                var temp=inputFields[fieldCount].value
+                // console.log(temp);
+                barHeights.push(parseInt(temp));
+                xaxisTicks.push(candidateNames[fieldCount].innerHTML);
+            }
+            const max = Math.max.apply(Math,barHeights);
+            const index = barHeights.indexOf(max);
+            winnerName.innerHTML=xaxisTicks[index];
+            console.log(barHeights);
+
 		var optionsTimeline = {
 			chart: {
 				type: "bar",
-				height: 200,
+				height: 400,
 				stacked: true,
 				toolbar: {
 					show: false
 				},
-				
+
 				sparkline: {
 					//enabled: true
 				},
@@ -26,17 +42,18 @@
 			},
 			series: [
 				 {
-					name: "New Clients",
-					data: [300, 450, 600, 600, 400, 450, 410, 470, 480, 800, 600, 900, 400]
+					name: "Votes",
+					data: barHeights
+					// data: [10, 450, 1600, 600, 400, 450, 410, 470, 480, 800, 600, 900, 400]
 				}
 			],
-			
+
 			plotOptions: {
 				bar: {
-					columnWidth: "30%",
-					endingShape: "rounded",
-					startingShape: "rounded",
-					
+					columnWidth: "20%",
+					endingShape: "flat",
+					startingShape: "flat",
+
 					colors: {
 						backgroundBarColors: ['#f0f0f0', '#f0f0f0', '#f0f0f0', '#f0f0f0','#f0f0f0','#f0f0f0','#f0f0f0','#f0f0f0'],
 						backgroundBarOpacity: 1,
@@ -48,10 +65,10 @@
 			},
 			colors:['#43DC80'],
 			grid: {
-				show: false,
+				show: true,
 			},
 			legend: {
-				show: false
+				show: true
 			},
 			fill: {
 			  opacity: 1
@@ -69,7 +86,7 @@
 			  }
 			},
 			xaxis: {
-			 categories: ['06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'],
+			 categories: xaxisTicks,
 			  labels: {
 			   style: {
 				  colors: '#787878',
@@ -87,14 +104,14 @@
 				},
 			},
 			yaxis: {
-			show:false,	
+			show:false,
 			labels: {
 			   style: {
 				  colors: '#3e4954',
 				  fontSize: '14px',
 				   fontFamily: 'Poppins',
 				  fontWeight: 100,
-				  
+
 				},
 				 formatter: function (y) {
 						  return y.toFixed(0) + "k";
@@ -104,7 +121,12 @@
 			tooltip: {
 				x: {
 					show: true
-				}
+				},
+                y: {
+                    formatter: function(val) {
+                        return val
+                    }
+                }
 			},
 			 responsive: [{
 				breakpoint: 575,
@@ -118,7 +140,7 @@
 		var chartTimelineRender =  new ApexCharts(document.querySelector("#chartTimeline"), optionsTimeline);
 		 chartTimelineRender.render();
 	}
-	
+
 	var widgetChart1 = function(){
 		var options = {
           series: [{
@@ -132,7 +154,7 @@
             enabled: true
           },
 		  toolbar:{
-			show:false  
+			show:false
 		  }
         },
         dataLabels: {
@@ -162,7 +184,7 @@
 			show:false
 		  },
 		  axisTicks:{
-			show:false  
+			show:false
 		  },
 		  labels: {
 			  style: {
@@ -170,7 +192,7 @@
 				  fontSize: '14px',
 				   fontFamily: 'Poppins',
 				  fontWeight: 100,
-				  
+
 				}
 			}
         }
@@ -179,7 +201,7 @@
         var chart = new ApexCharts(document.querySelector("#widgetChart1"), options);
         chart.render();
 	}
-	
+
 	var radialChart = function(){
 		 var options = {
           series: [60],
@@ -222,7 +244,7 @@
               strokeWidth: '100%',
               margin: 0, // margin is in pixels
             },
-        
+
             dataLabels: {
               show: true,
               value: {
@@ -245,15 +267,15 @@
         var chart = new ApexCharts(document.querySelector("#radialChart"), options);
         chart.render();
 	}
-	
+
 	var widgetChart2 = function(){
 		var options = {
 		  series: [
 			{
 				name: 'Net Profit',
 				data: [500, 500, 400, 400, 600, 600, 300, 300,500, 500,700,700],
-				//radius: 12,	
-			}, 				
+				//radius: 12,
+			},
 		],
 			chart: {
 			type: 'area',
@@ -267,9 +289,9 @@
 			sparkline: {
 				enabled: true
 			}
-			
+
 		},
-		
+
 		colors:['#43DC80'],
 		dataLabels: {
 		  enabled: false,
@@ -287,7 +309,7 @@
 		  curve:'smooth',
 		  colors:['#43DC80'],
 		},
-		
+
 		grid: {
 			show:false,
 			borderColor: '#eee',
@@ -374,20 +396,20 @@
 		var chartBar1 = new ApexCharts(document.querySelector("#widgetChart2"), options);
 		chartBar1.render();
 	}
-	
+
 	var donutChart1 = function(){
 		$("span.donut1").peity("donut", {
 			width: "81",
 			height: "81"
 		});
 	}
-	
+
 	/* Function ============ */
 		return {
 			init:function(){
 			},
-			
-			
+
+
 			load:function(){
 					chartTimeline();
 					widgetChart1();
@@ -395,26 +417,26 @@
 					widgetChart2();
 					donutChart1();
 			},
-			
+
 			resize:function(){
 			}
 		}
-	
+
 	}();
 
 	jQuery(document).ready(function(){
 	});
-		
+
 	jQuery(window).on('load',function(){
 		setTimeout(function(){
 			dzChartlist.load();
-		}, 1000); 
-		
+		}, 1000);
+
 	});
 
 	jQuery(window).on('resize',function(){
-		
-		
-	});     
+
+
+	});
 
 })(jQuery);

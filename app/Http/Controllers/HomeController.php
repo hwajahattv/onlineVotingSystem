@@ -8,6 +8,7 @@ use App\Models\PoliticalParty;
 use App\Models\Vote;
 use App\Models\Voter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Image;
 
 class HomeController extends Controller
@@ -253,6 +254,30 @@ class HomeController extends Controller
         return redirect('/');
     }
     public function resultsHome(){
-        return view('resultsHome');
+        $election = Election::all();
+        return view('resultsHome',['elections' => $election]);
+    }
+    public function fetchResults(Request $request){
+//        dd($request);
+        if($request['region']!=null){
+            if($request['province']!=null){
+                if($request['district']!=null){
+                    $candidatesData = Candidate::where(['current_region' => $request['region']])
+                        ->where(['current_province' => $request['province']])
+                        ->where(['current_district' => $request['district']])
+                        ->with('politicalParty')
+                        ->get();
+                    $candidates=$candidatesData->pluck('id')->toArray();
+                    $voteCount = DB::table('votes')
+                        ->select('candidate_id', DB::raw('Count(*) as c'))
+                        ->groupBy('candidate_id')
+                        ->whereIn('candidate_id', $candidates)
+                        ->having('c', '>', 1)
+                        ->get();
+                }
+            }
+        }
+//                    dd($voteCount,$candidatesData);
+        return view('pollingResultsPage',['count'=>$voteCount, 'candidates'=>$candidatesData]);
     }
 }

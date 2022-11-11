@@ -52,6 +52,7 @@ Route::get('/selectElection', [HomeController::class, 'selectElection'])->name('
 Route::get('/castVote/{id}', [HomeController::class, 'castVote'])->name('castVote');
 Route::post('/castVotePost/{id}', [HomeController::class, 'castVotePost'])->name('castVotePost');
 Route::get('/resultsHome', [HomeController::class, 'resultsHome'])->name('resultsHome');
+Route::post('/fetchResults', [HomeController::class, 'fetchResults'])->name('fetchResults');
 
 
 Route::group(['auth' => 'middleware'], function () {
