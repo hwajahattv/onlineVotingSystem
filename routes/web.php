@@ -24,7 +24,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
+Route::head('/', function () {
     return view('welcome');
 
 });
