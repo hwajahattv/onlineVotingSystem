@@ -266,18 +266,27 @@ class HomeController extends Controller
                         ->where(['current_province' => $request['province']])
                         ->where(['current_district' => $request['district']])
                         ->with('politicalParty')
-                        ->get();
-                    $candidates=$candidatesData->pluck('id')->toArray();
+                        ->get()->keyBy('id');
+
                     $voteCount = DB::table('votes')
                         ->select('candidate_id', DB::raw('Count(*) as c'))
                         ->groupBy('candidate_id')
-                        ->whereIn('candidate_id', $candidates)
+                        ->whereIn('candidate_id', array_keys($candidatesData->toArray()))
                         ->having('c', '>', 1)
-                        ->get();
+                        ->get()->keyBy('candidate_id');
                 }
+               // dd($candidatesData, $voteCount);
             }
         }
-//                    dd($voteCount,$candidatesData);
-        return view('pollingResultsPage',['count'=>$voteCount, 'candidates'=>$candidatesData]);
+        $election = Election::find($request['electionID']);
+        $votesAreaWise=[];
+        $votersInDistrict=DB::table('voters')->where('current_district','<=',$request['district'])->count();
+        $votersInProvince=DB::table('voters')->where('current_province','<=',$request['province'])->count();
+        $votersInRegion=DB::table('voters')->where('current_region','<=',$request['region'])->count();
+        $votesAreaWise['votersInDistrict']=$votersInDistrict;
+        $votesAreaWise['votersInProvince']=$votersInProvince;
+        $votesAreaWise['votersInRegion']=$votersInRegion;
+//                dd($votesAreaWise);
+        return view('pollingResultsPage',['votesAreaWise'=>$votesAreaWise,'voteCount'=>$voteCount, 'candidates'=>$candidatesData,'election'=>$election]);
     }
 }
