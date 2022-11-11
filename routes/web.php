@@ -24,8 +24,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::head('/', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('layouts.app');
 
 });
 //Route::get('/getCSRF', function()
