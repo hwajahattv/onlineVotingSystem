@@ -80,7 +80,9 @@ class VoterController extends Controller
         }
 
         $voter->save();
-        return redirect()->back()->with(['message', 'Message sent!']);
+        $message='Voter registered successfully!';
+//        dd($message);
+        return redirect()->back()->with(['message'=>$message ]);
     }
     public function showVoters()
     {

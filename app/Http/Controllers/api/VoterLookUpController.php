@@ -14,19 +14,25 @@ class VoterLookUpController extends Controller
         $request->validate([
             'name' => 'required|max:25',
             'surName' => 'required|max:25',
-            'birth_region' => 'required',
-            'birth_province' => 'required',
-            'birth_district' => 'required',
+//            'birth_region' => 'required',
+//            'birth_province' => 'required',
+//            'birth_district' => 'required',
 //            'birth_LLG' => 'required',
 //            'birth_ward' => 'required',
         ]);
 
         $requiredVoter=Voter::where(['name'=>$request['name']])->where(['surName'=>$request['surName']])->first();
         if($requiredVoter==null){
-            return \response("null");
+            return [
+                "status" => 0,
+                "data" =>"Not Found"
+            ];
         }
         else
-            return \response()->json($requiredVoter);
+            return [
+                "status" => 1,
+                "data" =>$requiredVoter
+            ];
     }
 
 }

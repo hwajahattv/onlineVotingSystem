@@ -4,59 +4,25 @@
     <div class="content-body">
         <div class="container-fluid">
             <!-- Add Project -->
-            <div class="modal fade" id="addProjectSidebar">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Create Project</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Project Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Dadeline</label>
-                                    <div class="cal-icon"><input type="date" class="form-control"><i
-                                            class="far fa-calendar-alt"></i></div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-black font-w500">Client Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <button type="button" class="btn btn-primary">CREATE</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+            @if ($errors->any())
+                <div class="jumbotron mx-5">
+                    <ol class="alert alert-danger alert-dismissible">
+                        @foreach ($errors->all() as $error)
+                            <li style="height: 14px; font-size: 12px"
+                                class=" fade show">
+                                * &nbsp; {{ $error }}
+                            </li>
+                        @endforeach
+                    </ol>
                 </div>
-            </div>
-
+            @endif
+            @if(Session::has('message'))
+                <div class="jumbotron bg-success">
+                    <h4 class="display-6 text-center">{{ Session::get('message') }}</h4>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="card-body">
-                        <ul>
-                            @if ($errors->any())
-                                <div class="mx-5">
-                                    @foreach ($errors->all() as $error)
-                                        <li style="height: 10px; font-size: 10px"
-                                            class="alert alert-danger alert-dismissible fade show">
-                                            {{-- <div class="alert alert-danger alert-dismissible fade show py-2 mx-5 my-2" role="alert"> --}}
-                                            {{ $error }}
-                                            {{-- </div> --}}
-                                        </li>
-                                    @endforeach
-                                    @if (Session::has('message'))
-                                        <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>
-                                    @endif
-                                </div>
-                            @endif
-                        </ul>
-
-                    </div>
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <h3 class="text-center display-3">Enter the elector details</h3>
@@ -365,7 +331,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
                                 </div>
                             </form>
                         </div>

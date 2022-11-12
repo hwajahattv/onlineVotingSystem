@@ -103,7 +103,9 @@ class CandidateController extends Controller
         }
 
         $cand->save();
-        return redirect()->back()->with(['message', 'Message sent!']);
+        $message='Candidate registered successfully!';
+//        dd($message);
+        return redirect()->back()->with(['message'=>$message ]);
     }
     public function showCandidates()
     {

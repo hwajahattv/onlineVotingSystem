@@ -19,29 +19,34 @@
 <body>
 
 <div class="row">
-    <ul>
+    <div class="container-login100 ">
+            <div class="col-md-1">
+                <a class="btn btn-outline-success" href="{{ url('/') }}">Home</a>
+            </div>
+            <div class="col-md-11">
+                <h1 class="text-dark text-center">Population Registration System (Voter)</h1>
+            </div>
         @if ($errors->any())
-            <div class="mx-5">
-                @foreach ($errors->all() as $error)
-                    <li style="height: 10px; font-size: 10px" class="alert alert-danger alert-dismissible fade show">
-                        {{-- <div class="alert alert-danger alert-dismissible fade show py-2 mx-5 my-2" role="alert"> --}}
-                        {{ $error }}
-                        {{-- </div> --}}
-                    </li>
-                @endforeach
-                @if (Session::has('message'))
-                    <div class="alert alert-info"><span> {{ Session::get('message') }} </span></div>
-                @endif
+            <div class="col-md-6">
+                <div class="jumbotron mx-5">
+                    <ol class="alert alert-danger alert-dismissible">
+                        @foreach ($errors->all() as $error)
+                            <li style="height: 14px; font-size: 12px"
+                                class=" fade show">
+                                * &nbsp; {{ $error }}
+                            </li>
+                        @endforeach
+                    </ol>
+                </div>
             </div>
         @endif
-    </ul>
-    <div class="container-login100">
-        <div class="col-md-1">
-            <a class="btn btn-outline-success" href="{{ url('/') }}">Home</a>
-        </div>
-        <div class="col-md-11">
-            <h1 class="text-dark text-center">Population Registration System (Voter)</h1>
-        </div>
+        @if(Session::has('message'))
+            <div class="col-md-12">
+                <div class="jumbotron bg-success">
+                    <h4 class="display-6 text-center">{{ Session::get('message') }}</h4>
+                </div>
+            </div>
+        @endif
         <div class="">
             <div class="card overflow-hidden">
                 <div class="card-body">

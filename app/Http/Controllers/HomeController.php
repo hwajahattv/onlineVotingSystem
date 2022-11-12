@@ -105,7 +105,9 @@ class HomeController extends Controller
         }
 
         $voter->save();
-        return redirect()->back()->with(['message', 'Message sent!']);
+        $message='Voter registered successfully!';
+//        dd($message);
+        return redirect()->back()->with(['message'=>$message ]);
     }
 
     public function registerAsCandidatePost(Request $request)
@@ -175,7 +177,9 @@ class HomeController extends Controller
         }
 
         $cand->save();
-        return redirect()->back()->with(['message', 'Message sent!']);
+        $message='Candidate registered successfully!';
+//        dd($message);
+        return redirect()->back()->with(['message'=>$message ]);
     }
 
     public function voterLookUp()
@@ -223,9 +227,10 @@ class HomeController extends Controller
 
         $requiredVoter = Voter::where(['name' => $request['name']])->where(['surName' => $request['surName']])->first();
         if ($requiredVoter != null) {
-            return \response()->json($requiredVoter);
+            return response()->json($requiredVoter);
         }
-        return \response("null");
+//        dd('ttt');
+        return response("null");
     }
 
     public function castVote($id)

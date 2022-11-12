@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\VoterLookUpController;
+use App\Models\Candidate;
 /*
 |--------------------------------------------------------------------------
 | api Routes
@@ -17,4 +19,13 @@ use App\Http\Controllers\api\VoterLookUpController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('/api/findMe', [VoterLookUpController::class, 'findMe'])->name('findMeAPI');
+Route::post('/findMe', [VoterLookUpController::class, 'findMe'])->name('findMeAPI');
+Route::get('/test', function (){
+    return 'It is working.';
+});
+Route::get('/test1', function (){
+    $cand = Candidate::all();
+    return $cand;
+});
+
+

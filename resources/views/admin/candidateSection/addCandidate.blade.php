@@ -3,18 +3,23 @@
 @section('content')
     <div class="content-body">
         <div class="container-fluid">
-            <ul>
-                @if ($errors->any())
-                    <div class="mx-5">
+            @if ($errors->any())
+                <div class="jumbotron mx-5">
+                    <ol class="alert alert-danger alert-dismissible">
                         @foreach ($errors->all() as $error)
-                            <li style="height: 10px; font-size: 10px"
-                                class="alert alert-danger alert-dismissible fade show">
-                                {{ $error }}
+                            <li style="height: 14px; font-size: 12px"
+                                class=" fade show">
+                               * &nbsp; {{ $error }}
                             </li>
                         @endforeach
-                    </div>
-                @endif
-            </ul>
+                    </ol>
+                </div>
+            @endif
+            @if(Session::has('message'))
+                <div class="jumbotron bg-success">
+                    <h4 class="display-6 text-center">{{ Session::get('message') }}</h4>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card overflow-hidden">
@@ -308,7 +313,7 @@
                                                             id="selectOccupation">
                                                         <option selected disabled>--select--</option>
                                                         @foreach($politicalPartyList as $item)
-                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                            <option value="{{$item->id}}">{{$item->name}}</option>
                                                         @endforeach
                                                     </select>
 
@@ -354,7 +359,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
                                 </div>
                             </form>
                         </div>
@@ -364,7 +369,7 @@
             </div>
         </div>
     </div>
-                                                                                                                                                                                                                                                                                                                                                                                                        ***********************************-->
+    ***********************************-->
 @endsection
 @section('script')
     <script src="{{ asset('js/imageUploadIcon.js') }}"></script>
