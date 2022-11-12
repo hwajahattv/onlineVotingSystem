@@ -103,11 +103,11 @@ class HomeController extends Controller
             Image::make($img_tmp)->resize(200, 200)->save($img_path);
             $voter->displayPicture = $filename;
         }
-
         $voter->save();
-        $message='Voter registered successfully!';
+        $voterID = Voter::where(['name' => $data['name']])->where(['middleName' => $data['middleName']])->where(['surName' => $data['surName']])->first();
+        $message = 'You are registered successfully! Please note your Voter ID: ' . $voterID->id;
 //        dd($message);
-        return redirect()->back()->with(['message'=>$message ]);
+        return redirect()->back()->with(['message' => $message]);
     }
 
     public function registerAsCandidatePost(Request $request)
@@ -177,9 +177,9 @@ class HomeController extends Controller
         }
 
         $cand->save();
-        $message='Candidate registered successfully!';
+        $message = 'Candidate registered successfully!';
 //        dd($message);
-        return redirect()->back()->with(['message'=>$message ]);
+        return redirect()->back()->with(['message' => $message]);
     }
 
     public function voterLookUp()
@@ -236,37 +236,52 @@ class HomeController extends Controller
     public function castVote($id)
     {
         $voter = Voter::find($id);
+        if ($voter == null) {
+            $message = 'Voter ID not Found! Find your Voter ID or get registered as voter first.';
+//        dd($message);
+            return view('voterIdNotFound',['message' => $message]);
+        } else {
 //        dd($voter);
-        $allCandidates=Candidate::all();
-        $region = $voter->current_region;
-        $province = $voter->current_province;
-        $district = $voter->current_district;
-        $LLG = $voter->current_LLG;
-        $ward = $voter->current_ward;
-        $election = Election::all();
-        $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->where(['current_LLG' => $LLG])->where(['current_ward' => $ward])->with('politicalParty')->get();
+//        $allCandidates=Candidate::all();
+            $region = $voter->current_region;
+            $province = $voter->current_province;
+            $district = $voter->current_district;
+            $LLG = $voter->current_LLG;
+            $ward = $voter->current_ward;
+            $election = Election::all();
+            $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->where(['current_LLG' => $LLG])->where(['current_ward' => $ward])->with('politicalParty')->get();
 //    dd($candidates,$allCandidates, $voter,$region, $province, $district, $LLG, $ward);
 
-        return view('castVote', ['elections' => $election, 'candidates'=> $candidates, 'voter'=>$voter]);
+            return view('castVote', ['elections' => $election, 'candidates' => $candidates, 'voter' => $voter]);
+        }
     }
-    public function castVotePost(Request $request, $id){
+
+    public
+    function castVotePost(Request $request, $id)
+    {
 //        dd($request);
-        $vote= new Vote;
-        $vote->election_id=$request['electionID'];
-        $vote->candidate_id=$request['candidateID'];
-        $vote->voter_id=$request['voterID'];
+        $vote = new Vote;
+        $vote->election_id = $request['electionID'];
+        $vote->candidate_id = $request['candidateID'];
+        $vote->voter_id = $request['voterID'];
         $vote->save();
         return redirect('/');
     }
-    public function resultsHome(){
+
+    public
+    function resultsHome()
+    {
         $election = Election::all();
-        return view('resultsHome',['elections' => $election]);
+        return view('resultsHome', ['elections' => $election]);
     }
-    public function fetchResults(Request $request){
+
+    public
+    function fetchResults(Request $request)
+    {
 //        dd($request);
-        if($request['region']!=null){
-            if($request['province']!=null){
-                if($request['district']!=null){
+        if ($request['region'] != null) {
+            if ($request['province'] != null) {
+                if ($request['district'] != null) {
                     $candidatesData = Candidate::where(['current_region' => $request['region']])
                         ->where(['current_province' => $request['province']])
                         ->where(['current_district' => $request['district']])
@@ -280,18 +295,18 @@ class HomeController extends Controller
                         ->having('c', '>', 1)
                         ->get()->keyBy('candidate_id');
                 }
-               // dd($candidatesData, $voteCount);
+                // dd($candidatesData, $voteCount);
             }
         }
         $election = Election::find($request['electionID']);
-        $votesAreaWise=[];
-        $votersInDistrict=DB::table('voters')->where('current_district','<=',$request['district'])->count();
-        $votersInProvince=DB::table('voters')->where('current_province','<=',$request['province'])->count();
-        $votersInRegion=DB::table('voters')->where('current_region','<=',$request['region'])->count();
-        $votesAreaWise['votersInDistrict']=$votersInDistrict;
-        $votesAreaWise['votersInProvince']=$votersInProvince;
-        $votesAreaWise['votersInRegion']=$votersInRegion;
+        $votesAreaWise = [];
+        $votersInDistrict = DB::table('voters')->where('current_district', '<=', $request['district'])->count();
+        $votersInProvince = DB::table('voters')->where('current_province', '<=', $request['province'])->count();
+        $votersInRegion = DB::table('voters')->where('current_region', '<=', $request['region'])->count();
+        $votesAreaWise['votersInDistrict'] = $votersInDistrict;
+        $votesAreaWise['votersInProvince'] = $votersInProvince;
+        $votesAreaWise['votersInRegion'] = $votersInRegion;
 //                dd($votesAreaWise);
-        return view('pollingResultsPage',['votesAreaWise'=>$votesAreaWise,'voteCount'=>$voteCount, 'candidates'=>$candidatesData,'election'=>$election]);
+        return view('pollingResultsPage', ['votesAreaWise' => $votesAreaWise, 'voteCount' => $voteCount, 'candidates' => $candidatesData, 'election' => $election]);
     }
 }

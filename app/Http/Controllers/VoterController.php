@@ -135,6 +135,8 @@ class VoterController extends Controller
     public function deleteVoter($id){
         $voter=Voter::find($id);
         $voter->delete();
-        return redirect()->back();
+        $message='Voter deleted successfully!';
+//        dd($message);
+        return redirect()->back()->with(['dltMessage'=>$message ]);
     }
 }

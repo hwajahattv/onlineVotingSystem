@@ -159,6 +159,9 @@ class CandidateController extends Controller
 //        dd($id);
         $candidate=Candidate::find($id);
         $candidate->delete();
-        return redirect()->back();
+
+        $message='Candidate deleted successfully!';
+//        dd($message);
+        return redirect()->back()->with(['dltMessage'=>$message ]);
     }
 }

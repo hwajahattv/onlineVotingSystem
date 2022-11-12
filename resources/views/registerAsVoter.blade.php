@@ -28,7 +28,7 @@
             </div>
         @if ($errors->any())
             <div class="col-md-6">
-                <div class="jumbotron mx-5">
+                <div class="jumbotron m-2 mx-5">
                     <ol class="alert alert-danger alert-dismissible">
                         @foreach ($errors->all() as $error)
                             <li style="height: 14px; font-size: 12px"
@@ -42,7 +42,7 @@
         @endif
         @if(Session::has('message'))
             <div class="col-md-12">
-                <div class="jumbotron bg-success">
+                <div class="jumbotron m-2 bg-success">
                     <h4 class="display-6 text-center">{{ Session::get('message') }}</h4>
                 </div>
             </div>
@@ -50,7 +50,7 @@
         <div class="">
             <div class="card overflow-hidden">
                 <div class="card-body">
-                    <form method="post" enctype="multipart/form-data" action="{{ route('addVoterPost') }}">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('registerAsVoterPost') }}">
                         @csrf
                         <div class="row">
                             <div class="col-md-8">

@@ -6,6 +6,11 @@
 @section('content')
     <div class="content-body" style="margin-left: 0;">
         <div class="container-fluid">
+            @if(Session::has('message'))
+                    <div class="jumbotron m-2 bg-success">
+                        <h4 class="display-6 text-center">{{ Session::get('message') }}</h4>
+                    </div>
+            @endif
             <h1>Fill in the elector details to find if you are registered.</h1>
             <div class="container-login100">
                 <div class="">

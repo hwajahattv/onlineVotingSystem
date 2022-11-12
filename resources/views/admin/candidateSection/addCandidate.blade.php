@@ -4,7 +4,7 @@
     <div class="content-body">
         <div class="container-fluid">
             @if ($errors->any())
-                <div class="jumbotron mx-5">
+                <div class="jumbotron m-2 mx-5">
                     <ol class="alert alert-danger alert-dismissible">
                         @foreach ($errors->all() as $error)
                             <li style="height: 14px; font-size: 12px"
@@ -13,11 +13,6 @@
                             </li>
                         @endforeach
                     </ol>
-                </div>
-            @endif
-            @if(Session::has('message'))
-                <div class="jumbotron bg-success">
-                    <h4 class="display-6 text-center">{{ Session::get('message') }}</h4>
                 </div>
             @endif
             <div class="row">

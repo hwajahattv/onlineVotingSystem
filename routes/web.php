@@ -26,8 +26,8 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('public.home');
 
-});
 Route::get('/getCSRF', function()
 {
     return csrf_token();
