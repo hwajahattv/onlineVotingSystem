@@ -277,7 +277,7 @@
                 </li>
                 <li><a href="{{ route('public.home') }}">
                         <img src="{{ asset('icons/home.ico') }}" class="flaticon-web"
-                             style="margin: 0 0.7rem 0 0;" width="25px" height="28px" alt="no-image">
+                             style="margin: 0 0.7rem 0 0;" width="28px" height="28px" alt="no-image">
                         <span class="nav-text">Home</span>
                     </a>
                 </li>
@@ -301,7 +301,7 @@
 
                 <li><a href="{{ route('politicalPartySection') }}">
                         <img src="{{ asset('icons/party.png') }}" class="flaticon-web"
-                             style="margin: 0 0.7rem 0 0;" width="25px" height="28px" alt="no-image">
+                             style="margin: 0 0.7rem 0 0;" width="28px" height="28px" alt="no-image">
                         <span class="nav-text">Political Parties</span>
                     </a>
                 </li>
@@ -319,20 +319,27 @@
                     </a>
                 </li>
                 <li><a href="{{ route('voterSection') }}">
-                        {{-- <i class="flaticon-bar-chart-1"></i> --}}
-
                         <img src="{{ asset('icons/voters.png') }}" class="flaticon-web"
-                             style="margin: 0 0.7rem 0 0;" width="25px" height="28px" alt="no-image">
+                             style="margin: 0 0.7rem 0 0;" width="28px" height="28px" alt="no-image">
                         <span class="nav-text">Voters</span>
                     </a>
                 </li>
                 <li><a href="{{ route('electionSection') }}">
                         {{-- <i class="flaticon-web"></i> --}}
                         <img src="{{ asset('icons/election.png') }}" class="flaticon-web"
-                             style="margin: 0 0.7rem 0 0;" width="25px" height="28px" alt="no-image">
+                             style="margin: 0 0.7rem 0 0;" width="28px" height="28px" alt="no-image">
                         <span class="nav-text">Elections</span>
                     </a>
                 </li>
+                @if(Auth()->user()->roles=='SuperAdmin')
+                <li><a href="{{ route('adminUsers') }}">
+                        {{-- <i class="flaticon-web"></i> --}}
+                        <img src="{{ asset('icons/admin.png') }}" class="flaticon-web"
+                             style="margin: 0 0.7rem 0 0;" width="28px" height="28px" alt="no-image">
+                        <span class="nav-text">Admin Users</span>
+                    </a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>

@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{--    <meta name="csrf-token" content="{{ csrf_token() }}"/>--}}
+    {{--    <meta name="csrf-token" content="{{ csrf_token() }}"/>--}}
     <title>Voting App</title>
-{{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
+    {{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
 
-{{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
+    {{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- Scripts -->
-{{--    @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
+    {{--    @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
     {{-- ********************************************************** --}}
     {{-- ********************************************************** --}}
     {{-- ********************************************************** --}}
@@ -56,78 +56,81 @@
     <div class="header">
 
         <div class="header_bo">
-{{--            <div class="container">--}}
-                <div class="row">
-                    <div class="col-md-9 col-sm-7 navbar-default">
-                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarsExample04" aria-controls="navbarsExample04"
-                                    aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="navbar-default">
+                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarsExample04" aria-controls="navbarsExample04"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
-                            <div class="collapse navbar-collapse" id="navbarsExample04">
-                                <ul class="navbar-nav mr-auto">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="{{ url('/') }}"> Home </a>
-                                    </li>
-{{--                                    <li class="nav-item dropdown">--}}
-{{--                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Information Center</a>--}}
-{{--                                        <ul class="dropdown-menu fade-down" style="background-color: #003610">--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">ABOUT PNGEC</a></li>--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">PNGEC FACT SHEET</a></li>--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">VOTER INFORMATION</a></li>--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">OBSERVER INFORMATION</a></li>--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">POLTITICAL PARTIES AND<br>CANDIDATES INFORMATION</a></li>--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">MEDIA</a></li>--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">GALLERY</a></li>--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">ARCHIVE</a></li>--}}
-{{--                                        </ul>--}}
-{{--                                    </li>--}}
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/voterLookUp') }}">Check if I am registered</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/pollingSchedule') }}">Polling Schedule</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="{{ url('/contact') }}">Contact us </a>
-                                    </li>
-{{--                                    <li class="nav-item dropdown">--}}
-{{--                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Social Media</a>--}}
-{{--                                        <ul class="dropdown-menu fade-down" style="background-color: #003610">--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="https://www.youtube.com/channel/UCblxoe_dGP8hvlv4p-qnoqg"> YouTube</a></li>--}}
-{{--                                            <li class="dropDown-li"><a class="dropdown-item" href="https://www.facebook.com/pngelectoralcommission"> Facebook</a></li>--}}
-{{--                                        </ul>--}}
-{{--                                    </li>--}}
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ url('/') }}"> Home </a>
+                                </li>
+                                {{--                                    <li class="nav-item dropdown">--}}
+                                {{--                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Information Center</a>--}}
+                                {{--                                        <ul class="dropdown-menu fade-down" style="background-color: #003610">--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">ABOUT PNGEC</a></li>--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">PNGEC FACT SHEET</a></li>--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">VOTER INFORMATION</a></li>--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">OBSERVER INFORMATION</a></li>--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">POLTITICAL PARTIES AND<br>CANDIDATES INFORMATION</a></li>--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">MEDIA</a></li>--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">GALLERY</a></li>--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="">ARCHIVE</a></li>--}}
+                                {{--                                        </ul>--}}
+                                {{--                                    </li>--}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/voterLookUp') }}">Check if I am registered</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/pollingSchedule') }}">Polling Schedule</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{{ url('/contact') }}">Contact us </a>
+                                </li>
+                                {{--                                    <li class="nav-item dropdown">--}}
+                                {{--                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Social Media</a>--}}
+                                {{--                                        <ul class="dropdown-menu fade-down" style="background-color: #003610">--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="https://www.youtube.com/channel/UCblxoe_dGP8hvlv4p-qnoqg"> YouTube</a></li>--}}
+                                {{--                                            <li class="dropDown-li"><a class="dropdown-item" href="https://www.facebook.com/pngelectoralcommission"> Facebook</a></li>--}}
+                                {{--                                        </ul>--}}
+                                {{--                                    </li>--}}
 
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="col-md-3 col-sm-5 d_none">
-                        <ul class="sign d-flex justify-content-evenly">
-                            <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                            @if (Route::has('login'))
-                                @auth
-                                    <li><a class="sign_btn" href="{{ url('/home') }}">Dashboard</a></li>
-                                    <li><a class="sign_btn" href="{{ url('/logout') }}">Logout</a></li>
-                                @else
-                                    <li><a class="sign_btn" href="{{ url('/login') }}">sign in</a></li>
-                                    <li><a class="sign_btn" href="{{ url('/register') }}">sign up</a></li>
-                                @endauth
-                            @endif
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class=" d_none">
+                    <ul class="sign d-flex justify-content-around">
+                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class=" d_none">
+                    <ul class="sign d-flex justify-content-around">
+                        @if (Route::has('login'))
+                            @auth
+                                <li class="m-2"><a class="sign_btn" href="{{ url('/home') }}">Dashboard</a></li>
+                                <li class="m-2"><a class="sign_btn" href="{{ url('/logout') }}">Logout</a></li>
+                            @else
+                                <li class="m-2"><a class="sign_btn" href="{{ url('/login') }}">sign in</a></li>
+                                <li class="m-2"><a class="sign_btn" href="{{ url('/register') }}">sign up</a></li>
+                            @endauth
+                        @endif
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
             </div>
         </div>
-{{--    </div>--}}
+    </div>
+    {{--    </div>--}}
 </header>
 <!--**********************************
     Header end ti-comment-alt
@@ -142,7 +145,7 @@
 ***********************************-->
 <section class="banner_main">
     <div class="container">
-@yield('content')
+        @yield('content')
     </div>
 </section>
 
@@ -159,7 +162,6 @@
 ***********************************-->
 
 
-</div>
 <!--**********************************
     Main wrapper end
 ***********************************-->

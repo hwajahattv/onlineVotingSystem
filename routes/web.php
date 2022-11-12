@@ -55,56 +55,60 @@ Route::get('/resultsHome', [HomeController::class, 'resultsHome'])->name('result
 Route::post('/fetchResults', [HomeController::class, 'fetchResults'])->name('fetchResults');
 
 
-Route::group(['auth' => 'middleware'], function () {
-    Route::get('/home', [AdminController::class, 'index'])->name('home')->middleware('verified');
-    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('verified');
-    // candidate services
-    Route::get('/candidateSection', [CandidateController::class, 'candidateSection'])->name('candidateSection');
-    Route::get('/showCandidates', [CandidateController::class, 'showCandidates'])->name('showCandidates');
-    Route::get('/candidate/show/{id}', [CandidateController::class, 'showCandidateDetails'])->name('candidate.show');
-    // to add New candidate
-    Route::get('/addCandidate', [CandidateController::class, 'addCandidate'])->name('addCandidate');
-    Route::post('/addCandidate/post', [CandidateController::class, 'addCandidatePost'])->name('addCandidatePost');
-    // to edit a candidate
-    Route::get('/editCandidate/{id}', [CandidateController::class, 'editCandidate'])->name('editCandidate');
-    Route::post('/editCandidatePost/{id}', [CandidateController::class, 'editCandidatePost'])->name('editCandidatePost');
-    //to delete a candidate
-    Route::get('/deleteCandidate/{id}', [CandidateController::class, 'deleteCandidate'])->name('deleteCandidate');
-
-    //    Political Party routes
-    Route::get('/politicalPartySection', [PoliticalPartyController::class, 'politicalPartySection'])->name('politicalPartySection')->middleware('SuperAdmin');
-    Route::get('/showPoliticalParties', [PoliticalPartyController::class, 'showPoliticalParties'])->name('showPoliticalParties');
-
-    // to add New Political Party
-    Route::get('/addPoliticalParty', [PoliticalPartyController::class, 'addPoliticalParty'])->name('addPoliticalParty');
-    Route::post('/addPoliticalParty/post', [PoliticalPartyController::class, 'addPoliticalPartyPost'])->name('addPoliticalPartyPost');
-    // to edit a Political Party
-    Route::get('/editParty/{id}', [PoliticalPartyController::class, 'editParty'])->name('editParty');
-    Route::post('/editPartyPost/{id}', [PoliticalPartyController::class, 'editPartyPost'])->name('editPartyPost');
-    //to delete a Political Party
-    Route::get('/deleteParty/{id}', [PoliticalPartyController::class, 'deleteParty'])->name('deleteParty');
-
-    // voters services
-    Route::get('/voterSection', [VoterController::class, 'voterSection'])->name('voterSection');
-    Route::get('/showVoters', [VoterController::class, 'showVoters'])->name('showVoters');
-    Route::get('/voter/show/{id}', [VoterController::class, 'showVoterDetails'])->name('voter.show');
-
-    // to add New voter
-    Route::get('/addVoter', [VoterController::class, 'addVoter'])->name('addVoter');
-    Route::post('/addVoter/post', [VoterController::class, 'addVoterPost'])->name('addVoterPost');
-    // to edit a voter
-    Route::get('/editVoter/{id}', [VoterController::class, 'editVoter'])->name('editVoter');
-    Route::post('/editVoterPost/{id}', [VoterController::class, 'editVoterPost'])->name('editVoterPost');
-    //to delete a voter
-    Route::get('/deleteVoter/{id}', [VoterController::class, 'deleteVoter'])->name('deleteVoter');
-
-    // create a new election
-    Route::get('/electionSection', [ElectionController::class, 'electionSection'])->name('electionSection');
-    Route::post('/addNewElection', [ElectionController::class, 'addNewElection'])->name('addNewElection');
-    Route::get('/showElections', [ElectionController::class, 'showElections'])->name('showElections');
-    Route::get('/editElection/{id}', [ElectionController::class, 'editElection'])->name('editElection');
-    Route::post('/editElectionPost/{id}', [ElectionController::class, 'editElectionPost'])->name('editElectionPost');
+Route::group(['middleware' => ['verified','auth','SuperAdmin',]], function () {
+        Route::get('/adminUsers', [AdminController::class, 'adminUsers'])->name('adminUsers');
 });
+        Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('auth');
+Route::group(['middleware' => ['auth','verified']], function () {
+        Route::get('/home', [AdminController::class, 'index'])->name('home');
+        // candidate services
+        Route::get('/candidateSection', [CandidateController::class, 'candidateSection'])->name('candidateSection');
+        Route::get('/showCandidates', [CandidateController::class, 'showCandidates'])->name('showCandidates');
+        Route::get('/candidate/show/{id}', [CandidateController::class, 'showCandidateDetails'])->name('candidate.show');
+        // to add New candidate
+        Route::get('/addCandidate', [CandidateController::class, 'addCandidate'])->name('addCandidate');
+        Route::post('/addCandidate/post', [CandidateController::class, 'addCandidatePost'])->name('addCandidatePost');
+        // to edit a candidate
+        Route::get('/editCandidate/{id}', [CandidateController::class, 'editCandidate'])->name('editCandidate');
+        Route::post('/editCandidatePost/{id}', [CandidateController::class, 'editCandidatePost'])->name('editCandidatePost');
+        //to delete a candidate
+        Route::get('/deleteCandidate/{id}', [CandidateController::class, 'deleteCandidate'])->name('deleteCandidate');
+
+        //    Political Party routes
+        Route::get('/politicalPartySection', [PoliticalPartyController::class, 'politicalPartySection'])->name('politicalPartySection')->middleware('SuperAdmin');
+        Route::get('/showPoliticalParties', [PoliticalPartyController::class, 'showPoliticalParties'])->name('showPoliticalParties');
+
+        // to add New Political Party
+        Route::get('/addPoliticalParty', [PoliticalPartyController::class, 'addPoliticalParty'])->name('addPoliticalParty');
+        Route::post('/addPoliticalParty/post', [PoliticalPartyController::class, 'addPoliticalPartyPost'])->name('addPoliticalPartyPost');
+        // to edit a Political Party
+        Route::get('/editParty/{id}', [PoliticalPartyController::class, 'editParty'])->name('editParty');
+        Route::post('/editPartyPost/{id}', [PoliticalPartyController::class, 'editPartyPost'])->name('editPartyPost');
+        //to delete a Political Party
+        Route::get('/deleteParty/{id}', [PoliticalPartyController::class, 'deleteParty'])->name('deleteParty');
+
+        // voters services
+        Route::get('/voterSection', [VoterController::class, 'voterSection'])->name('voterSection');
+        Route::get('/showVoters', [VoterController::class, 'showVoters'])->name('showVoters');
+        Route::get('/voter/show/{id}', [VoterController::class, 'showVoterDetails'])->name('voter.show');
+
+        // to add New voter
+        Route::get('/addVoter', [VoterController::class, 'addVoter'])->name('addVoter');
+        Route::post('/addVoter/post', [VoterController::class, 'addVoterPost'])->name('addVoterPost');
+        // to edit a voter
+        Route::get('/editVoter/{id}', [VoterController::class, 'editVoter'])->name('editVoter');
+        Route::post('/editVoterPost/{id}', [VoterController::class, 'editVoterPost'])->name('editVoterPost');
+        //to delete a voter
+        Route::get('/deleteVoter/{id}', [VoterController::class, 'deleteVoter'])->name('deleteVoter');
+
+        // create a new election
+        Route::get('/electionSection', [ElectionController::class, 'electionSection'])->name('electionSection');
+        Route::post('/addNewElection', [ElectionController::class, 'addNewElection'])->name('addNewElection');
+        Route::get('/showElections', [ElectionController::class, 'showElections'])->name('showElections');
+        Route::get('/editElection/{id}', [ElectionController::class, 'editElection'])->name('editElection');
+        Route::post('/editElectionPost/{id}', [ElectionController::class, 'editElectionPost'])->name('editElectionPost');
+    });
+
 //->middleware('SuperAdmin')
 // *********************************************************************//
 // ************Email verification***************************************//

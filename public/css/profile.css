@@ -111,3 +111,13 @@
     background: #fff;
     min-height: 460px;
 }
+@media only screen and (max-width: 576px) {
+    .header {
+        height: 100px;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .display-4 {
+        font-size: 1.5rem;
+    }
+}

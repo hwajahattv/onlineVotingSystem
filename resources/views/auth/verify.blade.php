@@ -1,13 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.eVotingApp')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-5">
             <div class="col-md-6">
                 <div class="card bg-dark text-white">
                     <img src={{ asset('img/image_overlay.jpg') }} class="card-img" alt="...">
                     <div class="card-img-overlay">
-                        <h5 class="card-title text-center">Almost there...</h5>
+                        <h5 class="display-4 text-white text-center">Almost there...</h5>
                         @if (session('resent'))
                             <div class="alert alert-success" role="alert">
                                 {{ __('A fresh verification link has been sent to your email address.') }}
@@ -26,6 +25,5 @@
                 </div>
 
             </div>
-        </div>
     </div>
 @endsection
