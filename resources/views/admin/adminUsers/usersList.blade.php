@@ -50,15 +50,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="text-center display-3">List of all candidates</h3>
+                    <h3 class="text-center display-3">List of all Users</h3>
                     <div class="main-box clearfix">
                         <div class="table-responsive">
                             <table class="table tabl1 user-list">
                                 <thead>
                                 <tr>
                                     <th><span>Name</span></th>
-                                    <th><span>Address</span></th>
-                                    <th><span>Party Name</span></th>
+                                    <th><span>Role</span></th>
+                                    <th><span>Member since</span></th>
                                     <th class="text-center"><span>Status</span></th>
                                     <th><span>Email</span></th>
                                     <th>&nbsp;</th>
