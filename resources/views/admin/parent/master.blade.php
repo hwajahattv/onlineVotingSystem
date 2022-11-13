@@ -203,7 +203,7 @@
                                 <img src="{{asset('img/man(1).png')}}" width="20" alt=""/>
                                 <div class="header-info">
                                     <span>{{ Auth::user()->name }}</span>
-                                    <small>Super Admin</small>
+                                    <small>{{Auth::user()->roles}}</small>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
