@@ -37,14 +37,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-10 row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 d-flex justify-content-center">
                                                 <a class="glossy-button glossy-button--gold"
                                                    href="{{ route('registerAsVoter') }}">
                                                     VOTER
                                                 </a>
                                             </div>
-                                            <div class="col-sm-6">
-
+                                            <div class="col-sm-6 d-flex justify-content-center">
                                                 <a class="glossy-button glossy-button--gold"
                                                    href="{{ route('registerAsCandidate') }}">
                                                     Candidate
