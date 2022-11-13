@@ -1,6 +1,6 @@
 @extends('layouts.eVotingApp')
 @section('links')
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">--}}
 @endsection
 @section('content')
     <div class="modal fade" id="addProjectSidebar">

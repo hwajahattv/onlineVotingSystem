@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="{{ asset('vendor/chartist/css/chartist.min.css') }}">
     <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-    {{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     @yield('links')
     <script src="https://kit.fontawesome.com/246bdfaca3.js" crossorigin="anonymous"></script>
