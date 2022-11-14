@@ -15,7 +15,7 @@
                            href="javascript:void(0)">
                             Proceed
                         </a><br>
-                        <a href="" class="link-secondary">Don't have voter ID? Click here</a>
+                        <a href="{{route('voterLookUp')}}" class="link-secondary">Don't have voter ID? Click here</a>
                     </div>
                 </div>
             </div>
