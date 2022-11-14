@@ -60,13 +60,13 @@
                                             <label for="exampleInputEmail1">First name <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
                                             <input type="text" class="form-control addInput" name="name"
-                                                   id="" aria-describedby="" placeholder="">
+                                                   value="{{ old('name') }}" id="" aria-describedby="" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Middle name </label>
-                                            <input type="text" class="form-control addInput" name="middleName"
+                                            <input type="text" class="form-control addInput" name="middleName" value="{{ old('middleName') }}"
                                                    id="" aria-describedby="" placeholder="">
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Surname <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <input type="text" class="form-control addInput" name="surName"
+                                            <input type="text" class="form-control addInput" name="surName" value="{{ old('surName') }}"
                                                    id="" aria-describedby="" placeholder="">
                                         </div>
                                     </div>
@@ -83,7 +83,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Age</label>
-                                            <input type="number" class="form-control addInput" name="age"
+                                            <input type="number" class="form-control addInput" name="age" value="{{ old('age') }}"
                                                    id="" aria-describedby="" placeholder="" maxlength="13">
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Gender <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="gender"
+                                            <select class="form-control" name="gender" value="{{ old('gender') }}"
                                                     aria-label="Default select example">
                                                 <option selected disabled>--select--</option>
                                                 <option value="male">Male</option>
@@ -104,7 +104,7 @@
                                             <label>Date of birth <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
                                             <div class="cal-icon"><input type="date" id="date"
-                                                                         name="dob" class="form-control"><i
+                                                                         value="{{ old('dob') }}"      name="dob" class="form-control"><i
                                                     class="far fa-calendar-alt"></i>
                                             </div>
                                         </div>
@@ -115,7 +115,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Occupation <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="occupation"
+                                            <select class="form-control" name="occupation" value="{{ old('occupation') }}"
                                                     id="selectOccupation">
                                                 <option selected disabled>--select--</option>
                                                 <option value="Student">Student</option>
@@ -133,7 +133,7 @@
                                     <div class="col-md-4 hideField" id="schoolName">
                                         <div class="form-group">
                                             <label>School name</label>
-                                            <div class="cal-icon"><input type="text" name="school"
+                                            <div class="cal-icon"><input type="text" name="school" value="{{ old('school') }}"
                                                                          class="form-control">
                                             </div>
                                         </div>
@@ -145,7 +145,7 @@
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Religion <i
                                                         class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                <select class="form-control" name="religion"
+                                                <select class="form-control" name="religion" value="{{ old('religion') }}"
                                                         id="selectOccupation">
                                                     <option selected disabled>--select--</option>
                                                     <option value="African Traditional &amp; Diasporic">African
@@ -187,7 +187,7 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Local Church</label>
-                                                <input type="text" class="form-control addInput"
+                                                <input type="text" class="form-control addInput" value="{{ old('local_church') }}"
                                                        name="local_church" id="" aria-describedby=""
                                                        placeholder="">
                                             </div>
@@ -200,7 +200,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Birth Region <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="birth_region"
+                                            <select class="form-control" name="birth_region" value="{{ old('birth_region') }}"
                                                     id="region_select">
                                                 <option value="" selected="selected">--select--</option>
                                             </select>
@@ -210,7 +210,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Birth Province <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="birth_province"
+                                            <select class="form-control" name="birth_province" value="{{ old('birth_province') }}"
                                                     id="province_select">
                                                 <option value="" selected="selected">--select--
                                                 </option>
@@ -221,7 +221,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Birth District <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="birth_district"
+                                            <select class="form-control" name="birth_district" value="{{ old('birth_district') }}"
                                                     id="district_select">
                                                 <option value="" selected="selected">--select--
                                                 </option>
@@ -234,7 +234,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Birth LLG <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="birth_LLG"
+                                            <select class="form-control" name="birth_LLG" value="{{ old('birth_LLG') }}"
                                                     id="LLG_select">
                                                 <option value="" selected="selected">--select--
                                                 </option>
@@ -245,7 +245,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Birth Ward <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="birth_ward"
+                                            <select class="form-control" name="birth_ward" value="{{ old('birth_ward') }}"
                                                     id="ward_select">
                                                 <option value="" selected="selected">--select--
                                                 </option>
@@ -256,7 +256,7 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Birth village</label>
-                                                <input type="text" class="form-control addInput"
+                                                <input type="text" class="form-control addInput" value="{{ old('birth_village') }}"
                                                        name="birth_village" id="" aria-describedby=""
                                                        placeholder="">
                                             </div>
@@ -269,7 +269,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Current Region <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="current_region"
+                                            <select class="form-control" name="current_region" value="{{ old('current_region') }}"
                                                     id="region_select1">
                                                 <option value="" selected="selected">--select--</option>
                                             </select>
@@ -279,7 +279,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Current Province <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="current_province"
+                                            <select class="form-control" name="current_province" value="{{ old('current_province') }}"
                                                     id="province_select1">
                                                 <option value="" selected="selected">--select--
                                                 </option>
@@ -290,7 +290,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Current District <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="current_district"
+                                            <select class="form-control" name="current_district" value="{{ old('current_district') }}"
                                                     id="district_select1">
                                                 <option value="" selected="selected">--select--
                                                 </option>
@@ -303,7 +303,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Current LLG <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="current_LLG"
+                                            <select class="form-control" name="current_LLG" value="{{ old('current_LLG') }}"
                                                     id="LLG_select1">
                                                 <option value="" selected="selected">--select--
                                                 </option>
@@ -314,7 +314,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Current Ward <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <select class="form-control" name="current_ward"
+                                            <select class="form-control" name="current_ward" value="{{ old('current_ward') }}"
                                                     id="ward_select1">
                                                 <option value="" selected="selected">--select--</option>
                                             </select>
@@ -323,7 +323,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Current Village</label>
-                                            <input type="text" class="form-control addInput"
+                                            <input type="text" class="form-control addInput" value="{{ old('current_village') }}"
                                                    name="current_village" id="" aria-describedby=""
                                                    placeholder="">
                                         </div>

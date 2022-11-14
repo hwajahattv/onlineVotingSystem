@@ -35,10 +35,19 @@
         .header {
             padding-left: 0rem;
         }
+
+        body {
+            background-image: url('/img/pngFlag.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            resize: both;
+            overflow: scroll;
+        }
     </style>
 </head>
 
-<body>
+<body style="">
 
 <div id="preloader">
     <div class="sk-three-bounce">

@@ -37,13 +37,16 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-10 row">
-                                            <div class="col-sm-6 d-flex justify-content-center">
+                                            <div class="col-sm-4 d-flex justify-content-center">
+                                                <span class="glossy-text">Register as:</span>
+                                            </div>
+                                            <div class="col-sm-3 d-flex justify-content-center align-items-center">
                                                 <a class="glossy-button glossy-button--gold"
                                                    href="{{ route('registerAsVoter') }}">
-                                                    VOTER
+                                                    Voter
                                                 </a>
                                             </div>
-                                            <div class="col-sm-6 d-flex justify-content-center">
+                                            <div class="col-sm-3 d-flex justify-content-center">
                                                 <a class="glossy-button glossy-button--gold"
                                                    href="{{ route('registerAsCandidate') }}">
                                                     Candidate

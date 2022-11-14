@@ -292,7 +292,6 @@ class HomeController extends Controller
                         ->select('candidate_id', DB::raw('Count(*) as c'))
                         ->groupBy('candidate_id')
                         ->whereIn('candidate_id', array_keys($candidatesData->toArray()))
-                        ->having('c', '>', 1)
                         ->get()->keyBy('candidate_id');
                 }
                 // dd($candidatesData, $voteCount);
@@ -306,7 +305,7 @@ class HomeController extends Controller
         $votesAreaWise['votersInDistrict'] = $votersInDistrict;
         $votesAreaWise['votersInProvince'] = $votersInProvince;
         $votesAreaWise['votersInRegion'] = $votersInRegion;
-//                dd($votesAreaWise);
-        return view('pollingResultsPage', ['votesAreaWise' => $votesAreaWise, 'voteCount' => $voteCount, 'candidates' => $candidatesData, 'election' => $election]);
+//                dd($votesAreaWise,$voteCount, $candidatesData);
+        return view('pollingResultsPage', ['votesAreaWise' => $votesAreaWise, 'voteCount' => $voteCount->toArray(), 'candidates' => $candidatesData, 'election' => $election]);
     }
 }

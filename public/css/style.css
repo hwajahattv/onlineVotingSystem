@@ -64513,11 +64513,7 @@ table.dataTable.display tbody td {
     box-shadow: 10px 10px 20px #cbced1,
     -10px -10px 20px #ffffff;
 }
-.welcome_dashboard-card{
-    box-shadow: 10px 10px 20px #cbced1,
-    -10px -10px 20px #ffffff;
-    background-color: #008356;
-}
+
 .card-header a i {
     width: 51px;
     height: 51px;
