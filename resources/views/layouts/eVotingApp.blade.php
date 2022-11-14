@@ -37,7 +37,7 @@
         }
 
         body {
-            background-image: url('/img/pngFlag.png');
+            background-image: url('{{asset('/img/pngFlag.png')}}');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
