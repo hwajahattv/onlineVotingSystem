@@ -78,7 +78,7 @@ class RegistersUsersTest extends TestCase
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
+        dd('test');
         $user->save();
 
         return $user;

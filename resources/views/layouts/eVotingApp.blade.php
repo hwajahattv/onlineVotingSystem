@@ -129,7 +129,7 @@
                                 <li class="m-2"><a class="sign_btn" href="{{ url('/logout') }}">Logout</a></li>
                             @else
                                 <li class="m-2"><a class="sign_btn" href="{{ url('/login') }}">sign in</a></li>
-                                <li class="m-2"><a class="sign_btn" href="{{ url('/register') }}">sign up</a></li>
+{{--                                <li class="m-2"><a class="sign_btn" href="{{ url('/register') }}">sign up</a></li>--}}
                             @endauth
                         @endif
 

@@ -1,44 +1,129 @@
 @extends('admin.parent.master')
 
 @section('modal')
-    <div class="modal fade" id="showProfile">
+    {{--    <div class="modal fade" id="showProfile">--}}
+    {{--        <div class="modal-dialog" role="document">--}}
+    {{--            <div class="modal-content profile-modal">--}}
+    {{--                <!-- SIDEBAR USERPIC -->--}}
+    {{--                <div class="d-flex justify-content-end">--}}
+    {{--                    <img src="" id="candidateImage" class="img-responsive" alt="">--}}
+
+    {{--                    <!-- END SIDEBAR USERPIC -->--}}
+    {{--                    <!-- SIDEBAR USER TITLE -->--}}
+    {{--                    <div class="profile-usertitle">--}}
+    {{--                        <div>--}}
+    {{--                            <span class="profile-usertitle-name">Full Name: </span>--}}
+    {{--                            <div class="profile-usertitle-nameDynamic">--}}
+    {{--                                <span id="candidateFirstName"></span>--}}
+    {{--                                <span id="candidateMiddleName"></span>--}}
+    {{--                                <span id="candidateSurName"></span>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                        <div>--}}
+    {{--                            <span class="profile-usertitle-name">Current Address: </span>--}}
+    {{--                            <div class="profile-usertitle-nameDynamic">--}}
+    {{--                                <span id="village"></span>--}}
+    {{--                                <span id="ward"></span>--}}
+    {{--                                <span id="LLG"></span>--}}
+    {{--                                <span id="district"></span>--}}
+    {{--                                <span id="province"></span>--}}
+    {{--                                <span id="region"></span>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                        <div>--}}
+    {{--                            <span class="profile-usertitle-name">Political Party:</span>--}}
+    {{--                            <div class="profile-usertitle-nameDynamic">--}}
+    {{--                                <img src="" width="50px" height="40px" id="partyFlag" class="img-responsive" alt="">--}}
+    {{--                                <span id="party"></span>--}}
+
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+    <div class="modal fade" id="registerForm">
         <div class="modal-dialog" role="document">
             <div class="modal-content profile-modal">
-                <!-- SIDEBAR USERPIC -->
-                <div class="d-flex justify-content-end">
-                    <img src="" id="candidateImage" class="img-responsive" alt="">
+                <div class="modal-header">
+                    <h5 class="modal-title">Register as an admin user</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="padding: 0;">
+                    <form class="login100-form validate-form " method="POST" action="{{ route('addNewUser') }}">
+                        @csrf
+                        <div class="wrap-input100 validate-input"
+                             data-validate="Valid email is required: ex@abc.xyz">
+                            <input id="name" type="text" placeholder="Name"
+                                   class="input100 @error('name') is-invalid @enderror"
+                                   name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                    <!-- END SIDEBAR USERPIC -->
-                    <!-- SIDEBAR USER TITLE -->
-                    <div class="profile-usertitle">
-                        <div>
-                            <span class="profile-usertitle-name">Full Name: </span>
-                            <div class="profile-usertitle-nameDynamic">
-                                <span id="candidateFirstName"></span>
-                                <span id="candidateMiddleName"></span>
-                                <span id="candidateSurName"></span>
-                            </div>
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                            <i class="fa-regular fa-user" aria-hidden="true"></i>
+                        </span>
                         </div>
-                        <div>
-                            <span class="profile-usertitle-name">Current Address: </span>
-                            <div class="profile-usertitle-nameDynamic">
-                                <span id="village"></span>
-                                <span id="ward"></span>
-                                <span id="LLG"></span>
-                                <span id="district"></span>
-                                <span id="province"></span>
-                                <span id="region"></span>
-                            </div>
-                        </div>
-                        <div>
-                            <span class="profile-usertitle-name">Political Party:</span>
-                            <div class="profile-usertitle-nameDynamic">
-                                <img src="" width="50px" height="40px" id="partyFlag" class="img-responsive" alt="">
-                                <span id="party"></span>
+                        <div class="wrap-input100 validate-input"
+                             data-validate="Valid email is required: ex@abc.xyz">
+                            <input id="email" type="email" placeholder="Email"
+                                   class="input100 @error('email') is-invalid @enderror"
+                                   name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <input id="password" type="password"
+                                   class=" input100 @error('password') is-invalid @enderror"
+                                   name="password" required autocomplete="current-password" placeholder="Password">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <input id="password" type="password"
+                                   class=" input100 @error('password') is-invalid @enderror"
+                                   name="password_confirmation" required autocomplete="current-password"
+                                   placeholder="Confirm Password">
+                            @error('password_confirmation')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        </div>
+
+
+                        <div class="row mb-0">
+                            <div class="col-md-8 offset-md-2">
+                                <button type="submit" class="login100-form-btn">
+                                    Create Admin                               </button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -53,6 +138,9 @@
                     <h3 class="text-center display-3">List of all Users</h3>
                     <div class="main-box clearfix">
                         <div class="table-responsive">
+                            <a class="add-project-sidebar btn btn-primary" href="" data-bs-toggle="modal"
+                               data-bs-target="#registerForm">+ Add new user</a>
+
                             <table class="table tabl1 user-list">
                                 <thead>
                                 <tr>
@@ -65,56 +153,56 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($candidates as $candidate)
-                                    <tr>
-                                        <td>
-                                            <img class="userImage"
-                                                 src="{{ url('/img/uploads/candidate/' . $candidate->displayPicture) }}"
-                                                 alt="">
-                                            {{ $candidate->name }} {{$candidate->middleName}} {{$candidate->surName}}
-                                            {{--                                                <span class="user-subhead">Admin</span>--}}
-                                        </td>
-                                        <td>
-                                            {{ $candidate->birth_ward }}, {{$candidate->birth_LLG}}
-                                            , {{$candidate->birth_district}}, {{$candidate->birth_province}}
-                                            , {{$candidate->birth_region}}
-                                        </td>
-                                        <td>
-                                            {{ $candidate->politicalParty->name }}
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label label-default">Inactive</span>
-                                        </td>
-                                        <td>
-                                            <a href="#">{{ $candidate->email }}</a>
-                                        </td>
-                                        <td style="width: 20%;">
-                                            <a href="javascript:void(0)" id="viewProfileModal"
-                                               data-url="{{ route('candidate.show', $candidate->id) }}"
-                                               data-bs-toggle="modal"
-                                               data-bs-target="#showProfile"
-                                               class="candidateDetailsOpen">
-                                                    <span class="fa-stack">
-                                                        <i class="fa fa-square fa-stack-2x"></i>
-                                                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                            </a>
-                                            <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">
-                                                    <span class="fa-stack">
-                                                        <i class="fa fa-square fa-stack-2x "></i>
-                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                            </a>
-                                            <a href="{{route('deleteCandidate', ['id' => $candidate->id])}}"
-                                               class="table-link danger">
-                                                    <span class="fa-stack">
-                                                        <i class="fa fa-square fa-stack-2x"></i>
-                                                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                {{--                                @foreach ($candidates as $candidate)--}}
+                                {{--                                    <tr>--}}
+                                {{--                                        <td>--}}
+                                {{--                                            <img class="userImage"--}}
+                                {{--                                                 src="{{ url('/img/uploads/candidate/' . $candidate->displayPicture) }}"--}}
+                                {{--                                                 alt="">--}}
+                                {{--                                            {{ $candidate->name }} {{$candidate->middleName}} {{$candidate->surName}}--}}
+                                {{--                                            --}}{{--                                                <span class="user-subhead">Admin</span>--}}
+                                {{--                                        </td>--}}
+                                {{--                                        <td>--}}
+                                {{--                                            {{ $candidate->birth_ward }}, {{$candidate->birth_LLG}}--}}
+                                {{--                                            , {{$candidate->birth_district}}, {{$candidate->birth_province}}--}}
+                                {{--                                            , {{$candidate->birth_region}}--}}
+                                {{--                                        </td>--}}
+                                {{--                                        <td>--}}
+                                {{--                                            {{ $candidate->politicalParty->name }}--}}
+                                {{--                                        </td>--}}
+                                {{--                                        <td class="text-center">--}}
+                                {{--                                            <span class="label label-default">Inactive</span>--}}
+                                {{--                                        </td>--}}
+                                {{--                                        <td>--}}
+                                {{--                                            <a href="#">{{ $candidate->email }}</a>--}}
+                                {{--                                        </td>--}}
+                                {{--                                        <td style="width: 20%;">--}}
+                                {{--                                            <a href="javascript:void(0)" id="viewProfileModal"--}}
+                                {{--                                               data-url="{{ route('candidate.show', $candidate->id) }}"--}}
+                                {{--                                               data-bs-toggle="modal"--}}
+                                {{--                                               data-bs-target="#showProfile"--}}
+                                {{--                                               class="candidateDetailsOpen">--}}
+                                {{--                                                    <span class="fa-stack">--}}
+                                {{--                                                        <i class="fa fa-square fa-stack-2x"></i>--}}
+                                {{--                                                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>--}}
+                                {{--                                                    </span>--}}
+                                {{--                                            </a>--}}
+                                {{--                                            <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">--}}
+                                {{--                                                    <span class="fa-stack">--}}
+                                {{--                                                        <i class="fa fa-square fa-stack-2x "></i>--}}
+                                {{--                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>--}}
+                                {{--                                                    </span>--}}
+                                {{--                                            </a>--}}
+                                {{--                                            <a href="{{route('deleteCandidate', ['id' => $candidate->id])}}"--}}
+                                {{--                                               class="table-link danger">--}}
+                                {{--                                                    <span class="fa-stack">--}}
+                                {{--                                                        <i class="fa fa-square fa-stack-2x"></i>--}}
+                                {{--                                                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>--}}
+                                {{--                                                    </span>--}}
+                                {{--                                            </a>--}}
+                                {{--                                        </td>--}}
+                                {{--                                    </tr>--}}
+                                {{--                                @endforeach--}}
                                 </tbody>
                             </table>
                         </div>

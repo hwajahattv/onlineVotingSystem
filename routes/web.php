@@ -57,6 +57,7 @@ Route::post('/fetchResults', [HomeController::class, 'fetchResults'])->name('fet
 
 Route::group(['middleware' => ['verified','auth','SuperAdmin',]], function () {
         Route::get('/adminUsers', [AdminController::class, 'adminUsers'])->name('adminUsers');
+        Route::post('/addNewUser', [AdminController::class, 'addNewUser'])->name('addNewUser');
 });
         Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('auth');
 Route::group(['middleware' => ['auth','verified']], function () {
