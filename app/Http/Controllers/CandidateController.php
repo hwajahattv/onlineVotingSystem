@@ -70,6 +70,7 @@ class CandidateController extends Controller
         $cand->occupation = $data["occupation"];
         $cand->school = $data["school"];
         $cand->religion = $data["religion"];
+        $cand->otherReligon = $data["otherReligion"];
         $cand->local_church = $data["local_church"];
         $cand->birth_region = $data["birth_region"];
         $cand->birth_province = $data["birth_province"];

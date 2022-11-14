@@ -692,6 +692,7 @@ class ComposerStaticInit14e8b24744a0ee8f832b7a5ba46ad84c
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\CandidateSeed' => __DIR__ . '/../..' . '/database/seeders/CandidateSeed.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\PoliticalPartySeed' => __DIR__ . '/../..' . '/database/seeders/PoliticalPartySeed.php',
         'Database\\Seeders\\VoteSeed' => __DIR__ . '/../..' . '/database/seeders/VoteSeed.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',

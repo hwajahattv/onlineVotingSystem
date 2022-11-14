@@ -153,6 +153,7 @@ return array(
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
     'Database\\Seeders\\CandidateSeed' => $baseDir . '/database/seeders/CandidateSeed.php',
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
+    'Database\\Seeders\\PoliticalPartySeed' => $baseDir . '/database/seeders/PoliticalPartySeed.php',
     'Database\\Seeders\\VoteSeed' => $baseDir . '/database/seeders/VoteSeed.php',
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
     'DeepCopy\\Exception\\CloneException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',

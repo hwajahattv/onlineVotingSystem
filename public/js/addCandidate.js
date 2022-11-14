@@ -7,6 +7,30 @@ $("#selectOccupation").change(function () {
         }
     }
 });
+$("#selectReligion").change(function () {
+    if ($("#selectReligion").find(":selected").val() == "Others") {
+        $("#otherReligon").removeClass("hideField");
+        // $("#localChurch").addClass("hideField");
+
+
+    } else {
+        if (!$("#otherReligon").hasClass("hideField")) {
+            $("#otherReligon").addClass("hideField");
+        }
+    }
+    if ($("#selectReligion").find(":selected").val() == "Christianity") {
+        $("#churchList").removeClass("hideField");
+        $("#localChurch").addClass("hideField");
+
+    } else {
+        if (!$("#churchList").hasClass("hideField")) {
+            $("#churchList").addClass("hideField");
+            $("#localChurch").removeClass("hideField");
+
+        }
+
+    }
+});
 var subjectObject = {
     "HIGHLANDS": {
         "CHIMBU": {

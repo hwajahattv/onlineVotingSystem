@@ -147,50 +147,61 @@
                                                 <label for="exampleInputEmail1">Religion <i
                                                         class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                 <select class="form-control" name="religion"
-                                                        id="selectOccupation">
+                                                        id="selectReligion">
                                                     <option selected disabled>--select--</option>
-                                                    <option value="African Traditional &amp; Diasporic">African
-                                                        Traditional &amp; Diasporic
-                                                    </option>
-                                                    <option value="Agnostic">Agnostic</option>
                                                     <option value="Atheist">Atheist</option>
                                                     <option value="Baha'i">Baha'i</option>
                                                     <option value="Buddhism">Buddhism</option>
-                                                    <option value="Cao Dai">Cao Dai</option>
-                                                    <option value="Chinese traditional religion">Chinese
-                                                        traditional religion
-                                                    </option>
                                                     <option value="Christianity">Christianity</option>
                                                     <option value="Hinduism">Hinduism</option>
                                                     <option value="Islam">Islam</option>
-                                                    <option value="Jainism">Jainism</option>
-                                                    <option value="Juche">Juche</option>
                                                     <option value="Judaism">Judaism</option>
-                                                    <option value="Neo-Paganism">Neo-Paganism</option>
-                                                    <option value="Nonreligious">Nonreligious</option>
-                                                    <option value="Rastafarianism">Rastafarianism</option>
-                                                    <option value="Secular">Secular</option>
-                                                    <option value="Shinto">Shinto</option>
-                                                    <option value="Sikhism">Sikhism</option>
-                                                    <option value="Spiritism">Spiritism</option>
-                                                    <option value="Tenrikyo">Tenrikyo</option>
-                                                    <option value="Unitarian-Universalism">
-                                                        Unitarian-Universalism
-                                                    </option>
-                                                    <option value="Zoroastrianism">Zoroastrianism</option>
-                                                    <option value="primal-indigenous">primal-indigenous</option>
-                                                    <option value="Other">Other</option>
+                                                    <option value="Others">Others</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+
+                                    <div class="col-md-4 hideField" id="otherReligon">
+                                        <div class="form-group">
+                                            <label>Mention other religion name</label>
+                                            <div class="cal-icon"><input type="text" name="otherReligon"
+                                                                         class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="localChurch">
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Local Church</label>
                                                 <input type="text" class="form-control addInput"
                                                        name="local_church" id="" aria-describedby=""
                                                        placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 hideField" id="churchList">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Select Church <i
+                                                        class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                <select class="form-control" name="local_church"
+                                                        id="selectReligion">
+                                                    <option selected disabled>--select--</option>
+                                                    <option value="Roman Catholic Church">Roman Catholic Church</option>
+                                                    <option value="Evangelical Lutheran Church of Papua New Guinea">Evangelical Lutheran Church of Papua New Guinea</option>
+                                                    <option value="United Church in Papua New Guinea">United Church in Papua New Guinea</option>
+                                                    <option value="Christianity">Seventh-day Adventist Church</option>
+                                                    <option value="Pentecostal">Pentecostal</option>
+                                                    <option value="Evangelical Alliance (PNG)">Evangelical Alliance (PNG)</option>
+                                                    <option value="Anglican Church of Papua New Guinea">Anglican Church of Papua New Guinea</option>
+                                                    <option value="Baptist">Baptist</option>
+                                                    <option value="Salvation Army">Salvation Army</option>
+                                                    <option value="Other Christian Churches">Other Christian Churches</option>
+                                                    <option value="Judaism">Judaism</option>
+                                                    <option value="Jehovah's Witnesses">Jehovah's Witnesses</option>
+                                                    <option value="Church of Christ">Church of Christ</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
