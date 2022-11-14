@@ -13,9 +13,9 @@
     <div class="content-body">
         <div class="container-fluid">
             <h3 class="display-4 text-center">Candidates Participating</h3>
-            <span>Total voters in this Region: {{$votesAreaWise['votersInRegion']}} &nbsp;</span>
-            <span>Total voters in this Province: {{$votesAreaWise['votersInProvince']}} &nbsp;</span>
-            <span>Total voters in this District: {{$votesAreaWise['votersInDistrict']}}</span>
+            <span class="glossy-text">Total voters in this Region: {{$votesAreaWise['votersInRegion']}} &nbsp;</span>
+            <span class="glossy-text">Total voters in this Province: {{$votesAreaWise['votersInProvince']}} &nbsp;</span>
+            <span class="glossy-text">Total voters in this District: {{$votesAreaWise['votersInDistrict']}}</span>
             <div class="row mt-3">
                 @foreach($candidates as $candidate)
                     <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
