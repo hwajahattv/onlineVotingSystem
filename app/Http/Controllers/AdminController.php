@@ -53,4 +53,13 @@ class AdminController extends Controller
             'password' => Hash::make($data['password'])
         ]);
     }
+    public function userRoleUpdate(Request $request){
+//        dd($request);
+        User::where(['id'=>$request['userIDHolder']])->update(['roles' =>$request['role']]);
+        $message='User role updated successfully!';
+//        dd($message);
+        return redirect()->back()->with(['message'=>$message ]);
+
+//        dd('userRoleUpdate method called!');
+    }
 }

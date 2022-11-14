@@ -1,48 +1,25 @@
 @extends('admin.parent.master')
 
 @section('modal')
-    {{--    <div class="modal fade" id="showProfile">--}}
-    {{--        <div class="modal-dialog" role="document">--}}
-    {{--            <div class="modal-content profile-modal">--}}
-    {{--                <!-- SIDEBAR USERPIC -->--}}
-    {{--                <div class="d-flex justify-content-end">--}}
-    {{--                    <img src="" id="candidateImage" class="img-responsive" alt="">--}}
-
-    {{--                    <!-- END SIDEBAR USERPIC -->--}}
-    {{--                    <!-- SIDEBAR USER TITLE -->--}}
-    {{--                    <div class="profile-usertitle">--}}
-    {{--                        <div>--}}
-    {{--                            <span class="profile-usertitle-name">Full Name: </span>--}}
-    {{--                            <div class="profile-usertitle-nameDynamic">--}}
-    {{--                                <span id="candidateFirstName"></span>--}}
-    {{--                                <span id="candidateMiddleName"></span>--}}
-    {{--                                <span id="candidateSurName"></span>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                        <div>--}}
-    {{--                            <span class="profile-usertitle-name">Current Address: </span>--}}
-    {{--                            <div class="profile-usertitle-nameDynamic">--}}
-    {{--                                <span id="village"></span>--}}
-    {{--                                <span id="ward"></span>--}}
-    {{--                                <span id="LLG"></span>--}}
-    {{--                                <span id="district"></span>--}}
-    {{--                                <span id="province"></span>--}}
-    {{--                                <span id="region"></span>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                        <div>--}}
-    {{--                            <span class="profile-usertitle-name">Political Party:</span>--}}
-    {{--                            <div class="profile-usertitle-nameDynamic">--}}
-    {{--                                <img src="" width="50px" height="40px" id="partyFlag" class="img-responsive" alt="">--}}
-    {{--                                <span id="party"></span>--}}
-
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
+    <div class="modal fade" id="changeRole">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content profile-modal">
+                <!-- SIDEBAR USERPIC -->
+                <div class="d-flex justify-content-end">
+                    <form id="roleSelectForm" method="POST" action="{{ route('userRoleUpdate') }}">
+                        @csrf
+                        <select class="form-control" name="role" id="userRole">
+                            <option disabled selected>--select--</option>
+                            <option value="Admin">Admin</option>
+                            <option value="SuperAdmin">Super Admin</option>
+                        </select>
+                        <input type="text" name="userIDHolder" hidden id="userIDHolder">
+                        <input type="submit" value="Update" class="btn btn-secondary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="registerForm">
         <div class="modal-dialog" role="document">
             <div class="modal-content profile-modal">
@@ -159,34 +136,42 @@
                                         <td>
                                             <img class="userImage"
                                                  src="{{ url('/img/uploads/user/' . $user->displayPicture) }}"
-                                                 alt="no image uploaded"><span class="user-list_name">
-                                            {{ $user->name }}</span><br>
+                                                 alt="no image uploaded">
+                                            <span class="user-list_name">{{ $user->name }}</span>
+                                            <br>
 
                                         </td>
                                         <td>{{$user->email}}</td>
-                                        <td>{{$user->roles}}</td>
+                                        <td><span id="roleText">{{$user->roles}}</span>
+                                            <a href="javascript:void(0)" id="changeRoleBtn"
+                                               data-url="{{ route('userRoleUpdate', $user->id) }}"
+                                               data-id="{{$user->id}}"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#changeRole"
+                                               class="candidateDetailsOpen"
+                                            ><i class="fa-regular fa-pen-to-square"></i></a></td>
                                         <td>{{$user->created_at}}
                                         </td>
                                         <td class="text-center">
                                             <span class="label label-default">Inactive</span>
                                         </td>
                                         <td style="width: 20%;" class="text-center">
-{{--                                            <a href="javascript:void(0)" id="viewProfileModal"--}}
-{{--                                               data-url="{{ route('candidate.show', $candidate->id) }}"--}}
-{{--                                               data-bs-toggle="modal"--}}
-{{--                                               data-bs-target="#showProfile"--}}
-{{--                                               class="candidateDetailsOpen">--}}
-{{--                                                                                    <span class="fa-stack">--}}
-{{--                                                                                        <i class="fa fa-square fa-stack-2x"></i>--}}
-{{--                                                                                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>--}}
-{{--                                                                                    </span>--}}
-{{--                                            </a>--}}
-{{--                                            <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">--}}
-{{--                                                                                    <span class="fa-stack">--}}
-{{--                                                                                        <i class="fa fa-square fa-stack-2x "></i>--}}
-{{--                                                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>--}}
-{{--                                                                                    </span>--}}
-{{--                                            </a>--}}
+                                            {{--                                            <a href="javascript:void(0)" id="viewProfileModal"--}}
+                                            {{--                                               data-url="{{ route('candidate.show', $candidate->id) }}"--}}
+                                            {{--                                               data-bs-toggle="modal"--}}
+                                            {{--                                               data-bs-target="#showProfile"--}}
+                                            {{--                                               class="candidateDetailsOpen">--}}
+                                            {{--                                                                                    <span class="fa-stack">--}}
+                                            {{--                                                                                        <i class="fa fa-square fa-stack-2x"></i>--}}
+                                            {{--                                                                                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>--}}
+                                            {{--                                                                                    </span>--}}
+                                            {{--                                            </a>--}}
+                                            {{--                                            <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">--}}
+                                            {{--                                                                                    <span class="fa-stack">--}}
+                                            {{--                                                                                        <i class="fa fa-square fa-stack-2x "></i>--}}
+                                            {{--                                                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>--}}
+                                            {{--                                                                                    </span>--}}
+                                            {{--                                            </a>--}}
                                             <a href="{{route('deleteUser', ['id' => $user->id])}}"
                                                class="table-link danger">
                                                 <i class="fa-regular fa-trash-can"></i>
@@ -211,8 +196,7 @@
             </div>
         </div>
     </div>
-
 @endsection
 @section('script')
-    <script src="{{ asset('js/profileModalCandidate.js') }}"></script>
+    <script src="{{ asset('js/userRoleUpdate.js') }}"></script>
 @endsection

@@ -59,6 +59,7 @@ Route::group(['middleware' => ['verified','auth','SuperAdmin',]], function () {
         Route::get('/adminUsers', [AdminController::class, 'adminUsers'])->name('adminUsers');
         Route::post('/addNewUser', [AdminController::class, 'addNewUser'])->name('addNewUser');
         Route::get('/deleteUser/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
+        Route::post('/userRoleUpdate', [AdminController::class, 'userRoleUpdate'])->name('userRoleUpdate');
 });
         Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('auth');
 Route::group(['middleware' => ['auth','verified']], function () {
