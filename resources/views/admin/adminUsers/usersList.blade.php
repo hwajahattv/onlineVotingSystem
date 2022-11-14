@@ -47,7 +47,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content profile-modal">
                 <div class="modal-header">
-                    <h5 class="modal-title">Register as an admin user</h5>
+                    <h5 class="modal-title">Create an admin user</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body" style="padding: 0;">
