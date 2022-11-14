@@ -37,6 +37,13 @@ class AdminController extends Controller
 //        dd($message);
         return redirect()->route('adminUsers')->with(['message'=>$message ]);
     }
+    public function deleteUser($id){
+        $user= User::find($id);
+        $user->delete();
+        $message='User deleted successfully!';
+//        dd($message);
+        return redirect()->back()->with(['dltMessage'=>$message ]);
+    }
 
     public function create(array $data)
     {

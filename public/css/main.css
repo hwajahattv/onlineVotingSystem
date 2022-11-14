@@ -160,7 +160,11 @@ body {
     float: left;
     margin-right: 15px;
 }
-
+.user-list_name{
+    font-weight: 500;
+    font-size: 1.4em;
+    color: black;
+}
 .user-list tbody td .user-link {
     display: block;
     font-size: 1.25em;
@@ -169,8 +173,9 @@ body {
 }
 
 .user-list tbody td .user-subhead {
-    font-size: 0.875em;
+    font-size: 1.25em;
     font-style: italic;
+    font-weight: 500;
 }
 
 /* TABLES */

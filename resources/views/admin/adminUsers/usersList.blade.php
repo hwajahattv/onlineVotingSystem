@@ -120,7 +120,8 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-2">
                                 <button type="submit" class="login100-form-btn">
-                                    Create Admin                               </button>
+                                    Create Admin
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -145,64 +146,54 @@
                                 <thead>
                                 <tr>
                                     <th><span>Name</span></th>
+                                    <th><span>Email</span></th>
                                     <th><span>Role</span></th>
                                     <th><span>Member since</span></th>
                                     <th class="text-center"><span>Status</span></th>
-                                    <th><span>Email</span></th>
-                                    <th>&nbsp;</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {{--                                @foreach ($candidates as $candidate)--}}
-                                {{--                                    <tr>--}}
-                                {{--                                        <td>--}}
-                                {{--                                            <img class="userImage"--}}
-                                {{--                                                 src="{{ url('/img/uploads/candidate/' . $candidate->displayPicture) }}"--}}
-                                {{--                                                 alt="">--}}
-                                {{--                                            {{ $candidate->name }} {{$candidate->middleName}} {{$candidate->surName}}--}}
-                                {{--                                            --}}{{--                                                <span class="user-subhead">Admin</span>--}}
-                                {{--                                        </td>--}}
-                                {{--                                        <td>--}}
-                                {{--                                            {{ $candidate->birth_ward }}, {{$candidate->birth_LLG}}--}}
-                                {{--                                            , {{$candidate->birth_district}}, {{$candidate->birth_province}}--}}
-                                {{--                                            , {{$candidate->birth_region}}--}}
-                                {{--                                        </td>--}}
-                                {{--                                        <td>--}}
-                                {{--                                            {{ $candidate->politicalParty->name }}--}}
-                                {{--                                        </td>--}}
-                                {{--                                        <td class="text-center">--}}
-                                {{--                                            <span class="label label-default">Inactive</span>--}}
-                                {{--                                        </td>--}}
-                                {{--                                        <td>--}}
-                                {{--                                            <a href="#">{{ $candidate->email }}</a>--}}
-                                {{--                                        </td>--}}
-                                {{--                                        <td style="width: 20%;">--}}
-                                {{--                                            <a href="javascript:void(0)" id="viewProfileModal"--}}
-                                {{--                                               data-url="{{ route('candidate.show', $candidate->id) }}"--}}
-                                {{--                                               data-bs-toggle="modal"--}}
-                                {{--                                               data-bs-target="#showProfile"--}}
-                                {{--                                               class="candidateDetailsOpen">--}}
-                                {{--                                                    <span class="fa-stack">--}}
-                                {{--                                                        <i class="fa fa-square fa-stack-2x"></i>--}}
-                                {{--                                                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>--}}
-                                {{--                                                    </span>--}}
-                                {{--                                            </a>--}}
-                                {{--                                            <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">--}}
-                                {{--                                                    <span class="fa-stack">--}}
-                                {{--                                                        <i class="fa fa-square fa-stack-2x "></i>--}}
-                                {{--                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>--}}
-                                {{--                                                    </span>--}}
-                                {{--                                            </a>--}}
-                                {{--                                            <a href="{{route('deleteCandidate', ['id' => $candidate->id])}}"--}}
-                                {{--                                               class="table-link danger">--}}
-                                {{--                                                    <span class="fa-stack">--}}
-                                {{--                                                        <i class="fa fa-square fa-stack-2x"></i>--}}
-                                {{--                                                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>--}}
-                                {{--                                                    </span>--}}
-                                {{--                                            </a>--}}
-                                {{--                                        </td>--}}
-                                {{--                                    </tr>--}}
-                                {{--                                @endforeach--}}
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td>
+                                            <img class="userImage"
+                                                 src="{{ url('/img/uploads/user/' . $user->displayPicture) }}"
+                                                 alt="no image uploaded"><span class="user-list_name">
+                                            {{ $user->name }}</span><br>
+
+                                        </td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->roles}}</td>
+                                        <td>{{$user->created_at}}
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="label label-default">Inactive</span>
+                                        </td>
+                                        <td style="width: 20%;" class="text-center">
+{{--                                            <a href="javascript:void(0)" id="viewProfileModal"--}}
+{{--                                               data-url="{{ route('candidate.show', $candidate->id) }}"--}}
+{{--                                               data-bs-toggle="modal"--}}
+{{--                                               data-bs-target="#showProfile"--}}
+{{--                                               class="candidateDetailsOpen">--}}
+{{--                                                                                    <span class="fa-stack">--}}
+{{--                                                                                        <i class="fa fa-square fa-stack-2x"></i>--}}
+{{--                                                                                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>--}}
+{{--                                                                                    </span>--}}
+{{--                                            </a>--}}
+{{--                                            <a href="{{ url('/editCandidate/' . $candidate->id) }}" class="table-link">--}}
+{{--                                                                                    <span class="fa-stack">--}}
+{{--                                                                                        <i class="fa fa-square fa-stack-2x "></i>--}}
+{{--                                                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>--}}
+{{--                                                                                    </span>--}}
+{{--                                            </a>--}}
+                                            <a href="{{route('deleteUser', ['id' => $user->id])}}"
+                                               class="table-link danger">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
