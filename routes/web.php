@@ -55,7 +55,7 @@ Route::get('/resultsHome', [HomeController::class, 'resultsHome'])->name('result
 Route::post('/fetchResults', [HomeController::class, 'fetchResults'])->name('fetchResults');
 
 
-Route::group(['middleware' => ['verified','auth','SuperAdmin',]], function () {
+Route::group(['middleware' => ['auth','SuperAdmin',]], function () {
         Route::get('/adminUsers', [AdminController::class, 'adminUsers'])->name('adminUsers');
         Route::post('/addNewUser', [AdminController::class, 'addNewUser'])->name('addNewUser');
         Route::get('/deleteUser/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
