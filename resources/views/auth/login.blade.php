@@ -33,7 +33,7 @@
                         <h4 class="txt2 text-center">Click here to register as a voter</h4>
                     </a>
                 </div>
-                <form class="login100-form validate-form "method="POST" action="{{ route('login') }}">
+                <form class="login100-form validate-form "method="POST" action="{{ url('/login') }}">
                     @csrf
                     <span class="login100-form-title">
                         Login to Online Voting System

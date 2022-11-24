@@ -561,6 +561,7 @@ class ComposerStaticInit14e8b24744a0ee8f832b7a5ba46ad84c
         'App\\Http\\Controllers\\PoliticalPartyController' => __DIR__ . '/../..' . '/app/Http/Controllers/PoliticalPartyController.php',
         'App\\Http\\Controllers\\VoterController' => __DIR__ . '/../..' . '/app/Http/Controllers/VoterController.php',
         'App\\Http\\Controllers\\api\\VoterLookUpController' => __DIR__ . '/../..' . '/app/Http/Controllers/api/VoterLookUpController.php',
+        'App\\Http\\Controllers\\api\\VoterRegisterationController' => __DIR__ . '/../..' . '/app/Http/Controllers/api/VoterRegisterationController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',

@@ -22,6 +22,7 @@ return array(
     'App\\Http\\Controllers\\PoliticalPartyController' => $baseDir . '/app/Http/Controllers/PoliticalPartyController.php',
     'App\\Http\\Controllers\\VoterController' => $baseDir . '/app/Http/Controllers/VoterController.php',
     'App\\Http\\Controllers\\api\\VoterLookUpController' => $baseDir . '/app/Http/Controllers/api/VoterLookUpController.php',
+    'App\\Http\\Controllers\\api\\VoterRegisterationController' => $baseDir . '/app/Http/Controllers/api/VoterRegisterationController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

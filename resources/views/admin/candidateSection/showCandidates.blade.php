@@ -53,6 +53,15 @@
                     <h3 class="text-center display-3">List of all candidates</h3>
                     <div class="main-box clearfix">
                         <div class="table-responsive">
+                            <div style="max-width:300px;">
+                                <div class="input-icons">
+                                    {{--                                    <i class="fa fa-user icon"></i>--}}
+                                    <i class="fa-sharp fa-solid fa-magnifying-glass icon"></i>
+                                    <input id="keyfob" type="text" class="cd-search input-field-tableSearch table-filter"
+                                           data-table="your-table" placeholder="Search a candidate.."/>
+                                </div>
+                            </div>
+
                             <table class="table tabl1 user-list">
                                 <thead>
                                 <tr>
@@ -136,4 +145,6 @@
 @endsection
 @section('script')
     <script src="{{ asset('js/profileModalCandidate.js') }}"></script>
+    <script src="{{ asset('js/tableSearch.js') }}"></script>
+
 @endsection

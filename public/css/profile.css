@@ -22,6 +22,38 @@
     /*text-align: center;*/
     margin: 20px;
 }
+.input-icons i {
+    position: absolute;
+    color: #665A48;
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+    color: #665A48;
+}
+
+.icon {
+    padding: 16px;
+    min-width: 40px;
+    color: #665A48;
+    margin: 28px 0 0 28px;
+}
+
+.input-field-tableSearch {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: #665A48 !important;
+    border: 2px solid #665A48;
+    border-radius: 12rem;
+    padding: 12px 20px;
+    margin: 25px 25px 10px;
+}
+.input-field-tableSearch::placeholder{
+    color: #665A48 !important;
+}
+
 
 .profile-usertitle-name {
     color: #665A48;

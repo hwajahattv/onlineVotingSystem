@@ -116,8 +116,19 @@
                     <h3 class="text-center display-3">List of all Users</h3>
                     <div class="main-box clearfix">
                         <div class="table-responsive">
-                            <a class="add-project-sidebar btn btn-primary" href="" data-bs-toggle="modal"
-                               data-bs-target="#registerForm">+ Add new user</a>
+                            <div class="d-flex">
+                                <a class="add-project-sidebar" href="" data-bs-toggle="modal"
+                                   data-bs-target="#registerForm">+ Add new user</a>
+                                <div style="max-width:300px;">
+                                    <div class="input-icons">
+                                        {{--                                    <i class="fa fa-user icon"></i>--}}
+                                        <i class="fa-sharp fa-solid fa-magnifying-glass icon"></i>
+                                        <input id="keyfob" type="text"
+                                               class="cd-search input-field-tableSearch table-filter"
+                                               data-table="your-table" placeholder="Search a user.."/>
+                                    </div>
+                                </div>
+                            </div>
 
                             <table class="table tabl1 user-list">
                                 <thead>
@@ -134,9 +145,9 @@
                                 @foreach ($users as $user)
                                     <tr>
                                         <td>
-                                            <img class="userImage"
-                                                 src="{{ url('/img/uploads/user/' . $user->displayPicture) }}"
-                                                 alt="no image uploaded">
+{{--                                            <img class="userImage"--}}
+{{--                                                 src="{{ url('/img/uploads/user/' . $user->displayPicture) }}"--}}
+{{--                                                 alt="no image uploaded">--}}
                                             <span class="user-list_name">{{ $user->name }}</span>
                                             <br>
 
@@ -153,7 +164,13 @@
                                         <td>{{$user->created_at}}
                                         </td>
                                         <td class="text-center">
-                                            <span class="label label-default">Inactive</span>
+                                            @if($user->onlineCheck)
+                                                <span class="label label-success">Online</span><br>
+                                                <small class="text-muted">Login since: {{$user->loginTime}}</small>
+
+                                            @else
+                                                <span class="label label-default">Offline</span>
+                                            @endif
                                         </td>
                                         <td style="width: 20%;" class="text-center">
                                             {{--                                            <a href="javascript:void(0)" id="viewProfileModal"--}}
@@ -199,4 +216,6 @@
 @endsection
 @section('script')
     <script src="{{ asset('js/userRoleUpdate.js') }}"></script>
+    <script src="{{ asset('js/tableSearch.js') }}"></script>
+
 @endsection

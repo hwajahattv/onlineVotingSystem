@@ -13,6 +13,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/246bdfaca3.js" crossorigin="anonymous"></script>
 
 
 </head>

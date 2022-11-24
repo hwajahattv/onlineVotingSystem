@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\HomeController;
@@ -53,7 +54,7 @@ Route::get('/castVote/{id}', [HomeController::class, 'castVote'])->name('castVot
 Route::post('/castVotePost/{id}', [HomeController::class, 'castVotePost'])->name('castVotePost');
 Route::get('/resultsHome', [HomeController::class, 'resultsHome'])->name('resultsHome');
 Route::post('/fetchResults', [HomeController::class, 'fetchResults'])->name('fetchResults');
-
+Route::post('/login',[LoginController::class, 'login'])->name('login_customized');
 
 Route::group(['middleware' => ['auth','SuperAdmin',]], function () {
         Route::get('/adminUsers', [AdminController::class, 'adminUsers'])->name('adminUsers');

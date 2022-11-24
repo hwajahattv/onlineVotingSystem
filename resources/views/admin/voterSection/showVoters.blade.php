@@ -103,72 +103,82 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
-                {{-- <a class="add-project-sidebar btn btn-primary" href="" data-bs-toggle="modal"
-                    data-bs-target="#showProfile">+ New Project</a> --}}
                 <div class="col-lg-12">
                     <div class="main-box clearfix">
                         <div class="table-responsive">
-                            <table class="table tabl1 user-list">
+                            <div style="max-width:300px;">
+                                <div class="input-icons">
+{{--                                    <i class="fa fa-user icon"></i>--}}
+                                    <i class="fa-sharp fa-solid fa-magnifying-glass icon"></i>
+                                    <input id="keyfob" type="text" class="cd-search input-field-tableSearch table-filter"
+                                           data-table="your-table" placeholder="Search a voter.."/>
+                                </div>
+                            </div>
+                            <table class="table tabl1 user-list your-table">
                                 <thead>
-                                    <tr>
-                                        <th><span>Name</span></th>
-                                        <th><span>Region</span></th>
-                                        <th><span>Province</span></th>
-                                        <th class="text-center"><span>Status of vote</span></th>
-                                        <th><span>Email</span></th>
-                                        <th>&nbsp;</th>
-                                    </tr>
+                                <tr>
+                                    <th><span>Name</span></th>
+                                    <th><span>Voter ID</span></th>
+                                    <th><span>Region</span></th>
+                                    <th><span>Province</span></th>
+                                    <th class="text-center"><span>Status of vote</span></th>
+                                    <th><span>Email</span></th>
+                                    <th>&nbsp;</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($voters as $voter)
-                                        <tr>
-                                            <td>
-                                                <img class="userImage"
-                                                    src="{{ url('/img/uploads/voter/' . $voter->displayPicture) }}"
-                                                    alt="">
-                                                <a class="" href="" data-bs-toggle="modal"
-                                                    data-bs-target="#showProfile">{{ $voter->name }}</a>
-{{--                                                <span class="user-subhead">Admin</span>--}}
-                                            </td>
-                                            <td>
-                                                {{ $voter->current_region }}
-                                            </td>
-                                            <td>
-                                                {{ $voter->current_province }}
-                                            </td>
-                                            <td class="text-center">
-                                                <span class="label label-default">Not casted</span>
-                                            </td>
-                                            <td>
-                                                <a href="#">{{ $voter->email }}</a>
-                                            </td>
-                                            <td style="width: 20%;">
-                                                <a href="javascript:void(0)" id="viewProfileModal"
-                                                   data-url="{{ route('voter.show', $voter->id) }}"
-                                                   data-bs-toggle="modal"
-                                                   data-bs-target="#showProfile"
-                                                   class="candidateDetailsOpen">
-                                                    <span class="fa-stack">
-                                                        <i class="fa fa-square fa-stack-2x"></i>
-                                                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                                </a>
-                                                <a href="{{ url('/editVoter/' . $voter->id) }}" class="table-link">
-                                                    <span class="fa-stack">
-                                                        edit
-                                                    </span>
-                                                </a>
-                                                <a href="{{route('deleteVoter',['id'=>$voter->id])}}" class="table-link danger">
-                                                    <span class="fa-stack">
-                                                        <i class="fa fa-square fa-stack-2x"></i>
-                                                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                @foreach ($voters as $voter)
+                                    <tr>
+                                        <td>
+                                            <img class="userImage"
+                                                 src="{{ url('/img/uploads/voter/' . $voter->displayPicture) }}"
+                                                 alt="">
+                                            <a class="" href="" data-bs-toggle="modal"
+                                               data-bs-target="#showProfile">{{ $voter->name }}</a>
+                                            {{--                                                <span class="user-subhead">Admin</span>--}}
+                                        </td>
+                                        <td>
+                                            {{ $voter->id }}
+                                        </td>
+                                        <td>
+                                            {{ $voter->current_region }}
+                                        </td>
+                                        <td>
+                                            {{ $voter->current_province }}
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="label label-default">Not casted</span>
+                                        </td>
+                                        <td>
+                                            <a href="#">{{ $voter->email }}</a>
+                                        </td>
+                                        <td style="width: 20%;">
+                                            <a href="javascript:void(0)" id="viewProfileModal"
+                                               data-url="{{ route('voter.show', $voter->id) }}"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#showProfile"
+                                               class="candidateDetailsOpen">
+                                                {{--                                                    <span class="fa-stack">--}}
+                                                {{--                                                        <i class="fa fa-square fa-stack-2x"></i>--}}
+                                                <i class="fa fa-search-plus fa-2x"></i>
+                                                {{--                                                    </span>--}}
+                                            </a>
+                                            <a href="{{ url('/editVoter/' . $voter->id) }}" class="table-link">
+                                                {{--                                                    <span class="fa-stack">--}}
+                                                <i class="fas fa-edit fa-2x"></i>
+                                                {{--                                                    </span>--}}
+                                            </a>
+                                            <a href="{{route('deleteVoter',['id'=>$voter->id])}}"
+                                               class="table-link danger">
+                                                {{--                                                    <span class="fa-stack">--}}
+                                                {{--                                                        <i class="fa fa-square fa-stack-2x"></i>--}}
+                                                <i class="fa-regular fa-trash-can fa-2x"></i>
+                                                {{--                                                    </span>--}}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -189,4 +199,6 @@
 @endsection
 @section('script')
     <script src="{{ asset('js/profileModalVoter.js') }}"></script>
+    <script src="{{ asset('js/tableSearch.js') }}"></script>
+
 @endsection
