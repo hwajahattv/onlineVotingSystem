@@ -116,7 +116,7 @@
                                         <th><span>Name</span></th>
                                         <th><span>Region</span></th>
                                         <th><span>Province</span></th>
-                                        <th class="text-center"><span>Status</span></th>
+                                        <th class="text-center"><span>Status of vote</span></th>
                                         <th><span>Email</span></th>
                                         <th>&nbsp;</th>
                                     </tr>
@@ -139,7 +139,7 @@
                                                 {{ $voter->current_province }}
                                             </td>
                                             <td class="text-center">
-                                                <span class="label label-default">Inactive</span>
+                                                <span class="label label-default">Not casted</span>
                                             </td>
                                             <td>
                                                 <a href="#">{{ $voter->email }}</a>
