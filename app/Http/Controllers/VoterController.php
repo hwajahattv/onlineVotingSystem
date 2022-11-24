@@ -14,10 +14,12 @@ class VoterController extends Controller
         $voterCount = count(Voter::all());
         return view('admin.voterSection.voterSectionHome', ['voterCount' => $voterCount]);
     }
+
     public function addVoter()
     {
         return view('admin.voterSection.addVoter');
     }
+
     public function addVoterPost(Request $request)
     {
         $request->validate([
@@ -81,36 +83,64 @@ class VoterController extends Controller
         }
 
         $voter->save();
-        $message='Voter registered successfully!';
+        $message = 'Voter registered successfully!';
 //        dd($message);
-        return redirect()->back()->with(['message'=>$message ]);
+        return redirect()->back()->with(['message' => $message]);
     }
+
     public function showVoters()
     {
         $allVoters = Voter::all();
         return view('admin.voterSection.showVoters', ['voters' => $allVoters]);
     }
-    public function showVoterDetails($id){
-        $voterDetails= Voter::find($id);
+
+    public function showVoterDetails($id)
+    {
+        $voterDetails = Voter::find($id);
         return \response()->json($voterDetails);
     }
+
     public function editVoter($id)
     {
         $voter = Voter::where(['id' => $id])->first();
         return view('admin.voterSection.editVoter', ['voter' => $voter]);
     }
+
     public function editVoterPost(Request $request, $id)
 
     {
-        // dd($request);
+//         dd($request);
+        $thisUserData=Voter::find($id);
         $request->validate([
-            'name' => 'required|max:255',
-            'CNIC' => 'required|max:13',
-            'phone_no' => 'required|max:11',
-            'profilePicture' =>
-            'image|mimes:jpg,png,jpeg,gif,svg|max:100',
+            'name' => 'required|max:25',
+            'middleName' => 'required|max:25',
+            'surName' => 'required|max:25',
+            'age' => 'integer',
+            'gender' => 'required',
+            'dob' => 'required|date',
+            'occupation' => 'required',
+            'religion' => 'required',
+            'birth_region' => 'required',
+            'birth_province' => 'required',
+            'birth_district' => 'required',
+            'birth_LLG' => 'required',
+            'birth_ward' => 'required',
+            'birth_village' => 'required',
+            'current_region' => 'required',
+            'current_province' => 'required',
+            'current_district' => 'required',
+            'current_LLG' => 'required',
+            'current_ward' => 'required',
+            'current_village' => 'required'
         ]);
         $data = $request->all();
+        if(!array_key_exists("otherReligon",$data)){
+            $data['otherReligon']=$thisUserData->otherReligion;
+        }
+        if(!array_key_exists("school",$data)){
+            $data['school']=$thisUserData->school;
+        }
+
 
         //image validation
 
@@ -124,20 +154,45 @@ class VoterController extends Controller
             $img_path = 'img/uploads/voter/' . $filename;
 
             Image::make($img_tmp)->resize(200, 200)->save($img_path);
-        } else {
-            $voter = Voter::where(['id' => $id])->first();
-            $filename = $voter->displayPicture;
+            $isProfPicUpdated=Voter::where(['id'=>$id])->update(['displayPicture'=>$filename]);
         }
-        $isUpdated = Voter::where(['id' => $id])->update(['name' => $data['name'], 'address'
-        => $data['address'], 'phone_no' => $data['phone_no'], 'CNIC' => $data['CNIC'], 'displayPicture' => $filename]);
+        $isUpdated = Voter::where(['id' => $id])->update([
+            'name' => $data['name'],
+            'middleName' => $data['middleName'],
+            'surName' => $data['surName'],
+            'age' => $data['age'],
+            'gender' => $data['gender'],
+            'dob' => $data['dob'],
+            'occupation' => $data['occupation'],
+            'school' => $data['occupation'],
+            'religion' => $data['occupation'],
+            'otherReligion' => $data['occupation'],
+            'local_church' => $data['local_church'],
+            'birth_region' => $data['birth_region'],
+            'birth_province' => $data['birth_province'],
+            'birth_district' => $data['birth_district'],
+            'birth_LLG' => $data['birth_LLG'],
+            'birth_ward' => $data['birth_ward'],
+            'birth_village' => $data['birth_village'],
+            'current_region' => $data['current_region'],
+            'current_province' => $data['current_province'],
+            'current_district' => $data['current_district'],
+            'current_LLG' => $data['current_LLG'],
+            'current_ward' => $data['current_ward'],
+            'current_village' => $data['current_village']]);
+
         // Session::flash('message', 'Task successfully added!');
-        return redirect()->back()->with(['message', 'Voter data updated successfully!']);
-    }
-    public function deleteVoter($id){
-        $voter=Voter::find($id);
-        $voter->delete();
-        $message='Voter deleted successfully!';
+        $message = 'Voter data updated successfully!';
 //        dd($message);
-        return redirect()->back()->with(['dltMessage'=>$message ]);
+        return redirect(route('voterSection'))->with(['message' => $message]);
+    }
+
+    public function deleteVoter($id)
+    {
+        $voter = Voter::find($id);
+        $voter->delete();
+        $message = 'Voter deleted successfully!';
+//        dd($message);
+        return redirect()->back()->with(['dltMessage' => $message]);
     }
 }

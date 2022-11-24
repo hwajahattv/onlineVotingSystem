@@ -324,7 +324,7 @@
                                                         <input type="file" name="profilePicture"
                                                                onchange="PreviewImage();" id="files"/>
                                                         <i class="fa fa-arrow-up" id="uploadIcon"></i>
-                                                        <img class="imgCard mt-4 mb-2" id="uploadPreview" src=""/>
+                                                        <img class="imgCard mt-4 mb-2" height="" width="" id="uploadPreview" src=""/>
                                                     </div>
                                                 </div>
                                                 <div class="wrapper">

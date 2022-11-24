@@ -157,8 +157,7 @@
                                                 </a>
                                                 <a href="{{ url('/editVoter/' . $voter->id) }}" class="table-link">
                                                     <span class="fa-stack">
-                                                        <i class="fa fa-square fa-stack-2x"></i>
-                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                                        edit
                                                     </span>
                                                 </a>
                                                 <a href="{{route('deleteVoter',['id'=>$voter->id])}}" class="table-link danger">
