@@ -456,8 +456,21 @@ ul.conta_icon li a:hover {
     color: #b7b7b7;
     font-size: 17px;
 }
+/*.header_bo::before{*/
+/*    background-image: url("/images/bg.png");*/
+/*    content: "";*/
+/*    background-size: cover;*/
+/*    position: absolute;*/
+/*    top: 0px;*/
+/*    right: 0px;*/
+/*    bottom: 0px;*/
+/*    left: 0px;*/
+/*    opacity: 0.75;*/
+
+/*}*/
 
 .header_bo {
+    position: relative;
     background-color: #242C8F;
     width: 100%;
     height: 76px;

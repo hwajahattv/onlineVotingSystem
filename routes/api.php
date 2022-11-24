@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\VoterLookUpController;
 use App\Models\Candidate;
+use App\Http\Controllers\api\VoterRegisterationController;
 /*
 |--------------------------------------------------------------------------
 | api Routes
@@ -27,5 +28,8 @@ Route::get('/test1', function (){
     $cand = Candidate::all();
     return $cand;
 });
+//Route::post('/registerAsVoterPost', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
+Route::post('/registerAsVoterPost/test', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPostTest'])->name('registerAsVoterPostTest');
+
 
 
