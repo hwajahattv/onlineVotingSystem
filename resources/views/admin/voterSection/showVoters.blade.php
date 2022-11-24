@@ -113,9 +113,9 @@
                             <table class="table tabl1 user-list">
                                 <thead>
                                     <tr>
-                                        <th><span>Voter</span></th>
-                                        <th><span>Phone number</span></th>
-                                        <th><span>CNIC</span></th>
+                                        <th><span>Name</span></th>
+                                        <th><span>Region</span></th>
+                                        <th><span>Province</span></th>
                                         <th class="text-center"><span>Status</span></th>
                                         <th><span>Email</span></th>
                                         <th>&nbsp;</th>
@@ -133,10 +133,10 @@
 {{--                                                <span class="user-subhead">Admin</span>--}}
                                             </td>
                                             <td>
-                                                {{ $voter->phone_no }}
+                                                {{ $voter->current_region }}
                                             </td>
                                             <td>
-                                                {{ $voter->CNIC }}
+                                                {{ $voter->current_province }}
                                             </td>
                                             <td class="text-center">
                                                 <span class="label label-default">Inactive</span>
