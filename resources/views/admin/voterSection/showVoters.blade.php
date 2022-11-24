@@ -130,7 +130,7 @@
                                                     alt="">
                                                 <a class="" href="" data-bs-toggle="modal"
                                                     data-bs-target="#showProfile">{{ $voter->name }}</a>
-                                                <span class="user-subhead">Admin</span>
+{{--                                                <span class="user-subhead">Admin</span>--}}
                                             </td>
                                             <td>
                                                 {{ $voter->phone_no }}
