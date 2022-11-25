@@ -62,7 +62,7 @@
                                 </div>
                             </div>
 
-                            <table class="table tabl1 user-list">
+                            <table class="table tabl1 user-list your-table">
                                 <thead>
                                 <tr>
                                     <th><span>Name</span></th>

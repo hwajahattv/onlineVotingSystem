@@ -48,7 +48,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            date_default_timezone_set( 'Asia/Karachi');
+//            date_default_timezone_set( 'Asia/Karachi');
             DB::table('active_users')->insert(array('user_id' =>   Auth::id(),"created_at" => date('Y-m-d H:i:s')));
             return redirect()->intended('home');
         }

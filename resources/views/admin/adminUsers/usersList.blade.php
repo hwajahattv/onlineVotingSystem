@@ -121,7 +121,6 @@
                                    data-bs-target="#registerForm">+ Add new user</a>
                                 <div style="max-width:300px;">
                                     <div class="input-icons">
-                                        {{--                                    <i class="fa fa-user icon"></i>--}}
                                         <i class="fa-sharp fa-solid fa-magnifying-glass icon"></i>
                                         <input id="keyfob" type="text"
                                                class="cd-search input-field-tableSearch table-filter"
@@ -130,7 +129,7 @@
                                 </div>
                             </div>
 
-                            <table class="table tabl1 user-list">
+                            <table class="table tabl1 user-list your-table">
                                 <thead>
                                 <tr>
                                     <th><span>Name</span></th>
@@ -166,7 +165,9 @@
                                         <td class="text-center">
                                             @if($user->onlineCheck)
                                                 <span class="label label-success">Online</span><br>
-                                                <small class="text-muted">Login since: {{$user->loginTime}}</small>
+{{--                                                <small class="text-muted">Login since: {{\Illuminate\Support\Carbon::parse($user->loginTime)->timezone('Asia/Karachi')}}</small>--}}
+
+                                               <small class="text-muted">Logged in {{\Illuminate\Support\Carbon::createFromFormat('Y-m-d H:i:s', $user->loginTime)->diffForHumans()}}</small>
 
                                             @else
                                                 <span class="label label-default">Offline</span>
