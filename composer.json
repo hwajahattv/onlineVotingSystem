@@ -13,7 +13,8 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "laravel/ui": "^4.0"
+        "laravel/ui": "^4.0",
+        "paquettg/php-html-parser": "^3.1"
     },
     "require-dev": {
         "laravel/pint": "^1.0",

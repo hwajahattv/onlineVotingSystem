@@ -172,7 +172,7 @@
                         </div>
                         <div class="card-body text-center pt-0">
                             <div id="radialChart" class="monthly-project-chart"></div>
-                            <span class="fs-14 text-black d-block op5">100 Projects/ monthy</span>
+                            <span class="fs-14 text-black d-block op5">100 Projects/ month</span>
                         </div>
                     </div>
                 </div>
