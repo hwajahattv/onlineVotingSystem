@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
+use App\Models\District;
 use App\Models\Election;
+use App\Models\LLG;
 use App\Models\PoliticalParty;
+use App\Models\Province;
 use App\Models\Vote;
 use App\Models\Voter;
+use App\Models\Ward;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Image;
@@ -309,5 +313,92 @@ class HomeController extends Controller
         $votesAreaWise['votersInRegion'] = $votersInRegion;
 //                dd($votesAreaWise,$voteCount, $candidatesData);
         return view('pollingResultsPage', ['votesAreaWise' => $votesAreaWise, 'voteCount' => $voteCount->toArray(), 'candidates' => $candidatesData, 'election' => $election]);
+    }
+    public function addDistrict(Request $request){
+        $district=new District();
+        $district->province_id= $request['province_id'];
+        $district->name= $request['name'];
+        $district->save();
+        $response = array(
+            'status' => 'success',
+            'msg' => $request['name'].' district created successfully',
+        );
+        return response()->json($response);
+
+    }
+    public function addLLG(Request $request){
+        $LLG=new LLG();
+        $LLG->district_id= $request['district_id'];
+        $LLG->name= $request['name'];
+        $LLG->save();
+        $response = array(
+            'status' => 'success',
+            'msg' => $request['name'].' LLG created successfully',
+        );
+        return response()->json($response);
+
+    }
+    public function addWard(Request $request){
+        $Ward=new Ward();
+        $Ward->l_l_g_id= $request['LLG_id'];
+        $Ward->name= $request['name'];
+        $Ward->save();
+        $response = array(
+            'status' => 'success',
+            'msg' => $request['name'].' Ward created successfully',
+        );
+        return response()->json($response);
+
+    }
+    public function getProvinceID(Request $request){
+        $id=Province::where(['name'=>$request->province])->first();
+        if($id!=null) {
+            $response = array(
+                'status' => 'success',
+                'msg' => 'ID found successfully',
+                'province_id' => $id->id,
+            );
+        }else{
+            $response = array(
+                'status' => 'fail',
+                'msg' => 'ID not found',
+                'province_id' => null,
+            );
+        }
+        return response()->json($response);
+    }
+    public function getDistrictID(Request $request){
+        $id=District::where(['name'=>$request->district])->first();
+        if($id!=null) {
+            $response = array(
+                'status' => 'success',
+                'msg' => 'ID found successfully',
+                'district_id' => $id->id,
+            );
+        }else{
+            $response = array(
+                'status' => 'fail',
+                'msg' => 'ID not found',
+                'district_id' => null,
+            );
+        }
+        return response()->json($response);
+    }
+    public function getLLGID(Request $request){
+        $id=LLG::where(['name'=>$request->LLG])->first();
+        if($id!=null) {
+            $response = array(
+                'status' => 'success',
+                'msg' => 'ID found successfully',
+                'LLG_id' => $id->id,
+            );
+        }else{
+            $response = array(
+                'status' => 'fail',
+                'msg' => 'ID not found',
+                'LLG_id' => null,
+            );
+        }
+        return response()->json($response);
     }
 }

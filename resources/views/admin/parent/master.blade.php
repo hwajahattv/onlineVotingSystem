@@ -417,7 +417,7 @@
 <script src="{{ asset('js/dashboard/dashboard-1.js') }}"></script>
 
 <script src="{{ asset('js/custom.min.js') }}"></script>
-<script src="{{ asset('js/addCandidate.js') }}"></script>
+<script src="{{ asset('js/addCandidate_new.js') }}"></script>
 <script src="{{ asset('js/deznav-init.js') }}"></script>
 <script src="{{ asset('js/demo.js') }}"></script>
 <script src="{{ asset('js/electionFormSubmit.js') }}"></script>

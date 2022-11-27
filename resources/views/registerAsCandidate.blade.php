@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voting App</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <link rel="stylesheet" href="{{ asset('vendor/chartist/css/chartist.min.css') }}">
     <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
@@ -397,6 +398,9 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Register</button>
+                    <input hidden id="provinceID" value="" type="text"/><br>
+                    <input hidden id="districtID" value="" type="text"/><br>
+                    <input hidden id="LLGID" value="" type="text"/><br>
                     </form>
                 </div>
             </div>
@@ -414,7 +418,7 @@
 </script>
 <script src="{{ asset('js/imageUploadIcon.js') }}"></script>
 
-<script src="{{ asset('js/addCandidate.js') }}"></script>
+<script src="{{ asset('js/addCandidate_new.js') }}"></script>
 </body>
 
 </html>

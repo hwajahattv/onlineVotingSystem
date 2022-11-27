@@ -55,6 +55,12 @@ Route::post('/castVotePost/{id}', [HomeController::class, 'castVotePost'])->name
 Route::get('/resultsHome', [HomeController::class, 'resultsHome'])->name('resultsHome');
 Route::post('/fetchResults', [HomeController::class, 'fetchResults'])->name('fetchResults');
 Route::post('/login',[LoginController::class, 'login'])->name('login_customized');
+Route::post('/addDistrict',[HomeController::class, 'addDistrict'])->name('addDistrict');
+Route::post('/addLLG',[HomeController::class, 'addLLG'])->name('addLLG');
+Route::post('/addWard',[HomeController::class, 'addWard'])->name('addWard');
+Route::post('/getProvinceID',[HomeController::class, 'getProvinceID'])->name('getProvinceID');
+Route::post('/getDistrictID',[HomeController::class, 'getDistrictID'])->name('getDistrictID');
+Route::post('/getLLGID',[HomeController::class, 'getLLGID'])->name('getLLGID');
 
 Route::group(['middleware' => ['auth','SuperAdmin',]], function () {
         Route::get('/adminUsers', [AdminController::class, 'adminUsers'])->name('adminUsers');

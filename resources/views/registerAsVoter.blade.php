@@ -385,7 +385,7 @@
 </script>
 <script src="{{ asset('js/imageUploadIcon.js') }}"></script>
 
-<script src="{{ asset('js/addCandidate.js') }}"></script>
+<script src="{{ asset('js/addCandidate_new.js') }}"></script>
 </body>
 
 </html>

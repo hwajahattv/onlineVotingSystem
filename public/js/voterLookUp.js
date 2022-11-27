@@ -57,7 +57,6 @@ var subjectObject = {
                 "Lower Asaro Rural" : ["Mando-Yamayufa"," Korepa"," Asaro No. 1"," Asaro No. 2"," Tafeto/Wantrifu"," Gamiyuho"," Lunumbeyuho"," Kanosa"," Kofena",],
                 "Upper Asaro Rural" : ["Anengu"," Kombiangu/Amaiufa"," Namta"," Pikosa"," Aneguyufa"," Kwonggi No. 1"," Kwonggi No. 2"," Wesan",],
             },
-
             "GOROKA": {
                 "Gahuku Rural" : ["Upper Yaukave"," Lower Yaukave"," Kami-Seigu"," Kama"," Fimito"," Kotuni"," Gahuku"," Gehamo",],
                 "Goroka Urban" : ["Goroka Urban"," Bihute",],
@@ -350,7 +349,6 @@ var subjectObject = {
             },
         },
     },
-
     "MOMASE": {
         "EAST SEPIK": {
             "AMBUNTI-DREIKIKIR":{

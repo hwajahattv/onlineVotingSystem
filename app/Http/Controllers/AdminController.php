@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\District;
+use App\Models\Province;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -79,4 +81,5 @@ class AdminController extends Controller
 
 //        dd('userRoleUpdate method called!');
     }
+
 }
