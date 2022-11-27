@@ -28,6 +28,11 @@ Route::get('/test1', function (){
     $cand = Candidate::all();
     return $cand;
 });
+
+Route::get('/regions', function (){
+    $regions = \App\Models\Region::all();
+    return $regions;
+});
 //Route::post('/registerAsVoterPost', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
 Route::post('/registerAsVoterPost/test', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPostTest'])->name('registerAsVoterPostTest');
 
