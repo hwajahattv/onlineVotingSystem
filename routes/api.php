@@ -33,10 +33,11 @@ Route::get('/regions', function (){
     $regions = \App\Models\Region::all();
     return $regions;
 });
-Route::get('/provinces', function (){
-    $regions = \App\Models\Province::all();
-    return $regions;
+Route::get('/provinces/{id}', function ($id){
+    $provinces = \App\Models\Province::where(['region_id'=>$id])->get();
+    return $provinces;
 });
+
 //Route::post('/registerAsVoterPost', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
 Route::post('/registerAsVoterPost/test', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPostTest'])->name('registerAsVoterPostTest');
 
