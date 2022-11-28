@@ -37,6 +37,10 @@ Route::get('/provinces/{id}', function ($id){
     $provinces = \App\Models\Province::where(['region_id'=>$id])->get();
     return $provinces;
 });
+Route::get('/districts/{id}', function ($id){
+    $districts = \App\Models\District::where(['province_id'=>$id])->get();
+    return $districts;
+});
 
 //Route::post('/registerAsVoterPost', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
 Route::post('/registerAsVoterPost/test', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPostTest'])->name('registerAsVoterPostTest');
