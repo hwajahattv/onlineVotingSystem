@@ -34,11 +34,11 @@ Route::get('/regions', function (){
     return $regions;
 });
 Route::get('/provinces/{id}', function ($id){
-    $provinces = \App\Models\Province::where(['region_id'=>$id])->get('id', 'name');
+    $provinces = \App\Models\Province::where(['region_id'=>$id])->get(['id', 'name']);
     return $provinces;
 });
 Route::get('/districts/{id}', function ($id){
-    $districts = \App\Models\District::where(['province_id'=>$id])->get('id', 'name');
+    $districts = \App\Models\District::where(['province_id'=>$id])->get(['id', 'name']);
     return $districts;
 });
 
