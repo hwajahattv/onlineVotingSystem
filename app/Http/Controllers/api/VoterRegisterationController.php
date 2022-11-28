@@ -19,6 +19,7 @@ class VoterRegisterationController extends Controller
             $voter = new Voter;
 
             $voter->name = $data["name"];
+            $voter->birth_region = $data["birth_region"];
 
 
             //image validation
