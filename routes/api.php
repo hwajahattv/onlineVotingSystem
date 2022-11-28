@@ -45,6 +45,10 @@ Route::get('/llgs/{id}', function ($id){
     $LLG = \App\Models\LLG::where(['district_id'=>$id])->get(['id', 'name']);
     return $LLG;
 });
+Route::get('/wards/{id}', function ($id){
+    $wards = \App\Models\Ward::where(['l_l_g_id'=>$id])->get(['id', 'name']);
+    return $wards;
+});
 
 //Route::post('/registerAsVoterPost', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
 Route::post('/registerAsVoterPost/test', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPostTest'])->name('registerAsVoterPostTest');
