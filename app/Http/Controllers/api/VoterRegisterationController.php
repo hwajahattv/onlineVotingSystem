@@ -21,8 +21,8 @@ class VoterRegisterationController extends Controller
             $voter->name = $data["name"];
             $voter->middleName = $data["middleName"];
             $voter->surName = $data["surName"];
-//            $voter->age = $data["age"];
-            $voter->dob = $data["surName"];
+////            $voter->age = $data["age"];
+//            $voter->dob = $data["surName"];
             $voter->occupation = $data["occupation"];
             if($data['occupation']=="School"){
                 $voter->school = $data["school"];
