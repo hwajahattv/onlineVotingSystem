@@ -49,9 +49,14 @@ Route::get('/wards/{id}', function ($id){
     $wards = \App\Models\Ward::where(['l_l_g_id'=>$id])->get(['id', 'name']);
     return $wards;
 });
+Route::get('/parties', function (){
+    $parties = \App\Models\PoliticalParty::all();
+    return $parties;
+});
 
 //Route::post('/registerAsVoterPost', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
 Route::post('/registerAsVoterPost/test', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPostTest'])->name('registerAsVoterPostTest');
+Route::post('/registerAsCandidatePost/test', [\App\Http\Controllers\api\CandidateRegistrationController::class, 'registerAsCandidatePost'])->name('registerAsCandidatePost');
 
 
 
