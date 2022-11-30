@@ -35,7 +35,7 @@ class VoterRegisterationController extends Controller
                 $message ="";
                 return [
                     "status" => 0,
-                    'message' =>$validator->messages()->first(),
+                    'message' =>$validator->messages()->all(),
                 ];
             }
 
