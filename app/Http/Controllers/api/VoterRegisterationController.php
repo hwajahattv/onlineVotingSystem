@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Voter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class VoterRegisterationController extends Controller
 {
@@ -13,6 +14,30 @@ class VoterRegisterationController extends Controller
         {
 
             $data = $request->all();
+
+
+//          request validation
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string|max:50',
+                'middleName' => 'required|string|max:50',
+                'surName' => 'required|string|max:50',
+                'occupation' => 'required|string|max:50',
+                'religion' => 'required|string|max:50',
+                'local_church' => 'required|string',
+                'current_region' => 'required|string',
+                'current_province' => 'required|string',
+                'current_district' => 'required|string',
+                'current_LLG' => 'required|string',
+                'current_ward' => 'required|string',
+            ]);
+
+            if ($validator->fails()) {
+                $message ="";
+                return [
+                    "status" => 0,
+                    $message =>$validator->messages()->first(),
+                ];
+            }
 
             //model call
 
@@ -38,8 +63,6 @@ class VoterRegisterationController extends Controller
             $voter->current_LLG = $data["current_LLG"];
             $voter->current_ward = $data["current_ward"];
 
-
-            //image validation
             $status=$voter->save();
             $message ="";
 
