@@ -35,7 +35,7 @@ class VoterRegisterationController extends Controller
                 $message ="";
                 return [
                     "status" => 0,
-                    $message =>$validator->messages()->first(),
+                    'message' =>$validator->messages()->first(),
                 ];
             }
 
@@ -69,13 +69,13 @@ class VoterRegisterationController extends Controller
             if($status==false){
                 return [
                     "status" => 0,
-                    "$message" =>"Voter not created"
+                    "message" =>"Voter not created"
                 ];
             }
             else
                 return [
                     "status" => 1,
-                    "$message" =>"Voter created"
+                    "message" =>"Voter created"
                 ];
         }
 
