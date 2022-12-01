@@ -73,9 +73,9 @@ class VoteCastAPIController extends Controller
             ];
         }
         $vote = new Vote;
-        $vote->election_id = intval($request['election_id']);
-        $vote->candidate_id = intval($request['candidate_id']);
-        $vote->voter_id = intval($request['voter_id']);
+        $vote->election_id = ($request['election_id']);
+        $vote->candidate_id = ($request['candidate_id']);
+        $vote->voter_id = ($request['voter_id']);
         $vote->save();
         return [
             "status" => 1,
