@@ -21,6 +21,8 @@ class VoterRegisterationController extends Controller
                 'name' => 'required|string|max:50',
                 'middleName' => 'required|string|max:50',
                 'surName' => 'required|string|max:50',
+                'dob' => 'required|string|max:50',
+                'age' => 'required|string|max:50',
                 'occupation' => 'required|string|max:50',
                 'religion' => 'required|string|max:50',
                 'local_church' => 'required|string',
@@ -46,8 +48,8 @@ class VoterRegisterationController extends Controller
             $voter->name = $data["name"];
             $voter->middleName = $data["middleName"];
             $voter->surName = $data["surName"];
-////            $voter->age = $data["age"];
-//            $voter->dob = $data["surName"];
+            $voter->age = intval($data["age"]);
+            $voter->dob = $data["dob"];
             $voter->occupation = $data["occupation"];
             if($data['occupation']=="School"){
                 $voter->school = $data["school"];
