@@ -38,13 +38,13 @@ class VoterLookUpController extends Controller
         if($requiredVoter==null){
             return [
                 "status" => 0,
-                "data" =>"Voter not Found"
+                "message" =>"Voter not Found"
             ];
         }
         else
             return [
                 "status" => 1,
-                "data" =>$requiredVoter
+                "message" =>$requiredVoter['id']
             ];
     }
 
