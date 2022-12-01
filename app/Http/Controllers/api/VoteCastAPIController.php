@@ -20,7 +20,12 @@ class VoteCastAPIController extends Controller
                 "message" => 'Voter ID not Found! Find your Voter ID or get registered as voter first.'
             ];
         } else {
-
+            if ($voter->current_region == null || $voter->current_province == null || $voter->current_district == null || $voter->current_LLG = null || $voter->current_ward == null) {
+                return [
+                    "status" => 0,
+                    "message" => 'Voter data not filled completely.'
+                ];
+            } else {
                 $region = $voter->current_region;
                 $province = $voter->current_province;
                 $district = $voter->current_district;
