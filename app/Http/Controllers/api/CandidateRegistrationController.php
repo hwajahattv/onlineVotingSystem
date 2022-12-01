@@ -29,7 +29,7 @@ class CandidateRegistrationController extends Controller
                 'current_LLG' => 'required|string',
                 'current_ward' => 'required|string',
                 'policeClearanceCertificate' => 'required|string',
-                'political_party' => 'required|string',
+                'political_party_id' => 'required|string',
             ]);
 
             if ($validator->fails()) {
@@ -62,7 +62,7 @@ class CandidateRegistrationController extends Controller
             $candidate->current_district = $data["current_district"];
             $candidate->current_LLG = $data["current_LLG"];
             $candidate->current_ward = $data["current_ward"];
-            $candidate->political_party = $data["political_party"];
+            $candidate->political_party_id = $data["political_party"];
             $candidate->policeClearanceCertificate = $data["policeClearanceCertificate"];
 
 
