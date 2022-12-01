@@ -29,7 +29,7 @@ class CandidateRegistrationController extends Controller
                 'current_LLG' => 'required|string',
                 'current_ward' => 'required|string',
                 'policeClearanceCertificate' => 'required|string',
-                'political_party_id' => 'required|string',
+                'political_party' => 'required|numeric',
             ]);
 
             if ($validator->fails()) {
