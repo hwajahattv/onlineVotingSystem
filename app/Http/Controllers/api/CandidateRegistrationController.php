@@ -72,13 +72,13 @@ class CandidateRegistrationController extends Controller
             if($status==false){
                 return [
                     "status" => 0,
-                    "message" =>"Candidate not created"
+                    "message" =>"Candidate not registered!"
                 ];
             }
             else
                 return [
                     "status" => 1,
-                    "message" =>"Candidate created"
+                    "message" =>"Candidate registered successfully!"
                 ];
         }
 
