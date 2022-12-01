@@ -46,8 +46,8 @@ class CandidateRegistrationController extends Controller
             $candidate->name = $data["name"];
             $candidate->middleName = $data["middleName"];
             $candidate->surName = $data["surName"];
-////            $candidate->age = $data["age"];
-//            $candidate->dob = $data["surName"];
+            $candidate->age = intval($data["age"]);
+            $candidate->dob = $data["dob"];
             $candidate->occupation = $data["occupation"];
             if($data['occupation']=="School"){
                 $candidate->school = $data["school"];
