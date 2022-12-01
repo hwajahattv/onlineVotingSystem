@@ -52,7 +52,7 @@
         <div class="">
             <div class="card overflow-hidden">
                 <div class="card-body">
-                    <form method="post" enctype="multipart/form-data" action="{{ route('addCandidatePost') }}">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('registerAsCandidatePost') }}">
                         @csrf
                         <div class="row">
                             <div class="col-md-8">
