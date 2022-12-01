@@ -5,13 +5,14 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Voter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class VoterLookUpController extends Controller
 {
     //
     public function findMe(Request $request){
 //    dd($request);
-        $validator=$request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|max:25',
             'surName' => 'required|max:25',
             'birth_region' => 'required',
