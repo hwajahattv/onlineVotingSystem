@@ -13,7 +13,7 @@ class VoteCastAPIController extends Controller
     //
     public function castVote($id)
     {
-        $voter = Voter::find($id);
+        $voter = Voter::find(intval($id));
         if ($voter == null) {
             return [
                 "status" => 0,
