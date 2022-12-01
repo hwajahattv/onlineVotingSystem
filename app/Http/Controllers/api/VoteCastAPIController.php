@@ -23,7 +23,7 @@ class VoteCastAPIController extends Controller
             if ($voter->current_region == null || $voter->current_province == null || $voter->current_district == null || $voter->current_LLG = null || $voter->current_ward == null) {
                 return [
                     "status" => 0,
-                    "message" => 'Voter data not filled completely.'
+                    "message" => 'Voter data not filled completely. Update your record or get re-registered.'
                 ];
             } else {
                 $region = $voter->current_region;
