@@ -151,9 +151,14 @@ class HomeController extends Controller
         $cand->age = $data["age"];
         $cand->gender = $data["gender"];
         $cand->occupation = $data["occupation"];
-        $cand->school = $data["school"];
         $cand->religion = $data["religion"];
-        $cand->otherReligon = $data["otherReligion"];
+        if($data['occupation']=="School"){
+            $cand->school = $data["school"];
+        }
+        $cand->religion = $data["religion"];
+        if($data["religion"] == "others"){
+            $cand->otherReligion = $data["otherReligion"];
+        }
         $cand->local_church = $data["local_church"];
         $cand->birth_region = $data["birth_region"];
         $cand->birth_province = $data["birth_province"];
