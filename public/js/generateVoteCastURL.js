@@ -3,7 +3,7 @@ function generateVoteCastURL(){
     var inputField=document.getElementById("inputID");
     inputID=inputField.value;
     if(inputID!==""){
-        document.getElementById("openBallotBtn").href = 'url("/castVote/'+inputID+'")';
+        document.getElementById("openBallotBtn").href = 'url("/public/castVote/'+inputID+'")';
     }
     else{
         document.getElementById("openBallotBtn").href = 'javascript:void(0)';
