@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Candidate;
 use App\Models\Election;
+use App\Models\Voter;
 use Illuminate\Http\Request;
 
 class VoteCastAPIController extends Controller
