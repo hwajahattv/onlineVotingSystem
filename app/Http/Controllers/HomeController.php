@@ -77,9 +77,13 @@ class HomeController extends Controller
         $voter->age = $data["age"];
         $voter->gender = $data["gender"];
         $voter->occupation = $data["occupation"];
-        $voter->school = $data["school"];
+        if($data['occupation']=="School"){
+            $voter->school = $data["school"];
+        }
         $voter->religion = $data["religion"];
-        $voter->otherReligon = $data["otherReligion"];
+        if($data["religion"] == "others"){
+            $voter->otherReligion = $data["otherReligion"];
+        }
         $voter->local_church = $data["local_church"];
         $voter->birth_region = $data["birth_region"];
         $voter->birth_province = $data["birth_province"];
