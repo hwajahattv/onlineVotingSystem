@@ -11,7 +11,7 @@ class VoterLookUpController extends Controller
     //
     public function findMe(Request $request){
 //    dd($request);
-        $request->validate([
+        $validator=$request->validate([
             'name' => 'required|max:25',
             'surName' => 'required|max:25',
             'birth_region' => 'required',
@@ -20,6 +20,13 @@ class VoterLookUpController extends Controller
 //            'birth_LLG' => 'required',
 //            'birth_ward' => 'required',
         ]);
+        if ($validator->fails()) {
+            $message ="";
+            return [
+                "status" => 0,
+                'message' =>$validator->messages()->all(),
+            ];
+        }
 
         $requiredVoter=Voter::
         where(['name'=>$request['name']])
