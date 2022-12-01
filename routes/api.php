@@ -58,6 +58,7 @@ Route::get('/parties', function (){
 Route::post('/registerAsVoterPost/test', [\App\Http\Controllers\api\VoterRegisterationController::class, 'registerAsVoterPostTest'])->name('registerAsVoterPostTest');
 Route::post('/registerAsCandidatePost/test', [\App\Http\Controllers\api\CandidateRegistrationController::class, 'registerAsCandidatePost'])->name('registerAsCandidatePostAPI');
 Route::get('/castVote/{id}', [\App\Http\Controllers\api\VoteCastAPIController::class, 'castVote'])->name('castVote');
+Route::post('/castVotePost/{id}', [\App\Http\Controllers\api\VoteCastAPIController::class, 'castVotePost'])->name('castVotePost');
 
 
 

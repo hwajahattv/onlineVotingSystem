@@ -5,8 +5,10 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Candidate;
 use App\Models\Election;
+use App\Models\Vote;
 use App\Models\Voter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class VoteCastAPIController extends Controller
 {
@@ -32,7 +34,12 @@ class VoteCastAPIController extends Controller
                 $LLG = $voter->current_LLG;
                 $ward = $voter->current_ward;
                 $election = Election::all();
-                $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->where(['current_LLG' => $LLG])->where(['current_ward' => $ward])->with('politicalParty')->get();
+                $candidates = Candidate::where(['current_region' => $region])
+                    ->where(['current_province' => $province])
+                    ->where(['current_district' => $district])
+                    ->where(['current_LLG' => $LLG])
+                    ->where(['current_ward' => $ward]
+                    )->with('politicalParty')->get();
 //    dd($candidates,$allCandidates, $voter,$region, $province, $district, $LLG, $ward);
 
                 return [
@@ -45,4 +52,36 @@ class VoteCastAPIController extends Controller
             }
         }
     }
+    public function castVotePost(Request $request, $id)
+    {
+//        dd($request);
+        $data = $request->all();
+
+
+//          request validation
+        $validator = Validator::make($request->all(), [
+            'election_id' => 'required',
+            'candidate_id' => 'required',
+            'voter_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            $message ="";
+            return [
+                "status" => 0,
+                'message' =>$validator->messages()->all(),
+            ];
+        }
+        $vote = new Vote;
+        $vote->election_id = intval($request['election_id']);
+        $vote->candidate_id = intval($request['candidate_id']);
+        $vote->voter_id = intval($request['voter_id']);
+        $vote->save();
+        return [
+            "status" => 1,
+            "message" => 'Your vote has been casted.',
+
+        ];
+    }
+
 }

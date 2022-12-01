@@ -271,8 +271,7 @@ class HomeController extends Controller
         }
     }
 
-    public
-    function castVotePost(Request $request, $id)
+    public function castVotePost(Request $request, $id)
     {
 //        dd($request);
         $vote = new Vote;
