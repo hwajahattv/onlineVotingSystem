@@ -13,7 +13,7 @@ use App\Models\Voter;
 use App\Models\Ward;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Image;
+use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
 {
@@ -258,6 +258,7 @@ class HomeController extends Controller
         } else {
 //        dd($voter);
 //        $allCandidates=Candidate::all();
+//            $object = $this->verifyMapping($voter);
             $region = $voter->current_region;
             $province = $voter->current_province;
             $district = $voter->current_district;
@@ -266,7 +267,7 @@ class HomeController extends Controller
             $election = Election::all();
             $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->where(['current_LLG' => $LLG])->where(['current_ward' => $ward])->with('politicalParty')->get();
 //    dd($candidates,$allCandidates, $voter,$region, $province, $district, $LLG, $ward);
-
+//dd($object);
             return view('castVote', ['elections' => $election, 'candidates' => $candidates, 'voter' => $voter]);
         }
     }
@@ -408,5 +409,42 @@ class HomeController extends Controller
             );
         }
         return response()->json($response);
+    }
+    private function verifyMapping($person): array
+    {
+
+
+        $region = $person->current_region;
+        $province = $person->current_province;
+        $district = $person->current_district;
+        $LLG = $person->current_LLG;
+        $ward = $person->current_ward;
+        $election = Election::all();
+        $candidates = Candidate::where(['current_region' => $region])
+            ->where(['current_province' => $province])
+            ->where(['current_district' => $district])
+            ->where(['current_LLG' => $LLG])
+            ->where(['current_ward' => $ward]
+            )->with('politicalParty')->get();
+//        $object={
+//            'region': $region,
+//            'province': $province,
+//            'district': $district,
+//            'LLG': $LLG,
+//            'ward': $ward,
+//            'election': $election,
+//            'candidates': $candidates,
+//        };
+                $object=[
+            0=> $region,
+            1=> $province,
+            2=>$district,
+            3=>$LLG,
+            4=>$ward,
+            5=>$election,
+            6=>$candidates,
+        ];
+//        $object=json_encode($region, $province, $district, $LLG, $ward, $election, $candidates);
+        return $object;
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CandidateController;
@@ -50,7 +51,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/allRegionOffices', [HomeController::class, 'allRegionOffices'])->name('allRegionOffices');
 Route::post('/findMe', [HomeController::class, 'findMe'])->name('findMe');
 //Route::get('/selectElection', [HomeController::class, 'selectElection'])->name('selectElection');
-Route::get('/castVote/{id}', [HomeController::class, 'castVote'])->name('castVote');
+Route::get('/castVote/{id}', [HomeController::class, 'castVote'])->name('castVoteWeb');
 Route::post('/castVotePost/{id}', [HomeController::class, 'castVotePost'])->name('castVotePost');
 Route::get('/resultsHome', [HomeController::class, 'resultsHome'])->name('resultsHome');
 Route::post('/fetchResults', [HomeController::class, 'fetchResults'])->name('fetchResults');
@@ -67,6 +68,7 @@ Route::group(['middleware' => ['auth','SuperAdmin',]], function () {
         Route::post('/addNewUser', [AdminController::class, 'addNewUser'])->name('addNewUser');
         Route::get('/deleteUser/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
         Route::post('/userRoleUpdate', [AdminController::class, 'userRoleUpdate'])->name('userRoleUpdate');
+        Route::get('/sendmail/{id}', [MailController::class, 'index'])->name('sendmail');
 });
         Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('auth');
 Route::group(['middleware' => ['auth','verified']], function () {

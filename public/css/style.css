@@ -4284,6 +4284,10 @@ fieldset:disabled .btn {
         right: 0;
         left: auto;
     }
+    .welcome_page_icon{
+        margin-top : -30px;
+    }
+
 }
 
 @media (min-width: 768px) {

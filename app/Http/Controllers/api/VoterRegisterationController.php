@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Voter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 class VoterRegisterationController extends Controller
 {
@@ -79,6 +80,21 @@ class VoterRegisterationController extends Controller
                     "status" => 1,
                     "message" =>"Voter created"
                 ];
+        }
+
+    }
+    public function imageUpload(Request $request){
+        if ($request->hasfile('profilePicture')) {
+            $img_tmp = $request->file('profilePicture');
+
+            $extension = $img_tmp->getClientOriginalExtension();
+
+            $filename = uniqid() . '.' . $extension;
+
+            $img_path = 'img/uploads/candidate/' . $filename;
+
+            Image::make($img_tmp)->resize(200, 200)->save($img_path);
+//            $cand->displayPicture = $filename;
         }
 
     }

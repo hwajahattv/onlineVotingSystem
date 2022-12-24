@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="content-body" style="margin-left: 0;">
+    <div class="content-body welcome_page_body">
         <div class="container-fluid">
             <div class="">
                 <div class="">
@@ -37,23 +37,23 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-10 row">
-                                            <div class="col-sm-4 d-flex justify-content-center">
+                                            <div class="col-md-4 text-center">
                                                 <span class="glossy-text">Register as:</span>
                                             </div>
-                                            <div class="col-sm-3 d-flex justify-content-center align-items-center">
+                                            <div class="col-md-4 d-flex justify-content-center align-items-center">
                                                 <a class="glossy-button glossy-button--gold"
                                                    href="{{ route('registerAsVoter') }}">
                                                     Voter
                                                 </a>
                                             </div>
-                                            <div class="col-sm-3 d-flex justify-content-center">
+                                            <div class="col-md-4 d-flex justify-content-center align-items-center">
                                                 <a class="glossy-button glossy-button--gold"
                                                    href="{{ route('registerAsCandidate') }}">
                                                     Candidate
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 d-flex justify-content-center" style="margin-top: -30px;">
+                                        <div class="col-lg-2 d-flex justify-content-center welcome_page_icon">
                                             <i class="fa fa-users fa-5x" style='color: #EA0'></i>
                                         </div>
                                     </div>
@@ -79,7 +79,7 @@
                                                data-bs-target="#addProjectSidebar"><span style="color: white">Cast your vote</span></a>
 
                                         </div>
-                                        <div class="col-lg-2 d-flex justify-content-center" style="margin-top: -30px;">
+                                        <div class="col-lg-2 d-flex justify-content-center">
                                             <i class="fas fa-vote-yea fa-5x" style='color: #EA0'></i>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                                                 Access now
                                             </a>
                                         </div>
-                                        <div class="col-lg-2 d-flex justify-content-center" style="margin-top: -30px;">
+                                        <div class="col-lg-2 d-flex justify-content-center">
                                             <i class="fa-solid fa-square-poll-vertical fa-5x" style='color: #EA0'></i>
                                         </div>
                                     </div>

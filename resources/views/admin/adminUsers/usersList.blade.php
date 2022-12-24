@@ -193,7 +193,11 @@
                                             <a href="{{route('deleteUser', ['id' => $user->id])}}"
                                                class="table-link danger">
                                                 <i class="fa-regular fa-trash-can"></i>
-                                            </a>
+
+                                                <a href="{{route('sendmail', ['id' => $user->id])}}"
+                                                   class="table-link danger">
+                                                    <i class="fa-solid fa-envelope"></i>
+                                                </a>
                                         </td>
                                     </tr>
                                 @endforeach

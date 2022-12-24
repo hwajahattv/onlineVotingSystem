@@ -49,7 +49,20 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication passed...
 //            date_default_timezone_set( 'Asia/Karachi');
-            DB::table('active_users')->insert(array('user_id' =>   Auth::id(),"created_at" => date('Y-m-d H:i:s')));
+            $checkPreviousEntry= DB::table('active_users')->select('*')->where('user_id',Auth::id())->get();
+//            dd($checkPreviousEntry);
+            if(count($checkPreviousEntry) == 0) {
+                DB::table('active_users')->insert(array('user_id' => Auth::id(), "created_at" => date('Y-m-d H:i:s')));
+//                dd('new created');
+            }else
+            {
+                $result = DB::table('active_users')
+                    ->where('user_id', Auth::id())
+                    ->update([
+                        'created_at' => date('Y-m-d H:i:s'),
+                    ]);
+//                dd('updated');
+            }
             return redirect()->intended('home');
         }
     }

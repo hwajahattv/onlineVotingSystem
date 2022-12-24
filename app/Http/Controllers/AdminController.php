@@ -82,4 +82,9 @@ class AdminController extends Controller
 //        dd('userRoleUpdate method called!');
     }
 
+    public function scheduleTest()
+    {
+        dd('schedule task running');
+    }
+
 }
