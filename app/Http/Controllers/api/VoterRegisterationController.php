@@ -11,7 +11,8 @@ use Intervention\Image\Facades\Image;
 class VoterRegisterationController extends Controller
 {
     //
-    public function registerAsVoterPostTest(Request $request){
+    public function registerAsVoterPostTest(Request $request)
+    {
         {
 
             $data = $request->all();
@@ -35,10 +36,10 @@ class VoterRegisterationController extends Controller
             ]);
 
             if ($validator->fails()) {
-                $message ="";
+                $message = "";
                 return [
                     "status" => 0,
-                    'message' =>$validator->messages()->all(),
+                    'message' => $validator->messages()->all(),
                 ];
             }
 
@@ -52,11 +53,11 @@ class VoterRegisterationController extends Controller
             $voter->age = intval($data["age"]);
             $voter->dob = $data["dob"];
             $voter->occupation = $data["occupation"];
-            if($data['occupation']=="School"){
+            if ($data['occupation'] == "School") {
                 $voter->school = $data["school"];
             }
             $voter->religion = $data["religion"];
-            if($data["religion"] == "others"){
+            if ($data["religion"] == "others") {
                 $voter->otherReligion = $data["otherReligion"];
             }
             $voter->local_church = $data["local_church"];
@@ -66,24 +67,25 @@ class VoterRegisterationController extends Controller
             $voter->current_LLG = $data["current_LLG"];
             $voter->current_ward = $data["current_ward"];
 
-            $status=$voter->save();
-            $message ="";
+            $status = $voter->save();
+            $message = "";
 
-            if($status==false){
+            if ($status == false) {
                 return [
                     "status" => 0,
-                    "message" =>"Voter not created"
+                    "message" => "Voter not created"
                 ];
-            }
-            else
+            } else
                 return [
                     "status" => 1,
-                    "message" =>"Voter created"
+                    "message" => "Voter created"
                 ];
         }
 
     }
-    public function imageUpload(Request $request){
+
+    public function imageUpload(Request $request)
+    {
         if ($request->hasfile('profilePicture')) {
             $img_tmp = $request->file('profilePicture');
 
@@ -95,8 +97,16 @@ class VoterRegisterationController extends Controller
 
             Image::make($img_tmp)->resize(200, 200)->save($img_path);
 //            $cand->displayPicture = $filename;
+            return [
+                "status" => 1,
+                "message" => "Image saved"
+            ];
+        } else {
+            return [
+                "status" => 0,
+                "message" => "Image not saved"
+            ];
         }
-
     }
-
+    
 }
