@@ -20,10 +20,109 @@ class AdminController extends Controller
 
     public function index()
     {
-
-        return view('admin.dashboard');
+        $provinces= DB::table('provinces')->select('name')->get();
+        return view('admin.dashboard',['provinces'=>$provinces]);
     }
+    public function maritalStatusCount($type)
+    {
+    //        $string = $type;
+        $replaced = str_replace('-', '', $type);
+        if($type=='overall') {
+            $maritalStatusOverall = DB::table('voters')
+                ->select('maritalStatus', DB::raw('count(*) as total'))
+                ->groupBy('maritalStatus')
+                ->pluck('total', 'maritalStatus');
+        }else{
+            $maritalStatusOverall = DB::table('voters')
+                ->select('maritalStatus', DB::raw('count(*) as total'))
+                ->where('current_province','=',$replaced)
+                ->groupBy('maritalStatus')
+                ->pluck('total', 'maritalStatus');
+        }
+        return response($maritalStatusOverall);
+    }
+    public function occupationCount($type)
+    {
+    //        $string = $type;
+        $replaced = str_replace('-', '', $type);
+        if($type=='overall') {
+            $maritalStatusOverall = DB::table('voters')
+                ->select('occupation', DB::raw('count(*) as total'))
+                ->groupBy('occupation')
+                ->pluck('total', 'occupation');
+        }else{
+            $maritalStatusOverall = DB::table('voters')
+                ->select('occupation', DB::raw('count(*) as total'))
+                ->where('current_province','=',$replaced)
+                ->groupBy('occupation')
+                ->pluck('total', 'occupation');
+        }
+        return response($maritalStatusOverall);
+    }
+    public function disabilityCount($type)
+    {
+    //        $string = $type;
+        $replaced = str_replace('-', '', $type);
+        if($type=='overall') {
+            $maritalStatusOverall = DB::table('voters')
+                ->select('disabilityType', DB::raw('count(*) as total'))
+                ->groupBy('disabilityType')
+                ->pluck('total', 'disabilityType');
+        }else{
+            $maritalStatusOverall = DB::table('voters')
+                ->select('disabilityType', DB::raw('count(*) as total'))
+                ->where('current_province','=',$replaced)
+                ->groupBy('disabilityType')
+                ->pluck('total', 'disabilityType');
+        }
+        return response($maritalStatusOverall);
+    }
+    public function religionCount($type)
+    {
+    //        $string = $type;
+        $replaced = str_replace('-', '', $type);
+        if($type=='overall') {
+            $maritalStatusOverall = DB::table('voters')
+                ->select('religion', DB::raw('count(*) as total'))
+                ->groupBy('religion')
+                ->pluck('total', 'religion');
+        }else{
+            $maritalStatusOverall = DB::table('voters')
+                ->select('religion', DB::raw('count(*) as total'))
+                ->where('current_province','=',$replaced)
+                ->groupBy('religion')
+                ->pluck('total', 'religion');
+        }
+        return response($maritalStatusOverall);
+    }
+    public function selfEmployed($type)
+    {
+        $replaced = str_replace('-', '', $type);
+        if($type=='overall') {
+            $registered = DB::table('voters')
+                ->select('occupation', DB::raw('count(*) as total'))
+                ->where('occupation','=','Self employed')
+                ->where('IPA_Registered','=',1)
+                ->where('IRC_Registered','=',1)
+                ->groupBy('occupation')
+                ->pluck('total', 'occupation');
+            $notRegistered = DB::table('voters')
+                ->select('occupation', DB::raw('count(*) as total'))
+                ->where('occupation','=','Self employed')
+                ->orWhere('IPA_Registered','=',0)
+                ->orWhere('IRC_Registered','=',0)
+                ->groupBy('occupation')
+                ->pluck('total', 'occupation');
 
+        }else{
+            $maritalStatusOverall = DB::table('voters')
+                ->select('religion', DB::raw('count(*) as total'))
+                ->where('current_province','=',$replaced)
+                ->groupBy('religion')
+                ->pluck('total', 'religion');
+        }
+        return response($maritalStatusOverall);
+    }
     public function adminUsers()
     {
 //        dd('Under Work! Be patient please...');
@@ -36,7 +135,6 @@ class AdminController extends Controller
 //        $users=User::all();
         return view('admin.adminUsers.usersList', ['users' => $users]);
     }
-
     public function addNewUser(Request $request)
     {
         $request->validate([
@@ -52,16 +150,13 @@ class AdminController extends Controller
 //        dd($message);
         return redirect()->route('adminUsers')->with(['message' => $message]);
     }
-
     public function deleteUser($id)
     {
         $user = User::find($id);
         $user->delete();
         $message = 'User deleted successfully!';
-//        dd($message);
         return redirect()->back()->with(['dltMessage' => $message]);
     }
-
     public function create(array $data)
     {
         return User::create([
@@ -70,18 +165,12 @@ class AdminController extends Controller
             'password' => Hash::make($data['password'])
         ]);
     }
-
     public function userRoleUpdate(Request $request)
     {
-//        dd($request);
         User::where(['id' => $request['userIDHolder']])->update(['roles' => $request['role']]);
         $message = 'User role updated successfully!';
-//        dd($message);
         return redirect()->back()->with(['message' => $message]);
-
-//        dd('userRoleUpdate method called!');
     }
-
     public function scheduleTest()
     {
         dd('schedule task running');

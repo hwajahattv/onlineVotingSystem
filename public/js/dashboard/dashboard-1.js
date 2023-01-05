@@ -1,12 +1,10 @@
 (function($) {
     /* "use strict" */
-
-
  var dzChartlist = function(){
-	
-	var screenWidth = $(window).width();
-		var chartTimeline = function(){
-		
+
+     const screenWidth = $(window).width();
+     var chartTimeline = function(){
+
 		var optionsTimeline = {
 			chart: {
 				type: "bar",
@@ -15,7 +13,7 @@
 				toolbar: {
 					show: false
 				},
-				
+
 				sparkline: {
 					//enabled: true
 				},
@@ -30,13 +28,13 @@
 					data: [300, 450, 600, 600, 400, 450, 410, 470, 480, 800, 600, 900, 400]
 				}
 			],
-			
+
 			plotOptions: {
 				bar: {
 					columnWidth: "30%",
 					endingShape: "rounded",
 					startingShape: "rounded",
-					
+
 					colors: {
 						backgroundBarColors: ['#f0f0f0', '#f0f0f0', '#f0f0f0', '#f0f0f0','#f0f0f0','#f0f0f0','#f0f0f0','#f0f0f0'],
 						backgroundBarOpacity: 1,
@@ -87,14 +85,14 @@
 				},
 			},
 			yaxis: {
-			show:false,	
+			show:false,
 			labels: {
 			   style: {
 				  colors: '#3e4954',
 				  fontSize: '14px',
 				   fontFamily: 'Poppins',
 				  fontWeight: 100,
-				  
+
 				},
 				 formatter: function (y) {
 						  return y.toFixed(0) + "k";
@@ -118,7 +116,7 @@
 		var chartTimelineRender =  new ApexCharts(document.querySelector("#chartTimeline"), optionsTimeline);
 		 chartTimelineRender.render();
 	}
-	
+
 	var widgetChart1 = function(){
 		var options = {
           series: [{
@@ -132,7 +130,7 @@
             enabled: true
           },
 		  toolbar:{
-			show:false  
+			show:false
 		  }
         },
         dataLabels: {
@@ -162,7 +160,7 @@
 			show:false
 		  },
 		  axisTicks:{
-			show:false  
+			show:false
 		  },
 		  labels: {
 			  style: {
@@ -170,7 +168,7 @@
 				  fontSize: '14px',
 				   fontFamily: 'Poppins',
 				  fontWeight: 100,
-				  
+
 				}
 			}
         }
@@ -179,81 +177,398 @@
         var chart = new ApexCharts(document.querySelector("#widgetChart1"), options);
         chart.render();
 	}
-	
-	var radialChart = function(){
-		 var options = {
-          series: [60],
-          chart: {
-          height: 230,
-          type: 'radialBar',
-          toolbar: {
-            show: false
-          }
-        },
-        plotOptions: {
-          radialBar: {
-             /* hollow: {
-              margin: 0,
-              size: '70%',
-              background: '#fff',
-              image: undefined,
-              imageOffsetX: 0,
-              imageOffsetY: 0,
-              position: 'front',
-            }, */
-			hollow: {
-              margin: 20,
-              size: '65%',
-              background: '#fff',
-              image: undefined,
-              imageOffsetX: 0,
-              imageOffsetY: 0,
-              position: 'front',
-              dropShadow: {
-                enabled: true,
-                top: 3,
-                left: 0,
-                blur: 10,
-                opacity: 0.1
-              }
-            },
-            track: {
-              background: '#F8F8F8',
-              strokeWidth: '100%',
-              margin: 0, // margin is in pixels
-            },
-        
-            dataLabels: {
-              show: true,
-              value: {
-				offsetY:-7,
-                color: '#111',
-                fontSize: '20px',
-                show: true,
-              }
+    $('#maritalStatus').change(function () {
+        var  series1 =[];
+        var names=[];
+        createRadialChart(series1);
+        var queryValue = this.value;
+        $('#regionSelectedForMaritalSatus').text(queryValue);
+        queryValue = queryValue.replaceAll(' ', '-');
+        $.ajax ({
+            type: 'GET',
+            url: '/maritalStatusCount/'+queryValue,
+            // data: jQuery.param({ type: queryValue}),
+            // data: { hps_level: '' + level + '' },
+            success : function(htmlresponse) {
+                // $('#opt_lesson_list').append(htmlresponse);
+                for (var key in htmlresponse){
+                    series1.push(htmlresponse[key]);
+                    if(key==="") {
+                        key = 'Not defined';
+                    }
+                    names.push(key)
+                // series1 =htmlresponse;
+            }},
+            error:function(e){
+                alert(e);
             }
-          }
-        },
-        fill: {
-            colors: ['#43DC80'],
-        },
-        stroke: {
-        },
-        labels: [''],
-        };
+        });
 
-        var chart = new ApexCharts(document.querySelector("#radialChart"), options);
-        chart.render();
-	}
-	
+        createRadialChart(series1,names);
+    });
+    $('#occupation').change(function () {
+        var  series1 =[];
+        var names=[];
+        createRadialChart(series1);
+        var queryValue = this.value;
+        $('#regionSelectedForOccupation').text(queryValue);
+        queryValue = queryValue.replaceAll(' ', '-');
+        $.ajax ({
+            type: 'GET',
+            url: '/occupationCount/'+queryValue,
+            // data: jQuery.param({ type: queryValue}),
+            // data: { hps_level: '' + level + '' },
+            success : function(htmlresponse) {
+                // $('#opt_lesson_list').append(htmlresponse);
+                for (var key in htmlresponse){
+                    series1.push(htmlresponse[key]);
+                    if(key==="") {
+                        key = 'Not defined';
+                    }
+                    names.push(key)
+                // series1 =htmlresponse;
+            }},
+            error:function(e){
+                alert(e);
+            }
+        });
+
+        createRadialChart1(series1,names);
+    });
+    $('#disability').change(function () {
+        var  series1 =[];
+        var names=[];
+        createRadialChart(series1);
+        var queryValue = this.value;
+        $('#regionSelectedForDisability').text(queryValue);
+        queryValue = queryValue.replaceAll(' ', '-');
+        $.ajax ({
+            type: 'GET',
+            url: '/disabilityCount/'+queryValue,
+            // data: jQuery.param({ type: queryValue}),
+            // data: { hps_level: '' + level + '' },
+            success : function(htmlresponse) {
+                // $('#opt_lesson_list').append(htmlresponse);
+                for (var key in htmlresponse){
+                    series1.push(htmlresponse[key]);
+                    if(key==="") {
+                        key = 'Not disabled';
+                    }
+                    names.push(key)
+                // series1 =htmlresponse;
+            }},
+            error:function(e){
+                alert(e);
+            }
+        });
+
+        createRadialChart2(series1,names);
+    });
+    $('#Religion').change(function () {
+        var  series1 =[];
+        var names=[];
+        createRadialChart(series1);
+        var queryValue = this.value;
+        $('#regionSelectedForDisability').text(queryValue);
+        queryValue = queryValue.replaceAll(' ', '-');
+        $.ajax ({
+            type: 'GET',
+            url: '/religionCount/'+queryValue,
+            // data: jQuery.param({ type: queryValue}),
+            // data: { hps_level: '' + level + '' },
+            success : function(htmlresponse) {
+                // $('#opt_lesson_list').append(htmlresponse);
+                for (var key in htmlresponse){
+                    series1.push(htmlresponse[key]);
+                    if(key==="") {
+                        key = 'Not defined';
+                    }
+                    names.push(key)
+                // series1 =htmlresponse;
+            }},
+            error:function(e){
+                alert(e);
+            }
+        });
+
+        createRadialChart3(series1,names);
+    });
+
+     function createRadialChart(data,names) {
+         var options = {
+             series: data,
+             chart: {
+                 height: 230,
+                 type: 'pie',
+                 toolbar: {
+                     show: true
+                 }
+             },
+             plotOptions: {
+                 radialBar: {
+                     /* hollow: {
+                      margin: 0,
+                      size: '70%',
+                      background: '#fff',
+                      image: undefined,
+                      imageOffsetX: 0,
+                      imageOffsetY: 0,
+                      position: 'front',
+                    }, */
+                     hollow: {
+                         margin: 20,
+                         size: '65%',
+                         background: '#fff',
+                         image: undefined,
+                         imageOffsetX: 0,
+                         imageOffsetY: 0,
+                         position: 'front',
+                         dropShadow: {
+                             enabled: true,
+                             top: 3,
+                             left: 0,
+                             blur: 10,
+                             opacity: 0.1
+                         }
+                     },
+                     track: {
+                         background: '#F8F8F8',
+                         strokeWidth: '100%',
+                         margin: 0, // margin is in pixels
+                     },
+
+                     dataLabels: {
+                         show: true,
+                         value: {
+                             offsetY: -7,
+                             color: '#111',
+                             fontSize: '20px',
+                             show: true,
+                         }
+                     }
+                 }
+             },
+             fill: {
+                 colors: ['#0081C9','#5BC0F8','#86E5FF','#FFC93C','#FF7B54','#FFB26B'],
+             },
+             stroke: {},
+             labels: names,
+         };
+
+         var chart = new ApexCharts(document.querySelector("#radialChart"), options);
+         chart.render();
+     }
+     function createRadialChart1(data,names) {
+         var options = {
+             series: data,
+             chart: {
+                 height: 230,
+                 type: 'pie',
+                 toolbar: {
+                     show: true
+                 }
+             },
+             plotOptions: {
+                 radialBar: {
+                     /* hollow: {
+                      margin: 0,
+                      size: '70%',
+                      background: '#fff',
+                      image: undefined,
+                      imageOffsetX: 0,
+                      imageOffsetY: 0,
+                      position: 'front',
+                    }, */
+                     hollow: {
+                         margin: 20,
+                         size: '65%',
+                         background: '#fff',
+                         image: undefined,
+                         imageOffsetX: 0,
+                         imageOffsetY: 0,
+                         position: 'front',
+                         dropShadow: {
+                             enabled: true,
+                             top: 3,
+                             left: 0,
+                             blur: 10,
+                             opacity: 0.1
+                         }
+                     },
+                     track: {
+                         background: '#F8F8F8',
+                         strokeWidth: '100%',
+                         margin: 0, // margin is in pixels
+                     },
+
+                     dataLabels: {
+                         show: true,
+                         value: {
+                             offsetY: -7,
+                             color: '#111',
+                             fontSize: '20px',
+                             show: true,
+                         }
+                     }
+                 }
+             },
+             fill: {
+                 colors: ['#0081C9','#5BC0F8','#86E5FF','#FFC93C','#FF7B54','#FFB26B'],
+             },
+             stroke: {},
+             labels: names,
+         };
+
+         var chart = new ApexCharts(document.querySelector("#radialChartOccupation"), options);
+         chart.render();
+     }
+     function createRadialChart2(data,names) {
+         var options = {
+             series: data,
+             chart: {
+                 height: 230,
+                 type: 'pie',
+                 toolbar: {
+                     show: true
+                 }
+             },
+             plotOptions: {
+                 radialBar: {
+                     /* hollow: {
+                      margin: 0,
+                      size: '70%',
+                      background: '#fff',
+                      image: undefined,
+                      imageOffsetX: 0,
+                      imageOffsetY: 0,
+                      position: 'front',
+                    }, */
+                     hollow: {
+                         margin: 20,
+                         size: '65%',
+                         background: '#fff',
+                         image: undefined,
+                         imageOffsetX: 0,
+                         imageOffsetY: 0,
+                         position: 'front',
+                         dropShadow: {
+                             enabled: true,
+                             top: 3,
+                             left: 0,
+                             blur: 10,
+                             opacity: 0.1
+                         }
+                     },
+                     track: {
+                         background: '#F8F8F8',
+                         strokeWidth: '100%',
+                         margin: 0, // margin is in pixels
+                     },
+
+                     dataLabels: {
+                         show: true,
+                         value: {
+                             offsetY: -7,
+                             color: '#111',
+                             fontSize: '20px',
+                             show: true,
+                         }
+                     }
+                 }
+             },
+             fill: {
+                 colors: ['#0081C9','#5BC0F8','#86E5FF','#FFC93C','#FF7B54','#FFB26B'],
+             },
+             stroke: {},
+             labels: names,
+         };
+
+         var chart = new ApexCharts(document.querySelector("#radialChartDisability"), options);
+         chart.render();
+     }
+     function createRadialChart3(data,names) {
+         var options = {
+             series: data,
+             chart: {
+                 height: 230,
+                 type: 'pie',
+                 toolbar: {
+                     show: true
+                 }
+             },
+             plotOptions: {
+                 pie: {
+                     customScale: 1,
+                     offsetX: 0,
+                     offsetY: 0,
+                     startAngle: 0,
+                     expandOnClick: !0,
+                     dataLabels: {offset: 0, minAngleToShowLabel: 10},
+                     donut: {
+                         size: "65%",
+                         background: "transparent",
+                         labels: {
+                             show: !1,
+                             name: {
+                                 show: !0,
+                                 fontSize: "16px",
+                                 fontFamily: void 0,
+                                 fontWeight: 600,
+                                 color: void 0,
+                                 offsetY: -10,
+                                 formatter: function (t) {
+                                     return t
+                                 }
+                             },
+                             value: {
+                                 show: !0,
+                                 fontSize: "20px",
+                                 fontFamily: void 0,
+                                 fontWeight: 400,
+                                 color: void 0,
+                                 offsetY: 10,
+                                 formatter: function (t) {
+                                     return t
+                                 }
+                             },
+                             total: {
+                                 show: !1,
+                                 showAlways: !1,
+                                 label: "Total",
+                                 fontSize: "16px",
+                                 fontWeight: 400,
+                                 fontFamily: void 0,
+                                 color: void 0,
+                                 formatter: function (t) {
+                                     return t.globals.seriesTotals.reduce((function (t, e) {
+                                         return t + e
+                                     }), 0)
+                                 }
+                             }
+                         }
+                     }
+                 },
+
+             },
+             fill: {
+                 colors: ['#0081C9','#5BC0F8','#86E5FF','#FFC93C','#FF7B54','#FFB26B'],
+             },
+             stroke: {},
+             labels: names,
+         };
+
+         var chart = new ApexCharts(document.querySelector("#radialChartReligion"), options);
+         chart.render();
+     }
+
 	var widgetChart2 = function(){
 		var options = {
 		  series: [
 			{
 				name: 'Net Profit',
 				data: [500, 500, 400, 400, 600, 600, 300, 300,500, 500,700,700],
-				//radius: 12,	
-			}, 				
+				//radius: 12,
+			},
 		],
 			chart: {
 			type: 'area',
@@ -267,9 +582,9 @@
 			sparkline: {
 				enabled: true
 			}
-			
+
 		},
-		
+
 		colors:['#43DC80'],
 		dataLabels: {
 		  enabled: false,
@@ -287,7 +602,7 @@
 		  curve:'smooth',
 		  colors:['#43DC80'],
 		},
-		
+
 		grid: {
 			show:false,
 			borderColor: '#eee',
@@ -374,20 +689,20 @@
 		var chartBar1 = new ApexCharts(document.querySelector("#widgetChart2"), options);
 		chartBar1.render();
 	}
-	
+
 	var donutChart1 = function(){
 		$("span.donut1").peity("donut", {
 			width: "81",
 			height: "81"
 		});
 	}
-	
+
 	/* Function ============ */
 		return {
 			init:function(){
 			},
-			
-			
+
+
 			load:function(){
 					chartTimeline();
 					widgetChart1();
@@ -395,26 +710,19 @@
 					widgetChart2();
 					donutChart1();
 			},
-			
+
 			resize:function(){
 			}
 		}
-	
-	}();
 
-	jQuery(document).ready(function(){
-	});
-		
+	}();
 	jQuery(window).on('load',function(){
 		setTimeout(function(){
 			dzChartlist.load();
-		}, 1000); 
-		
-	});
+		}, 1000);
 
+	});
 	jQuery(window).on('resize',function(){
-		
-		
-	});     
+	});
 
 })(jQuery);

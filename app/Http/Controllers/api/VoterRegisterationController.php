@@ -96,7 +96,6 @@ class VoterRegisterationController extends Controller
             $img_path = 'img/uploads/candidate/' . $filename;
 
             Image::make($img_tmp)->resize(200, 200)->save($img_path);
-//            $cand->displayPicture = $filename;
             return [
                 "status" => 1,
                 "message" => "Image saved"
@@ -108,5 +107,5 @@ class VoterRegisterationController extends Controller
             ];
         }
     }
-    
+
 }

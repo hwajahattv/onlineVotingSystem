@@ -73,6 +73,11 @@ Route::group(['middleware' => ['auth','SuperAdmin',]], function () {
         Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('auth');
 Route::group(['middleware' => ['auth','verified']], function () {
         Route::get('/home', [AdminController::class, 'index'])->name('home');
+        Route::get('/maritalStatusCount/{type}', [AdminController::class, 'maritalStatusCount']);
+        Route::get('/occupationCount/{type}', [AdminController::class, 'occupationCount']);
+        Route::get('/disabilityCount/{type}', [AdminController::class, 'disabilityCount']);
+        Route::get('/religionCount/{type}', [AdminController::class, 'religionCount']);
+        Route::get('/selfEmployed/{type}', [AdminController::class, 'selfEmployed']);
         // candidate services
         Route::get('/candidateSection', [CandidateController::class, 'candidateSection'])->name('candidateSection');
         Route::get('/showCandidates', [CandidateController::class, 'showCandidates'])->name('showCandidates');

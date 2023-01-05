@@ -37,10 +37,10 @@
         }
 
         body {
-            background-image: url('{{asset('/img/pngFlag.png')}}');
-            background-repeat: no-repeat;
+            background-image: url('{{asset('/images/bg.jpg')}}');
+            /*background-repeat: no-repeat;*/
             background-attachment: fixed;
-            background-size: cover;
+            background-size: auto;
             resize: both;
             overflow: scroll;
         }

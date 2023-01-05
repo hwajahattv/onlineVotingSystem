@@ -1,3 +1,16 @@
+$('input[type="radio"]').click(function(){
+    var inputValue = $(this).attr("value");
+    var targetBox = $('#spouseInfo');
+    if(inputValue == 'Defacto'||inputValue == 'Married'||inputValue == 'Widowed'||inputValue == 'Divorced') {
+        $("#spouseInfo").removeClass("hideField");
+    }else{
+        if (!$("#spouseInfo").hasClass("hideField")) {
+            $("#spouseInfo").addClass("hideField");
+        }
+    }
+
+});
+
 $("#selectOccupation").change(function () {
     if ($("#selectOccupation").find(":selected").val() == "Student") {
         $("#schoolName").removeClass("hideField");
@@ -6,7 +19,31 @@ $("#selectOccupation").change(function () {
             $("#schoolName").addClass("hideField");
         }
     }
+    if ($("#selectOccupation").find(":selected").val() == "Public Servant") {
+        $("#publicServantInfo").removeClass("hideField");
+    } else {
+        if (!$("#publicServantInfo").hasClass("hideField")) {
+            $("#publicServantInfo").addClass("hideField");
+        }
+    }
+    if ($("#selectOccupation").find(":selected").val() == "Self Employed") {
+        $("#selfEmployedInfo").removeClass("hideField");
+    } else {
+        if (!$("#selfEmployedInfo").hasClass("hideField")) {
+            $("#selfEmployedInfo").addClass("hideField");
+        }
+    }
 });
+$("#disability").change(function () {
+    if ($("#disability").find(":selected").val() == "1") {
+        $("#disabilityInfo").removeClass("hideField");
+    } else {
+        if (!$("#disabilityInfo").hasClass("hideField")) {
+            $("#disabilityInfo").addClass("hideField");
+        }
+    }
+});
+
 $("#selectReligion").change(function () {
     if ($("#selectReligion").find(":selected").val() == "Others") {
         $("#otherReligon").removeClass("hideField");
