@@ -788,142 +788,137 @@ window.onload = function () {
         districtSelect.length = 1;
         chapterSel.length = 1;
         topicSel.length = 1;
-
-            console.log(this.value);
-            var provinceName = this.value;
-            $.ajaxSetup({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-            });
-            $.ajax({
-                /* the route pointing to the post function */
-                url: '/getProvinceID',
-                type: 'POST',
-                /* send the csrf-token and the input to the controller */
-                data: {province: provinceName},
-                dataType: 'JSON',
-                async: false,
-                /* remind that 'data' is the response of the AjaxController */
-                success: function (data) {
-                    console.log(data.province_id);
-                    province_id = data.province_id;
-                    console.log(province_id, 'a');
-                    $("#provinceID").val(province_id);
-                    //display correct values
-                },
-            });
-
-
-            for (var x in subjectObject[regionSel.value][this.value]) {
+            // console.log(this.value);
+            // var provinceName = this.value;
+            // $.ajaxSetup({
+            //     headers: {
+            //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            //     },
+            // });
+            // $.ajax({
+            //     /* the route pointing to the post function */
+            //     url: '/getProvinceID',
+            //     type: 'POST',
+            //     /* send the csrf-token and the input to the controller */
+            //     data: {province: provinceName},
+            //     dataType: 'JSON',
+            //     async: false,
+            //     /* remind that 'data' is the response of the AjaxController */
+            //     success: function (data) {
+            //         console.log(data.province_id);
+            //         province_id = data.province_id;
+            //         console.log(province_id, 'a');
+            //         $("#provinceID").val(province_id);
+            //         //display correct values
+            //     },
+            // });
+        for (var x in subjectObject[regionSel.value][this.value]) {
                 districtSelect.options[districtSelect.options.length] = new Option(x, x);
-                var province_id = $("#provinceID")[0].value;
-                console.log(x, this.value, province_id, '1');
-                //store district Ajax
-                $.ajaxSetup({
-                    headers: {
-                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                    },
-                });
-                $.ajax({
-                    /* the route pointing to the post function */
-                    url: '/addDistrict',
-                    type: 'POST',
-                    /* send the csrf-token and the input to the controller */
-                    data: {name: x, province_id: province_id},
-                    dataType: 'JSON',
-                    /* remind that 'data' is the response of the AjaxController */
-                    success: function (data) {
-                        console.log(data.msg);
-                    }
-                });
+                // var province_id = $("#provinceID")[0].value;
+                // console.log(x, this.value, province_id, '1');
+                // //store district Ajax
+                // $.ajaxSetup({
+                //     headers: {
+                //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                //     },
+                // });
+                // $.ajax({
+                //     /* the route pointing to the post function */
+                //     url: '/addDistrict',
+                //     type: 'POST',
+                //     /* send the csrf-token and the input to the controller */
+                //     data: {name: x, province_id: province_id},
+                //     dataType: 'JSON',
+                //     /* remind that 'data' is the response of the AjaxController */
+                //     success: function (data) {
+                //         console.log(data.msg);
+                //     }
+                // });
 
             }
-
     }
-
 
     districtSelect.onchange = function () {
         //empty Chapters- and Topics- dropdowns
         chapterSel.length = 1;
         topicSel.length = 1;
-        console.log(this.value);
-        var districtName = this.value;
-        $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-        });
-        $.ajax({
-            /* the route pointing to the post function */
-            url: '/getDistrictID',
-            type: 'POST',
-            /* send the csrf-token and the input to the controller */
-            data: {district: districtName},
-            dataType: 'JSON',
-            async: false,
-            /* remind that 'data' is the response of the AjaxController */
-            success: function (data) {
-                console.log(data.district_id);
-                district_id = data.district_id;
-                console.log(district_id, 'a');
-                $("#districtID").val(district_id);
-                //display correct values
-            },
-        });
+        // console.log(this.value);
+        // var districtName = this.value;
+        // $.ajaxSetup({
+        //     headers: {
+        //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        //     },
+        // });
+        // $.ajax({
+        //     /* the route pointing to the post function */
+        //     url: '/getDistrictID',
+        //     type: 'POST',
+        //     /* send the csrf-token and the input to the controller */
+        //     data: {district: districtName},
+        //     dataType: 'JSON',
+        //     async: false,
+        //     /* remind that 'data' is the response of the AjaxController */
+        //     success: function (data) {
+        //         console.log(data.district_id);
+        //         district_id = data.district_id;
+        //         console.log(district_id, 'a');
+        //         $("#districtID").val(district_id);
+        //         //display correct values
+        //     },
+        // });
         //display correct values
         for (var y in subjectObject[regionSel.value][provinceSelect.value][this.value]) {
             topicSel.options[topicSel.options.length] = new Option(y, y);
-            var district_id = $("#districtID")[0].value;
-            console.log(y, this.value, district_id, '1');
-            //store district Ajax
-            $.ajaxSetup({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-            });
-            $.ajax({
-                /* the route pointing to the post function */
-                url: '/addLLG',
-                type: 'POST',
-                /* send the csrf-token and the input to the controller */
-                data: {name: y, district_id: district_id},
-                dataType: 'JSON',
-                /* remind that 'data' is the response of the AjaxController */
-                success: function (data) {
-                    console.log(data.msg);
-                }
-            });
-            console.log(y);
+            // var district_id = $("#districtID")[0].value;
+            // console.log(y, this.value, district_id, '1');
+            // //store district Ajax
+            // $.ajaxSetup({
+            //     headers: {
+            //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            //     },
+            // });
+            // $.ajax({
+            //     /* the route pointing to the post function */
+            //     url: '/addLLG',
+            //     type: 'POST',
+            //     /* send the csrf-token and the input to the controller */
+            //     data: {name: y, district_id: district_id},
+            //     dataType: 'JSON',
+            //     /* remind that 'data' is the response of the AjaxController */
+            //     success: function (data) {
+            //         console.log(data.msg);
+            //     }
+            // });
+            // console.log(y);
         }
     };
     topicSel.onchange = function () {
         //empty Chapters dropdown
         chapterSel.length = 1;
-        console.log(this.value);
-        var LLGName = this.value;
-        $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-        });
-        $.ajax({
-            /* the route pointing to the post function */
-            url: '/getLLGID',
-            type: 'POST',
-            /* send the csrf-token and the input to the controller */
-            data: {LLG: LLGName},
-            dataType: 'JSON',
-            async: false,
-            /* remind that 'data' is the response of the AjaxController */
-            success: function (data) {
-                console.log(data.LLG_id);
-                LLG_id = data.LLG_id;
-                console.log(LLG_id, 'a');
-                $("#LLGID").val(LLG_id);
-                //display correct values
-            },
-        });
+        // console.log(this.value);
+        // var LLGName = this.value;
+        // $.ajaxSetup({
+        //     headers: {
+        //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        //     },
+        // });
+        // $.ajax({
+        //     /* the route pointing to the post function */
+        //     url: '/getLLGID',
+        //     type: 'POST',
+        //     /* send the csrf-token and the input to the controller */
+        //     data: {LLG: LLGName},
+        //     dataType: 'JSON',
+        //     async: false,
+        //     /* remind that 'data' is the response of the AjaxController */
+        //     success: function (data) {
+        //         console.log(data.LLG_id);
+        //         LLG_id = data.LLG_id;
+        //         console.log(LLG_id, 'a');
+        //         $("#LLGID").val(LLG_id);
+        //         //display correct values
+        //     },
+        // });
         //display correct values
         var z = subjectObject[regionSel.value][provinceSelect.value][districtSelect.value][this.value];
         for (var i = 0; i < z.length; i++) {
@@ -931,27 +926,27 @@ window.onload = function () {
                 z[i],
                 z[i]
             );
-            var LLG_id = $("#LLGID")[0].value;
-            console.log(z[i], this.value, LLG_id, '1');
-            //store district Ajax
-            $.ajaxSetup({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-            });
-            $.ajax({
-                /* the route pointing to the post function */
-                url: '/addWard',
-                type: 'POST',
-                /* send the csrf-token and the input to the controller */
-                data: {name: z[i], LLG_id: LLG_id},
-                dataType: 'JSON',
-                /* remind that 'data' is the response of the AjaxController */
-                success: function (data) {
-                    console.log(data.msg);
-                }
-            });
-            console.log(z[i]);
+            // var LLG_id = $("#LLGID")[0].value;
+            // console.log(z[i], this.value, LLG_id, '1');
+            // //store district Ajax
+            // $.ajaxSetup({
+            //     headers: {
+            //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            //     },
+            // });
+            // $.ajax({
+            //     /* the route pointing to the post function */
+            //     url: '/addWard',
+            //     type: 'POST',
+            //     /* send the csrf-token and the input to the controller */
+            //     data: {name: z[i], LLG_id: LLG_id},
+            //     dataType: 'JSON',
+            //     /* remind that 'data' is the response of the AjaxController */
+            //     success: function (data) {
+            //         console.log(data.msg);
+            //     }
+            // });
+            // console.log(z[i]);
         }
     };
 

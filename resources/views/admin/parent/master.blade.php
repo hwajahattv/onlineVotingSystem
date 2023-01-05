@@ -421,7 +421,7 @@
 <script src="{{ asset('js/deznav-init.js') }}"></script>
 <script src="{{ asset('js/demo.js') }}"></script>
 <script src="{{ asset('js/electionFormSubmit.js') }}"></script>
-<script src="{{ asset('js/styleSwitcher.js') }}"></script>
+{{--<script src="{{ asset('js/styleSwitcher.js') }}"></script>--}}
 
 @yield('script')
 </body>

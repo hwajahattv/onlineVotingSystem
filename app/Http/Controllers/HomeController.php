@@ -52,7 +52,7 @@ class HomeController extends Controller
     {
         $request->validate([
             'name' => 'required|max:25',
-            'surName' => 'required|max:25',
+//            'surName' => 'required|max:25',
             'gender' => 'required',
             'fatherName' => 'required',
             'motherName' => 'required',
@@ -129,7 +129,7 @@ class HomeController extends Controller
             $voter = new Voter;
 
             $voter->name = $data["name"];
-            $voter->surName = $data["surName"];
+//            $voter->surName = $data["surName"];
             $voter->maritalStatus = $data["marital_status"];
             $voter->registeredAs = $data["registration_type"];
             $voter->birthType = $data["birth_type"];
@@ -163,10 +163,24 @@ class HomeController extends Controller
             $voter->current_ward = $data["current_ward"];
             $voter->current_village = $data["current_village"];
             // create parent voters
-            $father_voter_id = DB::table('voters')->insertGetId(['name' => $data['fatherName']]);
-            $voter->father_id = $father_voter_id;
-            $mother_voter_id = DB::table('voters')->insertGetId(['name' => $data['motherName']]);
-            $voter->mother_id =$mother_voter_id;
+            //check if father is registered
+            $father=DB::table('voters')->where(['name'=>$data['fatherName']])->first();
+            if(!$father) {
+                $father_voter_id = DB::table('voters')->insertGetId(['name' => $data['fatherName']]);
+                $voter->father_id = $father_voter_id;
+            }else{
+                $father_voter_id = $father->id;
+                $voter->father_id = $father->id;
+            }
+            //check if mother is registered
+            $mother=DB::table('voters')->where(['name'=>$data['motherName']])->first();
+            if(!$mother) {
+                $mother_voter_id = DB::table('voters')->insertGetId(['name' => $data['motherName']]);
+                $voter->mother_id = $mother_voter_id;
+            }else{
+                $mother_voter_id = $mother->id;
+                $voter->mother_id = $mother->id;
+            }
             //update the parents data in their spouse columns
             Voter::where(['id'=>$father_voter_id])->update(['spouse_id'=>$mother_voter_id]);
             Voter::where(['id'=>$mother_voter_id])->update(['spouse_id'=>$father_voter_id]);
@@ -174,7 +188,11 @@ class HomeController extends Controller
             if ($data['marital_status'] == 'Defacto' || $data['marital_status'] == 'Married' || $data['marital_status'] == 'Divorced' || $data['marital_status'] == 'Widowed') {
                 $spouse_id =DB::table('voters')->insertGetId(['name' => $data['spouseName']]);
                 $voter->spouse_id = $spouse_id;
+            }else{
+                $spouse_id = null;
+                $voter->spouse_id = null;
             }
+
             //image validation
 
             if ($request->hasfile('profilePicture')) {
@@ -214,7 +232,7 @@ class HomeController extends Controller
 //            dd($father_id,$mother_id,$spouse_id);
             $status = Voter::where(['id' => $voterExists->id])->update([
                 'name' => $data["name"],
-                'surName' => $data["surName"],
+//                'surName' => $data["surName"],
                 'maritalStatus' => $data["marital_status"],
                 'registeredAs' => $data["registration_type"],
                 'birthType' => $data["birth_type"],
@@ -254,7 +272,7 @@ class HomeController extends Controller
 
         }
 
-        $voterID = Voter::where(['name' => $data['name']])->where(['surName' => $data['surName']])->first();
+        $voterID = Voter::where(['name' => $data['name']])->first();
         $message = 'You are registered successfully! Please note your Voter ID: ' . $voterID->id;
 //        dd($message);
         return redirect()->back()->with(['message' => $message]);

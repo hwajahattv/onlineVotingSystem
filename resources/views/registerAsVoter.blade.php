@@ -54,21 +54,21 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">First name <i
+                                            <label for="exampleInputEmail1">Full name <i
                                                     class="fa-solid fa-asterisk fa-2xs "></i></label>
                                             <input type="text" class="form-control addInput" name="name"
                                                    value="{{ old('name') }}" id="" aria-describedby="" placeholder="">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Surname <i
-                                                    class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                            <input type="text" class="form-control addInput" name="surName"
-                                                   value="{{ old('surName') }}"
-                                                   id="" aria-describedby="" placeholder="">
-                                        </div>
-                                    </div>
+{{--                                    <div class="col-md-4">--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="exampleInputEmail1">Surname <i--}}
+{{--                                                    class="fa-solid fa-asterisk fa-2xs "></i></label>--}}
+{{--                                            <input type="text" class="form-control addInput" name="surName"--}}
+{{--                                                   value="{{ old('surName') }}"--}}
+{{--                                                   id="" aria-describedby="" placeholder="">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Gender <i
@@ -81,6 +81,7 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Father's name <i

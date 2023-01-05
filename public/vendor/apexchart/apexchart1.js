@@ -1733,7 +1733,7 @@
                             }
                         }
                     },
-                    colors: void 0,
+                    colors: ['#0081C9','#5BC0F8','#86E5FF','#FFC93C','#FF7B54','#FFB26B'],
                     dataLabels: {
                         enabled: !0,
                         enabledOnSeries: void 0,

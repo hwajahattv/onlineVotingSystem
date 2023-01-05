@@ -177,123 +177,128 @@
         var chart = new ApexCharts(document.querySelector("#widgetChart1"), options);
         chart.render();
 	}
-    $('#maritalStatus').change(function () {
-        var  series1 =[];
-        var names=[];
-        createRadialChart(series1);
-        var queryValue = this.value;
-        $('#regionSelectedForMaritalSatus').text(queryValue);
-        queryValue = queryValue.replaceAll(' ', '-');
-        $.ajax ({
-            type: 'GET',
-            url: '/maritalStatusCount/'+queryValue,
-            // data: jQuery.param({ type: queryValue}),
-            // data: { hps_level: '' + level + '' },
-            success : function(htmlresponse) {
-                // $('#opt_lesson_list').append(htmlresponse);
-                for (var key in htmlresponse){
-                    series1.push(htmlresponse[key]);
-                    if(key==="") {
-                        key = 'Not defined';
+    var piecharts= function() {
+        $('#maritalStatus').change(function () {
+            var series1 = [];
+            var names = [];
+            createRadialChart(series1, names);
+            var queryValue = this.value;
+            $('#regionSelectedForMaritalSatus').text(queryValue);
+            queryValue = queryValue.replaceAll(' ', '-');
+            $.ajax({
+                type: 'GET',
+                url: '/maritalStatusCount/' + queryValue,
+                // data: jQuery.param({ type: queryValue}),
+                // data: { hps_level: '' + level + '' },
+                success: function (htmlresponse) {
+                    // $('#opt_lesson_list').append(htmlresponse);
+                    for (var key in htmlresponse) {
+                        series1.push(htmlresponse[key]);
+                        if (key === "") {
+                            key = 'Not defined';
+                        }
+                        names.push(key)
+                        // series1 =htmlresponse;
                     }
-                    names.push(key)
-                // series1 =htmlresponse;
-            }},
-            error:function(e){
-                alert(e);
-            }
-        });
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
 
-        createRadialChart(series1,names);
-    });
-    $('#occupation').change(function () {
-        var  series1 =[];
-        var names=[];
-        createRadialChart(series1);
-        var queryValue = this.value;
-        $('#regionSelectedForOccupation').text(queryValue);
-        queryValue = queryValue.replaceAll(' ', '-');
-        $.ajax ({
-            type: 'GET',
-            url: '/occupationCount/'+queryValue,
-            // data: jQuery.param({ type: queryValue}),
-            // data: { hps_level: '' + level + '' },
-            success : function(htmlresponse) {
-                // $('#opt_lesson_list').append(htmlresponse);
-                for (var key in htmlresponse){
-                    series1.push(htmlresponse[key]);
-                    if(key==="") {
-                        key = 'Not defined';
+            createRadialChart(series1, names);
+        });
+        $('#occupation').change(function () {
+            var series1 = [];
+            var names = [];
+            createRadialChart(series1, names);
+            var queryValue = this.value;
+            $('#regionSelectedForOccupation').text(queryValue);
+            queryValue = queryValue.replaceAll(' ', '-');
+            $.ajax({
+                type: 'GET',
+                url: '/occupationCount/' + queryValue,
+                // data: jQuery.param({ type: queryValue}),
+                // data: { hps_level: '' + level + '' },
+                success: function (htmlresponse) {
+                    // $('#opt_lesson_list').append(htmlresponse);
+                    for (var key in htmlresponse) {
+                        series1.push(htmlresponse[key]);
+                        if (key === "") {
+                            key = 'Not defined';
+                        }
+                        names.push(key)
+                        // series1 =htmlresponse;
                     }
-                    names.push(key)
-                // series1 =htmlresponse;
-            }},
-            error:function(e){
-                alert(e);
-            }
-        });
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
 
-        createRadialChart1(series1,names);
-    });
-    $('#disability').change(function () {
-        var  series1 =[];
-        var names=[];
-        createRadialChart(series1);
-        var queryValue = this.value;
-        $('#regionSelectedForDisability').text(queryValue);
-        queryValue = queryValue.replaceAll(' ', '-');
-        $.ajax ({
-            type: 'GET',
-            url: '/disabilityCount/'+queryValue,
-            // data: jQuery.param({ type: queryValue}),
-            // data: { hps_level: '' + level + '' },
-            success : function(htmlresponse) {
-                // $('#opt_lesson_list').append(htmlresponse);
-                for (var key in htmlresponse){
-                    series1.push(htmlresponse[key]);
-                    if(key==="") {
-                        key = 'Not disabled';
+            createRadialChart1(series1, names);
+        });
+        $('#disability').change(function () {
+            var series1 = [];
+            var names = [];
+            createRadialChart(series1, names);
+            var queryValue = this.value;
+            $('#regionSelectedForDisability').text(queryValue);
+            queryValue = queryValue.replaceAll(' ', '-');
+            $.ajax({
+                type: 'GET',
+                url: '/disabilityCount/' + queryValue,
+                // data: jQuery.param({ type: queryValue}),
+                // data: { hps_level: '' + level + '' },
+                success: function (htmlresponse) {
+                    // $('#opt_lesson_list').append(htmlresponse);
+                    for (var key in htmlresponse) {
+                        series1.push(htmlresponse[key]);
+                        if (key === "") {
+                            key = 'Not disabled';
+                        }
+                        names.push(key)
+                        // series1 =htmlresponse;
                     }
-                    names.push(key)
-                // series1 =htmlresponse;
-            }},
-            error:function(e){
-                alert(e);
-            }
-        });
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
 
-        createRadialChart2(series1,names);
-    });
-    $('#Religion').change(function () {
-        var  series1 =[];
-        var names=[];
-        createRadialChart(series1);
-        var queryValue = this.value;
-        $('#regionSelectedForDisability').text(queryValue);
-        queryValue = queryValue.replaceAll(' ', '-');
-        $.ajax ({
-            type: 'GET',
-            url: '/religionCount/'+queryValue,
-            // data: jQuery.param({ type: queryValue}),
-            // data: { hps_level: '' + level + '' },
-            success : function(htmlresponse) {
-                // $('#opt_lesson_list').append(htmlresponse);
-                for (var key in htmlresponse){
-                    series1.push(htmlresponse[key]);
-                    if(key==="") {
-                        key = 'Not defined';
+            createRadialChart2(series1, names);
+        });
+        $('#Religion').change(function () {
+            var series1 = [];
+            var names = [];
+            createRadialChart(series1, names);
+            var queryValue = this.value;
+            $('#regionSelectedForDisability').text(queryValue);
+            queryValue = queryValue.replaceAll(' ', '-');
+            $.ajax({
+                type: 'GET',
+                url: '/religionCount/' + queryValue,
+                // data: jQuery.param({ type: queryValue}),
+                // data: { hps_level: '' + level + '' },
+                success: function (htmlresponse) {
+                    // $('#opt_lesson_list').append(htmlresponse);
+                    for (var key in htmlresponse) {
+                        series1.push(htmlresponse[key]);
+                        if (key === "") {
+                            key = 'Not defined';
+                        }
+                        names.push(key)
+                        // series1 =htmlresponse;
                     }
-                    names.push(key)
-                // series1 =htmlresponse;
-            }},
-            error:function(e){
-                alert(e);
-            }
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
+
+            createRadialChart3(series1, names);
         });
-
-        createRadialChart3(series1,names);
-    });
-
+    }
      function createRadialChart(data,names) {
          var options = {
              series: data,
@@ -706,7 +711,8 @@
 			load:function(){
 					chartTimeline();
 					widgetChart1();
-					radialChart();
+					// radialChart();
+                piecharts();
 					widgetChart2();
 					donutChart1();
 			},
@@ -716,6 +722,8 @@
 		}
 
 	}();
+    jQuery(document).ready(function(){
+    });
 	jQuery(window).on('load',function(){
 		setTimeout(function(){
 			dzChartlist.load();
