@@ -39,7 +39,8 @@ class HomeController extends Controller
     public function registerAsVoter()
     {
         $publicDepartments = DB::table('public_departments')->get();
-        return view('registerAsVoter', ['publicDepartments' => $publicDepartments]);
+        $provinces = DB::table('provinces')->get();
+        return view('registerAsVoter', ['publicDepartments' => $publicDepartments,'provinces'=>$provinces]);
     }
 
     public function registerAsCandidate()
@@ -186,8 +187,15 @@ class HomeController extends Controller
             Voter::where(['id'=>$mother_voter_id])->update(['spouse_id'=>$father_voter_id]);
             //if marital status is Defacto/Married/Divorced/Widowed then spouse voter will be created.
             if ($data['marital_status'] == 'Defacto' || $data['marital_status'] == 'Married' || $data['marital_status'] == 'Divorced' || $data['marital_status'] == 'Widowed') {
-                $spouse_id =DB::table('voters')->insertGetId(['name' => $data['spouseName']]);
-                $voter->spouse_id = $spouse_id;
+                //check if spouse is already registered
+                $spouse=DB::table('voters')->where(['name'=>$data['spouseName']])->first();
+                if(!$spouse) {
+                    $spouse_id = DB::table('voters')->insertGetId(['name' => $data['fatherName']]);
+                    $voter->spouse_id = $spouse_id;
+                }else{
+                    $spouse_id = $spouse->id;
+                    $voter->spouse_id = $spouse->id;
+                }
             }else{
                 $spouse_id = null;
                 $voter->spouse_id = null;
@@ -580,7 +588,10 @@ class HomeController extends Controller
         }
         return response()->json($response);
     }
-
+    public function fetchSchools($province_id,$education_level_id){
+        $schools=DB::table('schools')->where(['province_id'=>$province_id,'education_level_id'=>$education_level_id])->get();
+        return response($schools);
+    }
     private function verifyMapping($person): array
     {
 

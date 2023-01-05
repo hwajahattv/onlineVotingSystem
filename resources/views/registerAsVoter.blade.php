@@ -196,39 +196,52 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="hideField" id="schoolName">
+                                    <div class="hideField" id="education">
                                         <div class="row">
                                             <div class="form-group col-md-4">
                                                 <label>Education level <i
                                                         class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                 <select class="form-control" name="education_level"
-                                                        value="{{ old('education_level') }}">
+                                                        value="{{ old('education_level') }}" id="educationLevelSelect">
                                                     <option selected disabled>--select--</option>
-                                                    <option value="Primary">Primary</option>
-                                                    <option value="Secondary">Secondary</option>
-                                                    <option value="Tertiary">Tertiary</option>
+                                                    <option value="1">Primary</option>
+                                                    <option value="2">Secondary</option>
+                                                    <option value="3">Tertiary</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-4">
-                                                <label>School name <i
+                                            <div id="provinceSelect" class="hideField form-group col-md-4">
+                                                <label>Province of school <i
                                                         class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                <div class="cal-icon"><input type="text" name="school"
-                                                                             value="{{ old('school') }}"
-                                                                             class="form-control">
-                                                </div>
-                                            </div>
-                                            <?php $years = range(2023, strftime("%Y", time()) + 50); ?>
-                                            <div class="form-group col-md-4">
-                                                <label>Graduate in <i
-                                                        class="fa-solid fa-asterisk fa-2xs "></i></label>
-                                                <select class="form-control" name="graduation_year"
-                                                        value="{{ old('graduation_year') }}">
+                                                <select class="form-control" name="province"
+                                                        value="{{ old('province_id') }}" id="findSchoolsOfProvince">
                                                     <option selected disabled>--select--</option>
-                                                    @foreach($years as $year)
-                                                        <option value="$year">{{$year}}</option>
+                                                    @foreach($provinces as $province)
+                                                        <option value="{{$province->id}}">{{$province->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
+                                            <div id="schoolName" class="hideField form-group col-md-4">
+                                                <label>School name <i
+                                                        class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                <div class="cal-icon">
+                                                    <select class="form-control" name="school"
+                                                            value="{{ old('school') }}" id="schoolDropdown">
+                                                        <option selected disabled>--select--</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <?php $years = range(2023, strftime("%Y", time()) + 50); ?>
+                                            <div id="graduationYear" class="hideField form-group col-md-4">
+                                                        <label>Graduate in <i
+                                                                class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                        <select class="form-control" name="graduation_year"
+                                                                value="{{ old('graduation_year') }}">
+                                                            <option selected disabled>--select--</option>
+                                                            @foreach($years as $year)
+                                                                <option value="$year">{{$year}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                         </div>
                                     </div>
                                     <div class="hideField" id="publicServantInfo">

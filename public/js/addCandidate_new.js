@@ -13,10 +13,11 @@ $('input[type="radio"]').click(function(){
 
 $("#selectOccupation").change(function () {
     if ($("#selectOccupation").find(":selected").val() == "Student") {
-        $("#schoolName").removeClass("hideField");
+        $("#education").removeClass("hideField");
+
     } else {
-        if (!$("#schoolName").hasClass("hideField")) {
-            $("#schoolName").addClass("hideField");
+        if (!$("#education").hasClass("hideField")) {
+            $("#education").addClass("hideField");
         }
     }
     if ($("#selectOccupation").find(":selected").val() == "Public Servant") {
@@ -33,6 +34,42 @@ $("#selectOccupation").change(function () {
             $("#selfEmployedInfo").addClass("hideField");
         }
     }
+});
+$("#findSchoolsOfProvince").change(function () {
+    var province_id= $('#findSchoolsOfProvince').val();
+    var education_level_id=$('#educationLevelSelect').val();
+    $.ajax({
+
+        type: "GET",
+        url: "fetchSchools/"+province_id+"/"+education_level_id,
+        success: function(data) {
+            var htmlOptions = [];
+            if( data.length ){
+                for( item in data ) {
+                    html = '<option value="' + data[item].id + '">' + data[item].name + '</option>';
+                    htmlOptions[htmlOptions.length] = html;
+                }
+
+                // here you will empty the pre-existing data from you selectbox and will append the htmlOption created in the loop result
+                $('#schoolDropdown').empty().append( htmlOptions.join('') );
+            }
+        },
+        error: function(error) {
+            alert(error.responseJSON.message);
+        }
+    })
+});
+$("#educationLevelSelect").change(function () {
+    if ($("#schoolName").hasClass("hideField")) {
+        $("#schoolName").removeClass("hideField");
+    }
+    if ($("#provinceSelect").hasClass("hideField")) {
+        $("#provinceSelect").removeClass("hideField");
+    }
+    if ($("#graduationYear").hasClass("hideField")) {
+        $("#graduationYear").removeClass("hideField");
+    }
+
 });
 $("#disability").change(function () {
     if ($("#disability").find(":selected").val() == "1") {

@@ -40,7 +40,7 @@ Route::get('/registerAsVoter', [HomeController::class, 'registerAsVoter'])->name
 Route::post('/registerAsVoterPost', [HomeController::class, 'registerAsVoterPost'])->name('registerAsVoterPost');
 Route::get('/registerAsCandidate', [HomeController::class, 'registerAsCandidate'])->name('registerAsCandidate');
 Route::post('/registerAsCandidatePost', [HomeController::class, 'registerAsCandidatePost'])->name('registerAsCandidatePost');
-
+Route::get('fetchSchools/{provinceId}/{educationLevelId}', [HomeController::class, 'fetchSchools']);
 Route::get('/voterLookUp', [HomeController::class, 'voterLookUp'])->name('voterLookUp');
 Route::get('/pollingSchedule', [HomeController::class, 'pollingSchedule'])->name('pollingSchedule');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
