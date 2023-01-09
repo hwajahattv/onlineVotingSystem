@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('voters', function (Blueprint $table) {
-            $table->string('IPA_reg_num')->after('IPA_Registered');
-            $table->string('IRC_reg_num')->after('IRC_Registered');
+            $table->string('IPA_reg_num')->after('IPA_Registered')->default('0000');
+            $table->string('IRC_reg_num')->after('IRC_Registered')->default('0000');
         });
     }
 
