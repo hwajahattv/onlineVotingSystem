@@ -18,13 +18,13 @@ class EducationLevelSeeder extends Seeder
         DB::table('education_levels')->insert(
             [
                 [
-                    'name'=>'Primary'
+                    'name'=>'Primary','created_at'=> now(), 'updated_at'=>now()
                 ],
                 [
-                    'name'=>'Secondary'
+                    'name'=>'Secondary','created_at'=> now(), 'updated_at'=>now()
                 ],
                 [
-                    'name'=>'Tertiary'
+                    'name'=>'Tertiary','created_at'=> now(), 'updated_at'=>now()
                 ]
             ]
         );

@@ -590,6 +590,7 @@ class ComposerStaticInit14e8b24744a0ee8f832b7a5ba46ad84c
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MailController' => __DIR__ . '/../..' . '/app/Http/Controllers/MailController.php',
         'App\\Http\\Controllers\\PoliticalPartyController' => __DIR__ . '/../..' . '/app/Http/Controllers/PoliticalPartyController.php',
+        'App\\Http\\Controllers\\SchoolController' => __DIR__ . '/../..' . '/app/Http/Controllers/SchoolController.php',
         'App\\Http\\Controllers\\VoterController' => __DIR__ . '/../..' . '/app/Http/Controllers/VoterController.php',
         'App\\Http\\Controllers\\api\\CandidateRegistrationController' => __DIR__ . '/../..' . '/app/Http/Controllers/api/CandidateRegistrationController.php',
         'App\\Http\\Controllers\\api\\VoteCastAPIController' => __DIR__ . '/../..' . '/app/Http/Controllers/api/VoteCastAPIController.php',

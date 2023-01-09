@@ -5,6 +5,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\ElectionController;
+use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VoterController;
@@ -124,6 +125,10 @@ Route::group(['middleware' => ['auth','verified']], function () {
         Route::get('/showElections', [ElectionController::class, 'showElections'])->name('showElections');
         Route::get('/editElection/{id}', [ElectionController::class, 'editElection'])->name('editElection');
         Route::post('/editElectionPost/{id}', [ElectionController::class, 'editElectionPost'])->name('editElectionPost');
+
+        Route::get('/schoolSection', [SchoolController::class, 'schoolSection'])->name('schoolSection');
+        Route::resource('school',SchoolController::class);
+        Route::get('school/delete/{id}',[SchoolController::class,'destroy']);
     });
 
 //->middleware('SuperAdmin')

@@ -21,6 +21,7 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\MailController' => $baseDir . '/app/Http/Controllers/MailController.php',
     'App\\Http\\Controllers\\PoliticalPartyController' => $baseDir . '/app/Http/Controllers/PoliticalPartyController.php',
+    'App\\Http\\Controllers\\SchoolController' => $baseDir . '/app/Http/Controllers/SchoolController.php',
     'App\\Http\\Controllers\\VoterController' => $baseDir . '/app/Http/Controllers/VoterController.php',
     'App\\Http\\Controllers\\api\\CandidateRegistrationController' => $baseDir . '/app/Http/Controllers/api/CandidateRegistrationController.php',
     'App\\Http\\Controllers\\api\\VoteCastAPIController' => $baseDir . '/app/Http/Controllers/api/VoteCastAPIController.php',

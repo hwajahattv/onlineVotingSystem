@@ -35,6 +35,26 @@ $("#selectOccupation").change(function () {
         }
     }
 });
+$("#selectIPA").change(function () {
+    if ($("#selectIPA").find(":selected").val() == true) {
+        $("#IPAInfo").removeClass("hideField");
+
+    } else {
+        if (!$("#IPAInfo").hasClass("hideField")) {
+            $("#IPAInfo").addClass("hideField");
+        }
+    }
+});
+$("#selectIRC").change(function () {
+    if ($("#selectIRC").find(":selected").val() == true) {
+        $("#IRCInfo").removeClass("hideField");
+
+    } else {
+        if (!$("#IRCInfo").hasClass("hideField")) {
+            $("#IRCInfo").addClass("hideField");
+        }
+    }
+});
 $("#findSchoolsOfProvince").change(function () {
     var province_id= $('#findSchoolsOfProvince').val();
     var education_level_id=$('#educationLevelSelect').val();
@@ -80,7 +100,6 @@ $("#disability").change(function () {
         }
     }
 });
-
 $("#selectReligion").change(function () {
     if ($("#selectReligion").find(":selected").val() == "Others") {
         $("#otherReligon").removeClass("hideField");

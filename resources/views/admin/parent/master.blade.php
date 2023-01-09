@@ -14,7 +14,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/246bdfaca3.js" crossorigin="anonymous"></script>
-
+@yield('link')
 
 </head>
 
@@ -330,6 +330,13 @@
                         <img src="{{ asset('icons/election.png') }}" class="flaticon-web"
                              style="margin: 0 0.7rem 0 0;" width="28px" height="28px" alt="no-image">
                         <span class="nav-text">Elections</span>
+                    </a>
+                </li>
+                <li><a href="{{ route('schoolSection') }}">
+                        {{-- <i class="flaticon-web"></i> --}}
+                        <img src="{{ asset('icons/school.png') }}" class="flaticon-web"
+                             style="margin: 0 0.7rem 0 0;" width="28px" height="28px" alt="no-image">
+                        <span class="nav-text">Schools</span>
                     </a>
                 </li>
                 @if(Auth()->user()->roles=='SuperAdmin')

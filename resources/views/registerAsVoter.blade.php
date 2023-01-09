@@ -131,8 +131,6 @@
                                                    value="{{ old('spouseName') }}" id="" aria-describedby="" placeholder="">
                                         </div>
                                     </div>
-
-
                                     <hr>
                                     <div class="col-md-6">
                                         <label>Registered as <i class="fa-solid fa-asterisk fa-2xs "></i></label>
@@ -281,21 +279,35 @@
                                                 <label>IPA Registered <i
                                                         class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                 <select class="form-control" name="IPA_certificate"
-                                                        id="selectOccupation">
+                                                        id="selectIPA">
                                                     <option selected disabled>--select--</option>
                                                     <option value="1">Yes</option>
                                                     <option value="0">No</option>
                                                 </select>
                                             </div>
+                                            <div class="hideField form-group col-md-4" id="IPAInfo">
+                                                <label>IPA Registration number <i
+                                                        class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                <input type="text" name="IPA_reg_num"
+                                                       value="{{ old('IPA_reg_num') }}"
+                                                       class="form-control">
+                                            </div>
                                             <div class="form-group col-md-4">
                                                 <label>IRC Registered <i
                                                         class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                 <select class="form-control" name="IRC_certificate"
-                                                        id="selectOccupation">
+                                                        id="selectIRC">
                                                     <option selected disabled>--select--</option>
                                                     <option value="1">Yes</option>
                                                     <option value="0">No</option>
                                                 </select>
+                                            </div>
+                                            <div class="hideField form-group col-md-4" id="IRCInfo">
+                                                <label>IRC Registration number <i
+                                                        class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                <input type="text" name="IRC_reg_num"
+                                                       value="{{ old('IRC_reg_num') }}"
+                                                       class="form-control">
                                             </div>
                                         </div>
                                     </div>
