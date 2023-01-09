@@ -67,7 +67,7 @@ class HomeController extends Controller
             'occupation' => 'required',
             'school' => 'required_if:occupation, School',
             'education_level' => 'required_if:occupation, School',
-            'graduation_year' => 'required_if:occupation, School',
+            'graduation_year' => 'required_if:occupation, School|',
             'business_title' => 'required_if:occupation, Self employed',
             'IPA_certificate' => 'required_if:occupation, Self employed',
             'IPA_reg_num' => 'required_if:IPA_certificate, 1',

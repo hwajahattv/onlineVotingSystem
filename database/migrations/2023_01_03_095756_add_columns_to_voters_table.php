@@ -21,7 +21,7 @@ return new class extends Migration
             $table->boolean('IPA_Registered')->nullable()->after('businessTitle');
             $table->boolean('IRC_Registered')->nullable()->after('IPA_Registered');
             $table->string('schoolLevel')->nullable()->after('school');
-            $table->integer('graduationYear')->nullable()->after('schoolLevel');
+            $table->year('graduationYear')->nullable()->after('schoolLevel');
             $table->string('departmentName')->nullable()->after('IRC_Registered');
             $table->string('payrollNumber')->nullable()->after('departmentName');
             $table->string('disability')->nullable()->after('gender');
