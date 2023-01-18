@@ -53,7 +53,7 @@ class HomeController extends Controller
     {
         $request->validate([
             'name' => 'required|max:25',
-//            'surName' => 'required|max:25',
+            //            'surName' => 'required|max:25',
             'gender' => 'required',
             'fatherName' => 'required',
             'motherName' => 'required',
@@ -81,9 +81,10 @@ class HomeController extends Controller
             'current_region' => 'required',
             'current_province' => 'required',
             'profilePicture' =>
-                'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
+            'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
         ]);
         $data = $request->all();
+        // dd($data);
 
         if ($data['occupation'] == "School") {
             $school = $data["school"];
@@ -100,7 +101,6 @@ class HomeController extends Controller
             $IPA_reg_num = $data["IPA_reg_num"];
             $IRC_Registered = $data["IRC_certificate"];
             $IRC_reg_num = $data["IRC_reg_num"];
-
         } else {
             $businessTitle = '';
             $IPA_Registered = '';
@@ -131,13 +131,13 @@ class HomeController extends Controller
         $voterExists = Voter::where(['name' => $data['name']])->first();
 
         if ($voterExists == null) {
-//            new voter is created
+            //            new voter is created
             //model call
 
             $voter = new Voter;
 
             $voter->name = $data["name"];
-//            $voter->surName = $data["surName"];
+            //            $voter->surName = $data["surName"];
             $voter->maritalStatus = $data["marital_status"];
             $voter->registeredAs = $data["registration_type"];
             $voter->birthType = $data["birth_type"];
@@ -246,10 +246,10 @@ class HomeController extends Controller
                     $spouse_id = null;
                 }
             }
-//            dd($father_id,$mother_id,$spouse_id);
+            //            dd($father_id,$mother_id,$spouse_id);
             $status = Voter::where(['id' => $voterExists->id])->update([
                 'name' => $data["name"],
-//                'surName' => $data["surName"],
+                //                'surName' => $data["surName"],
                 'maritalStatus' => $data["marital_status"],
                 'registeredAs' => $data["registration_type"],
                 'birthType' => $data["birth_type"],
@@ -291,7 +291,7 @@ class HomeController extends Controller
         }
         $voterID = Voter::where(['name' => $data['name']])->first();
         $message = 'You are registered successfully! Please note your Voter ID: ' . $voterID->id;
-//        dd($message);
+        //        dd($message);
         return redirect()->back()->with(['message' => $message]);
     }
 
@@ -312,7 +312,7 @@ class HomeController extends Controller
             'policeClearanceCertificate' => 'required',
             'political_party' => 'required',
             'profilePicture' =>
-                'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
+            'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
         ]);
         $data = $request->all();
 
@@ -368,7 +368,7 @@ class HomeController extends Controller
 
         $cand->save();
         $message = 'Candidate registered successfully!';
-//        dd($message);
+        //        dd($message);
         return redirect()->back()->with(['message' => $message]);
     }
 
@@ -404,22 +404,22 @@ class HomeController extends Controller
 
     public function findMe(Request $request)
     {
-//    dd($request);
+        //    dd($request);
         $request->validate([
             'name' => 'required|max:25',
             'surName' => 'required|max:25',
             'birth_region' => 'required',
             'birth_province' => 'required',
             'birth_district' => 'required',
-//            'birth_LLG' => 'required',
-//            'birth_ward' => 'required',
+            //            'birth_LLG' => 'required',
+            //            'birth_ward' => 'required',
         ]);
 
         $requiredVoter = Voter::where(['name' => $request['name']])->where(['surName' => $request['surName']])->first();
         if ($requiredVoter != null) {
             return response()->json($requiredVoter);
         }
-//        dd('ttt');
+        //        dd('ttt');
         return response("null");
     }
 
@@ -428,12 +428,12 @@ class HomeController extends Controller
         $voter = Voter::find($id);
         if ($voter == null) {
             $message = 'Voter ID not Found! Find your Voter ID or get registered as voter first.';
-//        dd($message);
+            //        dd($message);
             return view('voterIdNotFound', ['message' => $message]);
         } else {
-//        dd($voter);
-//        $allCandidates=Candidate::all();
-//            $object = $this->verifyMapping($voter);
+            //        dd($voter);
+            //        $allCandidates=Candidate::all();
+            //            $object = $this->verifyMapping($voter);
             $region = $voter->current_region;
             $province = $voter->current_province;
             $district = $voter->current_district;
@@ -441,15 +441,15 @@ class HomeController extends Controller
             $ward = $voter->current_ward;
             $election = Election::all();
             $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->where(['current_LLG' => $LLG])->where(['current_ward' => $ward])->with('politicalParty')->get();
-//    dd($candidates,$allCandidates, $voter,$region, $province, $district, $LLG, $ward);
-//dd($object);
+            //    dd($candidates,$allCandidates, $voter,$region, $province, $district, $LLG, $ward);
+            //dd($object);
             return view('castVote', ['elections' => $election, 'candidates' => $candidates, 'voter' => $voter]);
         }
     }
 
     public function castVotePost(Request $request, $id)
     {
-//        dd($request);
+        //        dd($request);
         $vote = new Vote;
         $vote->election_id = $request['electionID'];
         $vote->candidate_id = $request['candidateID'];
@@ -468,7 +468,7 @@ class HomeController extends Controller
     public
     function fetchResults(Request $request)
     {
-//        dd($request);
+        //        dd($request);
         if ($request['region'] != null) {
             if ($request['province'] != null) {
                 if ($request['district'] != null) {
@@ -495,7 +495,7 @@ class HomeController extends Controller
         $votesAreaWise['votersInDistrict'] = $votersInDistrict;
         $votesAreaWise['votersInProvince'] = $votersInProvince;
         $votesAreaWise['votersInRegion'] = $votersInRegion;
-//                dd($votesAreaWise,$voteCount, $candidatesData);
+        //                dd($votesAreaWise,$voteCount, $candidatesData);
         return view('pollingResultsPage', ['votesAreaWise' => $votesAreaWise, 'voteCount' => $voteCount->toArray(), 'candidates' => $candidatesData, 'election' => $election]);
     }
 
@@ -510,7 +510,6 @@ class HomeController extends Controller
             'msg' => $request['name'] . ' district created successfully',
         );
         return response()->json($response);
-
     }
 
     public function addLLG(Request $request)
@@ -524,7 +523,6 @@ class HomeController extends Controller
             'msg' => $request['name'] . ' LLG created successfully',
         );
         return response()->json($response);
-
     }
 
     public function addWard(Request $request)
@@ -538,7 +536,6 @@ class HomeController extends Controller
             'msg' => $request['name'] . ' Ward created successfully',
         );
         return response()->json($response);
-
     }
 
     public function getProvinceID(Request $request)
@@ -618,17 +615,18 @@ class HomeController extends Controller
             ->where(['current_province' => $province])
             ->where(['current_district' => $district])
             ->where(['current_LLG' => $LLG])
-            ->where(['current_ward' => $ward]
+            ->where(
+                ['current_ward' => $ward]
             )->with('politicalParty')->get();
-//        $object={
-//            'region': $region,
-//            'province': $province,
-//            'district': $district,
-//            'LLG': $LLG,
-//            'ward': $ward,
-//            'election': $election,
-//            'candidates': $candidates,
-//        };
+        //        $object={
+        //            'region': $region,
+        //            'province': $province,
+        //            'district': $district,
+        //            'LLG': $LLG,
+        //            'ward': $ward,
+        //            'election': $election,
+        //            'candidates': $candidates,
+        //        };
         $object = [
             0 => $region,
             1 => $province,
@@ -638,7 +636,7 @@ class HomeController extends Controller
             5 => $election,
             6 => $candidates,
         ];
-//        $object=json_encode($region, $province, $district, $LLG, $ward, $election, $candidates);
+        //        $object=json_encode($region, $province, $district, $LLG, $ward, $election, $candidates);
         return $object;
     }
 }
