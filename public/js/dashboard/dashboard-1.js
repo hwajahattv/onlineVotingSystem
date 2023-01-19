@@ -181,7 +181,7 @@
         $('#maritalStatus').change(function () {
             var series1 = [];
             var names = [];
-            createRadialChart(series1, names);
+            createRadialChart(series1, names)
             var queryValue = this.value;
             $('#regionSelectedForMaritalSatus').text(queryValue);
             queryValue = queryValue.replaceAll(' ', '-');
@@ -200,18 +200,18 @@
                         names.push(key)
                         // series1 =htmlresponse;
                     }
+                    createRadialChart(series1, names);
                 },
                 error: function (e) {
                     alert(e);
                 }
             });
 
-            createRadialChart(series1, names);
         });
         $('#occupation').change(function () {
             var series1 = [];
             var names = [];
-            createRadialChart(series1, names);
+            createRadialChart1(series1, names)
             var queryValue = this.value;
             $('#regionSelectedForOccupation').text(queryValue);
             queryValue = queryValue.replaceAll(' ', '-');
@@ -230,18 +230,19 @@
                         names.push(key)
                         // series1 =htmlresponse;
                     }
+                    createRadialChart1(series1, names);
                 },
                 error: function (e) {
                     alert(e);
                 }
             });
 
-            createRadialChart1(series1, names);
+            
         });
         $('#disability').change(function () {
             var series1 = [];
             var names = [];
-            createRadialChart(series1, names);
+            createRadialChart2(series1, names);
             var queryValue = this.value;
             $('#regionSelectedForDisability').text(queryValue);
             queryValue = queryValue.replaceAll(' ', '-');
@@ -260,18 +261,19 @@
                         names.push(key)
                         // series1 =htmlresponse;
                     }
+                    createRadialChart2(series1, names);
                 },
                 error: function (e) {
                     alert(e);
                 }
             });
 
-            createRadialChart2(series1, names);
+            
         });
         $('#Religion').change(function () {
             var series1 = [];
             var names = [];
-            createRadialChart(series1, names);
+            createRadialChart3(series1, names);
             var queryValue = this.value;
             $('#regionSelectedForDisability').text(queryValue);
             queryValue = queryValue.replaceAll(' ', '-');
@@ -290,13 +292,14 @@
                         names.push(key)
                         // series1 =htmlresponse;
                     }
+                    createRadialChart3(series1, names);
                 },
                 error: function (e) {
                     alert(e);
                 }
             });
 
-            createRadialChart3(series1, names);
+            
         });
     }
      function createRadialChart(data,names) {
