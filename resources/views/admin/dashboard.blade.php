@@ -47,7 +47,8 @@
                         <h4 class="fs-20 mb-0 text-black">Occupation
                             <select class="fs-20 mb-0 text-green" name="cars" id="occupation">
                                 {{-- <option selected disabled >--select--</option>--}}
-                                <option selected value="overall">Overall</option>
+                                <option selected disabled value="">--select--</option>
+                                <option value="overall">Overall</option>
                                 @foreach($provinces as $province)
                                 <option value="{{$province->name}}">{{$province->name}}</option>
                                 @endforeach
@@ -78,7 +79,8 @@
                         <h4 class="fs-20 mb-0 text-black">Disabled persons
                             <select class="fs-20 mb-0 text-green" name="cars" id="disability">
                                 {{-- <option selected disabled >--select--</option>--}}
-                                <option selected value="overall">Overall</option>
+                                <option selected disabled value="">--select--</option>
+                                <option value="overall">Overall</option>
                                 @foreach($provinces as $province)
                                 <option value="{{$province->name}}">{{$province->name}}</option>
                                 @endforeach
@@ -108,8 +110,8 @@
                     <div class="card-header border-0 pb-0">
                         <h4 class="fs-20 mb-0 text-black">Religion
                             <select class="fs-20 mb-0 text-green" name="cars" id="Religion">
-                                {{-- <option selected disabled >--select--</option>--}}
-                                <option selected value="overall">Overall</option>
+                                <option selected disabled>--select--</option>
+                                <option value="overall">Overall</option>
                                 @foreach($provinces as $province)
                                 <option value="{{$province->name}}">{{$province->name}}</option>
                                 @endforeach
