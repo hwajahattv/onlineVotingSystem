@@ -51,7 +51,7 @@
                         <h3 id="no_data" class="display-3 text-red"></h3>
 
 
-                        <div id="radialChart" class="monthly-project-chart"></div>
+                        <div id="radialChartStats" class="monthly-project-chart"></div>
 
                         <span class="fs-14 text-black d-block op5" id="regionSelectedForMaritalSatus"></span>
                     </div>

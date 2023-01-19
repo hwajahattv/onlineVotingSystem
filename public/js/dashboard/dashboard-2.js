@@ -1,10 +1,8 @@
 (function ($) {
     /* "use strict" */
-
-
     var dzChartlist = function () {
 
-        var screenWidth = $(window).width();
+        const screenWidth = $(window).width();
         var chartTimeline = function () {
 
             var optionsTimeline = {
@@ -115,8 +113,8 @@
                     }
                 }]
             };
-            var chartTimelineRender = new ApexCharts(document.querySelector("#chartTimeline"), optionsTimeline);
-            chartTimelineRender.render();
+            // var chartTimelineRender = new ApexCharts(document.querySelector("#chartTimeline"), optionsTimeline);
+            // chartTimelineRender.render();
         }
 
         var widgetChart1 = function () {
@@ -176,18 +174,219 @@
                 }
             };
 
-            var chart = new ApexCharts(document.querySelector("#widgetChart1"), options);
-            chart.render();
+            // var chart = new ApexCharts(document.querySelector("#widgetChart1"), options);
+            // chart.render();
         }
+        var piecharts = function () {
+            $('#coverage').change(function () {
+                var stats_type = $('#stats')[0].value;
+                var urlPart;
+                var stats_name;
+                // select ajax url on the base of stat type
+                switch (stats_type) {
+                    case '1':
+                        // code block
+                        urlPart = '/maritalStatusCount/';
+                        stats_name = 'Martial Status Distribution Data';
+                        break;
+                    case '2':
+                        // code block
+                        urlPart = '/occupationCount/';
+                        stats_name = 'Occupation Distribution Data';
+                        break;
+                    case '3':
+                        // code block
+                        urlPart = '/disabilityCount/';
+                        stats_name = 'Disabled Person Count';
+                        break;
+                    case '4':
+                        // code block
+                        urlPart = '/religionCount/';
+                        stats_name = 'Religion Distribution Data';
+                        break;
+                    default:
+                        // code block
+                        alert('Select Stats type first');
+                }
 
-        var radialChart = function () {
+                var series1 = [];
+                var names = [];
+                // createRadialChart(series1, names);
+
+                const myNode = document.getElementById("radialChartStats");
+                myNode.innerHTML = '';
+                var queryValue = this.value;
+
+                $('#regionSelectedForMaritalSatus').text(queryValue);
+
+                queryValue = queryValue.replaceAll(' ', '-');
+                $.ajax({
+                    type: 'GET',
+                    url: urlPart + queryValue,
+
+                    success: function (htmlresponse) {
+                        if (htmlresponse.length == 0) {
+                            $('#no_data').text("No data found in this region");
+                            const myNode = document.getElementById("radialChartStats");
+                            myNode.innerHTML = '';
+                        } else {
+                            $('#no_data').text("");
+
+                            for (var key in htmlresponse) {
+                                series1.push(htmlresponse[key]);
+                                if (key === "") {
+                                    key = 'Not defined';
+                                }
+                                names.push(key)
+                            }
+                            createRadialChart(series1, names, stats_name);
+                        }
+                    },
+                    error: function (e) {
+                        alert(e);
+                    }
+                });
+
+            });
+            // $('#maritalStatus').change(function () {
+            //     var series1 = [];
+            //     var names = [];
+            //     createRadialChart(series1, names)
+            //     var queryValue = this.value;
+            //     $('#regionSelectedForMaritalSatus').text(queryValue);
+            //     queryValue = queryValue.replaceAll(' ', '-');
+            //     $.ajax({
+            //         type: 'GET',
+            //         url: '/maritalStatusCount/' + queryValue,
+            //         // data: jQuery.param({ type: queryValue}),
+            //         // data: { hps_level: '' + level + '' },
+            //         success: function (htmlresponse) {
+            //             // $('#opt_lesson_list').append(htmlresponse);
+            //             for (var key in htmlresponse) {
+            //                 series1.push(htmlresponse[key]);
+            //                 if (key === "") {
+            //                     key = 'Not defined';
+            //                 }
+            //                 names.push(key)
+            //                 // series1 =htmlresponse;
+            //             }
+            //             createRadialChart(series1, names);
+            //         },
+            //         error: function (e) {
+            //             alert(e);
+            //         }
+            //     });
+
+            // });
+            // $('#occupation').change(function () {
+            //     var series1 = [];
+            //     var names = [];
+            //     createRadialChart1(series1, names)
+            //     var queryValue = this.value;
+            //     $('#regionSelectedForOccupation').text(queryValue);
+            //     queryValue = queryValue.replaceAll(' ', '-');
+            //     $.ajax({
+            //         type: 'GET',
+            //         url: '/occupationCount/' + queryValue,
+            //         // data: jQuery.param({ type: queryValue}),
+            //         // data: { hps_level: '' + level + '' },
+            //         success: function (htmlresponse) {
+            //             // $('#opt_lesson_list').append(htmlresponse);
+            //             for (var key in htmlresponse) {
+            //                 series1.push(htmlresponse[key]);
+            //                 if (key === "") {
+            //                     key = 'Not defined';
+            //                 }
+            //                 names.push(key)
+            //                 // series1 =htmlresponse;
+            //             }
+            //             createRadialChart1(series1, names);
+            //         },
+            //         error: function (e) {
+            //             alert(e);
+            //         }
+            //     });
+
+
+            // });
+            // $('#disability').change(function () {
+            //     var series1 = [];
+            //     var names = [];
+            //     createRadialChart2(series1, names);
+            //     var queryValue = this.value;
+            //     $('#regionSelectedForDisability').text(queryValue);
+            //     queryValue = queryValue.replaceAll(' ', '-');
+            //     $.ajax({
+            //         type: 'GET',
+            //         url: '/disabilityCount/' + queryValue,
+            //         // data: jQuery.param({ type: queryValue}),
+            //         // data: { hps_level: '' + level + '' },
+            //         success: function (htmlresponse) {
+            //             // $('#opt_lesson_list').append(htmlresponse);
+            //             for (var key in htmlresponse) {
+            //                 series1.push(htmlresponse[key]);
+            //                 if (key === "") {
+            //                     key = 'Not disabled';
+            //                 }
+            //                 names.push(key)
+            //                 // series1 =htmlresponse;
+            //             }
+            //             createRadialChart2(series1, names);
+            //         },
+            //         error: function (e) {
+            //             alert(e);
+            //         }
+            //     });
+
+
+            // });
+            // $('#Religion').change(function () {
+            //     var series1 = [];
+            //     var names = [];
+            //     createRadialChart3(series1, names);
+            //     var queryValue = this.value;
+            //     $('#regionSelectedForDisability').text(queryValue);
+            //     queryValue = queryValue.replaceAll(' ', '-');
+            //     $.ajax({
+            //         type: 'GET',
+            //         url: '/religionCount/' + queryValue,
+            //         // data: jQuery.param({ type: queryValue}),
+            //         // data: { hps_level: '' + level + '' },
+            //         success: function (htmlresponse) {
+            //             // $('#opt_lesson_list').append(htmlresponse);
+            //             for (var key in htmlresponse) {
+            //                 series1.push(htmlresponse[key]);
+            //                 if (key === "") {
+            //                     key = 'Not defined';
+            //                 }
+            //                 names.push(key)
+            //                 // series1 =htmlresponse;
+            //             }
+            //             createRadialChart3(series1, names);
+            //         },
+            //         error: function (e) {
+            //             alert(e);
+            //         }
+            //     });
+
+
+            // });
+        }
+        function createRadialChart(data, names, chart_title) {
+
             var options = {
-                series: [60],
+                series: data,
+                noData: {
+                    text: 'Loading...'
+                },
+                title: {
+                    text: chart_title,
+                },
                 chart: {
                     height: 230,
-                    type: 'radialBar',
+                    type: 'pie',
                     toolbar: {
-                        show: false
+                        show: true
                     }
                 },
                 plotOptions: {
@@ -235,16 +434,17 @@
                     }
                 },
                 fill: {
-                    colors: ['#43DC80'],
+                    colors: ['#0081C9', '#5BC0F8', '#86E5FF', '#FFC93C', '#FF7B54', '#FFB26B'],
                 },
-                stroke: {
-                },
-                labels: [''],
+                stroke: {},
+                labels: names,
             };
 
-            var chart = new ApexCharts(document.querySelector("#radialChart"), options);
+            var chart = new ApexCharts(document.querySelector("#radialChartStats"), options);
+            // chart.destroy();
             chart.render();
         }
+
 
         var widgetChart2 = function () {
             var options = {
@@ -252,7 +452,7 @@
                     {
                         name: 'Net Profit',
                         data: [500, 500, 400, 400, 600, 600, 300, 300, 500, 500, 700, 700],
-                        //radius: 12,	
+                        //radius: 12,
                     },
                 ],
                 chart: {
@@ -371,8 +571,8 @@
                 }
             };
 
-            var chartBar1 = new ApexCharts(document.querySelector("#widgetChart2"), options);
-            chartBar1.render();
+            // var chartBar1 = new ApexCharts(document.querySelector("#widgetChart2"), options);
+            // chartBar1.render();
         }
 
         var donutChart1 = function () {
@@ -391,7 +591,8 @@
             load: function () {
                 chartTimeline();
                 widgetChart1();
-                radialChart();
+                // radialChart();
+                piecharts();
                 widgetChart2();
                 donutChart1();
             },
@@ -401,20 +602,15 @@
         }
 
     }();
-
     jQuery(document).ready(function () {
     });
-
     jQuery(window).on('load', function () {
         setTimeout(function () {
             dzChartlist.load();
         }, 1000);
 
     });
-
     jQuery(window).on('resize', function () {
-
-
     });
 
 })(jQuery);
