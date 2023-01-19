@@ -84,8 +84,8 @@ class HomeController extends Controller
             'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
         ]);
         $data = $request->all();
-        dd($data);
-        if ($data['occupation'] == "School") {
+        // dd($data);
+        if ($data['occupation'] == "Student") {
             $school = $data["school"];
             $schoolLevel = $data["education_level"];
             $graduationYear = $data["graduation_year"];
@@ -326,7 +326,7 @@ class HomeController extends Controller
         $cand->age = $data["age"];
         $cand->gender = $data["gender"];
         $cand->occupation = $data["occupation"];
-        if ($data['occupation'] == "School") {
+        if ($data['occupation'] == "Student") {
             $cand->school = $data["school"];
         }
         $cand->religion = $data["religion"];
