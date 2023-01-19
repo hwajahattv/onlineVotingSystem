@@ -202,7 +202,7 @@
                                                     <select class="form-control" name="graduation_year" value="{{ old('graduation_year') }}">
                                                         <option selected disabled>--select--</option>
                                                         @foreach($years as $year)
-                                                        <option value=$year>{{$year}}</option>
+                                                        <option value={{$year}}>{{$year}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
