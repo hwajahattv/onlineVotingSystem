@@ -102,9 +102,9 @@ class HomeController extends Controller
             $IRC_reg_num = $data["IRC_reg_num"];
         } else {
             $businessTitle = '';
-            $IPA_Registered = '';
+            $IPA_Registered = 0;
             $IPA_reg_num = '';
-            $IRC_Registered = '';
+            $IRC_Registered = 0;
             $IRC_reg_num = '';
         }
         if ($data['occupation'] == "Public Servant") {
