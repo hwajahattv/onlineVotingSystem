@@ -242,7 +242,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="hideField form-group col-md-4" id="IPAInfo">
-                                                    <label>IPA Registration number <i class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <label>IPA Number <i class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <input type="text" name="IPA_reg_num" value="{{ old('IPA_reg_num') }}" class="form-control">
                                                 </div>
                                                 <div class="form-group col-md-4">
@@ -254,7 +254,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="hideField form-group col-md-4" id="IRCInfo">
-                                                    <label>IRC Registration number <i class="fa-solid fa-asterisk fa-2xs "></i></label>
+                                                    <label>TIN # <i class="fa-solid fa-asterisk fa-2xs "></i></label>
                                                     <input type="text" name="IRC_reg_num" value="{{ old('IRC_reg_num') }}" class="form-control">
                                                 </div>
                                             </div>

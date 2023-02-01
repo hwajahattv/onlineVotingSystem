@@ -1,26 +1,29 @@
-(function($) {
+(function ($) {
     /* "use strict" */
 
 
-    var dzChartlist = function(){
+    var dzChartlist = function () {
 
         var screenWidth = $(window).width();
-        var chartTimeline = function(){
-            var inputFields=$('.countData');
-            var candidateNames=$('.candidateNames');
-            var winnerName=$('#leadingCandidate')[0];
-            var barHeights=[];
-            var xaxisTicks=[];
-            var iteration=inputFields.length;
-            for(var fieldCount=0; fieldCount<iteration; fieldCount++){
-                var temp=inputFields[fieldCount].value
+        var chartTimeline = function () {
+            var inputFields = $('.countData');
+            var candidateNames = $('.candidateNames');
+            var winnerName = $('#leadingCandidate')[0];
+            var barHeights = [];
+            var xaxisTicks = [];
+            var iteration = inputFields.length;
+            if (iteration > 3) {
+                iteration = 3;
+            }
+            for (var fieldCount = 0; fieldCount < iteration; fieldCount++) {
+                var temp = inputFields[fieldCount].value
                 // console.log(temp);
                 barHeights.push(parseInt(temp));
                 xaxisTicks.push(candidateNames[fieldCount].innerHTML);
             }
-            const max = Math.max.apply(Math,barHeights);
+            const max = Math.max.apply(Math, barHeights);
             const index = barHeights.indexOf(max);
-            winnerName.innerHTML=xaxisTicks[index];
+            winnerName.innerHTML = xaxisTicks[index];
             console.log(barHeights);
 
             var optionsTimeline = {
@@ -55,7 +58,7 @@
                         startingShape: "flat",
 
                         colors: {
-                            backgroundBarColors: ['#f0f0f0', '#f0f0f0', '#f0f0f0', '#f0f0f0','#f0f0f0','#f0f0f0','#f0f0f0','#f0f0f0'],
+                            backgroundBarColors: ['#f0f0f0', '#f0f0f0', '#f0f0f0', '#f0f0f0', '#f0f0f0', '#f0f0f0', '#f0f0f0', '#f0f0f0'],
                             backgroundBarOpacity: 1,
                             backgroundBarRadius: 5,
                         },
@@ -63,7 +66,7 @@
                     },
                     distributed: true
                 },
-                colors:['#43DC80'],
+                colors: ['#43DC80'],
                 grid: {
                     show: true,
                 },
@@ -81,7 +84,7 @@
                         top: 1,
                         left: 1,
                         blur: 1,
-                        bottom:0,
+                        bottom: 0,
                         opacity: 1
                     }
                 },
@@ -104,7 +107,7 @@
                     },
                 },
                 yaxis: {
-                    show:false,
+                    show: false,
                     labels: {
                         style: {
                             colors: '#3e4954',
@@ -123,7 +126,7 @@
                         show: true
                     },
                     y: {
-                        formatter: function(val) {
+                        formatter: function (val) {
                             return val
                         }
                     }
@@ -137,285 +140,22 @@
                     }
                 }]
             };
-            var chartCount=0;
-                var chartArea = document.querySelector("#resultsChart");
-            if(chartCount==0) {
+            var chartCount = 0;
+            var chartArea = document.querySelector("#resultsChart");
+            if (chartCount == 0) {
                 var chartTimelineRender = new ApexCharts(chartArea, optionsTimeline);
                 chartTimelineRender.render();
                 chartCount++;
             }
         }
 
-        // var widgetChart1 = function(){
-        //     var options = {
-        //         series: [{
-        //             name: "Desktops",
-        //             data: [30, 40, 30, 50, 40]
-        //         }],
-        //         chart: {
-        //             height: 270,
-        //             type: 'line',
-        //             zoom: {
-        //                 enabled: true
-        //             },
-        //             toolbar:{
-        //                 show:false
-        //             }
-        //         },
-        //         dataLabels: {
-        //             enabled: false
-        //         },
-        //         stroke: {
-        //             curve: 'smooth'
-        //         },
-        //         colors:['#43DC80'],
-        //         title: {
-        //             text: undefined,
-        //             align: 'left'
-        //         },
-        //         grid: {
-        //             strokeDashArray: 5,
-        //             row: {
-        //                 colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-        //                 opacity: 0
-        //             },
-        //         },
-        //         yaxis:{
-        //             show:false,
-        //         },
-        //         xaxis: {
-        //             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-        //             axisBorder: {
-        //                 show:false
-        //             },
-        //             axisTicks:{
-        //                 show:false
-        //             },
-        //             labels: {
-        //                 style: {
-        //                     colors: '#828690',
-        //                     fontSize: '14px',
-        //                     fontFamily: 'Poppins',
-        //                     fontWeight: 100,
-        //
-        //                 }
-        //             }
-        //         }
-        //     };
-        //
-        //     var chart = new ApexCharts(document.querySelector("#widgetChart1"), options);
-        //     chart.render();
-        // }
-
-        // var radialChart = function(){
-        //     var options = {
-        //         series: [60],
-        //         chart: {
-        //             height: 230,
-        //             type: 'radialBar',
-        //             toolbar: {
-        //                 show: false
-        //             }
-        //         },
-        //         plotOptions: {
-        //             radialBar: {
-        //                 /* hollow: {
-        //                  margin: 0,
-        //                  size: '70%',
-        //                  background: '#fff',
-        //                  image: undefined,
-        //                  imageOffsetX: 0,
-        //                  imageOffsetY: 0,
-        //                  position: 'front',
-        //                }, */
-        //                 hollow: {
-        //                     margin: 20,
-        //                     size: '65%',
-        //                     background: '#fff',
-        //                     image: undefined,
-        //                     imageOffsetX: 0,
-        //                     imageOffsetY: 0,
-        //                     position: 'front',
-        //                     dropShadow: {
-        //                         enabled: true,
-        //                         top: 3,
-        //                         left: 0,
-        //                         blur: 10,
-        //                         opacity: 0.1
-        //                     }
-        //                 },
-        //                 track: {
-        //                     background: '#F8F8F8',
-        //                     strokeWidth: '100%',
-        //                     margin: 0, // margin is in pixels
-        //                 },
-        //
-        //                 dataLabels: {
-        //                     show: true,
-        //                     value: {
-        //                         offsetY:-7,
-        //                         color: '#111',
-        //                         fontSize: '20px',
-        //                         show: true,
-        //                     }
-        //                 }
-        //             }
-        //         },
-        //         fill: {
-        //             colors: ['#43DC80'],
-        //         },
-        //         stroke: {
-        //         },
-        //         labels: [''],
-        //     };
-        //
-        //     var chart = new ApexCharts(document.querySelector("#radialChart"), options);
-        //     chart.render();
-        // }
-
-        // var widgetChart2 = function(){
-        //     var options = {
-        //         series: [
-        //             {
-        //                 name: 'Net Profit',
-        //                 data: [500, 500, 400, 400, 600, 600, 300, 300,500, 500,700,700],
-        //                 //radius: 12,
-        //             },
-        //         ],
-        //         chart: {
-        //             type: 'area',
-        //             height: 80,
-        //             toolbar: {
-        //                 show: false,
-        //             },
-        //             zoom: {
-        //                 enabled: false
-        //             },
-        //             sparkline: {
-        //                 enabled: true
-        //             }
-        //
-        //         },
-        //
-        //         colors:['#43DC80'],
-        //         dataLabels: {
-        //             enabled: false,
-        //         },
-        //         markers: {
-        //             shape: "circle",
-        //         },
-        //
-        //         legend: {
-        //             show: false,
-        //         },
-        //         stroke: {
-        //             show: true,
-        //             width: 4,
-        //             curve:'smooth',
-        //             colors:['#43DC80'],
-        //         },
-        //
-        //         grid: {
-        //             show:false,
-        //             borderColor: '#eee',
-        //             padding: {
-        //                 top: 0,
-        //                 right: 0,
-        //                 bottom: 0,
-        //                 left: 0
-        //
-        //             }
-        //         },
-        //         states: {
-        //             normal: {
-        //                 filter: {
-        //                     type: 'none',
-        //                     value: 0
-        //                 }
-        //             },
-        //             hover: {
-        //                 filter: {
-        //                     type: 'none',
-        //                     value: 0
-        //                 }
-        //             },
-        //             active: {
-        //                 allowMultipleDataPointsSelection: false,
-        //                 filter: {
-        //                     type: 'none',
-        //                     value: 0
-        //                 }
-        //             }
-        //         },
-        //         xaxis: {
-        //             categories: ['Jan', 'feb', 'Mar', 'Apr', 'May', 'Jun', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',],
-        //             axisBorder: {
-        //                 show: false,
-        //             },
-        //             axisTicks: {
-        //                 show: false
-        //             },
-        //             labels: {
-        //                 show: false,
-        //                 style: {
-        //                     fontSize: '12px',
-        //                 }
-        //             },
-        //             crosshairs: {
-        //                 show: false,
-        //                 position: 'front',
-        //                 stroke: {
-        //                     width: 1,
-        //                     dashArray: 3
-        //                 }
-        //             },
-        //             tooltip: {
-        //                 enabled: true,
-        //                 formatter: undefined,
-        //                 offsetY: 0,
-        //                 style: {
-        //                     fontSize: '12px',
-        //                 }
-        //             }
-        //         },
-        //         yaxis: {
-        //             show: false,
-        //         },
-        //         fill: {
-        //             opacity: 0.0,
-        //             type: 'solid',
-        //             colors:'#FAC7B6'
-        //         },
-        //         tooltip: {
-        //             style: {
-        //                 fontSize: '12px',
-        //             },
-        //             y: {
-        //                 formatter: function(val) {
-        //                     return "$" + val + " thousands"
-        //                 }
-        //             }
-        //         }
-        //     };
-        //
-        //     var chartBar1 = new ApexCharts(document.querySelector("#widgetChart2"), options);
-        //     chartBar1.render();
-        // }
-
-        // var donutChart1 = function(){
-        //     $("span.donut1").peity("donut", {
-        //         width: "81",
-        //         height: "81"
-        //     });
-        // }
-
         /* Function ============ */
         return {
-            init:function(){
+            init: function () {
             },
 
 
-            load:function(){
+            load: function () {
                 chartTimeline();
                 // widgetChart1();
                 // radialChart();
@@ -423,23 +163,23 @@
                 // donutChart1();
             },
 
-            resize:function(){
+            resize: function () {
             }
         }
 
     }();
 
-    jQuery(document).ready(function(){
+    jQuery(document).ready(function () {
     });
 
-    jQuery(window).on('load',function(){
-        setTimeout(function(){
+    jQuery(window).on('load', function () {
+        setTimeout(function () {
             dzChartlist.load();
         }, 2000);
 
     });
 
-    jQuery(window).on('resize',function(){
+    jQuery(window).on('resize', function () {
 
 
     });

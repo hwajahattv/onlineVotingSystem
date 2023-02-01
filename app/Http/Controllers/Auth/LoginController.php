@@ -44,24 +44,21 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-//        dd($request);
-
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-//            date_default_timezone_set( 'Asia/Karachi');
-            $checkPreviousEntry= DB::table('active_users')->select('*')->where('user_id',Auth::id())->get();
-//            dd($checkPreviousEntry);
-            if(count($checkPreviousEntry) == 0) {
+        // dd($request);
+        $loggedIn = Auth::attempt($credentials);
+        if ($loggedIn) {
+            $checkPreviousEntry = DB::table('active_users')->select('*')->where('user_id', Auth::id())->get();
+            // dd($checkPreviousEntry);
+            if (count($checkPreviousEntry) == 0) {
                 DB::table('active_users')->insert(array('user_id' => Auth::id(), "created_at" => date('Y-m-d H:i:s')));
-//                dd('new created');
-            }else
-            {
+                // dd('new created');
+            } else {
                 $result = DB::table('active_users')
                     ->where('user_id', Auth::id())
                     ->update([
                         'created_at' => date('Y-m-d H:i:s'),
                     ]);
-//                dd('updated');
+                // dd('updated');
             }
             return redirect()->intended('home');
         }
@@ -69,9 +66,9 @@ class LoginController extends Controller
 
     public function logout()
     {
-        DB::table('active_users')->where(['user_id'=> Auth::id()])->delete();
+        DB::table('active_users')->where(['user_id' => Auth::id()])->delete();
         Auth::logout();
-//        dd('test');
+        //        dd('test');
         return redirect('/');
     }
 }

@@ -4,13 +4,11 @@ namespace Database\Seeders;
 
 use App\Models\Candidate;
 use App\Models\Vote;
-use Faker\Factory;
-use Faker\Provider\pt_PT\Payment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class VoteSeed extends Seeder
+class VoteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,15 +17,18 @@ class VoteSeed extends Seeder
      */
     public function run()
     {
-        $voters = DB::table('voters')->where(['current_district' => 'CHUAVE'])->get();
-        dd($voters);
-        $candidates = Candidate::where(['current_district' => 'CHUAVE'])->pluck('id')->toArray();
+        $district = 'CHUAVE';
+        DB::table('votes')->delete();
+        $district_id = DB::table('districts')->where(['name' => $district])->first()->id;
+        $voters = DB::table('voters')->where(['current_district' => $district])->get();
+        $candidates = Candidate::where(['current_district' => $district])->pluck('id')->toArray();
         $election = DB::table('elections')->first();
         foreach ($voters as $voter) {
             $keys = array_rand($candidates, 3);
             $vote = new Vote();
             $vote->voter_id = $voter->id;
             $vote->election_id = $election->id;
+            $vote->district_id = $district_id;
             $vote->save();
             $pref_1 = $candidates[$keys[0]];
             $pref_2 = $candidates[$keys[1]];

@@ -9,6 +9,7 @@ use App\Models\LLG;
 use App\Models\PoliticalParty;
 use App\Models\Province;
 use App\Models\Vote;
+use App\Models\VotePreference;
 use App\Models\Voter;
 use App\Models\Ward;
 use Illuminate\Http\Request;
@@ -431,16 +432,17 @@ class HomeController extends Controller
             return view('voterIdNotFound', ['message' => $message]);
         } else {
             //        dd($voter);
-            //        $allCandidates=Candidate::all();
+            // $allCandidates = Candidate::all();
             //            $object = $this->verifyMapping($voter);
             $region = $voter->current_region;
             $province = $voter->current_province;
             $district = $voter->current_district;
-            $LLG = $voter->current_LLG;
-            $ward = $voter->current_ward;
+            // $LLG = $voter->current_LLG;
+            // $ward = $voter->current_ward;
             $election = Election::all();
-            $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->where(['current_LLG' => $LLG])->where(['current_ward' => $ward])->with('politicalParty')->get();
-            //    dd($candidates,$allCandidates, $voter,$region, $province, $district, $LLG, $ward);
+            $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->with('politicalParty')->get();
+            // $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->where(['current_LLG' => $LLG])->where(['current_ward' => $ward])->with('politicalParty')->get();
+            // dd($candidates, $allCandidates, $voter, $region, $province, $district);
             //dd($object);
             return view('castVote', ['elections' => $election, 'candidates' => $candidates, 'voter' => $voter]);
         }
@@ -449,11 +451,40 @@ class HomeController extends Controller
     public function castVotePost(Request $request, $id)
     {
         //        dd($request);
+        $validated = $request->validate(
+            [
+                'electionID' => 'required|exists:elections,id',
+                'voterID' => 'required|exists:voters,id',
+                'candidateID1' => 'required|different:candidateID2|exists:candidates,id',
+                'candidateID2' => 'required|different:candidateID3|exists:candidates,id',
+                'candidateID3' => 'required|different:candidateID1|exists:candidates,id',
+            ],
+            [
+                'electionID.exists:elections,id' => 'Invalid election selected!',
+                'voterID.exists:voters,id' => 'Voter data does not exist!',
+                'candidateID1.exists:candidates,id' => 'Candidate data does not exist!',
+                'candidateID2.exists:candidates,id' => 'Candidate data does not exist!',
+                'candidateID3.exists:candidates,id' => 'Candidate data does not exist!',
+                'candidateID1.different:candidateID2' => 'Select distinct preferences!',
+                'candidateID2.different:candidateID3' => 'Select distinct preferences!',
+                'candidateID3.different:candidateID1' => 'Select distinct preferences!',
+                'electionID.required' => 'Election not selected!',
+                'candidateID1.required' => 'First preference can not be left blank!',
+                'candidateID2.required' => 'Second preference can not be left blank!',
+                'candidateID3.required' => 'Third preference can not be left blank!'
+            ]
+        );
         $vote = new Vote;
         $vote->election_id = $request['electionID'];
-        $vote->candidate_id = $request['candidateID'];
         $vote->voter_id = $request['voterID'];
         $vote->save();
+        $pref = new VotePreference;
+        $pref->vote_id = $vote->id;
+        $pref->first_candidate_id = $request['candidateID1'];
+        $pref->second_candidate_id = $request['candidateID2'];
+        $pref->third_candidate_id = $request['candidateID3'];
+        $pref->save();
+
         return redirect('/');
     }
 
@@ -464,39 +495,6 @@ class HomeController extends Controller
         return view('resultsHome', ['elections' => $election]);
     }
 
-    public
-    function fetchResults(Request $request)
-    {
-        //        dd($request);
-        if ($request['region'] != null) {
-            if ($request['province'] != null) {
-                if ($request['district'] != null) {
-                    $candidatesData = Candidate::where(['current_region' => $request['region']])
-                        ->where(['current_province' => $request['province']])
-                        ->where(['current_district' => $request['district']])
-                        ->with('politicalParty')
-                        ->get()->keyBy('id');
-
-                    $voteCount = DB::table('votes')
-                        ->select('candidate_id', DB::raw('Count(*) as c'))
-                        ->groupBy('candidate_id')
-                        ->whereIn('candidate_id', array_keys($candidatesData->toArray()))
-                        ->get()->keyBy('candidate_id');
-                }
-                // dd($candidatesData, $voteCount);
-            }
-        }
-        $election = Election::find($request['electionID']);
-        $votesAreaWise = [];
-        $votersInDistrict = DB::table('voters')->where('current_district', '<=', $request['district'])->count();
-        $votersInProvince = DB::table('voters')->where('current_province', '<=', $request['province'])->count();
-        $votersInRegion = DB::table('voters')->where('current_region', '<=', $request['region'])->count();
-        $votesAreaWise['votersInDistrict'] = $votersInDistrict;
-        $votesAreaWise['votersInProvince'] = $votersInProvince;
-        $votesAreaWise['votersInRegion'] = $votersInRegion;
-        //                dd($votesAreaWise,$voteCount, $candidatesData);
-        return view('pollingResultsPage', ['votesAreaWise' => $votesAreaWise, 'voteCount' => $voteCount->toArray(), 'candidates' => $candidatesData, 'election' => $election]);
-    }
 
     public function addDistrict(Request $request)
     {
