@@ -287,7 +287,7 @@
                                         <div class="col-md-4" id="localChurch">
                                             <div class="form-group">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Local Church</label>
+                                                    <label for="exampleInputEmail1">Specify Location</label>
                                                     <input type="text" class="form-control addInput" name="local_church" id="" aria-describedby="" placeholder="">
                                                 </div>
                                             </div>
