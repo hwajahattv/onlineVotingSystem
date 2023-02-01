@@ -17,28 +17,30 @@ class VoteSeeder extends Seeder
      */
     public function run()
     {
-        $district = 'CHUAVE';
+        $districts = DB::table('districts')->get();
         DB::table('votes')->delete();
-        $district_id = DB::table('districts')->where(['name' => $district])->first()->id;
-        $voters = DB::table('voters')->where(['current_district' => $district])->get();
-        $candidates = Candidate::where(['current_district' => $district])->pluck('id')->toArray();
-        $election = DB::table('elections')->first();
-        foreach ($voters as $voter) {
-            $keys = array_rand($candidates, 3);
-            $vote = new Vote();
-            $vote->voter_id = $voter->id;
-            $vote->election_id = $election->id;
-            $vote->district_id = $district_id;
-            $vote->save();
-            $pref_1 = $candidates[$keys[0]];
-            $pref_2 = $candidates[$keys[1]];
-            $pref_3 = $candidates[$keys[2]];
-            DB::table('vote_preferences')->insert([
-                'vote_id' => $vote->id,
-                'first_candidate_id' => $pref_1,
-                'second_candidate_id' => $pref_2,
-                'third_candidate_id' => $pref_3,
-            ]);
+        foreach ($districts as $district) {
+            $district_id = DB::table('districts')->where(['name' => $district->name])->first()->id;
+            $voters = DB::table('voters')->where(['current_district' => $district->name])->get();
+            $candidates = Candidate::where(['current_district' => $district->name])->pluck('id')->toArray();
+            $election = DB::table('elections')->first();
+            foreach ($voters as $voter) {
+                $keys = array_rand($candidates, 3);
+                $vote = new Vote();
+                $vote->voter_id = $voter->id;
+                $vote->election_id = $election->id;
+                $vote->district_id = $district_id;
+                $vote->save();
+                $pref_1 = $candidates[$keys[0]];
+                $pref_2 = $candidates[$keys[1]];
+                $pref_3 = $candidates[$keys[2]];
+                DB::table('vote_preferences')->insert([
+                    'vote_id' => $vote->id,
+                    'first_candidate_id' => $pref_1,
+                    'second_candidate_id' => $pref_2,
+                    'third_candidate_id' => $pref_3,
+                ]);
+            }
         }
     }
 }

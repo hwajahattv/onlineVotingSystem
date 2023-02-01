@@ -31,7 +31,8 @@
                         <div class="media align-items-center">
                             <div class="media-body me-3">
                                 <a href="{{route('resultsHome')}}">
-                                    <h2 class="text-black">Results</h2>
+                                    <h2 class="text-black">Regional Results</h2>
+                                    <span class="fs-14">(for each candidate)</span>
                                 </a>
                                 <span class="fs-14"></span>
                             </div>
@@ -46,10 +47,13 @@
                     <div class="bg-primary card-border"></div>
                     <div class="card-body box-style">
                         <div class="media align-items-center">
-                            <div class="media-body me-3">
-                                <h2 class="count num-text text-black font-w700">93</h2>
-                                <span class="fs-14">Total Unfinished Task</span>
-                            </div>
+                            <a href="{{route('partyResults')}}">
+                                <div class="media-body me-3">
+                                    <h2 class="text-black">Party-wise results</h2>
+                                    <span class="fs-14"></span>
+                                </div>
+                            </a>
+
                             <svg class="primary-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11.9999 1.5H5.99994C3.51466 1.5 1.49994 3.51472 1.49994 6V29.8125C1.49994 32.2977 3.51466 34.3125 5.99994 34.3125H11.9999C14.4852 34.3125 16.4999 32.2977 16.4999 29.8125V6C16.4999 3.51472 14.4852 1.5 11.9999 1.5Z" fill="#20F174" />
                                 <path d="M30 1.5H24C21.5147 1.5 19.5 3.51472 19.5 6V12C19.5 14.4853 21.5147 16.5 24 16.5H30C32.4853 16.5 34.5 14.4853 34.5 12V6C34.5 3.51472 32.4853 1.5 30 1.5Z" fill="#20F174" />

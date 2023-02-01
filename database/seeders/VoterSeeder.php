@@ -17,6 +17,7 @@ class VoterSeeder extends Seeder
      */
     public function run()
     {
+        $districts = DB::table('districts')->get();
         DB::table('voters')->delete();
         // $parties = PoliticalParty::pluck('id')->toArray();
         $faker = Factory::create();
@@ -31,21 +32,20 @@ class VoterSeeder extends Seeder
             "Religious Worker",
             "others"
         ];
-
-        foreach (range(1, 100) as $index) {
-            $keys = array_rand($occupation, 1);
-            $voter = [
-                'name' => $faker->name(),
-                'email' => $faker->email(),
-                'dob' => $faker->dateTimeBetween('1960-01-01', '2000-12-31')
-                    ->format('Y/m/d'),
-                'gender' => 'male',
-                'occupation' => $occupation[$keys],
-                'current_region' => 'HIGHLANDS',
-                'current_province' => 'Chimbu',
-                'current_district' => 'CHUAVE',
-            ];
-            $voters[] = $voter;
+        foreach ($districts as $district) {
+            foreach (range(1, 100) as $index) {
+                $keys = array_rand($occupation, 1);
+                $voter = [
+                    'name' => $faker->name(),
+                    'email' => $faker->email(),
+                    'dob' => $faker->dateTimeBetween('1960-01-01', '2000-12-31')
+                        ->format('Y/m/d'),
+                    'gender' => 'male',
+                    'occupation' => $occupation[$keys],
+                    'current_district' => $district->name,
+                ];
+                $voters[] = $voter;
+            }
         }
         Voter::insert($voters);
     }

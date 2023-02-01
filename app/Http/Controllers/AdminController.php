@@ -345,4 +345,31 @@ class AdminController extends Controller
         //                dd($votesAreaWise,$voteCount, $candidatesData);
         return view('pollingResults2ndPrefPage', ['votesAreaWise' => $votesAreaWise, 'voteCount' => $voteCount3, 'candidates' => $candidatesData, 'election' => $election, 'majority' => $majority_flag, 'district' => $district]);
     }
+    public function partyResults()
+    {
+        $districts = DB::table('districts')->get();
+        // dd($districts);
+        $winners = [];
+        foreach ($districts as $district) {
+            $voteCount = DB::table('votes as v')
+                ->select('cd.name as cname', 'cd.current_district as cdistrict', 'pt.name as pname', 'cd.id', 'cd.displayPicture', DB::raw('Count(*) as c'))
+                ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id',)
+                ->leftJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id',)
+                ->leftJoin('political_parties as pt', 'cd.political_party_id', '=', 'pt.id')
+                ->groupBy('cname')
+                ->orderBy('c', 'desc')
+                ->where(['cd.current_district' => $district->name])
+                ->get()->toArray();
+            // dd($voteCount, $district);
+            if ($voteCount) {
+                $winner = ['district' => $district->name, 'cdistrict' => $voteCount[0]->cdistrict, 'winner' => $voteCount[0]->cname, 'votes' => $voteCount[0]->c, 'party' => $voteCount[0]->pname];
+                $winners[] = $winner;
+            }
+        }
+
+        $results = array_count_values(array_column($winners, 'party'));
+        krsort($results);
+        // dd($results);
+        return view('admin.electionSection.partyResults', ['results' => $results]);
+    }
 }

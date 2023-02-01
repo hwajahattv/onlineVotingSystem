@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth', 'SuperAdmin',]], function () {
     Route::post('/fetchResults', [AdminController::class, 'fetchResults'])->name('fetchResults');
     Route::get('/fetchResults/2nd/{district}/{election}', [AdminController::class, 'fetchResults2ndPref'])->name('fetchResults2');
     Route::get('/fetchResults/3rd/{district}/{election}', [AdminController::class, 'fetchResults3rdPref'])->name('fetchResults3');
+    Route::get('/fetchResults/party', [AdminController::class, 'partyResults'])->name('partyResults');
 
     Route::get('/sendmail/{id}', [MailController::class, 'index'])->name('sendmail');
     Route::get('testDB', function () {
