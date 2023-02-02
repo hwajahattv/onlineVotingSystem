@@ -326,13 +326,10 @@ class AdminController extends Controller
             foreach ($voteCount3 as $key => $vote) {
                 $vote->c += $voteCount1[$key]->c + $voteCount2[$key]->c;
             }
-            // dd($voteCount2);
             if ($firstElement->c / $votesAreaWise['votersInDistrict'] * 100 >= 50) {
                 $majority_flag = true;
-                // dd('false');
             } else {
                 $majority_flag = false;
-                // dd('true');
             }
         }
 
@@ -342,7 +339,6 @@ class AdminController extends Controller
         usort($voteCount3, function ($item1, $item2) {
             return $item2->c <=> $item1->c;
         });
-        //                dd($votesAreaWise,$voteCount, $candidatesData);
         return view('pollingResults2ndPrefPage', ['votesAreaWise' => $votesAreaWise, 'voteCount' => $voteCount3, 'candidates' => $candidatesData, 'election' => $election, 'majority' => $majority_flag, 'district' => $district]);
     }
     public function partyResults()
@@ -360,16 +356,13 @@ class AdminController extends Controller
                 ->orderBy('c', 'desc')
                 ->where(['cd.current_district' => $district->name])
                 ->get()->toArray();
-            // dd($voteCount, $district);
             if ($voteCount) {
                 $winner = ['district' => $district->name, 'cdistrict' => $voteCount[0]->cdistrict, 'winner' => $voteCount[0]->cname, 'votes' => $voteCount[0]->c, 'party' => $voteCount[0]->pname];
                 $winners[] = $winner;
             }
         }
-
         $results = array_count_values(array_column($winners, 'party'));
         krsort($results);
-        // dd($results);
         return view('admin.electionSection.partyResults', ['results' => $results]);
     }
 }
