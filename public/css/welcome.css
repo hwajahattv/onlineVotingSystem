@@ -212,6 +212,14 @@ img {
 
     background-color: rgb(0,132,87) !important;
 }
+.card{
+    border-radius: 1rem;
+    margin: 0.5rem;
+}
+.font-w700 {
+    font-weight: 700;
+    margin: 0.25rem;
+}
 
 blockquote {
     margin: 20px 0 20px;

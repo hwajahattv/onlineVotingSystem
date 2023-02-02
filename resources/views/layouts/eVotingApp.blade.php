@@ -28,7 +28,8 @@
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     @yield('links')
-    <script src="https://kit.fontawesome.com/246bdfaca3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/d1b8dba2c9.css" crossorigin="anonymous">
+
     <style>
         .header {
             padding-left: 0rem;
@@ -194,6 +195,7 @@
     <script src="{{ asset('js/styleSwitcher.js') }}"></script>
     <script src="{{asset('js/welcome/bootstrap.bundle.min.js')}}"></script>
 
+    <script src="https://kit.fontawesome.com/d1b8dba2c9.js" crossorigin="anonymous"></script>
 
     <script src="{{ asset('js/preferences.js') }}"></script>
     <!-- sidebar -->
