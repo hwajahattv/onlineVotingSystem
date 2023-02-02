@@ -15615,7 +15615,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 }
 
 .content-body {
-    /*margin-left: 18rem;*/
+    margin-left: 18rem;
     z-index: 0;
     transition: all .2s ease;
     /*background: #ecf0f3 !important;*/
