@@ -211,6 +211,8 @@ img {
 .welcome_dashboard-card{
 
     background-color: rgb(0,132,87) !important;
+    min-height: 12rem;
+    width: 100%;
 }
 .card{
     border-radius: 1rem;
@@ -220,7 +222,19 @@ img {
     font-weight: 700;
     margin: 0.25rem;
 }
-
+        .card-container {
+    height: 50px;   
+    width: 100%;
+    padding: 10px 10px;
+}
+.menublock {
+    min-width: 200px;
+    margin: 0 auto;
+    padding: 0;
+}
+.controllinks {
+    float:right;    
+}
 blockquote {
     margin: 20px 0 20px;
     padding: 30px;
@@ -1508,4 +1522,52 @@ ul.img_icon li {
 }
 .hideField {
     display: none;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .glossy-button{
+        font-size: x-small;
+    }
+    .card-top-text{
+        font-size: medium;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {    .glossy-button{
+        font-size: small;
+    }}
+        .card-top-text{
+        font-size: medium;
+    }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .glossy-button{
+        font-size:medium;
+    }
+        .card-top-text{
+        font-size: large;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .glossy-button{
+        font-size: medium;
+    }
+            .card-top-text{
+        font-size: large;
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+        .glossy-button{
+        font-size: large;
+    }
+            .card-top-text{
+        font-size: x-large;
+    }
 }
