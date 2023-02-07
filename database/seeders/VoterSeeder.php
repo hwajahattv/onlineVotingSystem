@@ -52,23 +52,25 @@ class VoterSeeder extends Seeder
         ];
         foreach ($districts as $district) {
             $province = DB::table('provinces')->where(['id' => 1])->first();
-            foreach (range(1, 50) as $index) {
-                $keys = array_rand($occupation, 1);
-                $religion_key = array_rand($religion, 1);
-                $marital_key = array_rand($marital, 1);
-                $voter = [
-                    'name' => $faker->name(),
-                    'email' => $faker->email(),
-                    'dob' => $faker->dateTimeBetween('1960-01-01', '2000-12-31')
-                        ->format('Y/m/d'),
-                    'gender' => 'male',
-                    'occupation' => $occupation[$keys],
-                    'current_district' => $district->name,
-                    'current_province' => $province->name,
-                    'religion' => $religion[$religion_key],
-                    'maritalStatus' => $marital[$marital_key],
-                ];
-                $voters[] = $voter;
+            if ($province) {
+                foreach (range(1, 50) as $index) {
+                    $keys = array_rand($occupation, 1);
+                    $religion_key = array_rand($religion, 1);
+                    $marital_key = array_rand($marital, 1);
+                    $voter = [
+                        'name' => $faker->name(),
+                        'email' => $faker->email(),
+                        'dob' => $faker->dateTimeBetween('1960-01-01', '2000-12-31')
+                            ->format('Y/m/d'),
+                        'gender' => 'male',
+                        'occupation' => $occupation[$keys],
+                        'current_district' => $district->name,
+                        'current_province' => $province->name,
+                        'religion' => $religion[$religion_key],
+                        'maritalStatus' => $marital[$marital_key],
+                    ];
+                    $voters[] = $voter;
+                }
             }
         }
         Voter::insert($voters);
