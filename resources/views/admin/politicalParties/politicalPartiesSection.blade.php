@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
+            {{-- <div class="col-xl-3 col-xxl-3 col-lg-6 col-sm-6">
                 <div class="card card-bd dashboard-card">
                     <div class="bg-warning card-border"></div>
                     <div class="card-body box-style">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         {{-- *******************Party table****************************          --}}
         <div class="table-responsive">

@@ -75,10 +75,11 @@
                                 @foreach ($results as $key=>$seats)
                                 <tr>
                                     <td>
-                                        <span class="user-subhead">{{ $key }}</span>
+                                        <span class="user-subhead">{{ $seats['partyName'] }}</span>
+
                                     </td>
                                     <td>
-                                        {{ $seats }}
+                                        {{ $seats['seats'] }}
                                     </td>
                                 </tr>
                                 @endforeach

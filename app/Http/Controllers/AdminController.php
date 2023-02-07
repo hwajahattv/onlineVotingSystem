@@ -350,7 +350,7 @@ class AdminController extends Controller
             $voteCount = DB::table('votes as v')
                 ->select('cd.name as cname', 'cd.current_district as cdistrict', 'pt.name as pname', 'cd.id', 'cd.displayPicture', DB::raw('Count(*) as c'))
                 ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id',)
-                ->leftJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id',)
+                ->leftJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id')
                 ->leftJoin('political_parties as pt', 'cd.political_party_id', '=', 'pt.id')
                 ->groupBy('cname')
                 ->orderBy('c', 'desc')
@@ -362,7 +362,14 @@ class AdminController extends Controller
             }
         }
         $results = array_count_values(array_column($winners, 'party'));
-        krsort($results);
-        return view('admin.electionSection.partyResults', ['results' => $results]);
+        $sorted = [];
+        foreach ($results as $key => $seat) {
+            $sort = ['partyName' => $key, 'seats' => $seat];
+            $sorted[] = $sort;
+        }
+        usort($sorted, function ($item1, $item2) {
+            return $item2['seats'] <=> $item1['seats'];
+        });
+        return view('admin.electionSection.partyResults', ['results' => $sorted]);
     }
 }

@@ -24,16 +24,12 @@ class CandidateController extends Controller
             ->with('politicalParty')
             ->groupBy('political_party_id')
             ->get();
-
-
-//        dd($candidateCountInEachParty);
         return view('admin.candidateSection.candidateSectionHome', ['candidateCount' => $candidateCount,'candidateInEachParty'=>$candidateInEachParty]);
     }
 
     public function addCandidate()
     {
         $politicalPartyList= PoliticalParty::all();
-//        dd($politicalPartyList);
         return view('admin.candidateSection.addCandidate',['politicalPartyList'=>$politicalPartyList]);
     }
     public function addCandidatePost(Request $request)

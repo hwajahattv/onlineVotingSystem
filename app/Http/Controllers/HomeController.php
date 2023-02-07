@@ -54,12 +54,11 @@ class HomeController extends Controller
     {
         $request->validate([
             'name' => 'required|max:25',
-            //            'surName' => 'required|max:25',
             'gender' => 'required',
-            'fatherName' => 'required',
-            'motherName' => 'required',
+            'fatherName' => 'required|max:25',
+            'motherName' => 'required|max:25',
             'marital_status' => 'required',
-            'spouseName' => 'required_if:marital_status,Defacto,Married,Divorced,Widowed',
+            'spouseName' => 'required_if:marital_status,Defacto,Married,Divorced,Widowed|max:25',
             'registration_type' => 'required',
             'birth_type' => 'required',
             'disability' => 'required',
@@ -68,7 +67,7 @@ class HomeController extends Controller
             'occupation' => 'required',
             'school' => 'required_if:occupation, School',
             'education_level' => 'required_if:occupation, School',
-            'graduation_year' => 'required_if:occupation, School|',
+            'graduation_year' => 'required_if:occupation, School',
             'business_title' => 'required_if:occupation, Self employed',
             'IPA_certificate' => 'required_if:occupation, Self employed',
             'IPA_reg_num' => 'required_if:IPA_certificate, 1',
@@ -85,7 +84,7 @@ class HomeController extends Controller
             'required|image|mimes:jpg,png,jpeg,gif,svg|max:100',
         ]);
         $data = $request->all();
-        // dd($data);
+        //////////////////////// if Occupation is selected as student then take the school data
         if ($data['occupation'] == "Student") {
             $school = $data["school"];
             $schoolLevel = $data["education_level"];
@@ -95,6 +94,7 @@ class HomeController extends Controller
             $schoolLevel = '';
             $graduationYear = '';
         }
+        //////////////////////// if Occupation is selected as self employed then take the business data
         if ($data['occupation'] == "Self employed") {
             $businessTitle = $data["business_title"];
             $IPA_Registered = $data["IPA_certificate"];
@@ -108,6 +108,7 @@ class HomeController extends Controller
             $IRC_Registered = 0;
             $IRC_reg_num = '';
         }
+        //////////////////////// if Occupation is selected as public servant then take the department data
         if ($data['occupation'] == "Public Servant") {
             $departmentName = $data["public_department"];
             $payrollNumber = $data["payroll_number"];
@@ -115,6 +116,7 @@ class HomeController extends Controller
             $departmentName = '';
             $payrollNumber = '';
         }
+        //////////////////////// if Religion is selected as others then take the other religion name
         if ($data["religion"] == "others") {
             $otherReligion = $data["otherReligion"];
         } else {
@@ -137,7 +139,6 @@ class HomeController extends Controller
             $voter = new Voter;
 
             $voter->name = $data["name"];
-            //            $voter->surName = $data["surName"];
             $voter->maritalStatus = $data["marital_status"];
             $voter->registeredAs = $data["registration_type"];
             $voter->birthType = $data["birth_type"];
@@ -214,13 +215,9 @@ class HomeController extends Controller
 
             if ($request->hasfile('profilePicture')) {
                 $img_tmp = $request->file('profilePicture');
-
                 $extension = $img_tmp->getClientOriginalExtension();
-
                 $filename = uniqid() . '.' . $extension;
-
                 $img_path = 'img/uploads/voter/' . $filename;
-
                 Image::make($img_tmp)->resize(200, 200)->save($img_path);
                 $voter->displayPicture = $filename;
             }
@@ -246,10 +243,9 @@ class HomeController extends Controller
                     $spouse_id = null;
                 }
             }
-            //            dd($father_id,$mother_id,$spouse_id);
+
             $status = Voter::where(['id' => $voterExists->id])->update([
                 'name' => $data["name"],
-                //                'surName' => $data["surName"],
                 'maritalStatus' => $data["marital_status"],
                 'registeredAs' => $data["registration_type"],
                 'birthType' => $data["birth_type"],
@@ -291,7 +287,6 @@ class HomeController extends Controller
         }
         $voterID = Voter::where(['name' => $data['name']])->first();
         $message = 'You are registered successfully! Please note your Voter ID: ' . $voterID->id;
-        //        dd($message);
         return redirect()->back()->with(['message' => $message]);
     }
 
@@ -419,7 +414,6 @@ class HomeController extends Controller
         if ($requiredVoter != null) {
             return response()->json($requiredVoter);
         }
-        //        dd('ttt');
         return response("null");
     }
 
@@ -431,26 +425,17 @@ class HomeController extends Controller
             //        dd($message);
             return view('voterIdNotFound', ['message' => $message]);
         } else {
-            //        dd($voter);
-            // $allCandidates = Candidate::all();
-            //            $object = $this->verifyMapping($voter);
             $region = $voter->current_region;
             $province = $voter->current_province;
             $district = $voter->current_district;
-            // $LLG = $voter->current_LLG;
-            // $ward = $voter->current_ward;
             $election = Election::all();
             $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->with('politicalParty')->get();
-            // $candidates = Candidate::where(['current_region' => $region])->where(['current_province' => $province])->where(['current_district' => $district])->where(['current_LLG' => $LLG])->where(['current_ward' => $ward])->with('politicalParty')->get();
-            // dd($candidates, $allCandidates, $voter, $region, $province, $district);
-            //dd($object);
             return view('castVote', ['elections' => $election, 'candidates' => $candidates, 'voter' => $voter]);
         }
     }
 
     public function castVotePost(Request $request, $id)
     {
-        //        dd($request);
         $validated = $request->validate(
             [
                 'electionID' => 'required|exists:elections,id',
@@ -488,13 +473,11 @@ class HomeController extends Controller
         return redirect('/');
     }
 
-    public
-    function resultsHome()
+    public function resultsHome()
     {
         $election = Election::all();
         return view('resultsHome', ['elections' => $election]);
     }
-
 
     public function addDistrict(Request $request)
     {

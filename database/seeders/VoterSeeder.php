@@ -32,9 +32,29 @@ class VoterSeeder extends Seeder
             "Religious Worker",
             "others"
         ];
+        $religion = [
+            "Atheist",
+            "Baha'i",
+            "Buddhism",
+            "Christianity",
+            "Hinduism",
+            "Islam",
+            "Judaism",
+            "Others",
+        ];
+        $marital = [
+            "Single",
+            "Defacto",
+            "Married",
+            "Widowed",
+            "Divorced",
+            "Separated",
+        ];
         foreach ($districts as $district) {
             foreach (range(1, 100) as $index) {
                 $keys = array_rand($occupation, 1);
+                $religion_key = array_rand($religion, 1);
+                $marital_key = array_rand($marital, 1);
                 $voter = [
                     'name' => $faker->name(),
                     'email' => $faker->email(),
@@ -43,6 +63,8 @@ class VoterSeeder extends Seeder
                     'gender' => 'male',
                     'occupation' => $occupation[$keys],
                     'current_district' => $district->name,
+                    'religion' => $religion[$religion_key],
+                    'marital_status' => $marital[$marital_key],
                 ];
                 $voters[] = $voter;
             }

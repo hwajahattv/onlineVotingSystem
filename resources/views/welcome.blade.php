@@ -94,7 +94,6 @@
                                 <a class="glossy-button glossy-button--gold" href="{{ url('/resultsHome') }}">
                                     Access now
                                 </a>
-
                             </div>
                         </div>
                     </div>
