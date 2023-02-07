@@ -186,22 +186,22 @@
                 switch (stats_type) {
                     case '1':
                         // code block
-                        urlPart = '/maritalStatusCount/';
+                        urlPart = '/public/maritalStatusCount/';
                         stats_name = 'Martial Status Distribution Data';
                         break;
                     case '2':
                         // code block
-                        urlPart = '/occupationCount/';
+                        urlPart = '/public/occupationCount/';
                         stats_name = 'Occupation Distribution Data';
                         break;
                     case '3':
                         // code block
-                        urlPart = '/disabilityCount/';
+                        urlPart = '/public/disabilityCount/';
                         stats_name = 'Disabled Person Count';
                         break;
                     case '4':
                         // code block
-                        urlPart = '/religionCount/';
+                        urlPart = '/public/religionCount/';
                         stats_name = 'Religion Distribution Data';
                         break;
                     default:

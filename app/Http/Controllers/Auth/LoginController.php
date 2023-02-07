@@ -61,6 +61,8 @@ class LoginController extends Controller
                 // dd('updated');
             }
             return redirect()->intended('home');
+        } else {
+            return redirect()->back();
         }
     }
 
