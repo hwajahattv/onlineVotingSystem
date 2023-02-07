@@ -51,7 +51,7 @@ class VoterSeeder extends Seeder
             "Separated",
         ];
         foreach ($districts as $district) {
-            $province = DB::table('provinces')->where(['id' => $district->province_id])->first();
+            $province = DB::table('provinces')->where(['id' => 1])->first();
             foreach (range(1, 50) as $index) {
                 $keys = array_rand($occupation, 1);
                 $religion_key = array_rand($religion, 1);
