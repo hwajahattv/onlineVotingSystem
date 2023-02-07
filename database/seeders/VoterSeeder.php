@@ -51,7 +51,7 @@ class VoterSeeder extends Seeder
             "Separated",
         ];
         foreach ($districts as $district) {
-            foreach (range(1, 1) as $index) {
+            foreach (range(1, 100) as $index) {
                 $keys = array_rand($occupation, 1);
                 $religion_key = array_rand($religion, 1);
                 $marital_key = array_rand($marital, 1);
@@ -64,7 +64,7 @@ class VoterSeeder extends Seeder
                     'occupation' => $occupation[$keys],
                     'current_district' => $district->name,
                     'religion' => $religion[$religion_key],
-                    'marital_status' => $marital[$marital_key],
+                    'maritalStatus' => $marital[$marital_key],
                 ];
                 $voters[] = $voter;
             }
