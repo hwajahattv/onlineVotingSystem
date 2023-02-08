@@ -50,7 +50,7 @@ class CandidateSeed extends Seeder
                     'current_region' => $region->name,
                     'current_province' => $province->name,
                     'current_district' => $district->name,
-                    'political_party_id' => $parties[$keys_party]->id,
+                    'political_party_id' => $parties[$keys_party],
                 ];
                 $candidates[] = $candidate;
             }
