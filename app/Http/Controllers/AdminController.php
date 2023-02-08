@@ -188,7 +188,7 @@ class AdminController extends Controller
                         ->with('politicalParty')
                         ->get()->keyBy('id');
                     $voteCount1 = DB::table('votes as v')
-                        ->select('cd.name as cname', 'cd.id', 'cd.displayPicture', DB::raw('Count(*) as c'))
+                        ->select('cd.name as cname', 'cd.displayPicture', DB::raw('Count(*) as c'))
                         ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id')
                         ->leftJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id')
                         ->groupBy('cname')
