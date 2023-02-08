@@ -37,7 +37,8 @@ class CandidateSeed extends Seeder
         foreach ($districts as $district) {
             $province = DB::table('provinces')->where(['id' => $district->province_id])->first();
             $region = DB::table('regions')->where(['id' => $province->region_id])->first();
-            foreach ($parties as $party) {
+            $keys_party = array_rand($parties, 4);
+            foreach (range(1, 4) as $index) {
                 $keys = array_rand($occupation, 1);
                 $candidate = [
                     'name' => $faker->name(),
@@ -49,7 +50,7 @@ class CandidateSeed extends Seeder
                     'current_region' => $region->name,
                     'current_province' => $province->name,
                     'current_district' => $district->name,
-                    'political_party_id' => $party,
+                    'political_party_id' => $parties[$keys_party]->id,
                 ];
                 $candidates[] = $candidate;
             }
