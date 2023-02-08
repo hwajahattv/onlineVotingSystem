@@ -192,11 +192,13 @@ class AdminController extends Controller
                         ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id')
                         ->leftJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id')
                         ->groupBy('cname', 'cd.id', 'cd.displayPicture')
+                        ->where(['cd.current_district' => $request['district']])
                         // ->orderBy('c', 'desc')
                         ->get()->keyBy('cname')->toArray();
                 }
             }
         }
+        dd($candidatesData);
         $election = Election::find($request['electionID']);
         $votesAreaWise = [];
         $votersInDistrict = DB::table('voters')->where('current_district', '<=', $request['district'])->count();
