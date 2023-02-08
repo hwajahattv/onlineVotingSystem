@@ -20,7 +20,7 @@ class VoteSeeder extends Seeder
         $districts = DB::table('districts')->get();
         DB::table('votes')->delete();
         foreach ($districts as $district) {
-            $district_id = DB::table('districts')->where(['name' => $district->name])->first()->id;
+            $district_id = $district->id;
             $voters = DB::table('voters')->where(['current_district' => $district->name])->get();
             $candidates = Candidate::where(['current_district' => $district->name])->pluck('id')->toArray();
             $election = DB::table('elections')->first();

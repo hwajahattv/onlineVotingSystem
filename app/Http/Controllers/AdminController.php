@@ -201,9 +201,9 @@ class AdminController extends Controller
         // dd($candidatesData);
         $election = Election::find($request['electionID']);
         $votesAreaWise = [];
-        $votersInDistrict = DB::table('voters')->where('current_district', '<=', $request['district'])->count();
-        $votersInProvince = DB::table('voters')->where('current_province', '<=', $request['province'])->count();
-        $votersInRegion = DB::table('voters')->where('current_region', '<=', $request['region'])->count();
+        $votersInDistrict = DB::table('voters')->where('current_district', '=', $request['district'])->count();
+        $votersInProvince = DB::table('voters')->where('current_province', '=', $request['province'])->count();
+        $votersInRegion = DB::table('voters')->where('current_region', '=', $request['region'])->count();
         $votesAreaWise['votersInDistrict'] = $votersInDistrict;
         $votesAreaWise['votersInProvince'] = $votersInProvince;
         $votesAreaWise['votersInRegion'] = $votersInRegion;
