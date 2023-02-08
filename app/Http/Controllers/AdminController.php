@@ -189,8 +189,8 @@ class AdminController extends Controller
                         ->get()->keyBy('id');
                     $voteCount1 = DB::table('votes as v')
                         ->select('cd.name as cname', 'cd.id', 'cd.displayPicture', DB::raw('Count(*) as c'))
-                        ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id',)
-                        ->leftJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id',)
+                        ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id')
+                        ->leftJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id')
                         ->groupBy('cname')
                         // ->orderBy('c', 'desc')
                         ->get()->keyBy('cname')->toArray();
@@ -235,8 +235,8 @@ class AdminController extends Controller
                 ->get()->keyBy('id');
             $voteCount1 = DB::table('votes as v')
                 ->select('cd.name as cname', 'cd.id', 'cd.displayPicture', DB::raw('Count(*) as c'))
-                ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id',)
-                ->rightJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id',)
+                ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id')
+                ->rightJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id')
                 ->groupBy('cname')
                 ->where('cd.current_district', '=', $district)
                 // ->orderBy('c', 'desc')
@@ -290,8 +290,8 @@ class AdminController extends Controller
                 ->get()->keyBy('id');
             $voteCount1 = DB::table('votes as v')
                 ->select('cd.name as cname', 'cd.id', 'cd.displayPicture', DB::raw('Count(*) as c'))
-                ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id',)
-                ->rightJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id',)
+                ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id')
+                ->rightJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id')
                 ->groupBy('cname')
                 ->where('cd.current_district', '=', $district)
                 // ->orderBy('c', 'desc')
@@ -349,7 +349,7 @@ class AdminController extends Controller
         foreach ($districts as $district) {
             $voteCount = DB::table('votes as v')
                 ->select('cd.name as cname', 'cd.current_district as cdistrict', 'pt.name as pname', 'cd.id', 'cd.displayPicture', DB::raw('Count(*) as c'))
-                ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id',)
+                ->leftJoin('vote_preferences as p', 'p.vote_id', '=', 'v.id')
                 ->leftJoin('candidates as cd', 'cd.id', '=', 'p.first_candidate_id')
                 ->leftJoin('political_parties as pt', 'cd.political_party_id', '=', 'pt.id')
                 ->groupBy('cname')
