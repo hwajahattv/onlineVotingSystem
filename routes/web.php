@@ -79,8 +79,10 @@ Route::group(['middleware' => ['auth', 'SuperAdmin',]], function () {
     Route::get('/sendmail/{id}', [MailController::class, 'index'])->name('sendmail');
     Route::get('testDB', function () {
         $election = DB::table('elections')->first();
+        $parties = PoliticalParty::pluck('id')->toArray();
+        $keys_party = array_rand($parties, 4);
 
-        dd($election);
+        dd($parties[$keys_party[0]]);
     });
 });
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('auth');
