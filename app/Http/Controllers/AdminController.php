@@ -198,7 +198,7 @@ class AdminController extends Controller
                 }
             }
         }
-        dd($candidatesData);
+        // dd($candidatesData);
         $election = Election::find($request['electionID']);
         $votesAreaWise = [];
         $votersInDistrict = DB::table('voters')->where('current_district', '<=', $request['district'])->count();
