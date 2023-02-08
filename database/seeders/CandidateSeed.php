@@ -37,7 +37,7 @@ class CandidateSeed extends Seeder
         foreach ($districts as $district) {
             $province = DB::table('provinces')->where(['id' => $district->province_id])->first();
             $region = DB::table('regions')->where(['id' => $province->region_id])->first();
-            $keys_party = array_rand($parties, 4);
+            $keys_party = array_rand($parties, 5);
             foreach (range(1, 4) as $index) {
                 $keys = array_rand($occupation, 1);
                 $candidate = [

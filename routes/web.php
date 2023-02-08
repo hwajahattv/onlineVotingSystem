@@ -77,13 +77,13 @@ Route::group(['middleware' => ['auth', 'SuperAdmin',]], function () {
     Route::get('/fetchResults/party', [AdminController::class, 'partyResults'])->name('partyResults');
 
     Route::get('/sendmail/{id}', [MailController::class, 'index'])->name('sendmail');
-    // Route::get('testDB', function () {
-    //     $election = DB::table('elections')->first();
-    //     $parties = PoliticalParty::pluck('id')->toArray();
-    //     $keys_party = array_rand($parties, 4);
+    Route::get('testDB', function () {
+        $election = DB::table('elections')->first();
+        $parties = PoliticalParty::pluck('id')->toArray();
+        $keys_party = array_rand($parties, 4);
 
-    //     dd($parties[$keys_party[0]]);
-    // });
+        dd($keys_party, $parties);
+    });
 });
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('auth');
 Route::group(['middleware' => ['auth', 'verified']], function () {
