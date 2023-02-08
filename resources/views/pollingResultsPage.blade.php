@@ -31,7 +31,7 @@
 
                                 <ul>
                                     <li class="fs-14">
-                                        <img src="{{asset('/img/uploads/candidate/'.$vote->displayPicture)}}" alt="">
+                                        {{-- <img src="{{asset('/img/uploads/candidate/'.$vote->displayPicture)}}" alt=""> --}}
 
                                     </li>
                                     <li class="fs-14">
