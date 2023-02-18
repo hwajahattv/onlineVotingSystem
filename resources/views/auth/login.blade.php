@@ -34,10 +34,18 @@
                     </a>
                 </div>
                 <form class="login100-form validate-form "method="POST" action="{{ url('/login') }}">
+
                     @csrf
                     <span class="login100-form-title">
                         Login to Online Voting System
                     </span>
+                    @if(session()->has('error'))
+                        <div class="d-flex justify-content-center">
+                            <div class="alert alert-danger center-block">
+                                {{ session()->get('error') }}
+                            </div>
+                        </div>
+                    @endif
                     <div class="wrap-input100 validate-input" placeholder="Email"
                         data-validate="Valid email is required: ex@abc.xyz">
                         <input id="email" type="email" class="input100 @error('email') is-invalid @enderror"

@@ -62,7 +62,7 @@ class LoginController extends Controller
             }
             return redirect()->intended('home');
         } else {
-            return redirect()->back();
+            return redirect()->back()->with('error', 'Credentials not correct!');;
         }
     }
 

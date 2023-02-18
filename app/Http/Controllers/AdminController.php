@@ -11,19 +11,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use PHPHtmlParser\Dom;
+use App\Repositories\StatsRepository;
 
 class AdminController extends Controller
 {
-    //
-    public function __construct()
+    private $statsRepository;
+    public function __construct(StatsRepository $statsRepository)
     {
         $this->middleware('auth');
+        $this->statsRepository = $statsRepository;
     }
 
     public function index()
     {
+        $distibution=\request()->query('stats');
+        $coverage = \request()->query('coverage');
+        $data=$this->statsRepository->compile($distibution, $coverage);
         $provinces = DB::table('provinces')->select('name')->get();
-        return view('admin.dashboard', ['provinces' => $provinces]);
+        return view('admin.dashboard', ['provinces' => $provinces, 'data' => json_encode($data)]);
     }
     public function maritalStatusCount($type)
     {

@@ -374,7 +374,7 @@
 
     <!-- Dashboard 1 -->
     <script src="{{ asset('js/dashboard/dashboard-1.js') }}"></script>
-    <script src="{{ asset('js/dashboard/dashboard-2.js') }}"></script>
+    <script src="{{ asset('js/dashboard/dashboard-3.js') }}"></script>
 
     <script src="{{ asset('js/custom.min.js') }}"></script>
     <script src="{{ asset('js/addCandidate_new.js') }}"></script>

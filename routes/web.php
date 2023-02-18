@@ -81,15 +81,8 @@ Route::group(['middleware' => ['auth', 'SuperAdmin',]], function () {
         // $election = DB::table('elections')->first();
         // $parties = PoliticalParty::pluck('id')->toArray();
         // $keys_party = array_rand($parties, 4);
-        $districts = DB::table('districts')->get();
-        $district_id = $districts[1]->id;
-        $voters = DB::table('voters')->where(['current_district' => $districts[0]->name])->get();
-        $candidates = Candidate::where(['current_district' => $districts[0]->name])->pluck('id')->toArray();
-        $keys = array_rand($candidates, 3);
-        $pref_1 = $candidates[$keys[0]];
-        $pref_2 = $candidates[$keys[1]];
-        $pref_3 = $candidates[$keys[2]];
-        dd($district_id, $voters, $candidates, $keys, $pref_2);
+        $districts = DB::table('districts')->first();
+
     });
 });
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->middleware('auth');

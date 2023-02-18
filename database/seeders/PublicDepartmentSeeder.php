@@ -15,10 +15,10 @@ class PublicDepartmentSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('public_departments')->delete();
         $departments= [
             ['name'=>'Auditor General\'s Office'],
             ['name'=>'Auditor-General\'s Office of Papua New Guinea'],
-            ['name'=>'Bank of Papua New Guinea'],
             ['name'=>'Bank of Papua New Guinea'],
             ['name'=>'Central Supply & Tenders Board (CSTB)'],
             ['name'=>'Civil Aviation Authority'],
@@ -30,10 +30,8 @@ class PublicDepartmentSeeder extends Seeder
             ['name'=>'Department of Communication and Information (DCI) (off-line)'],
             ['name'=>'Department of Defence'],
             ['name'=>'Department of Education'],
-            ['name'=>'Department of Education'],
             ['name'=>'Department of Environment & Conservation'],
             ['name'=>'Department of Finance'],
-            ['name'=>'Department of Health'],
             ['name'=>'Department of Health'],
             ['name'=>'Department of Higher Education, Research, Science & Technology (DHERST)'],
             ['name'=>'Department of Labour & Industrial Relations (Foreign Employment Division)'],
@@ -47,9 +45,7 @@ class PublicDepartmentSeeder extends Seeder
             ['name'=>'Department of Provincial and Local Government Affairs (DPLGA)'],
             ['name'=>'Department of Provincial and Local Level Affairs'],
             ['name'=>'Department of Treasury'],
-            ['name'=>'Department of Treasury'],
             ['name'=>'Department of Works'],
-            ['name'=>'Department of Works (DoW)'],
             ['name'=>'Electoral Commission'],
             ['name'=>'Finance Department'],
             ['name'=>'Fire Service'],
@@ -60,8 +56,6 @@ class PublicDepartmentSeeder extends Seeder
             ['name'=>'Independent Consumer & Competition Commission (ICCC)'],
             ['name'=>'Integrity (Registry) of Political Parties & Candidates Commission'],
             ['name'=>'Intellectual Property Office of Papua New Guinea'],
-            ['name'=>'Internal Revenue Commission'],
-            ['name'=>'Internal Revenue Commission'],
             ['name'=>'Internal Revenue Commission (IRC)'],
             ['name'=>'Investment Promotion Agency (IPA)'],
             ['name'=>'Law and Justice Sector'],
@@ -78,9 +72,7 @@ class PublicDepartmentSeeder extends Seeder
             ['name'=>'National Institute of Standards and Industrial Technology (NISIT)'],
             ['name'=>'National Parliament'],
             ['name'=>'National Research Institute'],
-            ['name'=>'National Research Institute'],
             ['name'=>'National Road Safety Council (NRSC)'],
-            ['name'=>'National Statistic Office'],
             ['name'=>'National Statistics Office (NSO)'],
             ['name'=>'National Youth Commission (NYC)'],
             ['name'=>'NICTA PNG'],
@@ -93,7 +85,6 @@ class PublicDepartmentSeeder extends Seeder
             ['name'=>'Technical Authority (PANGTEL)'],
             ['name'=>'Tourism Promotion Authority (TPA)'],
             ['name'=>'Treasure Department'],
-
         ];
         DB::table('public_departments')->insert($departments);
     }

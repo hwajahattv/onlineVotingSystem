@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             PublicDepartmentSeeder::class,
-            EducationLevelSeeder::class,
-            SchoolSeeder::class,
+//            EducationLevelSeeder::class,
+//            SchoolSeeder::class,
         ]);
     }
 }
